@@ -1,30 +1,26 @@
 function sym() {
-  var ans = [], cnts = {}, currentMap;
+  //convert the arguments into an array
+  var args = Array.prototype.slice.call(arguments);
 
-  //Count through arguments
-	for(var x = 0; x<arguments.length; x++){
-  		currentMap = {};
-  		//count each item in each array
-  		arguments[x].forEach(function(item){
-    		//if the object has the property of array item, increase its count
-        if(!currentMap.hasOwnProperty()){
-        		if(cnts.hasOwnProperty(item)){
-      				++cnts[item].cnt;
-      			}else{
-      				//initialize the cnt and value
-        			cnts[item] = {cnt: 1, val: item};
-      			}
-         		// keep track of whethere we've already counted this item in this array
-        		currentMap[item] = true;
-    	}});
+  //return the symmetric difference of two arrays
+  var getSymDiff = function(arr1, arr2){
+    //return elements in arr1 that are not in arr2
+    function filterFunction(arr1, arr2){
+      return arr1.filter(function(item){
+        return arr2.indexOf(item) === -1;
+      });
     }
-    //loop through each property of object
-    for(var item in cnts){
-    	//if the object has the property and has a count of 1, push it to the final array
-    	if(cnts.hasOwnProperty(item) && cnts[item].cnt ===1)
-      		ans.push(cnts[item].val);
-      }
-    return ans;
+
+    //run the filter function on each array returning the unique values
+    return filterFunction(arr1, arr2)
+      .concat(filterFunction(arr2, arr1))
+        .filter(function(item,indx,arr){
+            //keep unique items,the index of the current item === index of the first occurrence in the array
+            return arr.indexOf(item) ===indx;
+        });
+  };
+  //reduce all arrays
+  return args.reduce(getSymDiff,[]);
   }
 
 console.log(sym([1, 2, 3], [5, 2, 1, 4]));// should return [3, 4, 5]
