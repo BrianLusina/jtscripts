@@ -71,3 +71,62 @@ String.prototype.toAlternatingCase = function () {
     }
     return res;
 }
+
+/**
+You will be given a list of strings which will include both integers and characters.
+
+Return a list of length 2 with lst[0] representing the mean of the integers to a single decimal place. There will always be 10 integers and 10 characters. Create a single string with the characters and return it as lst[1] while maintaining the original order.
+
+lst = ['u', '6', 'd', '1', 'i', 'w', '6', 's', 't', '4', 'a', '6', 'g', '1', '2', 'w', '8', 'o', '2', '0']
+Here is an example of your return
+
+[3.6, 'udiwstagwo']
+
+**/
+var lst1 = ['u', '6', 'd', '1', 'i', 'w', '6', 's', 't', '4', 'a', '6', 'g', '1', '2', 'w', '8', 'o', '2', '0'];
+function mean(lst){
+	var nums = [] ,str =[];
+	for(var x = 0;x<lst.length;x++){
+		if(lst[x].match(/[0-9]/)){
+  		nums.push(parseInt(lst[x]));
+  	}else{
+  		str.push(lst[x]);
+  	}
+	}
+  var avg = nums.reduce(function(a,b){return a+b})/10.0;
+  return [avg,str.join("")]
+}
+console.log(mean(lst1));
+
+
+/**
+Given few numbers, you need to print out the digits that are not being used.
+
+Example:
+
+unused_digits(12, 34, 56, 78) # "09"
+unused_digits(2015, 8, 26) # "3479"
+Note:
+
+Result string should be sorted
+The test case won't pass Integer with leading zero
+
+**/
+function unusedDigits(){
+var arr=[],range=[],ans=[];
+	//create the range from 0 to 10
+  for(var i = 0;i<10;i++){range.push(i.toString());}
+  //convert each number to a string and push to an array
+  for(var a = 0;a<arguments.length;a++){
+  }
+  	arr.push(arguments[a].toString());
+  //join the string array and sort it in ascending order
+  var joined = arr.join("");
+
+  for(var j = 0;j< range.length; j++){
+  		if(joined.indexOf(range[j]) === -1){
+    		ans.push(range[j]);
+ 		 	}
+    }
+	return ans.join("");
+}
