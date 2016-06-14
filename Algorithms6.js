@@ -11,7 +11,8 @@ You have to write a function that determine if a number is Evil of Odious, funct
 
 */
 function evil(n) {
-    if((n>>>0).toString(2).match(/1/g).length%2 === 0)
+    'user strict';
+    if ((n >>> 0).toString(2).match(/1/g).length % 2 === 0)
     	return "It's Evil!";
     else
     	return "It's Odious!";
@@ -45,8 +46,8 @@ You can assume you will be given an integer input.
 You can not assume that the integer will be only positive. You may be given negative numbers.
 """
 */
-unction isPrime(num) {
-  for(var i =2;i<num;i++){
+function isPrime(num) {
+  for (var i =2;i<num;i++){
     if(num%i === 0)
       return false;
   }
@@ -130,3 +131,56 @@ var arr=[],range=[],ans=[];
     }
 	return ans.join("");
 }
+
+/**
+You and your best friend Stripes have just landed your first high school jobs! You'll be delivering newspapers to your neighbourhood on weekends. For your services you'll be charging a set price depending on the quantity of the newspaper bundles.
+
+The cost of deliveries is:
+
+$3.85 for 40 newspapers
+$1.93 for 20
+$0.97 for 10
+$0.49 for 5
+$0.10 for 1
+Stripes is taking care of the footwork doing door-to-door drops and your job is to take care of the finances. What you'll be doing is providing the cheapest possible quotes for your services.
+
+Write a function that's passed an integer representing the amount of newspapers and returns the cheapest price. The returned number must be rounded to two decimal places.
+*/
+function cheapestQuote(n) {
+    var bundles = [[40, 3.85], [20, 1.93], [10, 0.97], [5, 0.49], [1, 0.10]];
+    var total = 0;
+    for(var x = 0; x<bundles.length; x++){
+        total += Math.floor(n / bundles[x][0]) * bundles[x][1];
+        n = n % bundles[x][0];
+    }
+    return Math.round(total*100)/100;
+}
+console.log(cheapestQuote(499));
+
+/*
+Description:
+
+Welcome. In this kata you are required to, given a string, replace every letter with its position in the alphabet. If anything in the text isn't a letter, ignore it and don't return it. a being 1, b being 2, etc. As an example:
+
+alphabet_position("The sunset sets at twelve o' clock.")
+Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" (As a string.)
+*/
+function alphabetPosition(text) {
+    var res = [], text = text.toLowerCase();
+    var alpha =/[a-z]/gi;
+    for(var x = 0; x < text.length; x++){
+        if(text.charCodeAt(x)-96 > 0 && text[x].match(alpha))
+            res.push(text.charCodeAt(x)-96);
+    }
+  return res.join(" ");
+}
+
+
+/***/
+
+var Ghost = function() {
+	var colors = ['red', 'purple', 'white', 'yellow'];
+	this.color = colors[Math.floor(Math.random() * colors.length)];
+};
+ghost = new Ghost();
+console.log(ghost.color);
