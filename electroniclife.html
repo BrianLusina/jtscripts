@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>E-Life Project</title>
+        <link rel="stylesheet" href="assets/stylesheets/styles.css">
+        
+    </head>
+    <body>
+        <!--THE HEAD-->
+        <header class="header-container">
+            <!--Name and tag-->
+            <h1 class="project-name">Electronic Life Project</h1>
+            <span class="project-tag">The question of whether machines can think is about as relevant as whether submarines can swim</span>
+            
+            <!--Top navigation-->
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Algos</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!--SECTION-->
+        <section class="main-section">
+            <!--Brief project desc-->
+            <div class="project-desc">
+                <h3>Definition</h3>
+                <p></p>
+            </div>
+            
+            <section id="project-breakdown">
+            <h4>Project Breakdown</h4>
+                <p>We start by defining a world with a plan, an array of strings that lays out the world’s grid using one character per square.</p>
+                <br>            
+                
+                <pre data-language="javascript" class="code-snippet">
+                <code>
+                /*plan variable, which is an array*/
+                var plan = ["############################",
+                            "#      #    #      o      ##",
+                            "#                          #",
+                            "#          #####           #",
+                            "##         #   #    ##     #",
+                            "###           ##     #     #",
+                            "#           ###      #     #",
+                            "#   ####                   #",
+                            "#   ##       o             #",
+                            "# o  #         o       ### #",
+                            "#    #                     #",
+                            "############################"];
+                </code>
+                </pre>
+                <br>
+                
+                <p>
+                The “#” characters in this plan represent walls and rocks, and the “o” characters represent critters. The spaces are empty space. A plan array can be used to create a world object. Such an object keeps track of the size and content of the world.
+                
+                It has a toString method, which converts the world back to a printable string (similar to the plan it was based on) so that we can see what’s going on inside. The world object also has a turn method, which allows all the critters in it to take one turn and updates the world to reflect their actions.
+                </p>
+                
+            </section>
+                
+                <!--SPACE REP-->
+                <section id="space-red-id">
+                <h4>Space representation</h4>
+                
+                <p>
+                The grid that models the world has a fixed width and height. Squares are identified by their x- and y-coordinates. We use a simple type, Vector to represent these coordinate pairs.
+                </p>
+                <pre data-language="javascript" class="snippet">
+                <code>
+                function Vector(x, y) {
+                    this.x = x;
+                    this.y = y;
+                }
+                
+                Vector.prototype.plus = function(other) {
+                    return new Vector(this.x + other.x, this.y + other.y);
+                };
+                </code>
+                </pre>
+                
+                <p>Next, we need an object type that models the grid itself. A grid is part of a world, but we are making it a separate object (which will be a property of a world object) to keep the world object itself simple. The world should concern itself with world-related things, and the grid should concern itself with grid-related things.
+                To store a grid of values, we have several options.
+                <ol>
+                    <li>
+                        We can use an array of row arrays and use two property accesses to get to a specific square, like this:
+                        <pre>
+                        <code>
+                        var grid = [["top left",    "top middle",    "top right"],
+                                    ["bottom left", "bottom middle", "bottom right"]];
+                        
+                        console.log(grid[1][2]);
+                        // → bottom right                        
+                        </code>
+                        </pre>
+                    </li>
+                    
+                    <li>Or we can use a single array, with size width × height, and decide that the element at (x,y) is found at position x + (y × width) in the array.
+                        <pre>
+                        <code>
+                        var grid = ["top left", "top middle", "top right", "bottom left", "bottom middle", "bottom right"];
+                        
+                        console.log(grid[2 + (1 * 3)]);
+                        // → bottom right
+                        </code>
+                        </pre>
+                    </li>
+                </ol>
+                Since the actual access to this array will be wrapped in methods on the grid object type, thus it doesn’t matter to outside code which approach we take. The second representation makes it much easier to create the array. When calling the Array constructor with a single number as an argument, it creates a new empty array of the given length.
+                <pre>
+                <code>
+                /*SAMPLE TEST*/
+                var grid = new Grid(6,7);
+                console.log(grid.get(new Vector(3,4))); //expected output is undefined
+                
+                grid.set(new Vector(1,2),"Y");
+                console.log(grid.get(new Vector(1,2))); //expected output is Y
+                </code>
+                </pre>
+                </p>
+        </section>
+            
+                <!--PROGRAMMING INTERFACE-->
+        <section id="prog-inter-id">
+                <h4>Programming Interface</h4>
+                <p>Before we can start on the World constructor, we must get more specific about the critter objects that will be living inside it. I mentioned that the world will ask the critters what actions they want to take. This works as follows:
+            
+                Each critter object has an act method that, when called, returns an action. An action is an object with a <em>type</em>em> property, which names the type of action the critter wants to take, for example "move".
+            
+                The action may also contain extra information, such as the <em>direction</em> the critter wants to move in. Critters are terribly myopic and can see only the squares directly around them on the grid. But even this limited vision can be useful when deciding which action to take. When the act method is called, it is given a view object that allows the critter to inspect its surroundings. We name the eight surrounding squares by their compass directions: "n" for north, "ne" for northeast, and so on. Here’s the object we will use to map from direction names to coordinate offsets:</p>
+            
+            <pre>
+            <code>
+            var directions = {
+                    "n":  new Vector( 0, -1),
+                    "ne": new Vector( 1, -1),
+                    "e":  new Vector( 1,  0),
+                    "se": new Vector( 1,  1),
+                    "s":  new Vector( 0,  1),
+                    "sw": new Vector(-1,  1),
+                    "w":  new Vector(-1,  0),
+                    "nw": new Vector(-1, -1)
+                };
+            </code>
+            </pre>
+            
+            <p>The view object has a method look, which takes a direction and returns a character, for example "#" when there is a wall in that direction, or " " (space) when there is nothing there. The object also provides the convenient methods find and findAll. Both take a map character as an argument. The first returns a direction in which the character can be found next to the critter or returns null if no such direction exists. The second returns an array containing all directions with that character. For example, a creature sitting left (west) of a wall will get ["ne", "e", "se"] when calling findAll on its view object with the "#" character as argument. Here is a simple, stupid critter that just follows its nose until it hits an obstacle and then bounces off in a random open direction:
+            </p>
+            <pre>
+            <code>
+            function randomElement(array) {
+                    return array[Math.floor(Math.random() * array.length)];
+            }
+            
+            var directionNames = "n ne e se s sw w nw".split(" ");
+            
+            function BouncingCritter() {
+                this.direction = randomElement(directionNames);
+            };
+            
+            BouncingCritter.prototype.act = function(view) {
+                if (view.look(this.direction) != " ")
+                    this.direction = view.find(" ") || "s";
+                return {type: "move", direction: this.direction};
+            };
+            </code>
+            </pre>
+            <p>
+            The randomElement helper function simply picks a random element from an array, using Math.random plus some arithmetic to get a random index. We’ll use this again later because randomness can be useful in simulations.
+
+To pick a random direction, the BouncingCritter constructor calls randomElement on an array of direction names. We could also have used Object.keys to get this array from the directions object we defined earlier, but that provides no guarantees about the order in which the properties are listed. In most situations, modern JavaScript engines will return properties in the order they were defined, but they are not required to.
+
+The “|| "s"” in the act method is there to prevent this.direction from getting the value null if the critter is somehow trapped with no empty space around it (for example when crowded into a corner by other critters).
+            </p>
+        </section>
+            <section id="world-obj-id">
+            <!--WORLD OBJECT-->
+            <h4></h4>
+            <p>Now we can start on the World object type. The constructor takes a plan (the array of strings representing the world’s grid, described earlier) and a legend as arguments. A legend is an object that tells us what each character in the map means. It contains a constructor for every character—except for the space character, which always refers to null, the value we’ll use to represent empty space.</p>
+            <pre>
+            <code>
+                function elementFromChar(legend, ch) {
+                    if (ch == " ")
+                        return null;
+                    var element = new legend[ch]();
+                    element.originChar = ch;
+                    return element;
+                }
+                
+                function World(map, legend) {
+                    var grid = new Grid(map[0].length, map.length);
+                    this.grid = grid;
+                    this.legend = legend;
+                    
+                    map.forEach(function(line, y) {
+                        for (var x = 0; x < line.length; x++){
+                            grid.set(new Vector(x, y), elementFromChar(legend, line[x]));
+                    });
+                }
+            </code>
+            </pre>
+            <p>In elementFromChar, first we create an instance of the right type by looking up the character’s constructor and applying new to it. Then we add an originChar property to it to make it easy to find out what character the element was originally created from. We need this originChar property when implementing the world’s toString method. This method builds up a maplike string from the world’s current state by performing a two-dimensional loop over the squares on the grid.</p>
+            <pre>
+            <code>
+                function charFromElement(element) {
+                    if (element == null)
+                        return " ";
+                    else
+                        return element.originChar;
+                    }
+                    
+                World.prototype.toString = function() {
+                    var output = "";
+                    for (var y = 0; y < this.grid.height; y++) {
+                        for (var x = 0; x < this.grid.width; x++) {
+                            var element = this.grid.get(new Vector(x, y));
+                            output += charFromElement(element);
+                            }
+                        output += "\n";
+                    }
+                    return output;
+                };
+            </code>
+            </pre>
+            
+            <p>A wall is a simple object—it is used only for taking up space and has no act method.
+            <pre><code>function Wall() {}</code></pre>
+             When we try the World object by creating an instance based on the plan from earlier in the chapter and then calling toString on it, we get a string very similar to the plan we put in.</p>
+            <pre>
+            <code>
+                var world = new World(plan, {"#": Wall,"o": BouncingCritter});
+                
+                console.log(world.toString());
+                // → ############################
+                //   #      #    #      o      ##
+                //   #                          #
+                //   #          #####           #
+                //   ##         #   #    ##     #
+                //   ###           ##     #     #
+                //   #           ###      #     #
+                //   #   ####                   #
+                //   #   ##       o             #
+                //   # o  #         o       ### #
+                //   #    #                     #
+                //   ############################
+            </code>
+            </pre>
+        </section>
+        
+        <!--This and scope-->
+        <section id="this-scope-id">
+            <h4>This and Scope</h4>
+            <p>The World constructor contains a call to forEach. One interesting thing to note is that inside the function passed to forEach, we are no longer directly in the function scope of the constructor. Each function call gets its own this binding, so the this in the inner function does not refer to the newly constructed object that the outer this refers to. In fact, when a function isn’t called as a method, this will refer to the global object.
+
+This means that we can’t write this.grid to access the grid from inside the loop. Instead, the outer function creates a normal local variable, grid, through which the inner function gets access to the grid.
+
+This is a bit of a design blunder in JavaScript. Fortunately, the next version of the language provides a solution for this problem. Meanwhile, there are workarounds. A common pattern is to say var self = this and from then on refer to self, which is a normal variable and thus visible to inner functions.
+
+Another solution is to use the bind method, which allows us to provide an explicit this object to bind to.
+
+                <pre>
+                <code>
+                var test = {
+                prop: 10,
+                addPropTo: function(array) {
+                            return array.map(function(elt) {
+                                    return this.prop + elt;
+                                }.bind(this));
+                            }
+                        };
+                
+                console.log(test.addPropTo([5]));// → [15]
+                </code>
+                </pre>
+The function passed to map is the result of the bind call and thus has its this bound to the first argument given to bind—the outer function’s this value (which holds the test object).
+
+Most standard higher-order methods on arrays, such as forEach and map, take an optional second argument that can also be used to provide a this for the calls to the iteration function. So you could express the previous example in a slightly simpler way.
+            <pre>
+            <code>
+            var test = {
+                prop: 10,
+                addPropTo: function(array) {
+                        return array.map(function(elt) {
+                                return this.prop + elt;
+                        }, this); // ← no bind
+                    }
+            };
+            
+            console.log(test.addPropTo([5])); // → [15]
+            </code> 
+            </pre>
+
+This works only for higher-order functions that support such a context parameter. When they don’t, you’ll need to use one of the other approaches.
+
+In our own higher-order functions, we can support such a context parameter by using the call method to call the function given as an argument. For example, here is a forEach method for our Grid type, which calls a given function for each element in the grid that isn’t null or undefined:</p>
+        
+        </section>
+    
+    <!--Life animated-->
+    <section id="life-animated">
+        <h4>Life Animated</h4>
+        <p>The next step is to write a turn method for the world object that gives the critters a chance to act. It will go over the grid using the forEach method we just defined, looking for objects with an act method. When it finds one, turn calls that method to get an action object and carries out the action when it is valid. For now, only "move" actions are understood.
+        There is one potential problem with this approach. Can you spot it? If we let critters move as we come across them, they may move to a square that we haven’t looked at yet, and we’ll allow them to move again when we reach that square. Thus, we have to keep an array of critters that have already had their turn and ignore them when we see them again.</p>
+        <pre>
+        <code>
+        World.prototype.turn = function() {
+            var acted = [];
+            this.grid.forEach(function(critter, vector) {
+                    if (critter.act && acted.indexOf(critter) == -1) {
+                        acted.push(critter);
+                        this.letAct(critter, vector);
+                        }
+                }, this);
+        };
+        </code>
+        </pre>
+        
+        <p>We use the second parameter to the grid’s forEach method to be able to access the correct this inside the inner function. The letAct method contains the actual logic that allows the critters to move.</p>
+        
+        <pre>
+        <code>
+        World.prototype.letAct = function(critter, vector) {
+            var action = critter.act(new View(this, vector));
+            if (action && action.type == "move") {
+                var dest = this.checkDestination(action, vector);
+                if (dest && this.grid.get(dest) == null) {
+                    this.grid.set(vector, null);
+                    this.grid.set(dest, critter);
+                }
+            }
+        };
+        
+        World.prototype.checkDestination = function(action, vector) {
+            if (directions.hasOwnProperty(action.direction)) {
+                var dest = vector.plus(directions[action.direction]);
+                if (this.grid.isInside(dest))
+                    return dest;
+                }
+            };
+        </code>
+        </pre>
+        <p>First, we simply ask the critter to act, passing it a view object that knows about the world and the critter’s current position in that world (we’ll define View in a moment). The act method returns an action of some kind.
+
+If the action’s type is not "move", it is ignored. If it is "move", if it has a direction property that refers to a valid direction, and if the square in that direction is empty (null), we set the square where the critter used to be to hold null and store the critter in the destination square.
+
+Note that letAct takes care to ignore nonsense input—it doesn’t assume that the action’s direction property is valid or that the type property makes sense. This kind of defensive programming makes sense in some situations. The main reason for doing it is to validate inputs coming from sources you don’t control (such as user or file input), but it can also be useful to isolate subsystems from each other. In this case, the intention is that the critters themselves can be programmed sloppily—they don’t have to verify if their intended actions make sense. They can just request an action, and the world will figure out whether to allow it.
+
+These two methods are not part of the external interface of a World object. They are an internal detail. Some languages provide ways to explicitly declare certain methods and properties private and signal an error when you try to use them from outside the object. JavaScript does not, so you will have to rely on some other form of communication to describe what is part of an object’s interface. Sometimes it can help to use a naming scheme to distinguish between external and internal properties, for example by prefixing all internal ones with an underscore character (_). This will make accidental uses of properties that are not part of an object’s interface easier to spot.</p>
+        <pre>
+        <code>
+        function View(world, vector) {
+  this.world = world;
+  this.vector = vector;
+}
+View.prototype.look = function(dir) {
+  var target = this.vector.plus(directions[dir]);
+  if (this.world.grid.isInside(target))
+    return charFromElement(this.world.grid.get(target));
+  else
+    return "#";
+};
+View.prototype.findAll = function(ch) {
+  var found = [];
+  for (var dir in directions)
+    if (this.look(dir) == ch)
+      found.push(dir);
+  return found;
+};
+View.prototype.find = function(ch) {
+  var found = this.findAll(ch);
+  if (found.length == 0) return null;
+  return randomElement(found);
+};
+        </code>
+        </pre>
+        
+        <p>The look method figures out the coordinates that we are trying to look at and, if they are inside the grid, finds the character corresponding to the element that sits there. For coordinates outside the grid, look simply pretends that there is a wall there so that if you define a world that isn’t walled in, the critters still won’t be tempted to try to walk off the edges.</p>
+    </section>
+        <!--FEET-->
+        <footer>
+            <!--top secion of footer-->
+            <div class="top-footer">
+                <small>Made with <i class="fa fa-music"></i> and <i class="fa fa-beer"></i> by <a href="">Mercury</a></small>
+                
+                <nav class="bottom-nav">
+                    
+                </nav>
+            </div>
+            
+            <!--bottom section of footer-->
+            <div class="bottom-footer">
+                
+            </div>
+            
+
+        </footer>
+        
+        <script src = "js/electroniclife.js" ></script>
+    </body>
+</html>

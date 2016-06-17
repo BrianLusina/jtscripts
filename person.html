@@ -7,23 +7,65 @@
     
     <body>
         <header>
-            <h3>JS PlayGround</h3>
-            <span>Play</span>
+            <h2>Objects</h2>
+            <span>Playing with Objects</span>
         </header>
         
         <section>
-            <p>
-                Fill in the object constructor with the following methods below:
-                getFirstName()
-                getLastName()
-                getFullName()
-                setFirstName(first)
-                setLastName(last)
-                setFullName(firstAndLast)
-                Run the tests to see the expected output for each method.
-The methods that take an argument must accept only one argument and it has to be a string.
-
-These methods must be the only available means of interacting with the object.
+            <h3>Task:</h3>
+            <span>Fill in the object constructor with the following methods below:</span>
+            <br>
+            <ul>
+                <li>getFirstName()</li>
+                <li>getLastName()</li>
+                <li>getFullName()</li>
+                <li>setFirstName(first)</li>
+                <li>setLastName(last)</li>
+                <li>setFullName(firstAndLast)</li>
+            </ul>
+            <p>Run the tests to see the expected output for each method. The methods that take an argument must accept only one argument and it has to be a string. These methods must be the only available means of interacting with the object.
+            </p>
+            
+            <code id="codeView">
+                var Person = function(fullName) {
+                <br>
+                /*Private Variables*/
+                    var name = fullName.split(" ");
+                    var fName = name[0], lName = name[1];
+                <br>
+                /*Getters*/
+                <br>
+                this.getFirstName= function(){
+                    return fName;
+                };
+                <br>
+                this.getLastName = function(){
+                return lName;
+                };
+                <br>
+                this.getFullName = function(){
+                return fullName;
+                };
+                <br>
+                /*Setters*/
+                this.setFirstName = function(first){
+                fName = first;
+                };
+                <br>
+                this.setLastName = function(last){
+                lName = last;
+                };
+                <br>
+                this.setFullName = function(firstlast){
+                var newName = firstlast.split(" ");
+                this.getFullName = newName[0] + " " + newName[1];
+                };
+                };
+            </code>
+            <br>
+            <p>Output</p>
+            <p id="output">
+            
             </p>
         </section>
         
