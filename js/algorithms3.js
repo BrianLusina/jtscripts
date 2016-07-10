@@ -78,17 +78,7 @@ function steamrollArray(arr) {
 
 
 
-/*
-Return an English translated sentence of the passed binary string.
 
-The binary string will be space separated.*/
-
-function binaryAgent(str) {
-  var strArr = str.split(" ");
-  return strArr.map(function(x){
-  	return String.fromCharCode(parseInt(x,2));
-  }).join("");
-}
 
 
 /**

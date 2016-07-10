@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <!--HEAD-->
+    <head>
+        <title>PairWise</title>
+    </head>
+    
+    <!--BODY-->
+    <body>
+        <header>
+            <div>
+                <h2>Pairwise</h2>
+            </div>
+        </header>
+        <!--section-->
+        <section>
+            <p>Given an array arr, find element pairs whose sum equal the second argument arg and return the sum of their indices.</p>
+            <br>
+            <p>If multiple pairs are possible that have the same numeric elements but different indices, return the smallest sum of indices. Once an element has been used, it cannot be reused to pair with another.</p>
+            <br>
+            <p>For example pairwise([7, 9, 11, 13, 15], 20) returns 6. The pairs that sum to 20 are [7, 13] and [9, 11]. We can then write out the array with their indices and values.</p>
+            <br>
+            <p>
+                <pre>
+                Index	0	1	2	3	4
+                Value	7	9	11	13	15
+                </pre>
+            Below we'll take their corresponding indices and add them.
+            </p>
+            <p>
+                <pre>
+                7 + 13 = 20 &ndash;&gt; Indices 0 + 3 = 3
+                9 + 11 = 20 &ndash;&gt; Indices 1 + 2 = 3
+                3 + 3 = 6 &ndash;&gt; Return 6
+                </pre>
+            </p>
+        </section>
+        <!--footer-->
+        <footer>
+            
+        </footer>   
+        
+        <script src="js/pairwise.js"></script>
+    </body>
+    
+</html>

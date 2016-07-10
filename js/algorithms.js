@@ -48,33 +48,6 @@ function slasher(arr, howMany) {
 
 slasher([1, 2, 3], 2);
 
-//Caesers cipher
-function rot13(str) {
-  // LBH QVQ VG!
-  var codes = [];
-  for(var x in str){
-    //check if the characters in the string are letters and add to array
-    if(str.charCodeAt(x) < 65|| str.charCodeAt(x)>91){
-      codes.push(str[x]);
-      continue;
-    }else{
-      //if code is less than 78 add 13 to it to convert to equivalent letter
-      if(str.charCodeAt(x) <78){
-        codes.push(String.fromCharCode(str.charCodeAt(x)+13));
-        continue;
-      //else subract 13
-      }else{
-        codes.push(String.fromCharCode(str.charCodeAt(x)-13));
-        continue;
-      }
-    }
-  }
-  return codes.join("");
-}
-
-// Change the inputs below to test
-rot13("SERR PBQR PNZC");
-
 
 //Finding the range between two numbers where the order is not definite
 //the array will always have two numbers
@@ -327,55 +300,5 @@ console.log(spinalCase("The_Andy_Griffith_Show"));// should return "the-andy-gri
 console.log(spinalCase("Teletubbies say Eh-oh"));// should return "teletubbies-say-eh-oh".
 console.log(spinalCase("AllThe-small Things"));// should return "all-the-small-things".
 
-/**Sum All odd Fibonacci numbers below passed number*/
-function sumFibs(num) {
-  if(num < 2){
-  	return num;
-  }
-  var fib =[];
-  fib[0]=0;
-  fib[1]=1;
-  for(var x=2;x<=num;x++){
-    fib[x] = fib[x-1]+fib[x-2];
-      if(fib[x]>num)
-    	break;
-  }
-  console.log("Fibonacci Seq: " + fib);
-	var odds =fib.filter(function(i){
-  	if(i<=num)
-     return i%2!==0;
-  });
-  console.log("Odds: " + odds);
-  return odds.reduce(function(x,y){
-		return x+y;
-  });
-}
-
-console.log(sumFibs(1));// should return a number.
-console.log(sumFibs(1000));// should return 1785.
-console.log(sumFibs(4000000));// should return 4613732.
-console.log(sumFibs(4));// should return 5.
-console.log(sumFibs(10));//should return 10
-console.log(sumFibs(20));//should return 23
-console.log(sumFibs(75024));// should return 60696.
-console.log(sumFibs(75025)); //should return 135721.
 
 
-/**Sum all prime numbers below a certain number**/
-function sumPrimes(num) {
-    var sieve = [], i, j, primes = [];
-    for (i = 2; i <= num; ++i) {
-        if (!sieve[i]) {
-            // i has not been marked -- it is prime
-            primes.push(i);
-            for (j = i << 1; j <= num; j += i) {
-                sieve[j] = true;
-            }
-        }
-    }
-    return primes.reduce(function(x,y){
-    	return x+y;
-    });
-}
-console.log(sumPrimes(10)); //should return 17.
-console.log(sumPrimes(977)); //should return 73156.
