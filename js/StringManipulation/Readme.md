@@ -1,6 +1,7 @@
-These are a series of iterator function problems. Some may include lists, tuples, dictionaries, sets and the likes. However, the main focus here will be on the use of generotor functions, such as **yield**
+# String Manipulation
 
-Here is a breakdown of all the problems and their description.s
+Series of problems and solutions to String manipulation in Python. Of course there are dozens of other ways to solve these problems.
+Here is a breakdown of challenges and their descriptions
 
 ##
 
