@@ -13,8 +13,7 @@ function Xbonacci(signature,n){
   var next = 0, sigCopy = signature.slice(), first;
   if(signature.length === 1 || signature.length === 0){
     return signature;
-  }
-  if(signature.length === 2){
+  }else if(signature.length === 2){
     for (var x = 0; x < signature.length; x++){
       next = signature[x] + signature[x+1];
       signature.push(next);
