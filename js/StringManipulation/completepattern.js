@@ -6,7 +6,7 @@ perform a for loop on the reversed array, adding each string to output
 remove the last element at each loop using pop
 */
 function pattern(n){
- var output = "", range = [];
+ var output = "", range = [], res = [];
  if(n === 1){
    output="1";
  }else{
@@ -15,12 +15,14 @@ function pattern(n){
    }
    range.reverse();
    for(var x = 0;x < n;x++){
-     output += range.join("") + "\n";
+     res.push(range.join(""));
      var last = range.pop();
    }
+   output = res.join("\n");
  }
  return output;
 }
+
 
 //console.log(pattern(1));//,"1"));
 //console.log(pattern(2));//,"21\n2");
