@@ -1,8 +1,6 @@
-var ChromosomeCheck = require('/.chromosomeCheck');
+var ChromosomeCheck = require('./chromosomeCheck');
 
-Test.assertEquals(chromosomeCheck('XX'), )
-
-describe('Isogram Test Suite', function () {
+describe('Chromosome Test Suite', function () {
   it('Son', function () {
     var chromosome = new ChromosomeCheck('XY');
 
