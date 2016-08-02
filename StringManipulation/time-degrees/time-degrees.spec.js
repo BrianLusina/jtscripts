@@ -1,9 +1,9 @@
 var TimeDegrees = require("./time-degrees")
 
 describe("Time Degrees Test suite", function(){
-    var timeDegree = TimeDegrees();
     it("1 minute passed 1 am",function(){
-    expect(timeDegree.clockDegree("01:01")).toEqual("30:6");
+      var timeDegree = TimeDegrees();
+      expect(timeDegree.clockDegree("01:01")).toEqual("30:6");
   });
 
   it("12 midnight",function(){
