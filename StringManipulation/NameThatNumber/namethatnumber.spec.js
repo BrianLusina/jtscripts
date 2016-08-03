@@ -21,9 +21,9 @@ describe("Name That Number tests",function(){
     expect(name.nameThatNumber(23)).toEqual('twenty three');
   });
 
-  if("test 40", function(){
+  it("test 40", function(){
     var name = new NameNumber();
-    expect(name.nameThatNumber(40)).toEqual('forty');    
+    expect(name.nameThatNumber(40)).toEqual('forty');
   });
 
 });

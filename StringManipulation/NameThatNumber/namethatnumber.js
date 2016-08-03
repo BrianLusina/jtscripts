@@ -9,7 +9,7 @@ NameNumber.prototype.nameThatNumber = function (num) {
   }else{
     tens = Math.floor(num/10);
     ones = num%10;
-    return `${NAMESTWO[tens-2]} ${(ones != 0) ?NAMES[ones]: ""}`;
+    return `${NAMESTWO[tens-2]} ${(ones != 0) ? NAMES[ones] : ""}`.trim();
   }
 };
 module.exports = NameNumber
