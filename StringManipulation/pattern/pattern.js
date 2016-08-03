@@ -5,7 +5,7 @@ Perform checks to determine whether number is less than 1, or is 1, if so return
 else, create a range of the numbers from 1 upto the number itself, converting each to a String
 perform a for loop on the range of numbers, repeating each string literal the number of times and adding it to an array. join the array with \n new line and return the output
 */
-Patten.prototype.getPattern = function(n){
+Pattern.prototype.getPattern = function(n){
   var output = "", range = [], res = [];
   if(n<1){
     output = "";
