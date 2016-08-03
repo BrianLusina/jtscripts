@@ -110,3 +110,47 @@ The returned format must be correct in order to complete this challenge.
 Don't forget the space after the closing parenthese!
 Tags:
 > ALGORITHMS, ARRAYS, STRINGS, LOOPS, CONTROL FLOW, BASIC LANGUAGE FEATURES, FUNDAMENTALS, FORMATTING, REGULAR EXPRESSIONS, DECLARATIVE PROGRAMMING, ADVANCED LANGUAGE FEATURES
+
+## Complete The Pattern, again
+
+You have to write a function pattern which returns the following Pattern(See Pattern & Examples) upto n number of rows.
+
+Note:Returning the pattern is not the same as Printing the pattern.
+Rules/Note:
+
+If n < 1 then it should return "" i.e. empty string.
+There are no whitespaces in the pattern.
+Pattern:
+1
+
+22
+333
+....
+.....
+nnnnnn
+Examples:
+```javascript
+pattern(5):
+
+1
+22
+333
+4444
+55555
+pattern(11):
+
+1
+22
+333
+4444
+55555
+666666
+7777777
+88888888
+999999999
+10101010101010101010
+1111111111111111111111
+* Hint: Use \n in string to jump to next line
+
+Tags
+> PUZZLES LOOPS CONTROL FLOW BASIC LANGUAGE FEATURES FUNDAMENTALS SEQUENCES ARRAYS STRINGS
