@@ -12,3 +12,6 @@ Example: The binary representation of 1234 is 10011010010, so the function shoul
 Tags
 
 > ALGORITHMS, BITS, BINARY
+
+## HexToDec
+Write function hexToDec which converts hex number (given as a string) to decimal number.
