@@ -165,3 +165,10 @@ nameThatNumber(19)  // returns "nineteen"
 nameThatNumber(99)  // returns "ninety nine"
 ```
 Words should be seperated by only spaces and not hyphens. No need to validate parameters, they will always be in the range [0, 99]. Make sure that the returned String has no leading of trailing spaces. Good luck!
+
+## Palindrome
+
+A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward or forward. Allowances may be made for adjustments to capital letters, punctuation, and word dividers.
+
+true == is_palindrome("anna")
+false == is_palindrome("walter")
