@@ -172,3 +172,21 @@ A palindrome is a word, phrase, number, or other sequence of characters which re
 
 true == is_palindrome("anna")
 false == is_palindrome("walter")
+
+
+## Duplicate Encode
+
+The goal of this exercise is to convert a string to a new string where each character in the new string is '(' if that character appears only once in the original string, or ')' if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+
+Examples:
+``` javascript
+"din" => "((("
+
+"recede" => "()()()"
+
+"Success" => ")())())"
+
+"(( @" => "))(("
+```
+Tags
+> FUNDAMENTALS STRINGS ARRAYS
