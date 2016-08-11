@@ -1,26 +1,33 @@
-var palindrome = require('./palindrome')
+var Palindrome = require('./palindrome')
+
 describe("Palindrome", function() {
     it("should identifies that a string is palindrome", function() {
-        Test.assertEquals(isPalindrome("anna"), true);
+      var pal = Palindrome();
+        expect(pal.isPalindrome("anna")).toEqual(true);
     });
 
     it("should identifies that a string is not palindrome", function() {
-        Test.assertEquals(isPalindrome("walter"), false);
+      var pal = Palindrome();
+        expect(pal.isPalindrome("walter")).toEqual(false);
     });
 
     it("should identifies that a number is palindrome", function() {
-        Test.assertEquals(isPalindrome(12321), true);
+      var pal = Palindrome();
+        expect(pal.isPalindrome(12321)).toEqual(true);
     });
 
     it("should identifies that a number is not palindrome", function() {
-        Test.assertEquals(isPalindrome(123456), false);
+      var pal = Palindrome();
+        expect(pal.isPalindrome(123456)).toEqual(false);
     });
 
     it("should identifies that a string is palindrome on punctuation", function() {
-        Test.assertEquals(isPalindrome("."), true);
+      var pal = Palindrome();
+        expect(pal.isPalindrome(".")).toEqual(true);
     });
 
     it("should identifies that a string is palindrome on punctuation", function() {
-        Test.assertEquals(isPalindrome(".!!."), true);
+      var pal = Palindrome();
+        expect(pal.isPalindrome(".!!.")).toEqual(true);
     });
 });
