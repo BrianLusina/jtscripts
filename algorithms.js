@@ -1,19 +1,4 @@
 
-function palindrome(str) {
-  //punctuation marks
-  var re = /[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/gi;
-  //turn strings to lower case and removes puncuation
-  var iniStr = str.toLowerCase().replace(re,"");
-  var finalStr = iniStr.replace(/\s+/g,"");
-  if(finalStr.split("").reverse().join("") == finalStr){
-    return true;
-  }else{
-    return false;
-  }
-  }
-
-
-palindrome("eye");
 
 
 function titleCase(str) {
@@ -299,6 +284,3 @@ console.log(spinalCase("thisIsSpinalTap"));// should return "this-is-spinal-tap"
 console.log(spinalCase("The_Andy_Griffith_Show"));// should return "the-andy-griffith-show".
 console.log(spinalCase("Teletubbies say Eh-oh"));// should return "teletubbies-say-eh-oh".
 console.log(spinalCase("AllThe-small Things"));// should return "all-the-small-things".
-
-
-
