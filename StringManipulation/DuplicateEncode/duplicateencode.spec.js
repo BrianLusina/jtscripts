@@ -3,22 +3,22 @@ var DuplicateEncode = require('./duplicateencode')
 describe("Duplicate Encode Test Suite", function(){
   it("Test 1", function(){
     var dup = new DuplicateEncode();
-    expect(dup.duplicateEncode("din")).toEqual("(((");
+    expect(dup.duplicateencode("din")).toEqual("(((");
   });
 
-  it("Test 1", function(){
+  it("Test 2", function(){
     var dup = new DuplicateEncode();
-    expect(dup.duplicateEncode("recede")).toEqual("()()()");
+    expect(dup.duplicateencode("recede")).toEqual("()()()");
   });
 
   it("should ignore case", function(){
     var dup = new DuplicateEncode();
-    expect(dup.duplicateEncode("Success")).toEqual("""),")())())"");
+    expect(dup.duplicateencode("Success")).toEqual(")())())");
   });
 
-  it("Test 1", function(){
+  it("Test 4", function(){
     var dup = new DuplicateEncode();
-    expect(dup.duplicateEncode('(( @")')).toEqual("))((");
+    expect(dup.duplicateencode('(( @")')).toEqual("))((");
   });
 
 });
