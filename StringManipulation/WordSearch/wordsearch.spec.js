@@ -1,6 +1,6 @@
-var wordSearch = require('/wordsearch');
+var WordSearch = require('./wordsearch');
 
-describe("Word Search Test Suite" function(){
+describe("Word Search Test Suite", function(){
   it("Test 1", function(){
     var ws = new WordSearch();
     expect(ws.wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"])).toEqual(["ab", "abc", "zab"]);
