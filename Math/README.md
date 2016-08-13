@@ -68,3 +68,12 @@ nb_year(1500, 5, 100, 5000) -> 15
 nb_year(1500000, 2.5, 10000, 2000000) -> 10
 ```
 Note: Don't forget to convert the percent parameter as a percentage in the body of your function: if the parameter percent is 2 you have to convert it to 0.02.
+
+## Sum without highest and lowest number
+
+Sum all the numbers of the array except the highest and the lowest element.
+(Only one element at each edge, even if there are more than one with the same value!)
+
+Example: { 6, 2, 1, 8, 10 } => 16
+
+If array is empty or null, or if only 1 Element exists, return 0.
