@@ -8,6 +8,7 @@ alternative could be to sort it in descending order and multiply the first two e
 
   console.log(arr[0] * arr[1]);
   return arr[0] * arr[1];
+
 */
 MaxProduct.prototype.maxProduct = function(arr){
   var biggest = -Infinity, next_biggest = -Infinity;
@@ -21,6 +22,13 @@ MaxProduct.prototype.maxProduct = function(arr){
       }
   }
   return biggest * next_biggest;
+};
+
+// second alternative
+MaxProduct.prototype.maxProduct_v2 = function (a) {
+  var biggest = Math.max.apply(Math, a);
+ a.splice(a.indexOf(biggest), 1);
+ return biggest * Math.max.apply(Math, a);
 };
 
 module.exports = MaxProduct
