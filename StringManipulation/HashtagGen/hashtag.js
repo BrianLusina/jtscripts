@@ -6,11 +6,11 @@ HashTag.prototype.generateHashtag = function (str) {
     return false;
   }else{
     var words = str.split(" ")
-    for(var x = 0;x < words; x++){
-      words[x] = words[x].toUpperCase;
-      
+    for(var x = 0;x < words.length; x++){
+    	out += words[x].charAt(0).toUpperCase() + words[x].substring(1);
     }
   }
+  return (out.length > 140)? false :"#"+out;
 };
 
 module.exports = HashTag
