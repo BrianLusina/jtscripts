@@ -216,3 +216,22 @@ titleCase('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings
 titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
 titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
 ```
+
+## Hashtag Generator
+
+The marketing team are spending way too much time typing in hashtags.
+Let's help them with out own Hashtag Generator!
+
+Here's the deal:
+
+If the final result is longer than 140 chars it must return false.
+If the input is a empty string it must return false.
+It must start with a hashtag (#).
+All words must have their first letter capitalized.
+Example Input to Output:
+
+" Hello there thanks for trying my Kata" => "#HelloThereThanksForTryingMyKata"
+
+" Hello World " => "#HelloWorld"
+
+> ALGORITHMS STRINGS
