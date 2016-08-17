@@ -15,12 +15,9 @@ ConsecutiveString.prototype.longestConsec = function(starr, k){
     });
     out = s[s.length-1]
   }else{
-    for(var x = 0; x <= k; x++){
-      var f3 = starr[x] + starr[x+1] + starr[x+2];
-      var n3 = starr[x+1] + starr[x+2] + starr[x+3];
-      if(n3.length > f3.length){
-        starr[x] = null;
-      }
+    let lens = strarr.map( (_,i,arr) => arr.slice(i,i+k).join('').length ),
+        i = lens.indexOf( Math.max(...lens) );
+    out = strarr.slice(i,i+k).join('')
     }
   }
 
