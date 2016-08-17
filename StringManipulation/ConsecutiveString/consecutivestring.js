@@ -5,23 +5,10 @@ return an empty string.
 if k is 1, then return the longest string.
 else, loop through the string, */
 ConsecutiveString.prototype.longestConsec = function(starr, k){
-  var out = "", concat = "";
-  if((k <= 0 || starr.length == 0) || k > starr.length){
-    return out;
-  }
-  else if(k === 1){
-    var s = starr.sort(function(b, a){
-      return a - b;
-    });
-    out = s[s.length-1]
-  }else{
-    let lens = strarr.map( (_,i,arr) => arr.slice(i,i+k).join('').length ),
+  if(starr.length==0 || k> starr.length || k <1 ) return "";
+    let lens = starr.map( (_,i,arr) => arr.slice(i,i+k).join('').length ),
         i = lens.indexOf( Math.max(...lens) );
-    out = strarr.slice(i,i+k).join('')
-    }
-  }
-
-  return out;
+  return starr.slice(i,i+k).join('');
 };
 
 module.exports = ConsecutiveString
