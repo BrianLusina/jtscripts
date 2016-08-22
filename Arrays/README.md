@@ -1,4 +1,5 @@
 
+
 ## doubleAll
 Convert the following code from a for-loop to Array#map:
 
@@ -12,17 +13,17 @@ Convert the following code from a for-loop to Array#map:
 
     module.exports = doubleAll
 
-### Arguments
+###### Arguments
 
   * numbers: An Array of 0 to 20 Integers between 0 and 9
 
-### Conditions
+###### Conditions
 
   * Your solution should use Array.prototype.map()
   * Do not use any for/while loops or Array.prototype.forEach.
   * Do not create any unnecessary functions e.g. helpers.
 
-### Resources
+###### Resources
 
   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
@@ -35,7 +36,7 @@ getShortMessages takes an array of objects with '.message' properties and return
 
 The function should return an array containing the messages themselves, without their containing object.
 
-### Arguments
+###### Arguments
 
   * messages: an Array of 10 to 100 random objects that look something like this:
 
@@ -43,23 +44,61 @@ The function should return an array containing the messages themselves, without 
       message: 'Esse id amet quis eu esse aute officia ipsum.' // random
     }
 
-### Conditions
+###### Conditions
 
   * Do not use any for/while loops or Array#forEach.
   * Do not create any unnecessary functions e.g. helpers.
 
-### Hint
+###### Hint
 
   * Try chaining some Array methods!
 
-### Example
+###### Example
 
     [ 'Tempor quis esse consequat sunt ea eiusmod.',
       'Id culpa ad proident ad nulla laborum incididunt.',
       'Ullamco in ea et ad anim anim ullamco est.',
       'Est ut irure irure nisi.' ]
 
-### Resources
+###### Resources
 
   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+---
+
+## Check Valid Users
+
+Return a function that takes a list of valid users, and returns a function that returns true if all of the supplied users exist in the original list of users.
+
+You only need to check that the ids match.
+
+###### Example
+
+    var goodUsers = [
+      { id: 1 },
+      { id: 2 },
+      { id: 3 }
+    ]
+
+    // `checkUsersValid` is the function you'll define
+    var testAllValid = checkUsersValid(goodUsers)
+
+    testAllValid([
+      { id: 2 },
+      { id: 1 }
+    ])
+    // => true
+
+    testAllValid([
+      { id: 2 },
+      { id: 4 },
+      { id: 1 }
+    ])
+    // => false
+
+###### Arguments
+
+  * goodUsers: a list of valid users
+
+Use array#some and Array#every to check every user passed to your returned function exists in the array passed to the exported function.
