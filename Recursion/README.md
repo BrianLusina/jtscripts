@@ -1,3 +1,5 @@
+# Recursion
+
 Recursion is a fundamental programming concept which can lead to elegant and efficient solutions to algorithmic problems. In fact, recursion is so powerful, all iterating behaviour can be defined using recursive functions. You will find recursion indispensable when iterating over nested data structures.
 
 A recursive function is a function which calls itself. For example, this recursive function will take an array of words, and return an array of those words, uppercased.
@@ -14,7 +16,7 @@ A recursive function is a function which calls itself. For example, this recursi
 
 The point of this exercise is to familiarise yourself with recursion by implementing a familiar interface using a recursive function.
 
-# Task
+# Reducer
 
 Implement Array#reduce using recursion.
 
