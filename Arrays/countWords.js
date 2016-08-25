@@ -1,13 +1,12 @@
 function countWords(inputWords) {
-  var c = 0;
-  return inputWords.reduce(function(curr, prev){
-    var t = {};
-    if(prev != curr){
-      t = {prev : c};
-      console.log(t)
-      c++;
-    }
-    return t;
+  var c = 0, counts = {};
+    return inputWords.reduce((prev, curr, indx, inputWords) => {
+      if(!counts.hasOwnProperty(inputWords[indx])){
+        counts[inputWords[indx]] = 0 ;
+      }else{
+        counts[inputWords[indx]] += 1;
+      }
+      return counts;
   });
 }
 
