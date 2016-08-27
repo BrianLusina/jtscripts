@@ -1,13 +1,8 @@
-function countWords(inputWords) {
-  var c = 0, counts = {};
-    return inputWords.reduce((prev, curr, indx, inputWords) => {
-      if(!counts.hasOwnProperty(inputWords[indx])){
-        counts[inputWords[indx]] = 0 ;
-      }else{
-        counts[inputWords[indx]] += 1;
-      }
-      return counts;
-  });
+function countWords(arr) {
+  return arr.reduce(function(countMap, word) {
+    countMap[word] = ++countMap[word] || 1 // increment or initialize to 1
+    return countMap
+  }, {}) // second argument to reduce initialises countMap to {}
 }
 
 module.exports = countWords
