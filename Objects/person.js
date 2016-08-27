@@ -5,30 +5,30 @@ $(document).ready(function(){
 */
 
 var Person = function (firstAndLast) {
-    var fullName = firstAndLast;    
-    
+    var fullName = firstAndLast;
+
     /*Getters*/
-    this.getFirstName= function(){        
+    this.getFirstName= function(){
         return fullName.split(" ")[0];
     };
-    
+
     this.getLastName = function(){
         return fullName.split(" ")[1];
     };
-    
+
     this.getFullName = function(){
         return fullName;
     };
-    
+
     /*Setters*/
     this.setFirstName = function(first){
         fullName = first + " " + fullName.split(" ")[1];
     };
-    
+
     this.setLastName = function(last){
         fullName = fullName.split(" ")[0] + " "+ last;
     };
-    
+
     this.setFullName = function(firstlast){
         fullName = firstlast;
     };
@@ -57,20 +57,13 @@ bob.setFullName("Haskell Curry");
 console.log(bob.getLastName() + " should return 'Curry' after bob.setFullName('Haskell Curry')");
 
 var bob = new Person('Bob Ross');
-document.getElementById('#output').innerHTML('<br>');
 document.getElementById('#output').innerHTML("Bob's full name " + bob.getFullName());
-document.write('<br>');
-document.write("Bob's first name " + bob.getFirstName());
-document.write('<br>');
-document.write("Bob's last name " + bob.getLastName());
+console.log("Bob's first name " + bob.getFirstName());
 
 bob.setFirstName("Bobby");
-document.write('<br>');
-document.write("Bob's new full name " + bob.setFullName("Vaszquez","Nima"));
+console.log("Bob's new full name " + bob.setFullName("Vaszquez","Nima"));
 
-document.write('<br>');
-document.write("Bob's first name " + bob.getFirstName());
-document.write('<br>');
+console.log("Bob's first name " + bob.getFirstName());
 
 bob.setLastName("Waza");
-document.write("Bob's new last name " + bob.getLastName());
+console.log("Bob's new last name " + bob.getLastName());
