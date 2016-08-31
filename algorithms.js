@@ -1,11 +1,3 @@
-//Finding the range between two numbers where the order is not definite
-//the array will always have two numbers
-function sumAll(arr){
-  var max = Math.max(arr[0],arr[1]);
-  var min = Math.min(arr[1],arr[0]);
-  return (max + min) * (max - min+1)/2;
-}
-
 /**
 Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
 */

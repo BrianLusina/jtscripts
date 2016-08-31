@@ -1,0 +1,1 @@
+Finding the range between two numbers where the order is not definite the array will always have two numbers
