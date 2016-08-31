@@ -166,3 +166,9 @@ A function map that applies a function to each item in an array and collects the
 
   * https://en.wikipedia.org/wiki/Reduce_(higher-order_function)
   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+
+---
+
+## Chunks
+
+Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.

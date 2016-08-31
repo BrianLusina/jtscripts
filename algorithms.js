@@ -1,39 +1,3 @@
-
-
-
-function titleCase(str) {
-  return str.replace(/\w\S*/g,function(txt){
-    return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();
-  });
-}
-
-titleCase("I'm a little tea pot"); //returns "I'm A Little Tea Pot"
-
-/*Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.*/
-function chunkArrayInGroups(arr, size) {
-  // Break it up.
-  var newArr = [];
-  for(var i=0;i<arr.length;i+=size){
-    newArr.push(arr.slice(i,i+size));
-  }
-  return newArr;
-}
-
-chunkArrayInGroups(["a", "b", "c", "d"], 2);
-
-
-
-/*Return the remaining elements of an array after chopping off n elements from the head.
-
-The head means the beginning of the array, or the zeroth index.*/
-function slasher(arr, howMany) {
-  // it doesn't always pay to be first
-  return arr.splice(howMany,arr.length);
-}
-
-slasher([1, 2, 3], 2);
-
-
 //Finding the range between two numbers where the order is not definite
 //the array will always have two numbers
 function sumAll(arr){
