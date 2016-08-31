@@ -14,16 +14,6 @@ function uniteUnique() {
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 
 
-/**Convert characters to HTML equivalents**/
-function convertHTML(str) {
-  var charHTMLlist = {
-    "&" : "&amp;",
-    "<" : "&lt;",
-    ">" : "&gt;",
-    '"' : "&quot;",
-    "'" : "&apos;"
-  };
-
   function charMapper(char){
   	return charHTMLlist[char];
   }
