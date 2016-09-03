@@ -9,3 +9,4 @@
 *.beams
 *.d
 *.c_date
+.vscode
