@@ -1,3 +1,7 @@
-function minMax(arr){
-  return [Math.max.apply(num,arr),Math.max.apply(null,arr)];
+var MaxMin = function(){};
+
+MaxMin.prototype.getMaxMin = function(arr){
+  return [Math.min.apply(null,arr),Math.max.apply(null,arr)];
 }
+
+module.export = MaxMin
