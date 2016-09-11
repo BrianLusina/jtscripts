@@ -4,7 +4,7 @@ var url = require('url');
 // return a JSON object with the hour minute and second
 function parseTime(time){
     return {
-        hour: time.getHours,
+        hour: time.getHours(),
         minute: time.getMinutes(),
         second: time.getSeconds(),
     }
@@ -35,4 +35,4 @@ var server = http.createServer((request, response) => {
 });
 
 
-server.listen(+process.argv(2));
+server.listen(+process.argv[2]);
