@@ -17,7 +17,7 @@ function timeNow(){
 
 //takes data object and writes to it and closes it
 var server = net.createServer((socket) =>{
-    socekt.end(timeNow() + "\n");
+    socket.end(timeNow() + "\n");
 });
 
 // converts the console argument to a number
