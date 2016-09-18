@@ -3,7 +3,7 @@ var app = express();
 var fs = require("fs");
 
 app.get('/books', function(req, res){
-    var filename = process.argv[3];
+    var filename = process.argv[3] || '.public/test.txt';
     fs.readFile(filename, function(e, data){
         if(e){
             return res.sendStatus(500);
