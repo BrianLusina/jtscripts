@@ -89,6 +89,7 @@ function digital_root(n) {
       return parseInt(x) + parseInt(y);
     });
   }
+}
 
 
 /**"""
@@ -232,4 +233,4 @@ console.log(calculateAge(900, 2900));//"You are 2000 years old.");
 console.log(calculateAge(2010, 1990));//,"You will be born in 20 years.");
 console.log(calculateAge(2010, 1500));//,"You will be born in 510 years.");
 console.log(calculateAge(2011, 2012));//,"You are 1 year old.");
-console.log(calculateAge(2000, 1999));//,"You will be born in 1 year.");    
+console.log(calculateAge(2000, 1999));//,"You will be born in 1 year.");
