@@ -9,9 +9,8 @@ const SPACE_AGES = {
     neptune : 164.79132
 };
 
-var SpaceAge = function(ageInSec) {
-    this.ageInSec = ageInSec;
-    this.seconds = ageInSec;
+var SpaceAge = function(seconds) {
+    this.seconds = seconds;
     this.earthYears = seconds / 31557600;
 };
 
