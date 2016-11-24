@@ -1,4 +1,4 @@
-module.at = at;
+exports.at = at;
 
 const HOURS_IN_A_DAY = 24;
 const MINUTES_IN_AN_HOUR = 60;
@@ -21,7 +21,7 @@ function at(hours, minutes){
     
     var millis = (hours * MILLIS_IN_AN_HOUR) + (minutes * MILLIS_IN_A_MINUTE);
 
-    millis = convertPos(value, MILLIS_IN_A_DAY);
+    millis = convertPos(millis, MILLIS_IN_A_DAY);
 
     var clock = {};
     clock.valueOf = function(){
@@ -48,4 +48,4 @@ function at(hours, minutes){
     }
 
     return Object.create(clock);
-}
+};
