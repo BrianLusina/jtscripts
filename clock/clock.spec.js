@@ -1,4 +1,4 @@
-var at = require('./clock').at;
+var at = require('./clock_2').at;
 
 describe('Clock', function () {
 
