@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(number) {
+module.exports = (number) => {
   var result = '';
   var mappings = [
     {arabic: 1000, roman: 'M'},
@@ -21,8 +21,8 @@ module.exports = function(number) {
   for (var i=0; i < mappings.length; i++) {
     var mapping = mappings[i];
     while (number >= mapping.arabic) {
-      result = result + mapping.roman;
-      number = number - mapping.arabic;
+      result += mapping.roman;
+      number -= mapping.arabic;
     }
   }
 
