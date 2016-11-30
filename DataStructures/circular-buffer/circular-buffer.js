@@ -3,7 +3,7 @@ function CircularBuffer(capacity){
 
     return{
         read: function(){
-            if(isBufferEmpty){
+            if(isBufferEmpty()){
                 throw new BufferEmptyException();
             }
             var data = buffer[readPoint];
