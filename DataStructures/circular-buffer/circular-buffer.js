@@ -3,7 +3,13 @@ function CircularBuffer(capacity){
 
     return{
         read: function(){
-
+            if(isBufferEmpty){
+                throw new BufferEmptyException();
+            }
+            var data = buffer[readPoint];
+            buffer[readPoint] = null;
+            updateReadPoint();
+            return data;
         },
 
         write: function(){
@@ -28,7 +34,7 @@ function CircularBuffer(capacity){
     };
 
     function isBufferEmpty(){
-
+        return buffer.every(isEmpty);
     }
 
     function isBufferFull(){
@@ -36,7 +42,7 @@ function CircularBuffer(capacity){
     }
 
     function updateReadPoint(){
-
+        readPoint = (readPoint + 1) % capacity;
     }
 
     function updateWritePoint(){
@@ -48,16 +54,17 @@ function CircularBuffer(capacity){
     }
 
     function isFull(data){
-
+        return !isEmpty(data);
     }
 
     function isEmpty(data){
-
+        return data === null || data === undefined;
     }
 };
 
 function BufferEmptyException(){
-
+    this.name ="BufferEmptyException";
+    this.message = "Buffer is empty";
 }
 
 function BufferFullException(){
