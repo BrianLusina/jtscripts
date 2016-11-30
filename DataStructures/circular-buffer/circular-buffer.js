@@ -12,11 +12,16 @@ function CircularBuffer(capacity){
             return data;
         },
 
-        write: function(){
-
+        write: function(data){
+            updateBuffer(data, function(){
+                if(isBufferFull()){
+                    throw new BufferFullException();
+                }
+                buffer[writePoint] = data;
+            });
         },
 
-        forceWrite: function(){
+        forceWrite: function(data){
 
         },
 
@@ -38,7 +43,7 @@ function CircularBuffer(capacity){
     }
 
     function isBufferFull(){
-
+        return buffer.filter(isFull).length === capacity;
     }
 
     function updateReadPoint(){
@@ -46,11 +51,15 @@ function CircularBuffer(capacity){
     }
 
     function updateWritePoint(){
-
+        writePoint = (writePoint + 1) % capacity;
     }
 
-    function updateBuffer(){
-
+    function updateBuffer(data, callback){
+        if(isEmpty(data)){
+            return;
+        }
+        callback();
+        updateWritePoint();
     }
 
     function isFull(data){
@@ -68,9 +77,9 @@ function BufferEmptyException(){
 }
 
 function BufferFullException(){
-
+    this.name = "BufferFullException";
+    this.message = "Buffer is Full";
 }
-
 
 module.exports = {
     circularBuffer: function(capacity){
