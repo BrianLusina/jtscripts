@@ -22,19 +22,26 @@ function CircularBuffer(capacity){
         },
 
         forceWrite: function(data){
-
+            updateBuffer(data, () => {
+                if(isBufferFull()){
+                    updateReadPoint();
+                }
+                buffer[writePoint] = data;
+            })
         },
 
         clear: function(){
-            
+            readPoint = 0;
+            writePoint = 0;
+            buffer = new Array(capacity);
         },
 
         isFull:function(){
-
+            return isBufferFull();
         },
 
         isEmpty:function(){
-
+            return isBufferEmpty();
         }
     };
 
