@@ -1,21 +1,4 @@
-/**"""
-  Your goal in this kata is to implement an difference function, which subtracts one list from another.
-  It should remove all values from list a, which are present in list b.
-  array_diff([1,2],[1]) == [2]
-  If a value is present in b, all of its occurrences must be removed from the other:
-  array_diff([1,2,2,2,3],[2]) == [1,3]
-**/
-function array_diff(a, b) {
-  var res = []
-  for(var x = 0;x<a.length;x++){
-    for(var i=0;i<b.length;i++){
-      if(a[x] !==b[i]){
-        res.push(a[x]);
-      }
-    }
-  }
-  return res;
-}
+
 
 /**As you probably know, Fibonacci sequence are the numbers in the following integer sequence: 1, 1, 2, 3, 5, 8, 13... Write a method that takes the index as an argument and returns last digit from fibonacci number. Example: getLastDigit(15) - 610. Your method must return 0 because the last digit of 610 is 0. Fibonacci sequence grows very fast and value can take very big numbers (bigger than integer type can contain), so, please, be careful with overflow.
 **/
