@@ -25,5 +25,8 @@
   "homepage": "https://github.com/BrianLusina/JS-Snippets#readme",
   "devDependencies": {
     "jasmine-node": "^1.14.5"
+  },
+  "dependencies": {
+    "standard": "^8.6.0"
   }
 }
