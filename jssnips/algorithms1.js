@@ -1,49 +1,5 @@
-/**
-There is a bus moving in the city, and it takes and drop some people in each bus stop.
 
-You are provided a list (or array in JS) of integer array. Each integer array has two items which represent number of people get into bus (The first item) and number of people get off the bus (The second item).
 
-The first integer array has 0 number in the second item, since the bus is empty in the first bus stop.
-
-Your task is to return number of people in the bus after the last bus station. Take a look on the test cases :)
-
-Please keep in mind that the test cases ensure that the number of people in the bus is always >= 0. So the return integer can't be negative.
-**/
-function number(busStops){
-var res = 0;
-   for(var x=0;x<busStops.length;x++){
-			res+=busStops[x].reduce(function(x,y){
-      		return x-y;
-      });
-   }
-return res;
-}
-
-/**
-"""
-A Narcissistic Number is a number which is the sum of its own digits, each raised to the power of the number of digits.
-
-For example, take 153 (3 digits):
-
-    1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
-and 1634 (4 digits):
-
-    1^4 + 6^4 + 3^4 + 4^4 = 1 + 1296 + 81 + 256 = 1634
-The Challenge:
-
-Your code must return true or false depending upon whether the given number is a Narcissistic number.
-
-Error checking for text strings or other invalid inputs is not required, only valid integers will be passed into the function.
-"""
-**/
-function narcissistic(value){
-  var l = String(value).length;
-  var res = 0;
-  for(var x =0;x<l;x++){
-    res += Math.pow(parseInt(String(value)[x]),l);
-  }
-  return res === value;
-}
 
 
 /**
