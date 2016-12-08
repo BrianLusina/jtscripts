@@ -11,3 +11,4 @@
 *.c_date
 .vscode
 .idea/
+node_modules/

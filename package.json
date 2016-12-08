@@ -1,0 +1,30 @@
+{
+  "name": "js-snippets",
+  "version": "2.0.0",
+  "description": "Small JavaScript Algorithms, snippets and programs",
+  "main": "entry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrianLusina/JS-Snippets.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "JS-snippets",
+    "JS-Algorithms",
+    "ES6",
+    "ES5",
+    "ES2016"
+  ],
+  "author": "The Lusina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrianLusina/JS-Snippets/issues"
+  },
+  "homepage": "https://github.com/BrianLusina/JS-Snippets#readme",
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
