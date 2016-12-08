@@ -2,7 +2,6 @@
   "name": "js-snippets",
   "version": "2.0.0",
   "description": "Small JavaScript Algorithms, snippets and programs",
-  "main": "entry.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
