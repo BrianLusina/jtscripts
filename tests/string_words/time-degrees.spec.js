@@ -1,4 +1,4 @@
-var TimeDegrees = require("./time-degrees")
+var TimeDegrees = require("../../jssnips/string_words/time_degrees/time-degrees")
 
 describe("Time Degrees Test suite", function(){
     it("1 minute passed 1 am",function(){

@@ -1,4 +1,4 @@
-var ChromosomeCheck = require('./chromosomeCheck');
+var ChromosomeCheck = require('../../jssnips/string_words/chromosome_checker/chromosomeCheck');
 
 describe('Chromosome Test Suite', function () {
   it('Son', function () {

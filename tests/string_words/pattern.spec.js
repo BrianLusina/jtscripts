@@ -1,5 +1,5 @@
 
-var Pattern = require('./pattern');
+var Pattern = require('../../jssnips/string_words/pattern/pattern');
 
 describe("Pattern Tests", function(){
 

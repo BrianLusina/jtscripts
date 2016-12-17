@@ -1,4 +1,4 @@
-var DuplicateEncode = require('./duplicateencode')
+var DuplicateEncode = require('../../jssnips/string_words/duplicate_encode/duplicateencode')
 
 describe("Duplicate Encode Test Suite", function(){
   it("Test 1", function(){

@@ -1,4 +1,4 @@
-var PhoneNumber = require('./createPhoneNumber')
+var PhoneNumber = require('../../jssnips/string_words/phone_number/createPhoneNumber')
 
 describe("Create Phone Number Test Suite", function(){
   it("Test 2", function(){

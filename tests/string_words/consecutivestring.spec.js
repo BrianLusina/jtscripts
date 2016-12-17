@@ -1,4 +1,4 @@
-var ConsecutiveString = require('./consecutivestring')
+var ConsecutiveString = require('../../jssnips/string_words/consecutive_string/consecutivestring')
 
 describe("Consecutive String Test Cases", function(){
   it("Test 1", function(){

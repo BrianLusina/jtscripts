@@ -1,4 +1,4 @@
-var Palindrome = require('./palindrome')
+var Palindrome = require('../../jssnips/string_words/palindrome/palindrome')
 
 describe("Palindrome", function() {
     it("should identifies that a string is palindrome", function() {
