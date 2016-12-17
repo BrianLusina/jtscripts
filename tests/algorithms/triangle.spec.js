@@ -1,4 +1,4 @@
-var Triangle = require('./triangle');
+var Triangle = require('../../jssnips/algorithms/triangle/triangle.js');
 
 describe('Triangle', function() {
 

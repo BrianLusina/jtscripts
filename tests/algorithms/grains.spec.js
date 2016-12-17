@@ -27,7 +27,7 @@
  * See its tests in this folder for a quick primer on how to use it! ( :
  */
 
-var Grains = require('./grains');
+var Grains = require('../../jssnips/algorithms/grains/grains.js');
 
 describe('Grains', function () {
   var grains = new Grains();

@@ -1,4 +1,4 @@
-var Acronyms = require('../jssnips/string_words/acronym/acronym.js');
+var Acronyms = require('../../jssnips/string_words/acronym/acronym.js');
 
 describe('Acronyms are produced from', function(){
   it('title cased phrases', function() {

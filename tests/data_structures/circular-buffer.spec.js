@@ -1,6 +1,6 @@
-var circularBuffer = require('./circular-buffer').circularBuffer;
-var bufferEmptyException = require('./circular-buffer').bufferEmptyException;
-var bufferFullException = require('./circular-buffer').bufferFullException;
+var circularBuffer = require('../../jssnips/data_structures//circular-buffer/circular-buffer').circularBuffer;
+var bufferEmptyException = require('../../jssnips/data_structures//circular-buffer/circular-buffer').bufferEmptyException;
+var bufferFullException = require('../../jssnips/data_structures//circular-buffer/circular-buffer').bufferFullException;
 
 describe('CircularBuffer', function() {
 

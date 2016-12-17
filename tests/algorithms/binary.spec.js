@@ -1,4 +1,4 @@
-var Binary = require('./binary');
+var Binary = require('../../jssnips/algorithms/binary/binary.js');
 
 describe('binary', function() {
   it('0 is decimal 0', function() {

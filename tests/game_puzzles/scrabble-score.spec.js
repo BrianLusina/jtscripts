@@ -1,4 +1,4 @@
-var score = require('./scrabble-score');
+var score = require('../../jssnips/game_puzzles/scrabble-score/scrabble-score');
 
 describe('Scrabble', function() {
   it('scores an empty word as zero',function() {

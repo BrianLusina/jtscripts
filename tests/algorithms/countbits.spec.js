@@ -1,4 +1,4 @@
-var CountBits = require("./countbits")
+var CountBits = require("../../jssnips/algorithms/binary/count_bits/countbits")
 
 describe("Count Bits Test Suite", function(){
   it("Test One",function(){

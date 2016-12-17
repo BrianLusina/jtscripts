@@ -1,4 +1,4 @@
-var BigInt = require('./big-integer');
+var BigInt = require('../../jssnips/algorithms/grains/big-integer.js');
 
 
 describe('The big-integer module\'s returned object', function () {

@@ -1,9 +1,3 @@
-# Binary
-
-This directory contains Snippets that involve binary calculation.
-
-## Binary
-
 ## Count Bits
 
 Write a function that takes an (unsigned) integer as input, and returns the number of bits that are equal to one in the binary representation of that number.
@@ -12,6 +6,3 @@ Example: The binary representation of 1234 is 10011010010, so the function shoul
 Tags
 
 > ALGORITHMS, BITS, BINARY
-
-## HexToDec
-Write function hexToDec which converts hex number (given as a string) to decimal number.

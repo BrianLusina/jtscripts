@@ -1,4 +1,4 @@
-var HexToDec = require('./hex-to-dec')
+var HexToDec = require('../../jssnips/algorithms/binary/hex_to_dec/hex-to-dec')
 
 describe("Hexadecimal to Decimal", function(){
   it("Test 1", function(){

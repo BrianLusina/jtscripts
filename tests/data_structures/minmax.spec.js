@@ -1,4 +1,4 @@
-var minMax = require('./minmax');
+var minMax = require('../../jssnips/data_structures/arrays/min_max/minmax');
 
 describe("MinMax Test Cases", function(){
     it("Test 1", function(){

@@ -1,4 +1,4 @@
-var ArrayShift = require('./arrayshift');
+var ArrayShift = require('../../jssnips/data_structures/arrays/array_shift/arrayshift');
 
 describe("Array Shift test suite", function(){
     it("Test one", function(){
