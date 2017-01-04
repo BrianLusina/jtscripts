@@ -12,7 +12,9 @@ Exception = require('../../exceptions/Exceptions');
     is_empty checks if the queue is empty
  */
 class Queue{
+
     constructor(size){
+        //super(size);
         this.queue = [];
         this.size = size;
     }
@@ -66,5 +68,4 @@ class Queue{
     }
 }
 
-var queue = new Queue(5);
-console.log(queue.size)
+module.exports = Queue 
