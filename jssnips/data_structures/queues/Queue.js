@@ -1,5 +1,6 @@
-import Exception from '../../exceptions/Exceptions';
+//import Exception from '../../exceptions/Exceptions';
 
+Exception = require('../../exceptions/Exceptions');
 /**
  * Queue Data structure implementation in JavaScript.
  * Methods:
@@ -64,3 +65,6 @@ class Queue{
         return this.queue.length == 0;
     }
 }
+
+var queue = new Queue(5);
+console.log(queue.size)
