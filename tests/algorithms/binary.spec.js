@@ -1,4 +1,4 @@
-var Binary = require('../../jssnips/algorithms/binary/binary.js');
+var Binary = require('../../jssnips/algorithms/binary/binary_first_principles/binaryfirstprinciples.js');
 
 describe('binary', function() {
   it('0 is decimal 0', function() {
