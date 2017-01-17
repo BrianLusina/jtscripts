@@ -1,3 +1,8 @@
+/**
+ * Gets the prime factors for a particular number 
+ * @param number The number for which we are looking for primes
+ * @return A list of prime factors for this number
+*/
 exports.for = function(number){
     var primes = [];
     var candidate = 2;
@@ -12,6 +17,6 @@ exports.for = function(number){
     if(number > 1){
         primes.push(number);
     }
-    
+
     return primes;
 }
