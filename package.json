@@ -5,7 +5,9 @@
   "description": "Small JavaScript Algorithms, snippets and programs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-all": "jasmine-node test/"
+    "test-all": "jasmine-node tests/",
+    "cover": "istanbul cover jasmine-node tests/",
+    "codacy-cover":"istanbul cover jasmine-node tests/ | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,8 @@
   "homepage": "https://github.com/BrianLusina/JS-Snippets#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "codacy-coverage": "^2.0.0",
+    "istanbul": "^0.4.5",
     "jasmine-node": "^1.14.5",
     "mocha": "^3.2.0",
     "sinon": "^1.17.6"
