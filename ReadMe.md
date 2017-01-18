@@ -1,5 +1,7 @@
 # JS Snippets
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b871db59f2544adb906bec4da66cda3a)](https://www.codacy.com/app/BrianLusina/JS-Snippets?utm_source=github.com&utm_medium=referral&utm_content=BrianLusina/JS-Snippets&utm_campaign=badger)
+
 Consists of various JavaScript problems and thei solutions. Of course the solutions are my own, feel free to comment on them and add on to them.
 
 These problems are from various coding challenge sites(Codewars, exercism), some from FreeCode Camp and others are my own.
