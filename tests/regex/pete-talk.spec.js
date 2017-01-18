@@ -1,4 +1,4 @@
-var PeteTalk = require('../../jssnips/data_structures/Regex/PeteTalk/pete-talk')
+// var PeteTalk = require('../../jssnips/data_structures/Regex/PeteTalk/pete-talk')
 
 describe("Pete Talk Tests", function(){
   it("Test 1", function(){

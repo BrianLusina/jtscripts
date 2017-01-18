@@ -3,10 +3,16 @@ language: node_js
 sudo: false
 
 node_js:
-  - 5.7
+  - "6"
+  - "6.1"
+  - "5.11"
+
+before_script:
+  - npm install
 
 script:
-  - "make test"
-  - "./bin/fetch-configlet"
-  - "./bin/configlet ."
+  - npm run test-all
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
