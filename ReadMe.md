@@ -5,6 +5,7 @@
 [![CircleCI](https://circleci.com/gh/BrianLusina/JS-Snippets.svg?style=svg)](https://circleci.com/gh/BrianLusina/JS-Snippets)
 [![codecov](https://codecov.io/gh/BrianLusina/JS-Snippets/branch/master/graph/badge.svg)](https://codecov.io/gh/BrianLusina/JS-Snippets)
 [![david-dm](https://david-dm.org/BrianLusina/JS-Snippets.svg)](https://david-dm.org/BrianLusina/JS-Snippets.svg)
+[![david-dm](https://david-dm.org/BrianLusina/JS-Snippets/dev-status.svg)](https://david-dm.org/BrianLusina/JS-Snippets/dev-status.svg)
 
 
 Consists of various JavaScript problems and thei solutions. Of course the solutions are my own, feel free to comment on them and add on to them.
