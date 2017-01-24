@@ -12,6 +12,7 @@ before_script:
 
 script:
   - npm run test-all
+  - npm run codacy-cover
   - npm run cover
   - codecov
 

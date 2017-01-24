@@ -4,6 +4,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b871db59f2544adb906bec4da66cda3a)](https://www.codacy.com/app/BrianLusina/JS-Snippets?utm_source=github.com&utm_medium=referral&utm_content=BrianLusina/JS-Snippets&utm_campaign=badger)
 [![CircleCI](https://circleci.com/gh/BrianLusina/JS-Snippets.svg?style=svg)](https://circleci.com/gh/BrianLusina/JS-Snippets)
 [![codecov](https://codecov.io/gh/BrianLusina/JS-Snippets/branch/master/graph/badge.svg)](https://codecov.io/gh/BrianLusina/JS-Snippets)
+[![Dependency Status](https://gemnasium.com/badges/github.com/BrianLusina/JS-Snippets.svg)](https://gemnasium.com/github.com/BrianLusina/JS-Snippets)
 [![david-dm](https://david-dm.org/BrianLusina/JS-Snippets.svg)](https://david-dm.org/BrianLusina/JS-Snippets.svg)
 [![david-dm](https://david-dm.org/BrianLusina/JS-Snippets/dev-status.svg)](https://david-dm.org/BrianLusina/JS-Snippets/dev-status.svg)
 

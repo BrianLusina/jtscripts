@@ -1,4 +1,4 @@
-var PopulationGrowth = require('./population')
+var PopulationGrowth = require('../../jssnips/math_numbers/PopulationGrowth/population')
 
 describe("Population Growth Tests", function(){
   it("Test 1", function(){

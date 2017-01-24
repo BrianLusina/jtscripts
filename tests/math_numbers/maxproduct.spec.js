@@ -1,4 +1,4 @@
-var MaxProduct = require('./maxproduct')
+var MaxProduct = require('../../jssnips/math_numbers/ProductOfLargestPair/maxproduct')
 
 describe("Max Product Test Suite", function(){
   it("Test 2", function(){

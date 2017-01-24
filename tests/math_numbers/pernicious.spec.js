@@ -1,4 +1,4 @@
-var Pernicious = require('./pernicious')
+var Pernicious = require('../../jssnips/math_numbers/Pernicious/pernicious')
 
 describe("Pernicious Test suite", function(){
   it("Test 1", function(){

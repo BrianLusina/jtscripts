@@ -1,4 +1,4 @@
-var fibsFizzBuzz = require('./fizzBuzz')
+var fibsFizzBuzz = require('../../jssnips/math_numbers/Fibonacci/Xbonacci/fibFizzBuzz/fizzBuzz')
 
 describe ("Fibonacci's FizzBuzz", function() {
 
