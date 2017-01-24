@@ -9,3 +9,7 @@ dependencies:
 test:
   override:
     - npm run test-all
+    - npm run cover-istanbul
+    - npm run codacy-cover
+    - codecov
+
