@@ -16,9 +16,3 @@ function calculate(string) {
   }
   return res;
 }
-
-function calculate_v2(string) {
-  return eval(string.match(/\d+|lose|gain/g).join("").replace("lose", "-").replace("gain", "+")) 
-}
-
-console.log(calculate_v2("Panda has 48 apples and gains 4"));
