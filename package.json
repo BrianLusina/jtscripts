@@ -4,7 +4,6 @@
   "private": true,
   "description": "Small JavaScript Algorithms, snippets and programs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "test-all": "jasmine-node tests/",
     "cover": "istanbul cover jasmine-node tests/",
     "codacy-cover":"istanbul cover jasmine-node tests/ | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage"

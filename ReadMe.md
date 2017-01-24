@@ -30,7 +30,7 @@ $ jasmine-node tests/
 ```
 > This will run all the tests in the tests/ directory, which is where all tests should live.
 
-Alternatively, you can use `npm run test`, which will do the trick.
+Alternatively, you can use `npm run test-all`, which will do the trick.
 
 You can run coverage with `npm run cover`, which will use [istanbul](https://istanbul.js.org/) for test coverage.
 
