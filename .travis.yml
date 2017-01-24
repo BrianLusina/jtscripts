@@ -12,6 +12,8 @@ before_script:
 
 script:
   - npm run test-all
+  - npm run cover
+  - codecov
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
