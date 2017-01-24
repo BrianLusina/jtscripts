@@ -1,7 +1,7 @@
 # assignments
 ASSIGNMENT ?= ""
 IGNOREDIRS := "^(\.git|docs|bin|node_modules|.idea)$$"
-ASSIGNMENTS = $(shell find ./exercises -maxdepth 1 -mindepth 1 -type d | cut -d'/' -f3 | sort | grep -Ev $(IGNOREDIRS))
+ASSIGNMENTS = $(shell find ./jssnips -maxdepth 1 -mindepth 1 -type d | cut -d'/' -f3 | sort | grep -Ev $(IGNOREDIRS))
 
 # output directories
 TMPDIR ?= "/tmp"

@@ -12,8 +12,8 @@ before_script:
 
 script:
   - npm run test-all
+  - npm run cover-istanbul
   - npm run codacy-cover
-  - npm run cover
   - codecov
 
 after_success:

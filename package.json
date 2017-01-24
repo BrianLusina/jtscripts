@@ -5,8 +5,8 @@
   "description": "Small JavaScript Algorithms, snippets and programs",
   "scripts": {
     "test-all": "jasmine-node tests/",
-    "cover": "istanbul cover jasmine-node tests/",
-    "codacy-cover": "istanbul cover jasmine-node tests/ | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage"
+    "cover-istanbul": "istanbul cover jasmine-node --captureExceptions tests/",
+    "codacy-cover":"./node_modules/.bin/codacy-coverage && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
