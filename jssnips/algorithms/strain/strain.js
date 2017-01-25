@@ -1,5 +1,6 @@
 'use strict';
 let strain = {
+    
     create(array, filter, keepMatches){
         var results = [];
         for(var x = 0;x< array.length; x++){
@@ -19,24 +20,26 @@ let strain = {
         return this.create(array, filter, false);
     }
 }
+module.exports = strain;
 
-module.exports = {
-  strain: function(array, filter, keepMatches) {
-    var results = [];
-    for (var i=0; i < array.length; i++) {
-      var item = array[i];
-      if (filter(item) === keepMatches) {
-        results.push(item);
-      }
-    }
-    return results;
-  },
+// or alternatively
+// module.exports = {
+//   strain: function(array, filter, keepMatches) {
+//     var results = [];
+//     for (var i=0; i < array.length; i++) {
+//       var item = array[i];
+//       if (filter(item) === keepMatches) {
+//         results.push(item);
+//       }
+//     }
+//     return results;
+//   },
 
-  keep: function (array, filter) {
-    return this.strain(array, filter, true);
-  },
+//   keep: function (array, filter) {
+//     return this.strain(array, filter, true);
+//   },
 
-  discard: function (array, filter) {
-    return this.strain(array, filter, false);
-  }
-};
+//   discard: function (array, filter) {
+//     return this.strain(array, filter, false);
+//   }
+// };
