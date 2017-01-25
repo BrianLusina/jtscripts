@@ -6,7 +6,8 @@
   "scripts": {
     "test-all": "jasmine-node tests/",
     "cover-istanbul": "istanbul cover jasmine-node --captureExceptions tests/",
-    "codacy-cover":"codacy-coverage && rm -rf ./coverage"
+    "codacy-cover": "codacy-coverage && rm -rf ./coverage",
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/BrianLusina/JS-Snippets#readme",
   "devDependencies": {
+    "ava": "^0.17.0",
     "chai": "^3.5.0",
     "codacy-coverage": "^2.0.0",
     "codecov": "^1.0.1",
