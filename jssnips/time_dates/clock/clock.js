@@ -7,45 +7,45 @@ const MILLIS_IN_A_MINUTE = 60 * 1000;
 const MILLIS_IN_AN_HOUR = MINUTES_IN_AN_HOUR * MILLIS_IN_A_MINUTE;
 const MILLIS_IN_A_DAY = HOURS_IN_A_DAY * MILLIS_IN_AN_HOUR;
 
-function convertPos(time, maxVal){
-    time %= maxVal;
-    time += maxVal;
-    return time;
+function convertPos(time, maxVal) {
+	time %= maxVal;
+	time += maxVal;
+	return time;
 }
 
-function at(hours, minutes){
-    minutes = minutes || 0;
-    
-    hours = convertPos(hours, HOURS_IN_A_DAY);
-    minutes = convertPos(minutes, MINUTES_IN_A_DAY);
-    
-    var millis = (hours * MILLIS_IN_AN_HOUR) + (minutes * MILLIS_IN_A_MINUTE);
+function at(hours, minutes) {
+	minutes = minutes || 0;
 
-    millis = convertPos(millis, MILLIS_IN_A_DAY);
+	hours = convertPos(hours, HOURS_IN_A_DAY);
+	minutes = convertPos(minutes, MINUTES_IN_A_DAY);
 
-    var clock = {};
-    clock.valueOf = function(){
-        return millis;
-    }
+	var millis = (hours * MILLIS_IN_AN_HOUR) + (minutes * MILLIS_IN_A_MINUTE);
 
-    clock.toString = function(){
-        let time = new Date(millis).toISOString().split("T")[1].split(":");
-        return `${time[0]}:${time[1]}`;
-    }
+	millis = convertPos(millis, MILLIS_IN_A_DAY);
 
-    clock.plus = function(minutes){
-        millis += minutes * MILLIS_IN_A_MINUTE;
-        return clock; 
-    }
+	var clock = {};
+	clock.valueOf = function () {
+		return millis;
+	};
 
-    clock.minus = function(minutes){
-        millis -= minutes * MILLIS_IN_A_MINUTE;
-        return clock;
-    }
+	clock.toString = function () {
+		let time = new Date(millis).toISOString().split('T')[1].split(':');
+		return `${time[0]}:${time[1]}`;
+	};
 
-    clock.equals = function(other){
-        return +clock === +other;
-    }
+	clock.plus = function (minutes) {
+		millis += minutes * MILLIS_IN_A_MINUTE;
+		return clock;
+	};
 
-    return Object.create(clock);
-};
+	clock.minus = function (minutes) {
+		millis -= minutes * MILLIS_IN_A_MINUTE;
+		return clock;
+	};
+
+	clock.equals = function (other) {
+		return Number(clock) === Number(other);
+	};
+
+	return Object.create(clock);
+}

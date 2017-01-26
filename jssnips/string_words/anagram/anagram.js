@@ -1,4 +1,4 @@
-var Prime = new require("../../math_numbers/Primes/Primes");
+var Prime = new require('../../math_numbers/Primes/Primes');
 
 /**
  * An key, value map of characters to unique prime numbers.
@@ -6,41 +6,41 @@ var Prime = new require("../../math_numbers/Primes/Primes");
  * @type {Object}
  */
 var primeMap = (function () {
-  var map = {};
-  var primes = [
-    2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67,
-    71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149,
-    151, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233,
-    239, 241
-  ];
+	var map = {};
+	var primes = [
+		2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67,
+		71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149,
+		151, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233,
+		239, 241
+	];
 
-  var alphabet = [
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
-    'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D',
-    'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
-    'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-  ];
+	var alphabet = [
+		'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+		'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D',
+		'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+		'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+	];
 
   // Merge the primes and alphabet together, using the letters as keys.
-  alphabet.forEach(function (letter, index) {
-    map[letter] = primes[index];
-  });
+	alphabet.forEach(function (letter, index) {
+		map[letter] = primes[index];
+	});
 
-  return map;
+	return map;
 })();
 
 /**
 Generates ascii letters a-z and A-Z will be used for mapping letters to prime numbers
  */
-var asciiLetters = (function(){
-    var myArray = [];
-    for (let i = 65; i <= 122; i++) {
-        let letter = String.fromCharCode(i);
-        if(letter.match(/[A-Za-z]/gi)){
-            myArray.push(letter);
-        }
-    }
-    return myArray;
+var asciiLetters = (function () {
+	var myArray = [];
+	for (let i = 65; i <= 122; i++) {
+		let letter = String.fromCharCode(i);
+		if (letter.match(/[A-Za-z]/gi)) {
+			myArray.push(letter);
+		}
+	}
+	return myArray;
 })();
 
 /**
@@ -50,9 +50,9 @@ var asciiLetters = (function(){
  * @return {Number}
  */
 var hash = function (str) {
-  return str.split('').reduce(function (memo, char) {
-    return memo * primeMap[char];
-  }, 1);
+	return str.split('').reduce(function (memo, char) {
+		return memo * primeMap[char];
+	}, 1);
 };
 
 /**
@@ -64,27 +64,27 @@ var hash = function (str) {
  * @return {Number}
  */
 module.exports = function (parent, child) {
-  var found   = 0;
+	var found = 0;
 
   // Safety first, confirm that the child is actually smaller than the parent.
-  if (parent.length < child.length) {
-    return found;
-  }
+	if (parent.length < child.length) {
+		return found;
+	}
 
-  var value   = hash(parent.substr(0, child.length));
-  var anagram = hash(child);
+	var value = hash(parent.substr(0, child.length));
+	var anagram = hash(child);
 
   // Iterate over all substring possibilities and check the hash values.
-  for (var i = child.length; i <= parent.length; i++) {
-    if (value === anagram) {
-      found += 1;
-    }
+	for (var i = child.length; i <= parent.length; i++) {
+		if (value === anagram) {
+			found += 1;
+		}
 
     // Instead of naively hashing every substring, we can just recompute the
     // changed characters.
-    value *= primeMap[parent[i]];
-    value /= primeMap[parent[i - child.length]];
-  }
+		value *= primeMap[parent[i]];
+		value /= primeMap[parent[i - child.length]];
+	}
 
-  return found;
+	return found;
 };

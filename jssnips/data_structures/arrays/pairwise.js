@@ -15,16 +15,16 @@ Below we'll take their corresponding indices and add them.
 */
 
 function pairwise(arr, arg) {
-    var sum =0;
-    for(x = 0; x< arr.length;x++){
-      for(i = x+1;i<arr.length;i++){
-          if(arr[x] + arr[i] === arg){
-              sum += i+x;
-              arr[x] = arr[i] = NaN;
-          }     
-      }
-  }
-    return sum;
+	var sum = 0;
+	for (x = 0; x < arr.length; x++) {
+		for (i = x + 1; i < arr.length; i++) {
+			if (arr[x] + arr[i] === arg) {
+				sum += i + x;
+				arr[x] = arr[i] = NaN;
+			}
+		}
+	}
+	return sum;
 }
 
 console.log(pairwise([1, 4, 2, 3, 0, 5], 7));// should return 11.

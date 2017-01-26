@@ -2,11 +2,12 @@
 var fs = require('fs');
 
 // store the file contents in a var buffer and convert to string
-var buffer = fs.readFileSync(process.argv[2]), contents = buffer.toString();
+var buffer = fs.readFileSync(process.argv[2]),
+	contents = buffer.toString();
 
-var c = contents.split("\n").length-1;
+var c = contents.split('\n').length - 1;
 
-console.log(c)
+console.log(c);
 
 // Alternatively
 /**
@@ -19,5 +20,5 @@ var fs = require('fs')
     // note you can avoid the .toString() by passing 'utf8' as the
     // second argument to readFileSync, then you'll get a String!
     //
-    // fs.readFileSync(process.argv[2], 'utf8').split('\n').length - 1  
+    // fs.readFileSync(process.argv[2], 'utf8').split('\n').length - 1
 */

@@ -15,85 +15,90 @@ makeFriendlyDates(["2016-07-01", "2016-07-04"]) should return ["July 1st","4th"]
 
 makeFriendlyDates(["2016-07-01", "2018-07-04"]) should return ["July 1st, 2016", "July 4th, 2018"].
 */
-function dayFormatter(d1,d2){
-    /*1st, 2nd, 3rd, 4th-20th, 21st,22nd,23rd,, 24th-30th, 31st*/
+function dayFormatter(d1, d2) {
+    /* 1st, 2nd, 3rd, 4th-20th, 21st,22nd,23rd,, 24th-30th, 31st */
 	var datesArr = [];
-    d1 = String(parseInt(d1)); d2 = String(parseInt(d2));
-    var regexSt = /(^1$)|(^21$)|(^31$)/gi, regexNd = /(^2$)|(^22$)/gi, regexRd = /(^3$)|(^23$)/gi;
-    /*Checking for day one*/
-    if(d1.match(regexSt)){
-        datesArr.push(d1+"st");
-    }else if(d1.match(regexNd)){
-		datesArr.push(d1+"nd");
-    }else if(d1.match(regexRd)){
-        datesArr.push(d1+"rd");
-    }else{
-        datesArr.push(d1+"th");
-    }
-    
-    /*Checking for day 2*/    
-    if(d2.match(regexSt)){
-        datesArr.push(d2+"st");
-    }else if(d2.match(regexNd)){
-        datesArr.push(d2+"nd");
-    }else if(d2.match(regexRd)){
-        datesArr.push(d2+"rd");
-    }else{
-        datesArr.push(d2+"th");
-    }
-    return datesArr;
+	d1 = String(parseInt(d1)); d2 = String(parseInt(d2));
+	var regexSt = /(^1$)|(^21$)|(^31$)/gi,
+		regexNd = /(^2$)|(^22$)/gi,
+		regexRd = /(^3$)|(^23$)/gi;
+    /* Checking for day one */
+	if (d1.match(regexSt)) {
+		datesArr.push(d1 + 'st');
+	} else if (d1.match(regexNd)) {
+		datesArr.push(d1 + 'nd');
+	} else if (d1.match(regexRd)) {
+		datesArr.push(d1 + 'rd');
+	} else {
+		datesArr.push(d1 + 'th');
+	}
+
+    /* Checking for day 2 */
+	if (d2.match(regexSt)) {
+		datesArr.push(d2 + 'st');
+	} else if (d2.match(regexNd)) {
+		datesArr.push(d2 + 'nd');
+	} else if (d2.match(regexRd)) {
+		datesArr.push(d2 + 'rd');
+	} else {
+		datesArr.push(d2 + 'th');
+	}
+	return datesArr;
 }
 
 function makeFriendlyDates(arr) {
-    'use strict';
-    var months =["January","February","March","April","May","June","July","August","September","October","November","December"];
-    var yr1 = parseInt(arr[0].substr(0,4)), yr2 = parseInt(arr[1].substr(0,4));
-    var mth1 = parseInt(arr[0].substr(5,2)), mth2 = parseInt(arr[1].substr(5,2));
-    var dy1 = arr[0].substr(-2), dy2 = arr[1].substr(-2);
-    
-    var days = dayFormatter(dy1, dy2); 
-    
-    var date1 = months[mth1-1] + " " + days[0];
-    var date2 = months[mth2-1] + " " + days[1];
-    
-    
-    /*Dates are the same*/
-    if(arr[0] === arr[1]){
-        return [date1 +" " + yr1];
-    }
-    /*1. evaluating the year, if the difference btwn yr1 and yr2,mth1 and mth2 is 0, do not add the year to the result*/
-    else if ((yr1 - yr2) === 0){
-        if(months[mth1-1] === months[mth2-1]){
-            return [date1,days[1]];
-        }else{
-            return [date1 + ", " + yr1, date2];
-        }
-    }
-    /*the years are not the same,but the diff is 1, meaning the diff is within a year*/
-    else if((yr2 - yr1) === 1){
-        if(months[mth1-1] !== months[mth2-1])
-            return [date1, date2];
-        /*the diff btwn the years is 1, but the months are the same, thus 1 whole year apart*/
-        else if(months[mth1-1] === months[mth2-1] && days[0] === days[1])
-            return [date1 + ", " + yr1, date2  + ", " + yr2];
-        else
-            return [date1 + ", " + yr1, date2];
-    }
-    else{
-        return [date1+ ", "+ yr1 ,date2+ ", " +yr2];
-    }
+	'use strict';
+	var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	var yr1 = parseInt(arr[0].substr(0, 4)),
+		yr2 = parseInt(arr[1].substr(0, 4));
+	var mth1 = parseInt(arr[0].substr(5, 2)),
+		mth2 = parseInt(arr[1].substr(5, 2));
+	var dy1 = arr[0].substr(-2),
+		dy2 = arr[1].substr(-2);
+
+	var days = dayFormatter(dy1, dy2);
+
+	var date1 = months[mth1 - 1] + ' ' + days[0];
+	var date2 = months[mth2 - 1] + ' ' + days[1];
+
+    /* Dates are the same */
+	if (arr[0] === arr[1]) {
+		return [date1 + ' ' + yr1];
+	}
+    /* 1. evaluating the year, if the difference btwn yr1 and yr2,mth1 and mth2 is 0, do not add the year to the result */
+	else if ((yr1 - yr2) === 0) {
+		if (months[mth1 - 1] === months[mth2 - 1]) {
+			return [date1, days[1]];
+		} else {
+			return [date1 + ', ' + yr1, date2];
+		}
+	}
+    /* the years are not the same,but the diff is 1, meaning the diff is within a year */
+	else if ((yr2 - yr1) === 1) {
+		if (months[mth1 - 1] !== months[mth2 - 1]) {
+			return [date1, date2];
+		}
+        /* the diff btwn the years is 1, but the months are the same, thus 1 whole year apart */
+		else if (months[mth1 - 1] === months[mth2 - 1] && days[0] === days[1]) {
+			return [date1 + ', ' + yr1, date2 + ', ' + yr2];
+		}		else {
+			return [date1 + ', ' + yr1, date2];
+		}
+	}	else {
+		return [date1 + ', ' + yr1, date2 + ', ' + yr2];
+	}
 }
-document.write(makeFriendlyDates(['2016-07-01', '2016-07-04']));//["July 1st","4th"]
+document.write(makeFriendlyDates(['2016-07-01', '2016-07-04']));// ["July 1st","4th"]
 document.write('<br>');
-document.write(makeFriendlyDates(["2016-12-01", "2017-02-03"]));//["December 1st","February 3rd"].
+document.write(makeFriendlyDates(['2016-12-01', '2017-02-03']));// ["December 1st","February 3rd"].
 document.write('<br>');
-document.write(makeFriendlyDates(["2016-12-01", "2018-02-03"]));//["December 1st, 2016","February 3rd, 2018"].
+document.write(makeFriendlyDates(['2016-12-01', '2018-02-03']));// ["December 1st, 2016","February 3rd, 2018"].
 document.write('<br>');
-document.write(makeFriendlyDates(["2017-03-01", "2017-05-05"]));//["March 1st, 2017","May 5th"]
+document.write(makeFriendlyDates(['2017-03-01', '2017-05-05']));// ["March 1st, 2017","May 5th"]
 document.write('<br>');
-document.write(makeFriendlyDates(["2018-01-13", "2018-01-13"]));//["January 13th, 2018"].
+document.write(makeFriendlyDates(['2018-01-13', '2018-01-13']));// ["January 13th, 2018"].
 document.write('<br>');
-document.write(makeFriendlyDates(["2022-09-05", "2023-09-04"]));//["September 5th, 2022","September 4th"].
+document.write(makeFriendlyDates(['2022-09-05', '2023-09-04']));// ["September 5th, 2022","September 4th"].
 document.write('<br>');
-document.write(makeFriendlyDates(["2022-09-05", "2023-09-05"]));//["September 5th, 2022","September 5th, 2023"]
+document.write(makeFriendlyDates(['2022-09-05', '2023-09-05']));// ["September 5th, 2022","September 5th, 2023"]
 document.write('<br>');

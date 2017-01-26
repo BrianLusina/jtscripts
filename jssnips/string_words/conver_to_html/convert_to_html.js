@@ -1,14 +1,14 @@
 function convertHTML(str) {
-  var charHTMLlist = {
-    "&" : "&amp;",
-    "<" : "&lt;",
-    ">" : "&gt;",
-    '"' : "&quot;",
-    "'" : "&apos;"
-  }
+	var charHTMLlist = {
+		'&': '&amp;',
+		'<': '&lt;',
+		'>': '&gt;',
+		'"': '&quot;',
+		'\'': '&apos;'
+	};
 
-  function charMapper(char){
+	function charMapper(char) {
   	return charHTMLlist[char];
-  }
-  return str.replace(/&|<|>|"|'/gi,charMapper);
+	}
+	return str.replace(/&|<|>|"|'/gi, charMapper);
 }

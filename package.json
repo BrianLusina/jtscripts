@@ -7,7 +7,7 @@
     "test-all": "jasmine-node tests/",
     "cover-istanbul": "istanbul cover jasmine-node --captureExceptions tests/",
     "codacy-cover": "codacy-coverage && rm -rf ./coverage",
-    "test": "ava"
+    "test": "xo && ava"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,8 @@
     "istanbul": "^0.4.5",
     "jasmine-node": "^1.14.5",
     "mocha": "^3.2.0",
-    "sinon": "^1.17.6"
+    "sinon": "^1.17.6",
+    "xo": "^0.17.1"
   },
   "dependencies": {
     "standard": "^8.6.0"

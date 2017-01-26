@@ -1,7 +1,7 @@
-var TimeDegrees = function(){}
+var TimeDegrees = function () {};
 
-TimeDegrees.prototype.clock_degree= function(timeStr){
+TimeDegrees.prototype.clock_degree = function (timeStr) {
 
-}
+};
 
-module.exports = TimeDegrees
+module.exports = TimeDegrees;
