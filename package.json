@@ -6,7 +6,7 @@
   "scripts": {
     "test-all": "jasmine-node tests/",
     "cover-istanbul": "istanbul cover jasmine-node --captureExceptions tests/",
-    "codacy-cover": "codacy-coverage && rm -rf ./coverage",
+    "cover":"istanbul cover jasmine-node --captureExceptions tests/ && ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
     "test": "xo && ava"
   },
   "repository": {

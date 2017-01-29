@@ -4,7 +4,7 @@ function Binary(binary) {
 
 // return the number to base 10
 Binary.prototype.toDecimal = function () {
-	let num = Number(this.binary.toString(10));
+	var num = Number(this.binary.toString(10));
 	return isNaN(num) ? 0 : num;
 };
 
