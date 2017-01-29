@@ -27,6 +27,17 @@ things based on word boundaries.
 - Decoding `gvhg` gives `test`
 - Decoding `gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt` gives `The quick brown fox jumps over the lazy dog.`
 
+You are expected to create `encode` function which will take in a string and encode it using atbash cipher
+
+``` javascript
+encode('Truth is fiction.'
+'gifgs rhurx grlm'
+
+encode('The quick brown fox jumps over the lazy dog.')
+'gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt'
+```
+
+
 ## Source
 
 Wikipedia [http://en.wikipedia.org/wiki/Atbash](http://en.wikipedia.org/wiki/Atbash)
