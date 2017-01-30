@@ -10,6 +10,7 @@
 [![david-dm](https://david-dm.org/BrianLusina/JS-Snippets/dev-status.svg)](https://david-dm.org/BrianLusina/JS-Snippets/dev-status.svg)
 [![Dependency Status](https://dependencyci.com/github/BrianLusina/JS-Snippets/badge)](https://dependencyci.com/github/BrianLusina/JS-Snippets)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
 
 Consists of various JavaScript problems and thei solutions. Of course the solutions are my own, feel free to comment on them and add on to them.
 These problems are from various coding challenge sites(Codewars, exercism), some from FreeCode Camp and others are my own.
@@ -38,7 +39,6 @@ Alternatively, you can use `npm run test-all`, which will do the trick.
 You can run coverage with `npm run cover`, which will use [istanbul](https://istanbul.js.org/) for test coverage.
 
 
+### Coverage
 
-
-
-
+![](https://codecov.io/gh/BrianLusina/JS-Snippets/commit/f78176fbb6fd42f5c59bda62d8c616431c73c598/graphs/sunburst.svg)
