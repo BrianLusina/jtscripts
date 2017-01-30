@@ -8,7 +8,8 @@
 [![Dependency Status](https://gemnasium.com/badges/github.com/BrianLusina/JS-Snippets.svg)](https://gemnasium.com/github.com/BrianLusina/JS-Snippets)
 [![david-dm](https://david-dm.org/BrianLusina/JS-Snippets.svg)](https://david-dm.org/BrianLusina/JS-Snippets.svg)
 [![david-dm](https://david-dm.org/BrianLusina/JS-Snippets/dev-status.svg)](https://david-dm.org/BrianLusina/JS-Snippets/dev-status.svg)
-
+[![Dependency Status](https://dependencyci.com/github/BrianLusina/JS-Snippets/badge)](https://dependencyci.com/github/BrianLusina/JS-Snippets)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 Consists of various JavaScript problems and thei solutions. Of course the solutions are my own, feel free to comment on them and add on to them.
 These problems are from various coding challenge sites(Codewars, exercism), some from FreeCode Camp and others are my own.
