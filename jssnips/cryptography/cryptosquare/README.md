@@ -68,6 +68,9 @@ aohghn
 sseoau
 ```
 
+You are expected to create 4 functions: `normalizePlaintext`, `ciphertext`, `size` and `plaintextSegments`
+
+```
 ## Source
 
 J Dalbey's Programming Practice problems [http://users.csc.calpoly.edu/~jdalbey/103/Projects/ProgrammingPractice.html](http://users.csc.calpoly.edu/~jdalbey/103/Projects/ProgrammingPractice.html)
