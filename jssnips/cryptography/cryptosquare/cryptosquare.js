@@ -1,3 +1,5 @@
+"use-strict";
+
 class Crypto{
     constructor(phrase){
         this.phrase = phrase;
@@ -8,6 +10,13 @@ class Crypto{
      * from the text*/
     normalizePlaintext() {
         return this.phrase.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+    }
+
+    /**Normalizes the cipher text */
+    normalizeCipherText(){
+        var chunks = this.size();
+        var reg = new RegExp(".{1"+ chunks + "}", "g");
+        return this.ciphertext.match(reg).join(" ");
     }
 
     /**
@@ -32,10 +41,37 @@ class Crypto{
     }
 
     /**
-     * 
+     * Makes a cipher from the plain text segments
+     * Adds columns which will be used to add letters from the text segments 
      */
     ciphertext() {
+        var textSegments = this.plaintextSegments();
+        var columns = [], currentLetter, currentSegment;
+        var i, j;
 
+        // add columns based on the length of the text segments
+        for(i = 0;i < this.size(); i++){
+            columns.push([]);
+        }
+
+        // for each text segment, get a letter and push to a column
+        for(i = 0; i < textSegments.length; i++){
+            currentSegment = textSegments[i];
+
+            for(j = 0; j < columns.length; j++){
+                currentLetter = currentSegment[j];
+                columns[j].push(currentLetter);
+            }
+        }
+
+        // for each column, join the letters for form one word, and reassign the column to become
+        // a word, so each column is a word, instead of an array of letters
+        for(i = 0; i < columns.length; i++){
+            columns[i] = columns[i].join("");
+        }
+
+        // return the columns
+        return columns.join("");
     }
 }
 
