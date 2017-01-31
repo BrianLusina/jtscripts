@@ -1,30 +1,26 @@
-module.exports = {
-    Crypto(phrase){
+class Crypto{
+    constructor(phrase){
         this.phrase = phrase;
-    },
+    }
 
     /**
      * Remove all numbers, symbols, spaces and punctuation
      * from the text*/
-    normalizePlainText(){
-        var output = [];
-        for(var l = 0; l < this.phrase.length; l++){
-            if(this.phrase[l].match(/[a-zA-Z]/)){
-                output.push(this.phrase[l]);
-            }
-        }
-        return output.join("");
-    },
+    normalizePlaintext() {
+        return this.phrase.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+    }
 
-    size(){
+    size() {
 
-    },
+    }
 
-    plaintextSegments(){
+    plaintextSegments() {
 
-    },
+    }
 
-    cipherText(){
+    cipherText() {
 
     }
 }
+
+module.exports = Crypto;
