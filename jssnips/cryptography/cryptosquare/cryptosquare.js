@@ -19,11 +19,22 @@ class Crypto{
         return Math.ceil(len);
     }
 
+    /**splits the normalized plain text into segments
+     * by the given size
+     * Will group the text segments into chunks according to the length of the normalized text
+     */
     plaintextSegments() {
+        let plainText = this.normalizePlaintext();
+        let chunks = this.size();
+        let reg = new RegExp(".{1," + chunks + "}", "g");
 
+        return plainText.match(reg);
     }
 
-    cipherText() {
+    /**
+     * 
+     */
+    ciphertext() {
 
     }
 }
