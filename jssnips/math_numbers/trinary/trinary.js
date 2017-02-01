@@ -16,7 +16,7 @@ class Trinary{
         if(!this.number.match(num)){
             return 0;
         }
-        
+
         // split and reverse the array of numbers
         var list = this.number.split("").reverse();
         var sum = 0;
@@ -28,3 +28,18 @@ class Trinary{
 }
 
 module.exports = Trinary;
+
+var BASE = 3;
+
+function Trinary_2(decimal) {
+  this.digits = decimal.split('').reverse().map(Number);
+}
+
+Trinary_2.prototype.toDecimal = function() {
+  var decimal = this.digits.reduce(this.accumulator, 0);
+  return isNaN(decimal) ? 0 : decimal;
+};
+
+Trinary_2.prototype.accumulator = function(decimal, digit, index) {
+  return decimal += digit * Math.pow(BASE, index);
+};
