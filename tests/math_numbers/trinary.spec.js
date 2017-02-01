@@ -1,4 +1,4 @@
-var Trinary = require('../jssnips/math_numbers/trinary/trinary');
+var Trinary = require('../../jssnips/math_numbers/trinary/trinary');
 
 describe('Trinary', function () {
 
