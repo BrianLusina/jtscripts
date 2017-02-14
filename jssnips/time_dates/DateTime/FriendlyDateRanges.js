@@ -88,17 +88,17 @@ function makeFriendlyDates(arr) {
 		return [date1 + ', ' + yr1, date2 + ', ' + yr2];
 	}
 }
-document.write(makeFriendlyDates(['2016-07-01', '2016-07-04']));// ["July 1st","4th"]
-document.write('<br>');
-document.write(makeFriendlyDates(['2016-12-01', '2017-02-03']));// ["December 1st","February 3rd"].
-document.write('<br>');
-document.write(makeFriendlyDates(['2016-12-01', '2018-02-03']));// ["December 1st, 2016","February 3rd, 2018"].
-document.write('<br>');
-document.write(makeFriendlyDates(['2017-03-01', '2017-05-05']));// ["March 1st, 2017","May 5th"]
-document.write('<br>');
-document.write(makeFriendlyDates(['2018-01-13', '2018-01-13']));// ["January 13th, 2018"].
-document.write('<br>');
-document.write(makeFriendlyDates(['2022-09-05', '2023-09-04']));// ["September 5th, 2022","September 4th"].
-document.write('<br>');
-document.write(makeFriendlyDates(['2022-09-05', '2023-09-05']));// ["September 5th, 2022","September 5th, 2023"]
-document.write('<br>');
+// document.write(makeFriendlyDates(['2016-07-01', '2016-07-04']));// ["July 1st","4th"]
+// document.write('<br>');
+// document.write(makeFriendlyDates(['2016-12-01', '2017-02-03']));// ["December 1st","February 3rd"].
+// document.write('<br>');
+// document.write(makeFriendlyDates(['2016-12-01', '2018-02-03']));// ["December 1st, 2016","February 3rd, 2018"].
+// document.write('<br>');
+// document.write(makeFriendlyDates(['2017-03-01', '2017-05-05']));// ["March 1st, 2017","May 5th"]
+// document.write('<br>');
+// document.write(makeFriendlyDates(['2018-01-13', '2018-01-13']));// ["January 13th, 2018"].
+// document.write('<br>');
+// document.write(makeFriendlyDates(['2022-09-05', '2023-09-04']));// ["September 5th, 2022","September 4th"].
+// document.write('<br>');
+// document.write(makeFriendlyDates(['2022-09-05', '2023-09-05']));// ["September 5th, 2022","September 5th, 2023"]
+// document.write('<br>');
