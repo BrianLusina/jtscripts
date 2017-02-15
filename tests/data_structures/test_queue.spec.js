@@ -1,5 +1,4 @@
-// import Queue from '../../jssnips/data_structures/queues/Queue';
-require('../../jssnips/data_structures/queues/Queue');
+var Queue = require('../../jssnips/data_structures/queues/Queue');
 
 describe('Queue Tests', () => {
 	it('Test if Queue enqueue', () => {

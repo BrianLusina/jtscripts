@@ -1,6 +1,4 @@
-// import Exception from '../../exceptions/Exceptions';
-
-Exception = require('../../exceptions/Exceptions');
+var Exception = require('../../jssnips/exceptions/Exceptions');
 /**
  * Queue Data structure implementation in JavaScript.
  * Methods:
