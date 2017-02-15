@@ -1,7 +1,7 @@
 function coinToss(n) {
     // check if the parameter is valid
-	if (!(n instanceof Number)) {
-		throw `Invalid parameter $n`;
+	if (n instanceof String) {
+		throw `Invalid parameter ${n}`;
 	}
 
     // counter variable to represent each toss

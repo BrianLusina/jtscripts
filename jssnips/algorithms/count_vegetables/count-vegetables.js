@@ -9,6 +9,8 @@ function countVegetables(string) {
 			if (arr[x] === veggies[y]) {
 				if (obj.hasOwnProperty(veggies[y])) {
 					obj.veggies[y] = counter++;
+				}else{
+					obj.veggies[y] = counter;
 				}
 			}
 		}
