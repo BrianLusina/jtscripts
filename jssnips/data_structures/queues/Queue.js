@@ -1,4 +1,7 @@
-var Exception = require('../../jssnips/exceptions/Exceptions');
+var Exception = require('../../exceptions/Exceptions');
+
+// test.todo('check on queue');
+
 /**
  * Queue Data structure implementation in JavaScript.
  * Methods:
@@ -21,11 +24,12 @@ class Queue {
      * Checks if the item is full before adding an item to the queue
     */
 	enqueue(item) {
-		if (!this.is_full) {
-			this.queue.push(item);
-		} else {
-			throw new Exception('QueueFull', 'Queue if currently full.');
-		}
+		this.queue.push(item);
+		// if (this.is_full) {
+		// 	throw new Exception('QueueFull', 'Queue is currently full.');
+		// } else {
+		// 	this.queue.push(item);
+		// }
 	}
 
     /** Removes an item from the front of the queue and returns it
@@ -48,21 +52,22 @@ class Queue {
      * Will first check if there are items in the queue before peeking
     */
 	peek() {
-		if (this.is_empty) {
-			throw new Exception('QueueEmpty', 'Queue is currently empty');
-		} else {
-			return this.queue[0];
-		}
+		return this.queue[0];
+		// if (this.is_empty) {
+		// 	throw new Exception('QueueEmpty', 'Queue is currently empty');
+		// } else {
+		// 	return this.queue[0];
+		// }
 	}
 
     //* *Checks if the queue is full */
 	is_full() {
-		return this.queue.length == this.size;
+		return this.queue.length === this.size;
 	}
 
     /** checks if a the queue is empty */
 	is_empty() {
-		return this.queue.length == 0;
+		return this.queue.length === 0;
 	}
 }
 

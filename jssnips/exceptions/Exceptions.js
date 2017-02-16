@@ -5,3 +5,5 @@ class Exception {
 		this.name = name;
 	}
 }
+
+module.exports = Exception;
