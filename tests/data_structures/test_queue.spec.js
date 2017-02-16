@@ -1,4 +1,5 @@
 var Queue = require('../../jssnips/data_structures/queues/Queue');
+var expect = require("expect");
 
 describe('Queue Tests', () => {
 	it('Test if Queue enqueue', () => {
