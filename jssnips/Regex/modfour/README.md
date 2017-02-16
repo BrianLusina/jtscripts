@@ -1,4 +1,3 @@
-/*
 Description:
 
 NOTE: This kata requires a decent knowledge of Regular Expressions. As such, it's best to learn about it before tackling this kata. Some good places to start are: the MDN pages, and Regular-Expressions.info.
@@ -24,4 +23,3 @@ So here are some examples:
 "No, [2014] isn't a multiple of 4..."  // 2014 is invalid
 "...may be [+002016] will be." // 2016 is valid
 NOTE: Only Mod4.test(str) will be used, so your expression will just need make a match of some kind.
-*/

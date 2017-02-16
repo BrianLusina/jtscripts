@@ -14,12 +14,13 @@ module.exports = function fibsFizzBuzz(num) {
 	}
 
 	return fib.map(function (elem) {
+		if (elem % 5 == 0 && elem % 3 == 0) {
+			elem = 'FizzBuzz';
+		}
 		if (elem % 3 == 0) {
 			elem = 'Fizz';
 		}	else if (elem % 5 == 0) {
 			elem = 'Buzz';
-		}	else if (elem % 5 == 0 && elem % 3 == 0) {
-			elem = 'FizzBuzz';
 		}
 		return elem;
 	});

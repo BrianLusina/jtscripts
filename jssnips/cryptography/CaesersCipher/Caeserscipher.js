@@ -20,11 +20,7 @@ function rot13(str) {
 	}
 	return codes.join('');
 }
-var str = 'Brian';
-console.log(str.charCodeAt(0));
-// Change the inputs below to test
-console.log(rot13('SERR PBQR PNZC'));
-console.log(rot13('LBH QVQ VG!'));
+
 /* short implementation of rot13 */
 function rot13(str) {
 	return str.replace(/[A-Z]/gi, function (c) {
