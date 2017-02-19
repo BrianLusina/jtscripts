@@ -1,7 +1,7 @@
 function total_characters(wordArray) {
     // check if parameter is a valid array/ or is an array
 	if (!(wordArray instanceof Array)) {
-		throw new TypeError(`Invalid parameter $wordArray`);
+		throw new TypeError(`Invalid parameter ${wordArray}`);
 	}
 
     // create a variable that will have initial total set to 0
