@@ -18,6 +18,6 @@ describe('Duplicate Encode Test Suite', function () {
 
 	it('Test 4', function () {
 		var dup = new DuplicateEncode();
-		expect(dup.duplicateencode('(( @")')).toEqual('))((');
+		expect(dup.duplicateencode('(( @")')).toEqual('))((((');
 	});
 });

@@ -5,23 +5,17 @@ Create an object that will act as a counter, containing the count of each letter
 loop through each letter in the word, comparing it to the counter object
 */
 DuplicateEncode.prototype.duplicateencode = function (word) {
-	var letterCount = 1,
-		counter = {},
-		out = '',
-		word = word.toLowerCase();
-	for (var x = 0; x < word.length; x++) {
-		counter[word[x]] = (!counter.hasOwnProperty(word[x])) ? letterCount : letterCount++;
-	}
+	var charMap = {},
+		charArray = word.toLowerCase().split("");
+	
+	// check if each character is in the object and increase its count if found
+	charArray.forEach(function(char){
+		!charMap[char] ? charMap[char] = 1: charMap[char]++
+	});
 
-	var n = 0;
-	while (n < word.length) {
-		for (var y in counter) {
-			console.log(y, word.charAt(n));
-			out += (counter[word.charAt(n)] > 1) ? ')' : '(';
-			n++;
-		}
-	}
-
-	return out;
+	// for each character in the array, check if its count is 1 and replace it with a new character
+	return charArray.map(function(char){
+		return charMap[char] === 1 ? "(" : ")";
+	}).join("");
 };
 module.exports = DuplicateEncode;

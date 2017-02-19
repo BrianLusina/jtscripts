@@ -1,6 +1,7 @@
 var TimeDegrees = function () {};
 
-TimeDegrees.prototype.clock_degree = function (timeStr) {
+//TODO: implement clock degree
+TimeDegrees.prototype.clockDegree = function (timeStr) {
 
 };
 
