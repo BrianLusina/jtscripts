@@ -37,8 +37,3 @@ $ jasmine-node tests/
 Alternatively, you can use `npm run test-all`, which will do the trick.
 
 You can run coverage with `npm run cover`, which will use [istanbul](https://istanbul.js.org/) for test coverage.
-
-
-### Coverage
-
-![](https://codecov.io/gh/BrianLusina/JS-Snippets/commit/f78176fbb6fd42f5c59bda62d8c616431c73c598/graphs/sunburst.svg)
