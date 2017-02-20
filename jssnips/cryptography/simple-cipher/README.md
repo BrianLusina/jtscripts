@@ -27,7 +27,8 @@ This image is a great example of the Caesar Cipher: ![Caesar Cipher][1]
 
 For example:
 
-Giving "iamapandabear" as input to the encode function returns the cipher "ldpdsdqgdehdu". Obscure enough to keep our message secret in transit.
+Giving "iamapandabear" as input to the encode function returns the cipher "ldpdsdqgdehdu". 
+Obscure enough to keep our message secret in transit.
 
 When "ldpdsdqgdehdu" is put into the decode function it would return
 the original "iamapandabear" letting your friend read your original
@@ -81,28 +82,7 @@ on Wikipedia][dh] for one of the first implementations of this scheme.
 [1]: http://upload.wikimedia.org/wikipedia/en/7/75/Caesar3.png
 [dh]: http://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange
 
-## Setup
-
-Go through the setup instructions for JavaScript to
-install the necessary dependencies:
-
-http://exercism.io/languages/javascript
-
-## Making the Test Suite Pass
-
-Execute the tests with:
-
-    jasmine-node .
-
-In many test suites all but the first test have been skipped.
-
-Once you get a test passing, you can unskip the next one by
-changing `xit` to `it`.
-
 ## Source
 
 Substitution Cipher at Wikipedia [http://en.wikipedia.org/wiki/Substitution_cipher](http://en.wikipedia.org/wiki/Substitution_cipher)
-
-## Submitting Incomplete Problems
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
 
