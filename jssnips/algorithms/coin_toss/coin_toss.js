@@ -25,7 +25,7 @@ function coinToss(n) {
 		tossCount += 1;
 	}
 
-	return headCount;
+	return {H: headCount, T: tailCount};
 }
 
 module.exports = coinToss;
