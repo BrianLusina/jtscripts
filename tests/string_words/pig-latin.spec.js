@@ -2,7 +2,7 @@
  * Created by lusinabrian on 27/02/17.
  */
 
-var pigLatin = require('../jssnips/string_words/pig-latin/pig-latin.js');
+var pigLatin = require('../../jssnips/string_words/pig-latin/pig-latin.js');
 
 describe('pigLatin', function () {
 
@@ -10,45 +10,69 @@ describe('pigLatin', function () {
     expect(pigLatin.translate('apple')).toEqual('appleay');
   });
 
-  xit('translates a word beginning with e', function () {
+  it('translates a word beginning with e', function () {
     expect(pigLatin.translate('ear')).toEqual('earay');
   });
 
-  xit('translates a word beginning with p', function () {
+  it('translates a word beginning with p', function () {
     expect(pigLatin.translate('pig')).toEqual('igpay');
   });
 
-  xit('translates a word beginning with k', function () {
+  it('translates a word beginning with k', function () {
     expect(pigLatin.translate('koala')).toEqual('oalakay');
   });
 
-  xit('translates a word beginning with ch', function () {
+  it('translates a word beginning with ch', function () {
     expect(pigLatin.translate('chair')).toEqual('airchay');
   });
 
-  xit('translates a word beginning with qu', function () {
+  it('translates a word beginning with qu', function () {
     expect(pigLatin.translate('queen')).toEqual('eenquay');
   });
 
-  xit('translates a word with a consonant preceding qu', function () {
+  it('translates a word with a consonant preceding qu', function () {
     expect(pigLatin.translate('square')).toEqual('aresquay');
   });
 
-  xit('translates a word beginning with th', function () {
-    expect(pigLatin.translate('therapy')).toEqual('erapythay');
+  it('translates a word beginning with th', function () {
+   expect(pigLatin.translate('therapy')).toEqual('erapythay');
   });
 
-  xit('translates a word beginning with thr', function () {
+  it('translates a word beginning with thr', function () {
     expect(pigLatin.translate('thrush')).toEqual('ushthray');
   });
 
-  xit('translates a word beginning with sch', function () {
+  it('translates a word beginning with sch', function () {
     expect(pigLatin.translate('school')).toEqual('oolschay');
   });
 
-  xit('translates a phrase', function () {
+  it('translates a phrase', function () {
     expect(pigLatin.translate('quick fast run'))
       .toEqual('ickquay astfay unray');
+  });
+
+  it("translate pig latin is cool", function(){
+    expect(pigLatin.translate('Pig latin is cool')).toEqual("igPay atinlay isay oolcay");
+  });
+
+  it("translate carlifornia", function(){
+    expect(pigLatin.translate('california')).toEqual("aliforniacay");
+  });
+
+  it("translate paragraphs", function(){
+    expect(pigLatin.translate('paragraphs')).toEqual("aragraphspay");
+  });
+
+  it("translates glove", function(){
+    expect(pigLatin.translate('glove')).toEqual("oveglay");
+  });
+
+  it("translate algorithm", function(){
+    expect(pigLatin.translate('algorithm')).toEqual("algorithmay");
+  });
+
+  it("translate eight", function(){
+    expect(pigLatin.translate('eight')).toEqual("eightay");
   });
 
 });
