@@ -5,7 +5,7 @@ const AddressBook  = require("../../jssnips/Objects/AddressBook/AddressBook");
 const Contact = require("../../jssnips/Objects/AddressBook/Contact");
 
 describe("Address Book", function(){
-  var addressBook, thisContact;
+  let addressBook, thisContact;
 
   /**
    * setup each spec with new slate*/
