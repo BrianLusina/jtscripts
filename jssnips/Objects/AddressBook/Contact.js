@@ -1,7 +1,7 @@
 /**
  * Created by lusinabrian on 04/03/17.
  */
-function Contact(firstName, lastName){
+var Contact = function(firstName, lastName){
   this.firstName = firstName;
   this.lastName = lastName;
   this.fullName = this.firstName + " " + this.lastName;
@@ -31,7 +31,7 @@ function Contact(firstName, lastName){
   this.setFullName = function (fullName) {
     this.fullName = fullName;
   };
+};
 
-}
 
 module.exports = Contact;
