@@ -10,10 +10,45 @@ class Series{
      * @returns {Array}
      */
     getDigits(){
-        return this.number_str.split("").map(function(x){
+        return this.number_str.split("").map((x)=>{
             return +x;
             }
         );
+    }
+
+    /**
+     * returns a 2d array of the number string provided having sliced the array by the given
+     * parameter
+     * @param {Number} sliceSize the slice size to 'cut' out from the array
+     * @returns {Array} 2D array with the slices
+     */
+    slices(sliceSize){
+        let result = [];
+        let slice = [];
+
+        this.validateSliceSize(sliceSize);
+
+        for (var x = 0; x < this.digits.length - sliceSize + 1; x++) {
+            for(var y = 0; y < sliceSize; y++){
+                slice.push(this.digits[x + y]);
+            }
+            result.push(slice);
+            slice = [];
+        }
+
+        return result;
+    }
+
+    /**
+     * Validates the slice size to make sure that it is not greater than the length of the
+     * digits provided
+     * @throws {Error} if the slice size is larger than the length of provided digits
+     * @param {Number} sliceSize the slice size to validate
+     */
+    validateSliceSize(sliceSize){
+        if(sliceSize > this.digits.length){
+            throw new Error("Slice size is too big.");
+        }
     }
 }
 
