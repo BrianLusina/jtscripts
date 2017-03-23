@@ -7,11 +7,22 @@ class PerfectNumbers{
   @returns {String} whether the number is perfect, abundant or deficient
   */
   classify(number){
-    // classify perfect numbers
-
-    //classify abundant numbers
-
+    if(number <= 0){
+      return "Classification is only possible for natural numbers."
+    }
     // classify deficient numbers
+    if(this.getAliquotSum(number) < number || number === 1){
+      return "deficient";
+    }
+    // classify perfect numbers
+    if(this.getAliquotSum(number) == number){
+      return "perfect";
+    }
+    //classify abundant numbers
+    if(this.getAliquotSum(number) > number){
+      return "abundant";
+    }
+
   }
 
   /**
@@ -31,8 +42,6 @@ class PerfectNumbers{
       num % i === 0 ? total += i: false;
     }
 
-    // include the original number
-    total += num;
     return total;
   }
 }
