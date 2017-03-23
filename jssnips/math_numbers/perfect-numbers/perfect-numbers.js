@@ -27,7 +27,11 @@ class PerfectNumbers{
 
   /**
   Gets the aliquot sum
-
+  This speeds up the process by checking if the number is odd/even
+  Odd numbers don't need to be checked against each number like evens do. Odd numbers can be checked
+  against every other number.
+  There is not need to check beyond half the given number as nothing beyond half the number will work
+  Excludes 0 and starts from 1
   @param {Number} num the number to derive the aliquot sum
   @returns {Number} the sum of the factors of the provided number
   */
