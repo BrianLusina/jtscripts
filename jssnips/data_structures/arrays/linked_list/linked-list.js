@@ -39,7 +39,7 @@ class LinkedList{
             let prv = this._front.prev;
             let node = new Node(elem, this._front, prv);
             prv.next = node;
-            this._front.next = node;
+            this._front.prev = node;
         }
     }
 
@@ -92,6 +92,38 @@ class LinkedList{
     unshift(elem){
         this.push(elem);
         this._front = this._front.prev;
+    }
+
+    /**
+     * Counts the number of elements in the linked list
+     * uses recursion to count the number of elements in the list
+     * @return{Number}
+     */
+    count(){
+        if(this._front === null){
+            return 0;
+        }else if(this._front.next === this._front){
+            return 1;
+        }else{
+            this._front.next = this._front.next.next;
+            return this.count() + 1;
+        }
+    }
+
+    /**
+     * Deletes an element from the list
+     * @param {Node} elem 
+     * @return {undefined}
+     */
+    delete(elem){
+        if(this._front.next === this._front && this._front.value === elem){
+            this._front = null;
+        }else if(this._front.next.value === elem){
+            this._front.next = this._front.next.next;
+        }else{
+            this._front = this._front.next;
+            return this.delete(elem);
+        }
     }
 }
 

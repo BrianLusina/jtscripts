@@ -25,6 +25,8 @@ To keep your implementation simple, the tests will not cover error
 conditions. Specifically: `pop` or `shift` will never be called on an 
 empty list.
 
+Your linked list should be able to `count` and `delete` items as well.
+
 If you want to know more about linked lists, check [Wikipedia](https://en.wikipedia.org/wiki/Linked_list).
 
 ## Source
