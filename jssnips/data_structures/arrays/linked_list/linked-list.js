@@ -36,12 +36,10 @@ class LinkedList{
         if(this._front === null){
             this._front = new Node(elem);
         }else{
-            let node = new Node(elem, null, this._front);
+            let prv = this._front.prev;
+            let node = new Node(elem, this._front, prv);
+            prv.next = node;
             this._front.next = node;
-            // let back = this._front.prev;
-            // let node = new Node(elem, this._front, back);
-            // back.next = node;
-            // this._front.next = node;
         }
     }
 
@@ -61,7 +59,14 @@ class LinkedList{
 
     /**
      * Remove an element from the front of the linked list and return it
+     * Will extract data from the node at the front of the linked list
+     * A sanity check is done to check if the next element happens to be this same node
+     * element. it will then be set to null and the value is returned
      * 
+     * Else this nodes previous link is set to to THIS nodes next link so that the next
+     * link has a previous node that is set to THIS nodes previous link
+     * THIS nodes next link is set and moved to THIS nodes previous nodes next, such that 
+     * THIS nodes previous is pointing to THIS nodes next.
      * @return {Node}
      */
     shift(){
@@ -85,7 +90,8 @@ class LinkedList{
      * @param {Node} elem 
      */
     unshift(elem){
-
+        this.push(elem);
+        this._front = this._front.prev;
     }
 }
 
