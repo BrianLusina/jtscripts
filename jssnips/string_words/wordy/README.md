@@ -2,35 +2,49 @@
 
 Parse and evaluate simple math word problems returning the answer as an integer.
 
-## Iteration 1 — Addition
+You are required to create an `answer` method that evaluates the math expressions
+
+## Addition
 
 Add two numbers together.
 
-> What is 5 plus 13?
+``` javascript
+> var question = 'What is 53 plus 2?';
+> new WordProblem(question).answer()
+55
+```
 
-Evaluates to 18.
+Make sure to handle large numbers and negative numbers.
 
-Handle large numbers and negative numbers.
-
-
-## Iteration 2 — Subtraction, Multiplication and Division
+## Subtraction, Multiplication and Division
 
 Now, perform the other three operations.
 
-> What is 7 minus 5?
+### Subtraction
 
+``` javascript
+> var question = 'What is 7 minus 5?';
+> new WordProblem(question).answer()
 2
+```
 
-> What is 6 multiplied by 4?
+### Division
 
-24
-
-> What is 25 divided by 5?
-
+``` javascript
+> var question = 'What is 25 divided by 5?';
+> new WordProblem(question).answer()
 5
+```
 
+### Multiplication
 
-## Iteration 3 — Multiple Operations
+``` javascript
+> var question = 'What is -3 multiplied by 25?';
+> new WordProblem(question).answer())
+-75
+```
+
+## Multiple Operations
 
 Handle a set of operations, in sequence.
 
@@ -45,6 +59,18 @@ left-to-right, _ignoring the typical order of operations._
 
 15  (i.e. not 9)
 
+
+### Notes
+
+Implement your own `ArgumentError` Exception class to catch expressions and questions that are not
+math problems or not valid inputs at all.
+
+These are the word operations that you will need to look out for
+
++ plus
++ minus
++ multiplied by
++ divided by
 
 ## Bonus — Exponentials
 
