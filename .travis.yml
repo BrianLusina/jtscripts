@@ -12,6 +12,7 @@ before_script:
 script:
   - npm run test-all
   - npm run cover:istanbul
+  - npm run send-cover-report
   - codecov
 
 after_success:
