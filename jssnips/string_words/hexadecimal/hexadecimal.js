@@ -5,10 +5,17 @@ class Hexadecimal{
 
     /**
      * Converts a hexadecimal number to decimal
-     * 
+     * @returns {Number} 
      */
     toDecimal(){
+        let regex = new RegExp(/[^0-9a-fA-F]/);
 
+        for(let x = 0;x < this.hexa.length; x++){
+            if(regex.exec(this.hexa[x])){
+                return 0;
+            }
+        }
+        return parseInt(this.hexa, 16);
     }
 }
 
