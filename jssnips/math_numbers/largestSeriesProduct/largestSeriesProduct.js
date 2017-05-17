@@ -36,9 +36,6 @@ class Series{
      * @returns {Number} largets product
      */
     largestProduct(num){
-        // stores the results of the computation
-        let result = {};
-
         // perform sanity checks
         this.checkInput(num);
 
@@ -47,19 +44,16 @@ class Series{
             return 1;
         }
 
-        // loop through string, incrementing the counter by num
-        for(let x = 0;x < this.digits.length; x += num){
-            // extract a chunk of num from the series
-            let currentSeries = this.series.slice(x, x + num);
-
-            // split the series and convert each to a number, reduce to get the result;
-            let val = currentSeries.split("").map(Number).reduce(function(a, b){
+        // stores the results of the computation
+        let result = {};
+        this.createSlices(num).forEach(function(slice){
+            let val = slice.reduce(function(a, b){
                 return a * b;
-            });
+            }, 1);
 
-            // find the result of the multiplication, store in object for memoization
-            result[currentSeries] = val;
-        }
+            result[slice.toString()] = val;
+        });
+
         // get the values from the result object
         let values = Object.values(result);
         
@@ -69,6 +63,7 @@ class Series{
 
     /**
      * Creates slices from the given size of the slice
+     * E.g. [0, 0, 0, 0] => [ [0, 0], [0, 0] ] with slice size of 2
      * @param {Number} size size of the slice
      * @returns {Array} size dimensional array
      */
