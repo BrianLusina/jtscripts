@@ -1,6 +1,18 @@
 class Series{
     constructor(series){
+        if(series.match(/[^0-9]/)){
+            throw new Error("Invalid input.");
+        }
         this.series = series;
+        this.digits = this.getDigits();
+    }
+
+    /**
+     * Gets digits from the series input
+     * @returns {Array} of numbers from the series input
+     */
+    getDigits(){
+        return this.series.split("").map(Number);
     }
 
     /**
@@ -12,10 +24,11 @@ class Series{
             throw Error("Invalid input.");
         }
 
-        if(input > this.series.length){
+        if(input > this.digits.length){
             throw Error("Slice size is too big.");
         }
     }
+
     /**
      * Gets the largest product from a series made of digits
      * 
@@ -30,12 +43,12 @@ class Series{
         this.checkInput(num);
 
         // if number is 0 and series length is 0
-        if((num === 0 && this.series.length === 0)|| num === 0){
+        if((num === 0 && this.digits.length === 0)|| num === 0){
             return 1;
         }
 
         // loop through string, incrementing the counter by num
-        for(let x = 0;x < this.series.length; x += num){
+        for(let x = 0;x < this.digits.length; x += num){
             // extract a chunk of num from the series
             let currentSeries = this.series.slice(x, x + num);
 
@@ -52,6 +65,30 @@ class Series{
         
         // find the largest in the array
         return Math.max.apply(null, values);
+    }
+
+    /**
+     * Creates slices from the given size of the slice
+     * @param {Number} size size of the slice
+     * @returns {Array} size dimensional array
+     */
+    createSlices(size){
+        let result = [], slices = [];
+
+        for(let x = 0; x < this.digits.length - size + 1; x++){
+            
+            for(let y = 0; y < size; y++){
+                slices.push(this.digits[x + y]);
+            }
+            
+            // add the slices to the result
+            result.push(slices);
+            
+            // reset the slices
+            slices = [];
+        }
+
+        return result;
     }
 }
 
