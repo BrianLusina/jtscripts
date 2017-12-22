@@ -10,6 +10,7 @@ Hence the difference between the square of the sum of the first
 ten natural numbers and the sum of the squares of the first ten
 natural numbers is 3025 - 385 = 2640.
 
+
 ## Making the Test Suite Pass
 
 Execute the tests with:
