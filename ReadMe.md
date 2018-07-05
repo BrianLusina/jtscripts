@@ -7,7 +7,6 @@
 [![codecov](https://codecov.io/gh/BrianLusina/JS-Snippets/branch/master/graph/badge.svg)](https://codecov.io/gh/BrianLusina/JS-Snippets)
 [![david-dm](https://david-dm.org/BrianLusina/JS-Snippets.svg)](https://david-dm.org/BrianLusina/JS-Snippets.svg)
 [![david-dm](https://david-dm.org/BrianLusina/JS-Snippets/dev-status.svg)](https://david-dm.org/BrianLusina/JS-Snippets/dev-status.svg)
-[![Dependency Status](https://dependencyci.com/github/BrianLusina/JS-Snippets/badge)](https://dependencyci.com/github/BrianLusina/JS-Snippets)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
 
