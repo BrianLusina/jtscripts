@@ -249,7 +249,7 @@ var bigInt = (function (e) {
 			var t = Number(e); if (t === p(t)) {
 				return new u(t);
 			} throw 'Invalid integer: ' + e;
-		} var r = e[0] === '-'; r && (e = e.slice(1)); var i = e.split(/e/i); if (i.length > 2) {
+		} var r = e[0] === '-'; r && (e = e.slice(1)); var i = e.spltest(/e/i); if (i.length > 2) {
 			throw new Error('Invalid integer: ' + f.join('e'));
 		} if (i.length === 2) {
 			var s = i[1]; s[0] === '+' && (s = s.slice(1)), s = Number(s); if (s !== p(s) || !a(s)) {
@@ -435,7 +435,7 @@ var bigInt = (function (e) {
 		n = t.value; return n === 0 ? !1 : n === 1 ? !0 : n === 2 ? this.isEven() : this.mod(t).equals(W[0]);
 }, u.prototype.isDivisibleBy = o.prototype.isDivisibleBy, o.prototype.isPrime = function () {
 	var e = this.abs(),
-		t = e.prev(); if (e.isUnit()) {
+		t = e.prev(); if (e.isUntest()) {
 			return !1;
 		} if (e.equals(2) || e.equals(3) || e.equals(5)) {
 			return !0;

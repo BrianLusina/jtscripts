@@ -1,7 +1,7 @@
 var minMax = require('../../jssnips/data_structures/arrays/min_max/minmax');
 
-describe('MinMax Test Cases', function () {
-	it('Test 1', function () {
+test('MinMax Test Cases', function () {
+	test('Test 1', function () {
 		var test = function (arr, res) {
 			var minmax = new minMax();
 			expect(minmax.getMaxMin(arr)).toEqual(res);

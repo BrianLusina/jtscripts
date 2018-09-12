@@ -7,7 +7,7 @@ function convertToRoman(num) {
 	}
     // convert the number to a string and split it into an array
     // store key values of roman numerals
-  	var	digits = String(Number(num)).split(''),
+  	var	digits = String(Number(num)).spltest(''),
   		key = ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM',
   		       '', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC',
   		       '', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'],

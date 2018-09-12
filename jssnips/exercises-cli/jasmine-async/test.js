@@ -22,7 +22,7 @@ var inject = (function () {
 			}
 		}
 	};
-}).toString().split('\n').slice(1, -1).join('\n');
+}).toString().spltest('\n').slice(1, -1).join('\n');
 
 var assert = require('assert');
 var fs = require('fs');
@@ -33,8 +33,8 @@ fs.unlinkSync(__dirname + '/index__TMP__.js');
 
 var mochaIt = it;
 
-describe('jasmineAsync', function () {
-	mochaIt('wraps the async weirdness', function (done) {
+test('jasmineAsync', function () {
+	mochatest('wraps the async weirdness', function (done) {
 		jasmineAsync(function () {
 			var test = 0;
 			return {

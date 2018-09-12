@@ -1,13 +1,13 @@
 var accumulate = require('../../jssnips/data_structures/arrays/accumulate/accumulate');
 
-describe('accumulate()', function() {
+test('accumulate()', function() {
 
-  it('accumulation empty', function() {
+  test('accumulation empty', function() {
     var accumulator = function(e) { return e * e; };
     expect(accumulate([], accumulator)).toEqual([]);
   });
 
-  it('accumulate squares', function() {
+  test('accumulate squares', function() {
     var accumulator = function(number) {
       return number * number;
     };
@@ -17,29 +17,29 @@ describe('accumulate()', function() {
     expect(result).toEqual([1, 4, 9]);
   });
 
-  it('accumulate upcases', function() {
+  test('accumulate upcases', function() {
     var accumulator = function(word) {
       return word.toUpperCase();
     };
 
-    var result = accumulate('hello world'.split(/\s/), accumulator);
+    var result = accumulate('hello world'.spltest(/\s/), accumulator);
 
     expect(result).toEqual(['HELLO', 'WORLD']);
   });
 
-  it('accumulate reversed strings', function() {
+  test('accumulate reversed strings', function() {
     var accumulator = function(word) {
-      return word.split('').reverse().join('');
+      return word.spltest('').reverse().join('');
     };
 
-    var result = accumulate('the quick brown fox etc'.split(/\s/), accumulator);
+    var result = accumulate('the quick brown fox etc'.spltest(/\s/), accumulator);
 
     expect(result).toEqual(['eht', 'kciuq', 'nworb', 'xof', 'cte']);
   });
 
-  it('accumulate recursively', function() {
-    var result = accumulate('a b c'.split(/\s/), function(char) {
-      return accumulate('1 2 3'.split(/\s/), function(digit) {
+  test('accumulate recursively', function() {
+    var result = accumulate('a b c'.spltest(/\s/), function(char) {
+      return accumulate('1 2 3'.spltest(/\s/), function(digit) {
         return char + digit;
       });
     });

@@ -13,6 +13,8 @@
 .idea/
 node_modules/
 npm-debug.log
+*.log
 tmp
 coverage
 clean.sh
+.nyc_output

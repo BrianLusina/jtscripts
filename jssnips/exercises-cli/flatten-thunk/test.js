@@ -1,8 +1,8 @@
 var assert = require('assert');
 var flattenThunk = require('./');
 
-describe('flattenThunk', function () {
-	it('flattens the promises', function (done) {
+test('flattenThunk', function () {
+	test('flattens the promises', function (done) {
 		var thunk1 = function (cb) {
 			setTimeout(function () {
 				cb(null, 'done');

@@ -1,6 +1,6 @@
 var fibsFizzBuzz = require('./fizzBuzz')
 
-describe ("Fibonacci's FizzBuzz", function() {
+test ("Fibonacci's FizzBuzz", function() {
 
     it ("should work for a value of 2", function() {
       expect(fibsFizzBuzz(2)).toEqual([1, 1]);

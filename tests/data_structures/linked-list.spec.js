@@ -1,7 +1,7 @@
 var LinkedList = require('../../jssnips/data_structures/arrays/linked_list/linked-list');
 
-describe('LinkedList', function () {
-  it('push/pop', function () {
+test('LinkedList', function () {
+  test('push/pop', function () {
     var list = new LinkedList();
     list.push(10);
     list.push(20);
@@ -9,7 +9,7 @@ describe('LinkedList', function () {
     expect(list.pop()).toBe(10);
   });
 
-  it('push/shift', function () {
+  test('push/shift', function () {
     var list = new LinkedList();
     list.push(10);
     list.push(20);
@@ -17,14 +17,14 @@ describe('LinkedList', function () {
     expect(list.shift()).toBe(20);
   });
   
-  it('unshift/shift', function () {
+  test('unshift/shift', function () {
     var list = new LinkedList();
     list.unshift(10);
     list.unshift(20);
     expect(list.shift()).toBe(20);
     expect(list.shift()).toBe(10);
   });
-  it('unshift/pop', function () {
+  test('unshift/pop', function () {
     var list = new LinkedList();
     list.unshift(10);
     list.unshift(20);
@@ -32,7 +32,7 @@ describe('LinkedList', function () {
     expect(list.pop()).toBe(20);
   });
   
-  it('example', function () {
+  test('example', function () {
     var list = new LinkedList();
     list.push(10);
     list.push(20);
@@ -45,7 +45,7 @@ describe('LinkedList', function () {
     expect(list.pop()).toBe(50);
     expect(list.shift()).toBe(30);
   });
-  it('can count its elements', function () {
+  test('can count its elements', function () {
     var list = new LinkedList();
     expect(list.count()).toBe(0);
     list.push(10);
@@ -53,7 +53,7 @@ describe('LinkedList', function () {
     list.push(20);
     expect(list.count()).toBe(2);
   });
-  it('deletes the last element from the list', function () {
+  test('deletes the last element from the list', function () {
     var list = new LinkedList();
     list.push(10);
     list.push(20);
@@ -63,7 +63,7 @@ describe('LinkedList', function () {
     expect(list.pop()).toBe(30);
     expect(list.shift()).toBe(10);
   });
-  it('deletes the only element', function() {
+  test('deletes the only element', function() {
     var list = new LinkedList();
     list.push(10);
     list.delete(10);

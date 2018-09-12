@@ -1,27 +1,27 @@
 var Acronyms = require('../../jssnips/string_words/acronym/acronym.js');
 
-describe('Acronyms are produced from', function () {
-	it('title cased phrases', function () {
+test('Acronyms are produced from', function () {
+	test('title cased phrases', function () {
 		expect(Acronyms.parse('Portable Network Graphics')).toEqual('PNG');
 	});
 
-	it('other title cased phrases', function () {
+	test('other title cased phrases', function () {
 		expect(Acronyms.parse('Ruby on Rails')).toEqual('ROR');
 	});
 
-	it('inconsistently cased phrases', function () {
+	test('inconsistently cased phrases', function () {
 		expect(Acronyms.parse('HyperText Markup Language')).toEqual('HTML');
 	});
 
-	it('phrases with punctuation', function () {
+	test('phrases with punctuation', function () {
 		expect(Acronyms.parse('First In, First Out')).toEqual('FIFO');
 	});
 
-	it('other phrases with punctuation', function () {
+	test('other phrases with punctuation', function () {
 		expect(Acronyms.parse('PHP: Hypertext Preprocessor')).toEqual('PHP');
 	});
 
-	it('phrases with punctuation and sentence casing', function () {
+	test('phrases with punctuation and sentence casing', function () {
 		expect(Acronyms.parse('Complementary metal-oxide semiconductor')).toEqual('CMOS');
 	});
 });

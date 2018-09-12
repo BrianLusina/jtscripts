@@ -1,8 +1,8 @@
 var assert = require('assert');
 var debounce = require('./');
 
-describe('debounce', function () {
-	it('waits for the threshold to pass before executing', function (done) {
+test('debounce', function () {
+	test('waits for the threshold to pass before executing', function (done) {
 		var now = new Date();
 		var debounced = debounce(function () {
 			assert(new Date() - now >= 10);
@@ -11,7 +11,7 @@ describe('debounce', function () {
 		debounced();
 	});
 
-	it('won\'t execute more than once within the threshold', function (done) {
+	test('won\'t execute more than once within the threshold', function (done) {
 		var called = 0;
 		var debounced = debounce(function () {
 			called++;
@@ -25,7 +25,7 @@ describe('debounce', function () {
 		}, 15);
 	});
 
-	it('will execute more than once outside the threshold', function (done) {
+	test('will execute more than once outside the threshold', function (done) {
 		var called = 0;
 		var debounced = debounce(function () {
 			called++;
@@ -39,7 +39,7 @@ describe('debounce', function () {
 		}, 45);
 	});
 
-	it('gets called with context', function (done) {
+	test('gets called with context', function (done) {
 		var ctx;
 		var debounced = debounce(function () {
 			ctx = this;
@@ -52,7 +52,7 @@ describe('debounce', function () {
 		}, 15);
 	});
 
-	it('gets called with arguments', function (done) {
+	test('gets called with arguments', function (done) {
 		var args;
 		var debounced = debounce(function () {
 			args = [].slice.call(arguments);

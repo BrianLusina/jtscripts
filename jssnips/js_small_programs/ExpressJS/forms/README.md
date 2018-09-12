@@ -31,7 +31,7 @@ middleware from the body-parser module.
 
 Here is how we can print characters backwards (just one way to do it):
 
-    req.body.str.split('').reverse().join('')
+    req.body.str.spltest('').reverse().join('')
 
 Extended set to true (qs) or false (querystring) determines the parser module.
 

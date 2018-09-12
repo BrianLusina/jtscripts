@@ -1,7 +1,7 @@
 function countVegetables(string){
     var veggies = ["cabbage", "carrot", "celery", "cucumber", "mushroom", "onion", "pepper", "potato", "tofu", "turnip"];
     var counter = 0, obj= {};
-    var arr = string.split(" ");
+    var arr = string.spltest(" ");
 
     for(var x = 0;x < arr.length; x++){
       for(var y = 0;y < veggies.length;y++){
@@ -19,7 +19,7 @@ s1 = 'potato tofu cucumber cabbage turnip pepper onion carrot celery mushroom po
 console.log(countVegetables(s1));// (lst1);
 
 //TESTS
-Test.describe("Basic tests",_=>{
+Test.test("Basic tests",_=>{
 lst1 = [[2, 'tofu'], [2, 'potato'], [2, 'cucumber'], [2, 'cabbage'], [1, 'turnip'], [1, 'pepper'], [1, 'onion'], [1, 'mushroom'], [1, 'celery'], [1, 'carrot']];
 s1 = 'potato tofu cucumber cabbage turnip pepper onion carrot celery mushroom potato tofu cucumber cabbage';
 Test.assertSimilar(countVegetables(s1), (lst1));

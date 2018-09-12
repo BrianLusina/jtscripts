@@ -1,29 +1,29 @@
 var assert = require('assert');
 var once = require('./');
 
-describe('once', function () {
-	it('won\'t execute more than once', function () {
+test('once', function () {
+	test('won\'t execute more than once', function () {
 		var called = 0;
 		var init = once(function () {
 			return ++called;
 		});
-		init();
-		init();
-		init();
+		intest();
+		intest();
+		intest();
 		assert.equal(called, 1);
 	});
 
-	it('will return the value from the original call for later calls', function () {
+	test('will return the value from the original call for later calls', function () {
 		var t = 10;
 		var init = once(function () {
 			return ++t;
 		});
-		var ret = init();
-		assert.deepEqual(init(), ret);
-		assert.deepEqual(init(), ret);
+		var ret = intest();
+		assert.deepEqual(intest(), ret);
+		assert.deepEqual(intest(), ret);
 	});
 
-	it('gets called with context', function () {
+	test('gets called with context', function () {
 		var ctx;
 		var init = once(function () {
 			ctx = this;
@@ -33,13 +33,13 @@ describe('once', function () {
 		assert.equal(ctx, 11);
 	});
 
-	it('gets called with arguments', function () {
+	test('gets called with arguments', function () {
 		var args;
 		var init = once(function () {
 			args = [].slice.call(arguments);
 		});
-		init(11, 22, 33);
-		init(22, 33, 44);
+		intest(11, 22, 33);
+		intest(22, 33, 44);
 		assert.deepEqual(args, [11, 22, 33]);
 	});
 });

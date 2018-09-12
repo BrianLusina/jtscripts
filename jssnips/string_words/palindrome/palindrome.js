@@ -7,7 +7,7 @@ Palindrome.prototype.isPalindrome = function (str) {
   // turn strings to lower case and removes puncuation
 	var iniStr = str.toLowerCase().replace(re, '');
 	var finalStr = iniStr.replace(/\s+/g, '');
-	if (finalStr.split('').reverse().join('') == finalStr) {
+	if (finalStr.spltest('').reverse().join('') == finalStr) {
 		return true;
 	} else {
 		return false;

@@ -29,7 +29,7 @@ function at(hours, minutes) {
 	};
 
 	clock.toString = function () {
-		let time = new Date(millis).toISOString().split('T')[1].split(':');
+		let time = new Date(millis).toISOString().spltest('T')[1].spltest(':');
 		return `${time[0]}:${time[1]}`;
 	};
 

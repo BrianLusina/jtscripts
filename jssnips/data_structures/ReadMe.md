@@ -1,6 +1,6 @@
 # DATA STRUCTURES
 
-Consists of small JavaScript data structure problems. Each problem is described here and what is required of them.
+Consists of small JavaScript data structure problems. Each problem is testd here and what is required of them.
 
 ## RNA Transciption
 

@@ -2,7 +2,7 @@ var assert = require('assert');
 var sinon = require('sinon');
 var throttle = require('./');
 
-describe('throttle', function () {
+test('throttle', function () {
 	var clock;
 
 	beforeEach(function () {
@@ -12,7 +12,7 @@ describe('throttle', function () {
 		clock.restore();
 	});
 
-	it('executes right away', function () {
+	test('executes right away', function () {
 		var passed = false;
 		var throttled = throttle(function () {
 			passed = true;
@@ -22,7 +22,7 @@ describe('throttle', function () {
 		clock.tick(100);
 	});
 
-	it('won\'t execute more than once within the threshold', function (done) {
+	test('won\'t execute more than once within the threshold', function (done) {
 		var called = 0;
 		var throttled = throttle(function () {
 			called++;
@@ -37,7 +37,7 @@ describe('throttle', function () {
 		clock.tick(100);
 	});
 
-	it('will execute at least once more to make up for swallowed calls', function (done) {
+	test('will execute at least once more to make up for swallowed calls', function (done) {
 		var called = 0;
 		var throttled = throttle(function () {
 			called++;
@@ -51,7 +51,7 @@ describe('throttle', function () {
 		clock.tick(100);
 	});
 
-	it('will execute every threshold ms', function (done) {
+	test('will execute every threshold ms', function (done) {
 		var startTime = new Date();
 		var calledTimes = [];
 		var throttled = throttle(function () {
@@ -69,7 +69,7 @@ describe('throttle', function () {
 		clock.tick(100);
 	});
 
-	it('gets called with context', function () {
+	test('gets called with context', function () {
 		var ctx;
 		var throttled = throttle(function () {
 			ctx = this;
@@ -78,7 +78,7 @@ describe('throttle', function () {
 		assert.equal(ctx, 22);
 	});
 
-	it('gets called with arguments', function () {
+	test('gets called with arguments', function () {
 		var args;
 		var throttled = throttle(function () {
 			args = [].slice.call(arguments);
@@ -87,7 +87,7 @@ describe('throttle', function () {
 		assert.deepEqual(args, [22, 33, 44]);
 	});
 
-	it('gets called with the later arguments', function (done) {
+	test('gets called with the later arguments', function (done) {
 		var args;
 		var throttled = throttle(function () {
 			args = [].slice.call(arguments);

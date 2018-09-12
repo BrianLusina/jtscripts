@@ -4,74 +4,74 @@
 
 var pigLatin = require('../../jssnips/string_words/pig-latin/pig-latin.js');
 
-describe('pigLatin', function () {
+test('pigLatin', function () {
 
-  it('translates a word beginning with a', function () {
+  test('translates a word beginning with a', function () {
     expect(pigLatin.translate('apple')).toEqual('appleay');
   });
 
-  it('translates a word beginning with e', function () {
+  test('translates a word beginning with e', function () {
     expect(pigLatin.translate('ear')).toEqual('earay');
   });
 
-  it('translates a word beginning with p', function () {
+  test('translates a word beginning with p', function () {
     expect(pigLatin.translate('pig')).toEqual('igpay');
   });
 
-  it('translates a word beginning with k', function () {
+  test('translates a word beginning with k', function () {
     expect(pigLatin.translate('koala')).toEqual('oalakay');
   });
 
-  it('translates a word beginning with ch', function () {
+  test('translates a word beginning with ch', function () {
     expect(pigLatin.translate('chair')).toEqual('airchay');
   });
 
-  it('translates a word beginning with qu', function () {
+  test('translates a word beginning with qu', function () {
     expect(pigLatin.translate('queen')).toEqual('eenquay');
   });
 
-  it('translates a word with a consonant preceding qu', function () {
+  test('translates a word with a consonant preceding qu', function () {
     expect(pigLatin.translate('square')).toEqual('aresquay');
   });
 
-  it('translates a word beginning with th', function () {
+  test('translates a word beginning with th', function () {
    expect(pigLatin.translate('therapy')).toEqual('erapythay');
   });
 
-  it('translates a word beginning with thr', function () {
+  test('translates a word beginning with thr', function () {
     expect(pigLatin.translate('thrush')).toEqual('ushthray');
   });
 
-  it('translates a word beginning with sch', function () {
+  test('translates a word beginning with sch', function () {
     expect(pigLatin.translate('school')).toEqual('oolschay');
   });
 
-  it('translates a phrase', function () {
+  test('translates a phrase', function () {
     expect(pigLatin.translate('quick fast run'))
       .toEqual('ickquay astfay unray');
   });
 
-  it("translate pig latin is cool", function(){
+  test("translate pig latin is cool", function(){
     expect(pigLatin.translate('Pig latin is cool')).toEqual("igPay atinlay isay oolcay");
   });
 
-  it("translate carlifornia", function(){
+  test("translate carlifornia", function(){
     expect(pigLatin.translate('california')).toEqual("aliforniacay");
   });
 
-  it("translate paragraphs", function(){
+  test("translate paragraphs", function(){
     expect(pigLatin.translate('paragraphs')).toEqual("aragraphspay");
   });
 
-  it("translates glove", function(){
+  test("translates glove", function(){
     expect(pigLatin.translate('glove')).toEqual("oveglay");
   });
 
-  it("translate algorithm", function(){
+  test("translate algorithm", function(){
     expect(pigLatin.translate('algorithm')).toEqual("algorithmay");
   });
 
-  it("translate eight", function(){
+  test("translate eight", function(){
     expect(pigLatin.translate('eight')).toEqual("eightay");
   });
 

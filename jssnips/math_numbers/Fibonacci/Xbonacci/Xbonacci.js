@@ -90,9 +90,9 @@ console.log(Xbonacci([0, 0, 0, 0, 1], 10) + ' Exptected ' + [0, 0, 0, 0, 1, 1, 2
 console.log(Xbonacci([1, 0, 0, 0, 0, 0, 1], 10) + ' Exptected ' + [1, 0, 0, 0, 0, 0, 1, 2, 3, 6]);
 console.log('====================');
 /*
-As you probably know, Fibonacci sequence are the numbers in the following integer sequence: 1, 1, 2, 3, 5, 8, 13... Write a method that takes the index as an argument and returns last digit from fibonacci number. Example: getLastDigit(15) - 610. Your method must return 0 because the last digit of 610 is 0. Fibonacci sequence grows very fast and value can take very big numbers (bigger than integer type can contain), so, please, be careful with overflow.
+As you probably know, Fibonacci sequence are the numbers in the following integer sequence: 1, 1, 2, 3, 5, 8, 13... Write a method that takes the index as an argument and returns last digit from fibonacci number. Example: getLastDigtest(15) - 610. Your method must return 0 because the last digit of 610 is 0. Fibonacci sequence grows very fast and value can take very big numbers (bigger than integer type can contain), so, please, be careful with overflow.
 */
-function getLastDigit(index) {
+function getLastDigtest(index) {
 	var fib = [1, 1];
 	for (var x = 2; x < index + 1; x++) {
 		fib[x] = fib[x - 1] + fib[x - 2];
@@ -103,12 +103,12 @@ function getLastDigit(index) {
 	console.log('Fibonacci Sequence ' + fib + ' with length ' + fib.length);
 	return String(fib[index]).substr(-1);
 }
-console.log('Testing for getLastDigit(index)');
-console.log(getLastDigit(20));// 6
-console.log(getLastDigit(30));// 9
-console.log(getLastDigit(300));// 0
-console.log(getLastDigit(20001)); // 6
-console.log(getLastDigit(193150));// 5
+console.log('Testing for getLastDigtest(index)');
+console.log(getLastDigtest(20));// 6
+console.log(getLastDigtest(30));// 9
+console.log(getLastDigtest(300));// 0
+console.log(getLastDigtest(20001)); // 6
+console.log(getLastDigtest(193150));// 5
 
-/* console.log(getLastDigit(193150));//5
-console.log(getLastDigit(20001)); //6 */
+/* console.log(getLastDigtest(193150));//5
+console.log(getLastDigtest(20001)); //6 */

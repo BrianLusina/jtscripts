@@ -4,11 +4,10 @@
   "private": true,
   "description": "Small JavaScript Algorithms, snippets and programs",
   "scripts": {
-    "test-all": "jasmine-node tests/",
-    "cover:istanbul": "istanbul cover jasmine-node --captureExceptions tests/",
-    "cover:codacy": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec tests/**/*.js && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
-    "send-cover-report": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
-    "test": "xo && ava"
+    "test": "ava --color",
+    "test:watch": "ava --watch",
+    "test:cover": "nyc ava",
+    "send-cover-report": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -29,20 +28,41 @@
   },
   "homepage": "https://github.com/BrianLusina/JS-Snippets#readme",
   "devDependencies": {
-    "ava": "^0.17.0",
-    "chai": "^3.5.0",
+    "ava": "^0.25.0",
     "codacy-coverage": "^2.0.1",
     "codecov": "^1.0.1",
-    "expect": "^1.20.2",
+    "expect": "^23.6.0",
     "istanbul": "^0.4.5",
-    "jasmine": "^2.5.3",
-    "jasmine-node": "^1.14.5",
-    "mocha": "^3.2.0",
-    "mocha-lcov-reporter": "^1.2.0",
-    "sinon": "^1.17.6",
-    "xo": "^0.17.1"
+    "nyc": "^13.0.1",
+    "sinon": "^6.2.0",
+    "xo": "^0.23.0"
   },
-  "dependencies": {
-    "standard": "^8.6.0"
+  "ava": {
+		"files": [
+      "tests/**/*.js",
+      "tests/**/*.spec.js",
+      "src/**/*.spec.js",
+      "src/**/*.test.js",
+      "!tests/exclude-this-directory/**/*.js",
+      "!**/exclude-this-file.js"
+		],
+		"sources": [
+			"**/*.{js,jsx}",
+			"!dist/**/*"
+		],
+		"match": [
+			"*oo",
+			"!foo"
+		],
+		"cache": true,
+		"concurrency": 5,
+		"failFast": true,
+		"failWithoutAssertions": false,
+		"tap": true,
+		"verbose": true,
+		"compileEnhancements": false,
+		"require": [
+      "esm"
+    ]
   }
 }

@@ -1,7 +1,7 @@
 var Proverb = require('../../jssnips/game_puzzles/proverb/proverb');
 
-describe('Proverb Test Suite', function() {
-  it('tests a single consequence', function() {
+test('Proverb Test Suite', function() {
+  test('tests a single consequence', function() {
     var proverb = new Proverb('nail', 'shoe');
 
     expect(proverb.toString()).toEqual(
@@ -10,7 +10,7 @@ describe('Proverb Test Suite', function() {
   });
 
   
-  it('tests a short chain of consequences', function() {
+  test('tests a short chain of consequences', function() {
     var proverb = new Proverb('nail', 'shoe', 'horse');
 
     expect(proverb.toString()).toEqual(
@@ -19,7 +19,7 @@ describe('Proverb Test Suite', function() {
       "And all for the want of a nail.");
   });
 
-  it('tests a longer chain of consequences', function() {
+  test('tests a longer chain of consequences', function() {
     var proverb = new Proverb('nail', 'shoe', 'horse', 'rider');
 
     expect(proverb.toString()).toEqual(
@@ -30,7 +30,7 @@ describe('Proverb Test Suite', function() {
   });
 
 
-  it('tests Proverb class does not hard code the rhyme dictionary', 
+  test('tests Proverb class does not hard code the rhyme dictionary', 
       function() {
     var proverb = new Proverb('key', 'value');
 
@@ -39,7 +39,7 @@ describe('Proverb Test Suite', function() {
       "And all for the want of a key.");
   });
 
-  it('tests the whole proveb', function() {
+  test('tests the whole proveb', function() {
     var proverb = new Proverb('nail', 'shoe', 'horse', 'rider', 
                               'message', 'battle', 'kingdom');
 
@@ -54,7 +54,7 @@ describe('Proverb Test Suite', function() {
   });
 
 
-  it('tests the use of an optional qualifier in the final consequence', 
+  test('tests the use of an optional qualifier in the final consequence', 
       function() {
     var proverb = new Proverb('nail', 'shoe', 'horse', 'rider', 
                               'message', 'battle', 'kingdom', 
@@ -70,7 +70,7 @@ describe('Proverb Test Suite', function() {
      "And all for the want of a horseshoe nail.");
   });
 
-  it('tests the proverb is the same each time', function(){
+  test('tests the proverb is the same each time', function(){
     var proverb = new Proverb('nail', 'shoe');
 
     expect(proverb.toString()).toEqual(proverb.toString());

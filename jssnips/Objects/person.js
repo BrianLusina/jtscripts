@@ -9,11 +9,11 @@ var Person = function (firstAndLast) {
 
     /* Getters */
 	this.getFirstName = function () {
-		return fullName.split(' ')[0];
+		return fullName.spltest(' ')[0];
 	};
 
 	this.getLastName = function () {
-		return fullName.split(' ')[1];
+		return fullName.spltest(' ')[1];
 	};
 
 	this.getFullName = function () {
@@ -22,11 +22,11 @@ var Person = function (firstAndLast) {
 
     /* Setters */
 	this.setFirstName = function (first) {
-		fullName = first + ' ' + fullName.split(' ')[1];
+		fullName = first + ' ' + fullName.spltest(' ')[1];
 	};
 
 	this.setLastName = function (last) {
-		fullName = fullName.split(' ')[0] + ' ' + last;
+		fullName = fullName.spltest(' ')[0] + ' ' + last;
 	};
 
 	this.setFullName = function (firstlast) {

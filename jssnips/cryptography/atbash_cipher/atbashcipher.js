@@ -1,7 +1,7 @@
 "use-strict";
 
 var LETTERS = 'abcdefghijklmnopqrstuvwxyz';
-var REVERSED_LETTERS = LETTERS.split("").reverse().join("");
+var REVERSED_LETTERS = LETTERS.spltest("").reverse().join("");
 
 module.exports = {
 
@@ -34,7 +34,7 @@ module.exports = {
      */
     encode(phrase){
         var encoded = "", characters = [];
-        phrase.toLowerCase().split("").forEach(this.invert, characters);
+        phrase.toLowerCase().spltest("").forEach(this.invert, characters);
         encoded = this.insertSpacing(characters.join(""), 5);
         return encoded;
     }

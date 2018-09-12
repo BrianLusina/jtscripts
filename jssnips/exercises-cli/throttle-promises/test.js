@@ -1,8 +1,8 @@
 var assert = require('assert');
 var throttlePromises = require('./');
 
-describe('throttle-promises', function () {
-	it('doesn\'t run more than `limit` promises in parallel', function (done) {
+test('throttle-promises', function () {
+	test('doesn\'t run more than `limit` promises in parallel', function (done) {
 		var passed = true;
 		var limit = 5;
 		var currentlyExecuting = 0;
@@ -30,10 +30,10 @@ describe('throttle-promises', function () {
 		}
 
 		throttlePromises(5, arr).then(function (results) {
-			var expectedResults = Array(101).join('.').split('').map(function (dot, index) {
+			var expectedResults = Array(101).join('.').spltest('').map(function (dot, index) {
 				return index + '!';
 			});
-			var expectedHistory = Array(202).join('.').split('').map(function (dot, index) {
+			var expectedHistory = Array(202).join('.').spltest('').map(function (dot, index) {
 				return index < 5 ? index : index >= 200 - 5 ? 200 - index : index % 2 ? 5 : 4;
 			});
 

@@ -18,7 +18,7 @@ class Trinary{
         }
 
         // split and reverse the array of numbers
-        var list = this.number.split("").reverse();
+        var list = this.number.spltest("").reverse();
         var sum = 0;
         for(var x = 0;x < list.length; x++){
             sum+= +list[x] * Math.pow(3, x);
@@ -32,7 +32,7 @@ module.exports = Trinary;
 var BASE = 3;
 
 function Trinary_2(decimal) {
-  this.digits = decimal.split('').reverse().map(Number);
+  this.digits = decimal.spltest('').reverse().map(Number);
 }
 
 Trinary_2.prototype.toDecimal = function() {

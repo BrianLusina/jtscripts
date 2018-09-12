@@ -4,7 +4,7 @@
 const AddressBook  = require("../../jssnips/Objects/AddressBook/AddressBook");
 const Contact = require("../../jssnips/Objects/AddressBook/Contact");
 
-describe("Address Book", function(){
+test("Address Book", function(){
   let addressBook, thisContact;
 
   /**
@@ -14,13 +14,13 @@ describe("Address Book", function(){
     thisContact = new Contact();
   });
 
-  it("should be able to add a contact", function(){
+  test("should be able to add a contact", function(){
     addressBook.addContact(thisContact);
 
     expect(addressBook.getContact(0)).toBe(thisContact);
   });
 
-  it("should be able to delete a contact", function(){
+  test("should be able to delete a contact", function(){
 
     addressBook.addContact(thisContact);
     addressBook.deleteContact(thisContact);
@@ -32,7 +32,7 @@ describe("Address Book", function(){
 });
 
 
-describe("Async Address book", function(){
+test("Async Address book", function(){
   const addressBook = new AddressBook();
 
   /**
@@ -45,7 +45,7 @@ describe("Async Address book", function(){
     });
   });
 
-  it("should grab initial contacts", function(done){
+  test("should grab initial contacts", function(done){
     expect(addressBook.initialComplete).toBe(true);
     done();
   });

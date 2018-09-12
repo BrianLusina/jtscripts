@@ -75,7 +75,7 @@ function randomElement(array) {
 	return array[Math.floor(Math.random() * array.length)];
 }
 
-var directionNames = 'n ne e se s sw w nw'.split(' ');
+var directionNames = 'n ne e se s sw w nw'.spltest(' ');
 
 /* CRITTER OBJECT */
 function BouncingCritter() {

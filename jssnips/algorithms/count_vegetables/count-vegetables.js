@@ -2,7 +2,7 @@ function countVegetables(string) {
 	var veggies = ['cabbage', 'carrot', 'celery', 'cucumber', 'mushroom', 'onion', 'pepper', 'potato', 'tofu', 'turnip'];
 	var counter = 0,
 		obj = {};
-	var arr = string.split(' ');
+	var arr = string.spltest(' ');
 
 	for (var x = 0; x < arr.length; x++) {
 		for (var y = 0; y < veggies.length; y++) {

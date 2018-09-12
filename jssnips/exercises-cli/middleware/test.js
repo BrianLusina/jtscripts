@@ -1,8 +1,8 @@
 var assert = require('assert');
 var Middleware = require('./');
 
-describe('middleware', function () {
-	it('works with a single instance', function (done) {
+test('middleware', function () {
+	test('works with a single instance', function (done) {
 		var middleware = new Middleware();
 
 		middleware.use(function (next) {
@@ -28,7 +28,7 @@ describe('middleware', function () {
 		});
 	});
 
-	it('works with multiple instances', function (done) {
+	test('works with multiple instances', function (done) {
 		var middleware1 = new Middleware();
 		var middleware2 = new Middleware();
 

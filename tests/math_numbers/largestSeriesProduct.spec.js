@@ -1,20 +1,20 @@
 var Series = require('../../jssnips/math_numbers/largestSeriesProduct/largestSeriesProduct');
 
-describe('Series', function () {
+test('Series', function () {
 
-  it('can get the largest product of 2', function () {
+  test('can get the largest product of 2', function () {
     expect(new Series('0123456789').largestProduct(2)).toBe(72);
   });
 
-  it('works for a tiny number', function () {
+  test('works for a tiny number', function () {
     expect(new Series('19').largestProduct(2)).toBe(9);
   });
 
-  it('can get the largest product of 3', function () {
+  test('can get the largest product of 3', function () {
     expect(new Series('1027839564').largestProduct(3)).toBe(270);
   });
 
-  it('can get the largest product of a big number', function () {
+  test('can get the largest product of a big number', function () {
     var largeNumber = '73167176531330624919225119674426574742355349194934969835203127745063262395783180169848018694788' +
       '51843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648' +
       '95044524452316173185640309871112172238311362229893423380308135336276614282806444486645238749303589072962904915604' +
@@ -27,41 +27,41 @@ describe('Series', function () {
     expect(new Series(largeNumber).largestProduct(13)).toBe(23514624000);
   });
 
-  it('returns 0 if all digits are zero', function () {
+  test('returns 0 if all digits are zero', function () {
     expect(new Series('0000').largestProduct(2)).toBe(0);
   });
 
-  it('returns 0 if all spans contain zero', function () {
+  test('returns 0 if all spans contain zero', function () {
     expect(new Series('99099').largestProduct(3)).toBe(0);
   });
 
-  it('rejects invalid character in input', ()=> {
+  test('rejects invalid character in input', ()=> {
     expect(function () {
       new Series('1234a5').largestProduct('2')
     }).toThrow(new Error('Invalid input.'));
   });
 
-  it('rejects negative span', function () {
+  test('rejects negative span', function () {
     expect(() => {
       new Series('12345').largestProduct(-1)
     }).toThrow(new Error('Invalid input.'));
   });
 
-  it('returns 1 for empty string and zero slice length', function () {
+  test('returns 1 for empty string and zero slice length', function () {
     expect(new Series('').largestProduct(0)).toBe(1);
   });
 
-  it('returns 1 for non-empty string and zero slice length', function () {
+  test('returns 1 for non-empty string and zero slice length', function () {
     expect(new Series('123').largestProduct(0)).toBe(1);
   });
 
-  it('throws an error for slices bigger than the number', function () {
+  test('throws an error for slices bigger than the number', function () {
     expect(function () {
       new Series('123').largestProduct(4);
     }).toThrow(new Error('Slice size is too big.'));
   });
 
-  it('throws an error for empty string and non-zero slice length', function () {
+  test('throws an error for empty string and non-zero slice length', function () {
     expect(function () {
       new Series('').largestProduct(1);
     }).toThrow(new Error('Slice size is too big.'));

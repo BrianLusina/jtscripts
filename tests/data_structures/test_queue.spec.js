@@ -1,8 +1,8 @@
 var Queue = require('../../jssnips/data_structures/queues/Queue');
 var expect = require("expect");
 
-describe('Queue Tests', () => {
-	it('Test if Queue enqueue', () => {
+test('Queue Tests', () => {
+	test('Test if Queue enqueue', () => {
 		var queue = new Queue(5);
 		queue.enqueue(1);
 		queue.enqueue(2);

@@ -1,9 +1,9 @@
 var assert = require('assert');
 var async = require('./');
 
-describe('async', function () {
-	describe('has a sequence method that', function () {
-		it('runs functions in sequence', function (done) {
+test('async', function () {
+	test('has a sequence method that', function () {
+		test('runs functions in sequence', function (done) {
 			var fun1 = function (cb) {
 				setTimeout(cb.bind(null, null, 'test'), 10);
 			};
@@ -18,7 +18,7 @@ describe('async', function () {
 			});
 		});
 
-		it('correctly handles sync functions in sequence', function (done) {
+		test('correctly handles sync functions in sequence', function (done) {
 			var fun1 = function (cb) {
 				cb(null, 'test1');
 			};
@@ -33,7 +33,7 @@ describe('async', function () {
 			});
 		});
 
-		it('handles delayed thunk invocation', function (done) {
+		test('handles delayed thunk invocation', function (done) {
 			var fun1 = function (cb) {
 				cb(null, 'test2');
 			};
@@ -53,8 +53,8 @@ describe('async', function () {
 		});
 	});
 
-	describe('has a parallel method that', function () {
-		it('runs functions in parallel', function (done) {
+	test('has a parallel method that', function () {
+		test('runs functions in parallel', function (done) {
 			var fun1 = function (cb) {
 				setTimeout(cb.bind(null, null, 'test'), 10);
 			};
@@ -70,8 +70,8 @@ describe('async', function () {
 		});
 	});
 
-	describe('has a race method that', function () {
-		it('uses the first completing function', function (done) {
+	test('has a race method that', function () {
+		test('uses the first completing function', function (done) {
 			var fun1 = function (ms) {
 				return function (cb) {
 					setTimeout(cb.bind(null, null, 'test'), ms);

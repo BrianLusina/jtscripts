@@ -10,7 +10,7 @@ class Series{
      * @returns {Array}
      */
     getDigits(){
-        return this.number_str.split("").map((x)=>{
+        return this.number_str.spltest("").map((x)=>{
             return +x;
             }
         );

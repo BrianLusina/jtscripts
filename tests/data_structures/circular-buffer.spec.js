@@ -2,20 +2,20 @@ var circularBuffer = require('../../jssnips/data_structures//circular-buffer/cir
 var bufferEmptyException = require('../../jssnips/data_structures//circular-buffer/circular-buffer').bufferEmptyException;
 var bufferFullException = require('../../jssnips/data_structures//circular-buffer/circular-buffer').bufferFullException;
 
-describe('CircularBuffer', function () {
-	it('reading an empty buffer throws a BufferEmptyException', function () {
+test('CircularBuffer', function () {
+	test('reading an empty buffer throws a BufferEmptyException', function () {
 		var buffer = circularBuffer(1);
 		expect(buffer.read).toThrow(bufferEmptyException());
 	});
 
-	it('write and read back one item', function () {
+	test('write and read back one item', function () {
 		var buffer = circularBuffer(1);
 		buffer.write('1');
 		expect(buffer.read()).toBe('1');
 		expect(buffer.read).toThrow(bufferEmptyException());
 	});
 
-	it('write and read back multiple items', function () {
+	test('write and read back multiple items', function () {
 		var buffer = circularBuffer(2);
 		buffer.write('1');
 		buffer.write('2');
@@ -24,7 +24,7 @@ describe('CircularBuffer', function () {
 		expect(buffer.read).toThrow(bufferEmptyException());
 	});
 
-	it('clearing a buffer', function () {
+	test('clearing a buffer', function () {
 		var buffer = circularBuffer(2);
 		buffer.write('1');
 		buffer.write('2');
@@ -36,7 +36,7 @@ describe('CircularBuffer', function () {
 		expect(buffer.read()).toBe('4');
 	});
 
-	it('alternate write and read', function () {
+	test('alternate write and read', function () {
 		var buffer = circularBuffer(2);
 		buffer.write('1');
 		expect(buffer.read()).toBe('1');
@@ -44,7 +44,7 @@ describe('CircularBuffer', function () {
 		expect(buffer.read()).toBe('2');
 	});
 
-	it('reads back oldest item', function () {
+	test('reads back oldest item', function () {
 		var buffer = circularBuffer(3);
 		buffer.write('1');
 		buffer.write('2');
@@ -54,7 +54,7 @@ describe('CircularBuffer', function () {
 		expect(buffer.read()).toBe('3');
 	});
 
-	it('writes of undefined or null don\'t occupy buffer', function () {
+	test('writes of undefined or null don\'t occupy buffer', function () {
 		var buffer = circularBuffer(3);
 		buffer.write(null);
 		buffer.write(undefined);
@@ -64,7 +64,7 @@ describe('CircularBuffer', function () {
 		expect(buffer.read()).toBe('1');
 	});
 
-	it('writing to a full buffer throws a BufferFullException', function () {
+	test('writing to a full buffer throws a BufferFullException', function () {
 		var buffer = circularBuffer(2);
 		buffer.write('1');
 		buffer.write('2');
@@ -73,7 +73,7 @@ describe('CircularBuffer', function () {
 		}).toThrow(bufferFullException());
 	});
 
-	it('forced writes over write oldest item in a full buffer', function () {
+	test('forced writes over write oldest item in a full buffer', function () {
 		var buffer = circularBuffer(2);
 		buffer.write('1');
 		buffer.write('2');
@@ -83,7 +83,7 @@ describe('CircularBuffer', function () {
 		expect(buffer.read).toThrow(bufferEmptyException());
 	});
 
-	it('forced writes act like write in a non-full buffer', function () {
+	test('forced writes act like write in a non-full buffer', function () {
 		var buffer = circularBuffer(2);
 		buffer.write('1');
 		buffer.forceWrite('2');
@@ -92,7 +92,7 @@ describe('CircularBuffer', function () {
 		expect(buffer.read).toThrow(bufferEmptyException());
 	});
 
-	it('alternate force write and read into full buffer', function () {
+	test('alternate force write and read into full buffer', function () {
 		var buffer = circularBuffer(5);
 		[1, 2, 3].map(function (i) {
 			buffer.write(i.toString());

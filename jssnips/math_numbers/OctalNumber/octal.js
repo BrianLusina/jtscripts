@@ -23,7 +23,7 @@ class Octal{
         }
         // split the number string to an array
         // loop through each number multiplying it by 8 to the power of the current index
-        var numberArr = this.number.split("").reverse();
+        var numberArr = this.number.spltest("").reverse();
         var result = [];
 
         // if the number 8 is found, return early with 0, 8 is invalid.

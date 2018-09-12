@@ -2,14 +2,14 @@ var countVegetables = require('../../jssnips/algorithms/count_vegetables/count-v
 var expect = require("expect");
 
 //test.todo('fix count vegetables');
-// describe('Count vegetables', () => {
-// 	it('test 1', function () {
+// test('Count vegetables', () => {
+// 	test('test 1', function () {
 // 		lst1 = [[2, 'tofu'], [2, 'potato'], [2, 'cucumber'], [2, 'cabbage'], [1, 'turnip'], [1, 'pepper'], [1, 'onion'], [1, 'mushroom'], [1, 'celery'], [1, 'carrot']];
 // 		s1 = 'potato tofu cucumber cabbage turnip pepper onion carrot celery mushroom potato tofu cucumber cabbage';
 // 		expect(countVegetables(s1)).toEqual(lst1);
 // 	});
 
-// 	it('test 2', function () {
+// 	test('test 2', function () {
 // 		lst2 = [[15, 'turnip'], [15, 'mushroom'], [13, 'cabbage'], [10, 'carrot'], [9, 'potato'], [7, 'onion'], [6, 'tofu'], [6, 'pepper'], [5, 'cucumber'], [4, 'celery']];
 // 		s2 = `mushroom chopsticks chopsticks turnip mushroom carrot mushroom cabbage mushroom carrot tofu pepper cabbage potato cucumber
 //         mushroom mushroom mushroom potato turnip chopsticks cabbage celery celery turnip pepper chopsticks potato potato onion cabbage cucumber

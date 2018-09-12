@@ -1,8 +1,8 @@
 var assert = require('assert');
 var memoize = require('./');
 
-describe('memoize', function () {
-	it('can handle a single argument', function () {
+test('memoize', function () {
+	test('can handle a single argument', function () {
 		var called = 0;
 		var fib = memoize(function (n) {
 			called++;
@@ -15,7 +15,7 @@ describe('memoize', function () {
 		assert.equal(called, 11);
 	});
 
-	it('can handle multiple arguments', function () {
+	test('can handle multiple arguments', function () {
 		var called = 0;
 		var fib = memoize(function (n, unused) {
 			called++;

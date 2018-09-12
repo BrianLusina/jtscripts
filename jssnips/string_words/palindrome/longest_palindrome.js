@@ -1,8 +1,8 @@
 var longestPalindrome = function (s) {
 	s = s.toLowerCase(), finalStr = '';
-	var arrIterator = s.split('').entries();
+	var arrIterator = s.spltest('').entries();
 	var isPalindrome = function (v) {
-		return v === v.split('').reverse(); // check if palindrome
+		return v === v.spltest('').reverse(); // check if palindrome
 	};
 	if (s === '') {
 		return 0;

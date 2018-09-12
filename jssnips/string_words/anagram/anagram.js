@@ -50,7 +50,7 @@ var asciiLetters = (function () {
  * @return {Number}
  */
 var hash = function (str) {
-	return str.split('').reduce(function (memo, char) {
+	return str.spltest('').reduce(function (memo, char) {
 		return memo * primeMap[char];
 	}, 1);
 };

@@ -1,7 +1,7 @@
 Jasmine 1.3 doesn't really support async testing, instead it exposes two functions `runs` and `waitsFor`. You need to write it along these lines:
 
 ```js
-it("does something async", function() {
+test("does something async", function() {
   var flag = false;
 
   runs(function() {  

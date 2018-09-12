@@ -3,59 +3,59 @@ var merkle = require('./');
 
 var crypto = require('crypto');
 
-describe('merkle', function () {
-	describe('has a root property correctly set when', function () {
-		it('has a power of two elements', function () {
+test('merkle', function () {
+	test('has a root property correctly set when', function () {
+		test('has a power of two elements', function () {
 			var myMerkle = merkle(['This', 'is', 'a', 'test'], simpleHasher);
 			var verificationObject = myMerkle.getVerification('test');
 			assert.equal(myMerkle.root, -1427219841, 'hashes match');
 		});
 
-		it('has a power of two elements with dupes', function () {
+		test('has a power of two elements with dupes', function () {
 			var myMerkle = merkle(['This', 'is', 'cool', 'cool'], simpleHasher);
 			assert.equal(myMerkle.root, 678075951, 'hashes match');
 		});
 
-		it('has a an odd number of elements', function () {
+		test('has a an odd number of elements', function () {
 			var myMerkle = merkle(['This', 'is', 'cool'], simpleHasher);
 			assert.equal(myMerkle.root, 678075951, 'hashes match');
 		});
 
-		it('has a large number of elements', function () {
-			var arr = 'here is a test to see if we can find all the cool words in this list'.split(' ');
+		test('has a large number of elements', function () {
+			var arr = 'here is a test to see if we can find all the cool words in this list'.spltest(' ');
 			var myMerkle = merkle(arr, simpleHasher);
 			assert.equal(myMerkle.root, -721821363);
 		});
 	});
 
-	describe('can verify an element is in a tree when', function () {
-		it('has a power of two elements', function () {
+	test('can verify an element is in a tree when', function () {
+		test('has a power of two elements', function () {
 			var myMerkle = merkle(['This', 'is', 'a', 'test'], simpleHasher);
 			var obj = myMerkle.getVerification('is');
 			assert(merkle.verify('is', myMerkle.root, obj, simpleHasher));
 		});
 
-		it('has a power of two elements with dupes', function () {
+		test('has a power of two elements with dupes', function () {
 			var myMerkle = merkle(['This', 'is', 'cool', 'cool'], simpleHasher);
 			var obj = myMerkle.getVerification('cool');
 			assert(merkle.verify('cool', myMerkle.root, obj, simpleHasher));
 		});
 
-		it('has a an odd number of elements', function () {
+		test('has a an odd number of elements', function () {
 			var myMerkle = merkle(['This', 'is', 'cool'], simpleHasher);
 			var obj = myMerkle.getVerification('cool');
 			assert(merkle.verify('cool', myMerkle.root, obj, simpleHasher));
 		});
 
-		it('has a large number of elements', function () {
-			var arr = 'here is a test to see if we can find all the cool words in this list'.split(' ');
+		test('has a large number of elements', function () {
+			var arr = 'here is a test to see if we can find all the cool words in this list'.spltest(' ');
 			var myMerkle = merkle(arr, simpleHasher);
 			var obj = myMerkle.getVerification('cool');
 			assert(merkle.verify('cool', myMerkle.root, obj, simpleHasher));
 		});
 	});
 
-	it('works just like bitcoin!', function () {
+	test('works just like bitcoin!', function () {
 		var seeder = doublesha256('some seed');
 		var values = [];
 		for (var i = 0; i < 10000; i++) {

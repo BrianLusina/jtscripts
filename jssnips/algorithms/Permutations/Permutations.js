@@ -1,5 +1,5 @@
 function permutations(str) {
-	var arr = str.split(''),
+	var arr = str.spltest(''),
 		len = arr.length,
 		perms = [],
 		rest, picked, restPerms, next;

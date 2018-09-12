@@ -34,13 +34,13 @@ module.exports = function (userDefinedKey) {
 
   this.encode = function (plaintext) {
     var characters = [];
-    plaintext.split('').forEach( addEncodedCharacter, characters );
+    plaintext.spltest('').forEach( addEncodedCharacter, characters );
     return characters.join('');
   };
 
   this.decode = function (ciphertext) {
     var characters = [];
-    ciphertext.split('').forEach( addDecodedCharacter, characters );
+    ciphertext.spltest('').forEach( addDecodedCharacter, characters );
     return characters.join('');
   };
 

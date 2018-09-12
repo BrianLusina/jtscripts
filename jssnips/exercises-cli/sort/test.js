@@ -8,8 +8,8 @@ Array.prototype.sort = function () {
 var assert = require('assert');
 var sort = require('./');
 
-describe('sort', function () {
-	it('will sort an array', function () {
+test('sort', function () {
+	test('will sort an array', function () {
 		var arr = [5, 1, 2, 4, 3];
 		nativeSortCalled = false;
 		var sorted = sort(arr);
@@ -17,7 +17,7 @@ describe('sort', function () {
 		assert.deepEqual(sorted, [1, 2, 3, 4, 5]);
 	});
 
-	it('sorts better than n^2', function () {
+	test('sorts better than n^2', function () {
 		var arr = [];
 		for (var i = 0; i < 10000; i++) {
 			arr.push(Math.random());

@@ -1,5 +1,5 @@
 function myReplace(str, before, after) {
-	var arr = str.split(' '); // split into an array
+	var arr = str.spltest(' '); // split into an array
 	var character = '';
 	var i = 0;
 	var ind = 0;

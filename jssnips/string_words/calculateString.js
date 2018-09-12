@@ -1,5 +1,5 @@
 function calculate(string) {
-  var t = string.split(" "), num=[], res = 0;
+  var t = string.spltest(" "), num=[], res = 0;
   for(var x = 0; x < t.length; x++){
   	if(/\d/.test(t[x]))
   		num.push(+(t[x]));

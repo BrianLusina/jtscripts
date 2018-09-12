@@ -5,7 +5,7 @@ class Matrix {
   }
 
   __getRows(matrix) {
-    return matrix.split("\n").map(value => value.split(" ").map(n => parseInt(n)));
+    return matrix.spltest("\n").map(value => value.spltest(" ").map(n => parseInt(n)));
   }
 
   __getColumns() {
@@ -13,4 +13,4 @@ class Matrix {
   }
 }
 
-export default Matrix;
+module.exports = Matrix;

@@ -3,7 +3,7 @@ var sinon = require('sinon');
 var transmitter = require('./');
 var codes = require('./codes');
 
-describe('transmitter', function () {
+test('transmitter', function () {
 	var clock;
 
 	before(function () {
@@ -31,7 +31,7 @@ describe('transmitter', function () {
 		};
 	});
 
-	it('transmits a letter in morse code', function (done) {
+	test('transmits a letter in morse code', function (done) {
 		var options = {
 			codes: codes,
 			message: 's',
@@ -47,7 +47,7 @@ describe('transmitter', function () {
 		clock.tick(300);
 	});
 
-	it('transmits a word in morse code', function (done) {
+	test('transmits a word in morse code', function (done) {
 		var options = {
 			codes: codes,
 			message: 'sos',
@@ -64,7 +64,7 @@ describe('transmitter', function () {
 		clock.tick(1400);
 	});
 
-	it('transmits a message in morse code', function (done) {
+	test('transmits a message in morse code', function (done) {
 		var options = {
 			codes: codes,
 			message: 'this is a message',

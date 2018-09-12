@@ -9,8 +9,8 @@ Array.prototype.map = function () {
 
 var map = require('./');
 
-describe('map', function () {
-	it('should not use the native map', function () {
+test('map', function () {
+	test('should not use the native map', function () {
 		calledNativeMap = false;
 		map(['x'], function (x) {
 			return x;
@@ -18,14 +18,14 @@ describe('map', function () {
 		assert(!calledNativeMap);
 	});
 
-	it('should return another array', function () {
+	test('should return another array', function () {
 		var arr = [1, 2, 3];
 		var mapped = map(arr, function () {});
 
 		assert.notEqual(arr, mapped);
 	});
 
-	it('should return the right results', function () {
+	test('should return the right results', function () {
 		var arr = [1, 2, 3];
 		var mapped = map(arr, function (value) {
 			return value * 2;
@@ -34,7 +34,7 @@ describe('map', function () {
 		assert.deepEqual(mapped, [2, 4, 6]);
 	});
 
-	it('callback will be called once for each element', function () {
+	test('callback will be called once for each element', function () {
 		var called = 0;
 		var arr = [1, 2, 3];
 
@@ -46,7 +46,7 @@ describe('map', function () {
 		assert.equal(called, 3);
 	});
 
-	it('callback will be invoked with three arguments', function () {
+	test('callback will be invoked with three arguments', function () {
 		var args;
 		var arr = [1];
 
@@ -57,7 +57,7 @@ describe('map', function () {
 		assert.equal(args, 3);
 	});
 
-	it('callback\'s arguments (value, index, array) should have right values', function () {
+	test('callback\'s arguments (value, index, array) should have right values', function () {
 		var i = 0;
 		var arr = [1, 2, 3];
 
@@ -69,7 +69,7 @@ describe('map', function () {
 		});
 	});
 
-	it('callback should gets called with context', function () {
+	test('callback should gets called with context', function () {
 		var ctx;
 		var arr = [5];
 

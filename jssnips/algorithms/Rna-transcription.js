@@ -23,7 +23,7 @@ var AMINO_DICT = {
     // 'UAA': 'Stop', 'UGA': 'Stop', 'UAG': 'Stop'
 function protein(rna) {
 	var prot_result = '';
-	var codons = rna.split(/([A-Z]{3})/);
+	var codons = rna.spltest(/([A-Z]{3})/);
 	for (var x = 0; x < codons.length; x++) {
 		if (AMINO_DICT.hasOwnProperty(codons[x])) {
 			var h = codons[x];
