@@ -39,15 +39,12 @@
   },
   "ava": {
 		"files": [
-      "tests/**/*.js",
       "tests/**/*.spec.js",
       "src/**/*.spec.js",
-      "src/**/*.test.js",
-      "!tests/exclude-this-directory/**/*.js",
-      "!**/exclude-this-file.js"
+      "src/**/*.test.js"
 		],
 		"sources": [
-			"**/*.{js,jsx}",
+			"**/*.{js}",
 			"!dist/**/*"
 		],
 		"match": [
