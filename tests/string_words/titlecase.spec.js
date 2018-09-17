@@ -1,4 +1,4 @@
-var TitleCase = require('../../jssnips/string_words/title_case/titlecase');
+var TitleCase = require('../../src/string_words/title_case/titlecase');
 
 test('Title Case Test suite', function () {
 	test('Test 1', function () {

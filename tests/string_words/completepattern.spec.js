@@ -1,4 +1,4 @@
-var pattern = require('../../jssnips/string_words/complete_pattern/completepattern');
+var pattern = require('../../src/string_words/complete_pattern/completepattern');
 
 test('Complete Pattern tests', function () {
 	test('Test 1', () => {

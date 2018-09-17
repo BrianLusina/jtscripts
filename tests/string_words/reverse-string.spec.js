@@ -1,4 +1,4 @@
-var reverseString = require('../../jssnips/string_words/reverse_string/reverse-string.js');
+var reverseString = require('../../src/string_words/reverse_string/reverse-string.js');
 
 test('ReverseString', function () {
   test('empty string', function () {

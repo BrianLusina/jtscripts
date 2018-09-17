@@ -1,4 +1,4 @@
-var NameNumber = require('../../jssnips/string_words/name_that_number/namethatnumber');
+var NameNumber = require('../../src/string_words/name_that_number/namethatnumber');
 
 test('Name That Number tests', function () {
 	test('test 1, Zero', function () {

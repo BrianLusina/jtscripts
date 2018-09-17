@@ -1,4 +1,4 @@
-var shiftedDiff = require('../../jssnips/string_words/string_rotation/str_rotation.js');
+var shiftedDiff = require('../../src/string_words/string_rotation/str_rotation.js');
 
 test('Shifted diff', function () {
 	test('test 1', function () {

@@ -1,4 +1,4 @@
-var TwoFer = require('../../jssnips/string_words/two_fer/two-fer');
+var TwoFer = require('../../src/string_words/two_fer/two-fer');
 
 test('Two Fer', function () {
   var twoFer = new TwoFer();

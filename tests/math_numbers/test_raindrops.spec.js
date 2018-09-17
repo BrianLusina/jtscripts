@@ -1,4 +1,4 @@
-var Raindrops = require('../../jssnips/math_numbers/raindrops/raindrops.js');
+var Raindrops = require('../../src/math_numbers/raindrops/raindrops.js');
 
 test('Raindrops', function () {
 	var drops = new Raindrops();

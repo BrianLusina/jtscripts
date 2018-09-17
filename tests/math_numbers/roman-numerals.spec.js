@@ -1,4 +1,4 @@
-var toRoman = require('../../jssnips/math_numbers/roman-numerals/roman-numerals2');
+var toRoman = require('../../src/math_numbers/roman-numerals/roman-numerals2');
 
 test('toRoman()', function () {
 	test('converts 1', function () {

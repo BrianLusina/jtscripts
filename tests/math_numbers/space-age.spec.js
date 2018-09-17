@@ -1,4 +1,4 @@
-var SpaceAge = require('../../jssnips/math_numbers/space-age/space-age');
+var SpaceAge = require('../../src/math_numbers/space-age/space-age');
 
 test('Space Age', function () {
 	test('age in seconds', function () {

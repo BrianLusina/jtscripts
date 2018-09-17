@@ -1,4 +1,4 @@
-var Palindrome = require('../../jssnips/string_words/palindrome/palindrome');
+var Palindrome = require('../../src/string_words/palindrome/palindrome');
 
 test('Palindrome', function () {
 	test('should identifies that a string is palindrome', function () {

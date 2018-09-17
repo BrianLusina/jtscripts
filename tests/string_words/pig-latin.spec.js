@@ -2,7 +2,7 @@
  * Created by lusinabrian on 27/02/17.
  */
 
-var pigLatin = require('../../jssnips/string_words/pig-latin/pig-latin.js');
+var pigLatin = require('../../src/string_words/pig-latin/pig-latin.js');
 
 test('pigLatin', function () {
 

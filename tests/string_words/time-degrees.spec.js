@@ -1,4 +1,4 @@
-var TimeDegrees = require('../../jssnips/string_words/time_degrees/time-degrees');
+var TimeDegrees = require('../../src/string_words/time_degrees/time-degrees');
 var expect = require("expect");
 
 //TODO: unskip tests

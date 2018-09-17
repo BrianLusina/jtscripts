@@ -1,4 +1,4 @@
-var PopulationGrowth = require('../../jssnips/math_numbers/PopulationGrowth/population');
+var PopulationGrowth = require('../../src/math_numbers/PopulationGrowth/population');
 
 test('Population Growth Tests', function () {
 	test('Test 1', function () {

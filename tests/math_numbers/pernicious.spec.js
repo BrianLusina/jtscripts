@@ -1,4 +1,4 @@
-var Pernicious = require('../../jssnips/math_numbers/Pernicious/pernicious');
+var Pernicious = require('../../src/math_numbers/Pernicious/pernicious');
 
 /**
  * TODO: FIX FAILING TESTS

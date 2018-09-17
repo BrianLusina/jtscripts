@@ -2,7 +2,7 @@ var Cipher = require('./simplecipher2');
 const test = require("ava");
 const expect = require("expect");
 
-//var Cipher = require('../../jssnips/cryptography/simple-cipher/simplecipher');
+//var Cipher = require('../../src/cryptography/simple-cipher/simplecipher');
 
 var cipher = new Cipher();
 

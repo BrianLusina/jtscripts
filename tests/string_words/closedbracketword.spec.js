@@ -1,4 +1,4 @@
-var closedBracketWord = require("../../jssnips/string_words/closed_bracket_word/closed-bracket-word")
+var closedBracketWord = require("../../src/string_words/closed_bracket_word/closed-bracket-word")
 var expect = require('chai').expect;
 
 test("Basic Tests", function(){ 

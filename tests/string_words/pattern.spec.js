@@ -1,5 +1,5 @@
 
-var Pattern = require('../../jssnips/string_words/pattern/pattern');
+var Pattern = require('../../src/string_words/pattern/pattern');
 
 test('Pattern Tests', function () {
 	test('Test 1', function () {

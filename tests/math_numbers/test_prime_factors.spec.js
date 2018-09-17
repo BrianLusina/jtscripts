@@ -1,4 +1,4 @@
-var primeFactors = require('../../jssnips/math_numbers/Primes/PrimeFactors/primefactors.js');
+var primeFactors = require('../../src/math_numbers/Primes/PrimeFactors/primefactors.js');
 
 test('primeFactors', function () {
 	test('returns an empty array for 1', function () {

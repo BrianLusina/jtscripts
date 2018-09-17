@@ -1,4 +1,4 @@
-var Hexadecimal = require('../../jssnips/string_words/hexadecimal/hexadecimal');
+var Hexadecimal = require('../../src/string_words/hexadecimal/hexadecimal');
 
 test('Hexadecimal', function() {
 

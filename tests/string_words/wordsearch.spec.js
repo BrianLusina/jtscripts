@@ -1,4 +1,4 @@
-var WordSearch = require('../../jssnips/string_words/word_search/wordsearch');
+var WordSearch = require('../../src/string_words/word_search/wordsearch');
 
 test('Word Search Test Suite', function () {
 	test('Test 1', function () {

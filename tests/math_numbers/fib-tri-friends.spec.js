@@ -1,4 +1,4 @@
-var Xbonacci = require('../../jssnips/math_numbers/Fibonacci/Xbonacci/fibTriFriends/fibTriFriends');
+var Xbonacci = require('../../src/math_numbers/Fibonacci/Xbonacci/fibTriFriends/fibTriFriends');
 
 test('FibTriFriends test cases', function () {
 	test('Test for 2 elements', function () {

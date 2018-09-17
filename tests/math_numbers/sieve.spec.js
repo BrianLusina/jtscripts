@@ -1,4 +1,4 @@
-var Sieve = require("../../jssnips/math_numbers/sieve/sieve");
+var Sieve = require("../../src/math_numbers/sieve/sieve");
 
 test('Sieve', function() {
 

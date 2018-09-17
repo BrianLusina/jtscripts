@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var anagramDetection = require('../../jssnips/string_words/anagram/anagram');
+var anagramDetection = require('../../src/string_words/anagram/anagram');
 
 test('Anagram Detection', function () {
 	test('should detect no change in the characters', function () {

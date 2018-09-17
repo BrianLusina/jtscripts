@@ -1,4 +1,4 @@
-var HashTag = require('../../jssnips/string_words/hashtag_gen/hashtag');
+var HashTag = require('../../src/string_words/hashtag_gen/hashtag');
 
 test('Hashtag Test suite', function () {
 	test('Test 1', function () {

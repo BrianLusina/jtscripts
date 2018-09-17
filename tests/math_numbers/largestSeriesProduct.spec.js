@@ -1,4 +1,4 @@
-var Series = require('../../jssnips/math_numbers/largestSeriesProduct/largestSeriesProduct');
+var Series = require('../../src/math_numbers/largestSeriesProduct/largestSeriesProduct');
 
 test('Series', function () {
 

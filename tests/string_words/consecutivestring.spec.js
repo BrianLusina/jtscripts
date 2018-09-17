@@ -1,4 +1,4 @@
-var ConsecutiveString = require('../../jssnips/string_words/consecutive_string/consecutivestring');
+var ConsecutiveString = require('../../src/string_words/consecutive_string/consecutivestring');
 
 test('Consecutive String Test Cases', function () {
 	test('Test 1', function () {

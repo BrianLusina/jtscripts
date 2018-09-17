@@ -1,4 +1,4 @@
-var fibsFizzBuzz = require('../../jssnips/math_numbers/Fibonacci/Xbonacci/fibFizzBuzz/fizzBuzz');
+var fibsFizzBuzz = require('../../src/math_numbers/Fibonacci/Xbonacci/fibFizzBuzz/fizzBuzz');
 
 test('Fibonacci\'s FizzBuzz', function () {
 	test('should work for a value of 2', function () {

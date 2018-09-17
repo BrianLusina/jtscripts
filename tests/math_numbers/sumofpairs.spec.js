@@ -1,4 +1,4 @@
-var sum_pairs = require('../../jssnips/math_numbers/SumOfPairs/sumofpairs.js');
+var sum_pairs = require('../../src/math_numbers/SumOfPairs/sumofpairs.js');
 
 l1 = [1, 4, 8, 7, 3, 15];
 l2 = [1, -2, 3, 0, -6, 1];

@@ -1,4 +1,4 @@
-var SumArray = require('../../jssnips/math_numbers/sumwohighlow/sumArray');
+var SumArray = require('../../src/math_numbers/sumwohighlow/sumArray');
 
 test('Sum Array Tests', function () {
 	test('Test 1', function () {

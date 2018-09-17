@@ -1,4 +1,4 @@
-var PerfectNumbers = require('../../jssnips/math_numbers/perfect-numbers/perfect-numbers');
+var PerfectNumbers = require('../../src/math_numbers/perfect-numbers/perfect-numbers');
 
 test('Exercise - Perfect Numbers', function() {
 

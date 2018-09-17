@@ -1,4 +1,4 @@
-const Triplet = require('../../jssnips/math_numbers/pythagorean_triplet/pythagorean');
+const Triplet = require('../../src/math_numbers/pythagorean_triplet/pythagorean');
 const expect = require("expect");
 
 

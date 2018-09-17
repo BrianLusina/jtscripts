@@ -1,4 +1,4 @@
-var total_characters = require('../../jssnips/string_words/count_characters/count_characters.js');
+var total_characters = require('../../src/string_words/count_characters/count_characters.js');
 var expect = require("expect");
 
 

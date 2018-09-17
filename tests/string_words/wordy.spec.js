@@ -1,5 +1,5 @@
-var WordProblem = require('../../jssnips/string_words/wordy/wordy').WordProblem;
-var ArgumentError = require('../../jssnips/string_words/wordy/wordy').ArgumentError;
+var WordProblem = require('../../src/string_words/wordy/wordy').WordProblem;
+var ArgumentError = require('../../src/string_words/wordy/wordy').ArgumentError;
 
 test('Word Problem', function () {
 

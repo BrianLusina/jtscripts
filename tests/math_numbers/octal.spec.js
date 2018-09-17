@@ -1,4 +1,4 @@
-var Octal = require('../../jssnips/math_numbers/OctalNumber/octal');
+var Octal = require('../../src/math_numbers/OctalNumber/octal');
 
 test('octal', function() {
 

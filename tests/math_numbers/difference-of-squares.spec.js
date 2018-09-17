@@ -1,4 +1,4 @@
-var Squares = require('../../jssnips/math_numbers/DifferenceOfSquares/difference-of-squares');
+var Squares = require('../../src/math_numbers/DifferenceOfSquares/difference-of-squares');
 
 test('Squares', function () {
 
