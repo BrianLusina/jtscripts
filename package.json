@@ -4,7 +4,7 @@
   "private": true,
   "description": "Small JavaScript Algorithms, snippets and programs",
   "scripts": {
-    "test": "ava --color",
+    "test": "ava src/**/*.spec.js --color",
     "test:watch": "ava --watch",
     "test:cover": "nyc ava",
     "send-cover-report": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage"
@@ -40,7 +40,6 @@
   },
   "ava": {
     "files": [
-      "tests/**/*.spec.js",
       "src/**/*.spec.js",
       "src/**/*.test.js"
     ],
