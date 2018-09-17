@@ -1,0 +1,55 @@
+var test = require("ava");
+var expect = require("expect")
+var Squares = require('./difference-of-squares');
+
+
+test('up to 5', t => {
+  var squares = new Squares(5);
+
+  test('gets the square of sums', t => {
+    expect(squares.squareOfSums).toBe(225);
+  });
+
+  test('gets the sum of squares', t => {
+    expect(squares.sumOfSquares).toBe(55);
+  });
+
+  test('gets the difference', t => {
+    expect(squares.difference).toBe(170);
+  });
+
+});
+
+test('up to 10', t => {
+  var squares = new Squares(10);
+
+  test('gets the square of sums', t => {
+    expect(squares.squareOfSums).toBe(3025);
+  });
+
+  test('gets the sum of squares', t => {
+    expect(squares.sumOfSquares).toBe(385);
+  });
+
+  test('gets the difference', t => {
+    expect(squares.difference).toBe(2640);
+  });
+
+});
+
+test('up to 100', t => {
+  var squares = new Squares(100);
+
+  test('gets the square of sums', t => {
+    expect(squares.squareOfSums).toBe(25502500);
+  });
+
+  test('gets the sum of squares', t => {
+    expect(squares.sumOfSquares).toBe(338350);
+  });
+
+  test('gets the difference', t => {
+    expect(squares.difference).toBe(25164150);
+  });
+
+});
