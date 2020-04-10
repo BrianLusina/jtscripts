@@ -4,29 +4,29 @@ var closedBracketWord = require("./closed-bracket-word")
 
 
 test("It should works for basic tests.", t => {
-  expect(closedBracketWord("abiryz")).to.equal(true)
+  t.is(closedBracketWord("abiryz")).to.equal(true)
 });
 
-test("", t => {
-  expect(closedBracketWord("aibryz")).to.equal(false)
+test("aibryz", t => {
+  t.is(closedBracketWord("aibryz")).to.equal(false)
 });
 
 test("random word", t => {
-  expect(closedBracketWord("abitryz")).to.equal(false)
+  t.is(closedBracketWord("abitryz")).to.equal(false)
 });
 
 test("some random word", t => {
-  expect(closedBracketWord("zhuazfsa")).to.equal(true)
+  t.is(closedBracketWord("zhuazfsa")).to.equal(true)
 });
 
 test("baby", t => {
-  expect(closedBracketWord("baby")).to.equal(false)
+  t.is(closedBracketWord("baby")).to.equal(false)
 });
 
 test("grit", t => {
-  expect(closedBracketWord("grit")).to.equal(true)
+  t.is(closedBracketWord("grit")).to.equal(true)
 });
 
 test("Foul", t => {
-  expect(closedBracketWord("foul")).to.equal(false)
+  t.is(closedBracketWord("foul")).to.equal(false)
 });

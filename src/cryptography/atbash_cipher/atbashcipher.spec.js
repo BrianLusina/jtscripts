@@ -3,35 +3,35 @@ const test = require("ava");
 const expect = require("expect");
 
 test('encodes no', t => {
-  expect(atbash.encode('no')).toEqual('ml');
+  t.is(atbash.encode('no'),'ml');
 });
 
 test('encodes yes', t => {
-  expect(atbash.encode('yes')).toEqual('bvh');
+  t.is(atbash.encode('yes'),'bvh');
 });
 
 test('encodes OMG', t => {
-  expect(atbash.encode('OMG')).toEqual('lnt');
+  t.is(atbash.encode('OMG'),'lnt');
 });
 
 test('encodes O M G', t => {
-  expect(atbash.encode('O M G')).toEqual('lnt');
+  t.is(atbash.encode('O M G'),'lnt');
 });
 
 test('encodes long words', t => {
-  expect(atbash.encode('mindblowingly')).toEqual('nrmwy oldrm tob');
+  t.is(atbash.encode('mindblowingly'),'nrmwy oldrm tob');
 });
 
 test('encodes numbers', t => {
-  expect(atbash.encode('Testing, 1 2 3, testing.'))
+  t.is(atbash.encode('Testing, 1 2 3, testing.'))
     .toEqual('gvhgr mt123 gvhgr mt');
 });
 
 test('encodes sentences', t => {
-  expect(atbash.encode('Truth is fiction.')).toEqual('gifgs rhurx grlm');
+  t.is(atbash.encode('Truth is fiction.'),'gifgs rhurx grlm');
 });
 
 test('encodes all the things', t => {
-  expect(atbash.encode('The quick brown fox jumps over the lazy dog.'))
+  t.is(atbash.encode('The quick brown fox jumps over the lazy dog.'))
     .toEqual('gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt');
 });

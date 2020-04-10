@@ -4,25 +4,25 @@ const expect = require("expect");
 
 test('Test 1', t => {
   var hexDec = new HexToDec();
-  expect(hexDec.hexToDec('1')).toEqual(1);
+  t.is(hexDec.hexToDec('1'),1);
 });
 
 test('Test 2', t => {
   var hexDec = new HexToDec();
-  expect(hexDec.hexToDec('a')).toEqual(10);
+  t.is(hexDec.hexToDec('a'),10);
 });
 
 test('Test 3', t => {
   var hexDec = new HexToDec();
-  expect(hexDec.hexToDec('10')).toEqual(16);
+  t.is(hexDec.hexToDec('10'),16);
 });
 
 test('Test 4', t => {
   var hexDec = new HexToDec();
-  expect(hexDec.hexToDec('FF')).toEqual(255);
+  t.is(hexDec.hexToDec('FF'),255);
 });
 
 test('Test 5', t => {
   var hexDec = new HexToDec();
-  expect(hexDec.hexToDec('-C')).toEqual(-12);
+  t.is(hexDec.hexToDec('-C'),-12);
 });

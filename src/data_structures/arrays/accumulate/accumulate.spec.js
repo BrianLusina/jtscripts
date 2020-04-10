@@ -7,7 +7,7 @@ test('accumulation empty', t => {
   var accumulator = function (e) {
     return e * e;
   };
-  expect(accumulate([], accumulator)).toEqual([]);
+  t.is(accumulate([], accumulator),[]);
 });
 
 test('accumulate squares', t => {
@@ -17,7 +17,7 @@ test('accumulate squares', t => {
 
   var result = accumulate([1, 2, 3], accumulator);
 
-  expect(result).toEqual([1, 4, 9]);
+  t.is(result,[1, 4, 9]);
 });
 
 test('accumulate upcases', t => {
@@ -25,9 +25,9 @@ test('accumulate upcases', t => {
     return word.toUpperCase();
   };
 
-  var result = accumulate('hello world'.spltest(/\s/), accumulator);
+  var result = accumulate('hello world'.split.is(/\s/), accumulator);
 
-  expect(result).toEqual(['HELLO', 'WORLD']);
+  t.is(result,['HELLO', 'WORLD']);
 });
 
 test('accumulate reversed strings', t => {
@@ -37,7 +37,7 @@ test('accumulate reversed strings', t => {
 
   var result = accumulate('the quick brown fox etc'.spltest(/\s/), accumulator);
 
-  expect(result).toEqual(['eht', 'kciuq', 'nworb', 'xof', 'cte']);
+  t.is(result,['eht', 'kciuq', 'nworb', 'xof', 'cte']);
 });
 
 test('accumulate recursively', t => {
@@ -47,7 +47,7 @@ test('accumulate recursively', t => {
     });
   });
 
-  expect(result).toEqual([
+  t.is(result,[
     ['a1', 'a2', 'a3'],
     ['b1', 'b2', 'b3'],
     ['c1', 'c2', 'c3']

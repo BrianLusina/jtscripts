@@ -11,7 +11,7 @@ export default decreaseScore = (state, props) =>{
 }
 
 // these can now be tested
-expect(increaseScore({value: 0}, {step: 5})).toBe(5);
-expect(increaseScore({value: 0}, {step: -5})).toBe(-5);
-expect(decreaseScore({value: 0}, {step: 5})).toBe(-5);
-expect(increaseScore({value: 0}, {step: -5})).toBe(5);
+t(increaseScore({value: 0}, {step: 5})).toBe(5);
+t(increaseScore({value: 0}, {step: -5})).toBe(-5);
+t(decreaseScore({value: 0}, {step: 5})).toBe(-5);
+t(increaseScore({value: 0}, {step: -5})).toBe(5);

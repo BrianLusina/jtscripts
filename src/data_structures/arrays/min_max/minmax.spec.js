@@ -5,7 +5,7 @@ var minMax = require('./minmax');
 test('Test 1', t => {
   var tester = function (arr, res) {
     var minmax = new minMax();
-    expect(minmax.getMaxMin(arr)).toEqual(res);
+    t.is(minmax.getMaxMin(arr),res);
   };
 
   var i, r;

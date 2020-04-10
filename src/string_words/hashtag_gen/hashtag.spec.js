@@ -5,10 +5,10 @@ var HashTag = require('./hashtag');
 
 test('Test 1', t => {
   var hash = new HashTag();
-  expect(hash.generateHashtag('Hello there thanks for trying my Kata')).toEqual('#HelloThereThanksForTryingMyKata');
+  t.is(hash.generateHashtag('Hello there thanks for trying my Kata'),'#HelloThereThanksForTryingMyKata');
 });
 
 test('Test 2', t => {
   var hash = new HashTag();
-  expect(hash.generateHashtag('Hello World')).toEqual('#HelloWorld');
+  t.is(hash.generateHashtag('Hello World'),'#HelloWorld');
 });

@@ -4,15 +4,15 @@ var TitleCase = require('./titlecase');
 
 test('Test 1', function () {
   var title = new TitleCase();
-  expect(title.titleCase('a clash of KINGS', 'a an the of')).toEqual('A Clash of Kings');
+  t.is(title.titleCase('a clash of KINGS', 'a an the of'),'A Clash of Kings');
 });
 
 test('Test 2', function () {
   var title = new TitleCase();
-  expect(title.titleCase('THE WIND IN THE WILLOWS', 'The In')).toEqual('The Wind in the Willows');
+  t.is(title.titleCase('THE WIND IN THE WILLOWS', 'The In'),'The Wind in the Willows');
 });
 
 test('Test 3', function () {
   var title = new TitleCase();
-  expect(title.titleCase('the quick brown fox')).toEqual('The Quick Brown Fox');
+  t.is(title.titleCase('the quick brown fox'),'The Quick Brown Fox');
 });

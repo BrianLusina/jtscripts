@@ -3,93 +3,93 @@ var expect = require("expect");
 var toRoman = require('./roman-numerals2');
 
 test('converts 1', t => {
-  expect(toRoman(1)).toEqual('I');
+  t.is(toRoman(1),'I');
 });
 
 test('converts 2', t => {
-  expect(toRoman(2)).toEqual('II');
+  t.is(toRoman(2),'II');
 });
 
 test('converts 3', t => {
-  expect(toRoman(3)).toEqual('III');
+  t.is(toRoman(3),'III');
 });
 
 test('converts 4', t => {
-  expect(toRoman(4)).toEqual('IV');
+  t.is(toRoman(4),'IV');
 });
 
 test('converts 5', t => {
-  expect(toRoman(5)).toEqual('V');
+  t.is(toRoman(5),'V');
 });
 
 test('converts 6', t => {
-  expect(toRoman(6)).toEqual('VI');
+  t.is(toRoman(6),'VI');
 });
 
 test('converts 9', t => {
-  expect(toRoman(9)).toEqual('IX');
+  t.is(toRoman(9),'IX');
 });
 
 test("converts 50", () => {
-  expect(toRoman(50)).toEqual("L");
+  t.is(toRoman(50),"L");
 });
 
 test('converts 27', t => {
-  expect(toRoman(27)).toEqual('XXVII');
+  t.is(toRoman(27),'XXVII');
 });
 
 test('converts 48', t => {
-  expect(toRoman(48)).toEqual('XLVIII');
+  t.is(toRoman(48),'XLVIII');
 });
 
 test('converts 59', t => {
-  expect(toRoman(59)).toEqual('LIX');
+  t.is(toRoman(59),'LIX');
 });
 
 test('converts 93', t => {
-  expect(toRoman(93)).toEqual('XCIII');
+  t.is(toRoman(93),'XCIII');
 });
 
 test('converts 100', t => {
-  expect(toRoman(100)).toEqual('C');
+  t.is(toRoman(100),'C');
 });
 
 test('converts 200', t => {
-  expect(toRoman(200)).toEqual('CC');
+  t.is(toRoman(200),'CC');
 });
 
 test('converts 141', t => {
-  expect(toRoman(141)).toEqual('CXLI');
+  t.is(toRoman(141),'CXLI');
 });
 
 test('converts 163', t => {
-  expect(toRoman(163)).toEqual('CLXIII');
+  t.is(toRoman(163),'CLXIII');
 });
 
 test('converts 402', t => {
-  expect(toRoman(402)).toEqual('CDII');
+  t.is(toRoman(402),'CDII');
 });
 
 test('converts 575', t => {
-  expect(toRoman(575)).toEqual('DLXXV');
+  t.is(toRoman(575),'DLXXV');
 });
 
 test('converts 911', t => {
-  expect(toRoman(911)).toEqual('CMXI');
+  t.is(toRoman(911),'CMXI');
 });
 
 test('converts 1204', t => {
-  expect(toRoman(1204)).toEqual('MCCIV');
+  t.is(toRoman(1204),'MCCIV');
 });
 
 test('converts 1024', t => {
-  expect(toRoman(1024)).toEqual('MXXIV');
+  t.is(toRoman(1024),'MXXIV');
 });
 
 test('converts 1290', t => {
-  expect(toRoman(1290)).toEqual('MCCXC');
+  t.is(toRoman(1290),'MCCXC');
 });
 
 test('converts 3000', t => {
-  expect(toRoman(3000)).toEqual('MMM');
+  t.is(toRoman(3000),'MMM');
 });

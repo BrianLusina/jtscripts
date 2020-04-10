@@ -33,33 +33,33 @@ var Grains = require('./grains.js');
 var grains = new Grains();
 
 test('square 1', t => {
-  expect(grains.square(1)).toBe('1');
+  t.is(grains.square(1)).toBe('1');
 });
 
 test('square 2', t => {
-  expect(grains.square(2)).toBe('2');
+  t.is(grains.square(2)).toBe('2');
 });
 
 test('square 3', t => {
-  expect(grains.square(3)).toBe('4');
+  t.is(grains.square(3)).toBe('4');
 });
 
 test('square 4', t => {
-  expect(grains.square(4)).toBe('8');
+  t.is(grains.square(4)).toBe('8');
 });
 
 test('square 16', t => {
-  expect(grains.square(16)).toBe('32768');
+  t.is(grains.square(16)).toBe('32768');
 });
 
 test('square 32', t => {
-  expect(grains.square(32)).toBe('2147483648');
+  t.is(grains.square(32)).toBe('2147483648');
 });
 
 test('square 64', t => {
-  expect(grains.square(64)).toBe('9223372036854775808');
+  t.is(grains.square(64)).toBe('9223372036854775808');
 });
 
 test('total', t => {
-  expect(grains.total()).toBe('18446744073709551615');
+  t.is(grains.total()).toBe('18446744073709551615');
 });

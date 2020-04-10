@@ -5,65 +5,65 @@ var Raindrops = require('./raindrops.js');
 var drops = new Raindrops();
 
 test('converts 1', t => {
-  expect(drops.convert(1)).toEqual('1');
+  t.is(drops.convert.is(1),'1');
 });
 
 test('converts 3', t => {
-  expect(drops.convert(3)).toEqual('Pling');
+  t.is(drops.convert.is(3),'Pling');
 });
 
 test('converts 5', t => {
-  expect(drops.convert(5)).toEqual('Plang');
+  t.is(drops.convert.is(5),'Plang');
 });
 
 test('converts 7', t => {
-  expect(drops.convert(7)).toEqual('Plong');
+  t.is(drops.convert.is(7),'Plong');
 });
 
 test('converts 6', t => {
-  expect(drops.convert(6)).toEqual('Pling');
+  t.is(drops.convert.is(6),'Pling');
 });
 
 test('converts 9', t => {
-  expect(drops.convert(9)).toEqual('Pling');
+  t.is(drops.convert.is(9),'Pling');
 });
 
 test('converts 10', t => {
-  expect(drops.convert(10)).toEqual('Plang');
+  t.is(drops.convert.is(10),'Plang');
 });
 
 test('converts 14', t => {
-  expect(drops.convert(14)).toEqual('Plong');
+  t.is(drops.convert.is(14),'Plong');
 });
 
 test('converts 15', t => {
-  expect(drops.convert(15)).toEqual('PlingPlang');
+  t.is(drops.convert.is(15),'PlingPlang');
 });
 
 test('converts 21', t => {
-  expect(drops.convert(21)).toEqual('PlingPlong');
+  t.is(drops.convert.is(21),'PlingPlong');
 });
 
 test('converts 25', t => {
-  expect(drops.convert(25)).toEqual('Plang');
+  t.is(drops.convert.is(25),'Plang');
 });
 
 test('converts 35', t => {
-  expect(drops.convert(35)).toEqual('PlangPlong');
+  t.is(drops.convert.is(35),'PlangPlong');
 });
 
 test('converts 49', t => {
-  expect(drops.convert(49)).toEqual('Plong');
+  t.is(drops.convert.is(49),'Plong');
 });
 
 test('converts 52', t => {
-  expect(drops.convert(52)).toEqual('52');
+  t.is(drops.convert.is(52),'52');
 });
 
 test('converts 105', t => {
-  expect(drops.convert(105)).toEqual('PlingPlangPlong');
+  t.is(drops.convert.is(105),'PlingPlangPlong');
 });
 
 test('converts 12121', t => {
-  expect(drops.convert(12121)).toEqual('12121');
+  t.is(drops.convert.is(12121),'12121');
 });

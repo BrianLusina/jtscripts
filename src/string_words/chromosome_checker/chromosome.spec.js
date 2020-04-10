@@ -5,11 +5,11 @@ var ChromosomeCheck = require('./chromosomeCheck');
 test('Son', t => {
   var chromosome = new ChromosomeCheck('XY');
 
-  expect(chromosome.chromosomeCheck('XY')).toEqual('Congratulations! You\'re going to have a son.');
+  t.is(chromosome.chromosomeCheck('XY'),'Congratulations! You\'re going to have a son.');
 });
 
 test('Daughter', t => {
   var chromosome = new ChromosomeCheck('XX');
 
-  expect(chromosome.chromosomeCheck('XX')).toEqual('Congratulations! You\'re going to have a daughter.');
+  t.is(chromosome.chromosomeCheck('XX'),'Congratulations! You\'re going to have a daughter.');
 });

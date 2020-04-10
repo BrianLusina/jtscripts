@@ -22,7 +22,7 @@ test.before(t => {
 test("should be able to add a contact", t => {
   addressBook.addContact(thisContact);
 
-  expect(addressBook.getContact(0)).toBe(thisContact);
+  t(addressBook.getContact(0)).toBe(thisContact);
 });
 
 test("should be able to delete a contact", t => {
@@ -30,11 +30,11 @@ test("should be able to delete a contact", t => {
   addressBook.addContact(thisContact);
   addressBook.deleteContact(thisContact);
 
-  expect(addressBook.getContact(0)).not.toBeDefined();
+  t(addressBook.getContact(0)).not.toBeDefined();
 
 });
 
 test("should grab initial contacts", function (done) {
-  expect(addressBook.initialComplete).toBe(true);
+  t(addressBook.initialComplete).toBe(true);
   done();
 });

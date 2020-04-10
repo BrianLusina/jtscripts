@@ -6,23 +6,23 @@ var bufferFullException = require('./circular-buffer').bufferFullException;
 
 test('reading an empty buffer throws a BufferEmptyException', t => {
   var buffer = circularBuffer(1);
-  expect(buffer.read).toThrow(bufferEmptyException());
+  t.is(buffer.read).toThrow(bufferEmptyException());
 });
 
 test('write and read back one item', t => {
   var buffer = circularBuffer(1);
   buffer.write('1');
-  expect(buffer.read()).toBe('1');
-  expect(buffer.read).toThrow(bufferEmptyException());
+  t.is(buffer.read()).toBe('1');
+  t.is(buffer.read).toThrow(bufferEmptyException());
 });
 
 test('write and read back multiple items', t => {
   var buffer = circularBuffer(2);
   buffer.write('1');
   buffer.write('2');
-  expect(buffer.read()).toBe('1');
-  expect(buffer.read()).toBe('2');
-  expect(buffer.read).toThrow(bufferEmptyException());
+  t.is(buffer.read()).toBe('1');
+  t.is(buffer.read()).toBe('2');
+  t.is(buffer.read).toThrow(bufferEmptyException());
 });
 
 test('clearing a buffer', t => {
@@ -30,19 +30,19 @@ test('clearing a buffer', t => {
   buffer.write('1');
   buffer.write('2');
   buffer.clear();
-  expect(buffer.read).toThrowError;
+  t.is(buffer.read).toThrowError;
   buffer.write('3');
   buffer.write('4');
-  expect(buffer.read()).toBe('3');
-  expect(buffer.read()).toBe('4');
+  t.is(buffer.read()).toBe('3');
+  t.is(buffer.read()).toBe('4');
 });
 
 test('alternate write and read', t => {
   var buffer = circularBuffer(2);
   buffer.write('1');
-  expect(buffer.read()).toBe('1');
+  t.is(buffer.read()).toBe('1');
   buffer.write('2');
-  expect(buffer.read()).toBe('2');
+  t.is(buffer.read()).toBe('2');
 });
 
 test('reads back oldest item', t => {
@@ -51,8 +51,8 @@ test('reads back oldest item', t => {
   buffer.write('2');
   buffer.read();
   buffer.write('3');
-  expect(buffer.read()).toBe('2');
-  expect(buffer.read()).toBe('3');
+  t.is(buffer.read()).toBe('2');
+  t.is(buffer.read()).toBe('3');
 });
 
 test('writes of undefined or null don\'t occupy buffer', t => {
@@ -62,14 +62,14 @@ test('writes of undefined or null don\'t occupy buffer', t => {
   [1, 2, 3].map(function (i) {
     buffer.write(i.toString());
   });
-  expect(buffer.read()).toBe('1');
+  t.is(buffer.read()).toBe('1');
 });
 
 test('writing to a full buffer throws a BufferFullException', t => {
   var buffer = circularBuffer(2);
   buffer.write('1');
   buffer.write('2');
-  expect(t => {
+  t.is(t => {
     buffer.write('A');
   }).toThrow(bufferFullException());
 });
@@ -79,18 +79,18 @@ test('forced writes over write oldest item in a full buffer', t => {
   buffer.write('1');
   buffer.write('2');
   buffer.forceWrite('A');
-  expect(buffer.read()).toBe('2');
-  expect(buffer.read()).toBe('A');
-  expect(buffer.read).toThrow(bufferEmptyException());
+  t.is(buffer.read()).toBe('2');
+  t.is(buffer.read()).toBe('A');
+  t.is(buffer.read).toThrow(bufferEmptyException());
 });
 
 test('forced writes act like write in a non-full buffer', t => {
   var buffer = circularBuffer(2);
   buffer.write('1');
   buffer.forceWrite('2');
-  expect(buffer.read()).toBe('1');
-  expect(buffer.read()).toBe('2');
-  expect(buffer.read).toThrow(bufferEmptyException());
+  t.is(buffer.read()).toBe('1');
+  t.is(buffer.read()).toBe('2');
+  t.is(buffer.read).toThrow(bufferEmptyException());
 });
 
 test('alternate force write and read into full buffer', t => {
@@ -107,10 +107,10 @@ test('alternate force write and read into full buffer', t => {
   });
   buffer.forceWrite('A');
   buffer.forceWrite('B');
-  expect(buffer.read()).toBe('6');
-  expect(buffer.read()).toBe('7');
-  expect(buffer.read()).toBe('8');
-  expect(buffer.read()).toBe('A');
-  expect(buffer.read()).toBe('B');
-  expect(buffer.read).toThrow(bufferEmptyException());
+  t.is(buffer.read()).toBe('6');
+  t.is(buffer.read()).toBe('7');
+  t.is(buffer.read()).toBe('8');
+  t.is(buffer.read()).toBe('A');
+  t.is(buffer.read()).toBe('B');
+  t.is(buffer.read).toThrow(bufferEmptyException());
 });

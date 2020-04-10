@@ -4,25 +4,25 @@ var NameNumber = require('./namethatnumber');
 
 test('test 1, Zero', t => {
   var name = new NameNumber();
-  expect(name.nameThatNumber(0)).toEqual('zero');
+  t.is(name.nameThatNumber(0),'zero');
 });
 
 test('test 2, Four', t => {
   var name = new NameNumber();
-  expect(name.nameThatNumber(4)).toEqual('four');
+  t.is(name.nameThatNumber(4),'four');
 });
 
 test('test 3, Nine', t => {
   var name = new NameNumber();
-  expect(name.nameThatNumber(9)).toEqual('nine');
+  t.is(name.nameThatNumber(9),'nine');
 });
 
 test('test 23', t => {
   var name = new NameNumber();
-  expect(name.nameThatNumber(23)).toEqual('twenty three');
+  t.is(name.nameThatNumber(23),'twenty three');
 });
 
 test('test 40', t => {
   var name = new NameNumber();
-  expect(name.nameThatNumber(40)).toEqual('forty');
+  t.is(name.nameThatNumber(40),'forty');
 });

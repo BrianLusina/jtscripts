@@ -30,10 +30,10 @@ test.before(t => {
 test("should be able to play a song", t => {
   player.play(song);
 
-  expect(player.currentlyPlayingSong).toEqual(song);
+  t(player.currentlyPlayingSong).toEqual(song);
 
   // demo of custom matcher
-  expect(player).toBePlaying(song);
+  t(player).toBePlaying(song);
 });
 
 test("when song has been paused", t => {
@@ -43,17 +43,17 @@ test("when song has been paused", t => {
   });
 
   test("should indicate that the song is currently paused", t => {
-    expect(player.isPlaying).toBeFalsy();
+    t(player.isPlaying).toBeFalsy();
 
     // demo of use of not with custom matcher
     //todo: keeps failing! why! :(
-    //expect(player.currentlyPlayingSong).not.toBePlaying(song);
+    //t(player.currentlyPlayingSong).not.toBePlaying(song);
   });
 
   test("should be able to resume", t => {
     player.resume();
-    expect(player.isPlaying).toBeTruthy();
-    expect(player.currentlyPlayingSong).toBePlaying(song);
+    t(player.isPlaying).toBeTruthy();
+    t(player.currentlyPlayingSong).toBePlaying(song);
   });
 });
 
@@ -64,13 +64,13 @@ test("tells the current song if the user has made it a favorite", t => {
   player.play(song);
   player.makeFavorite();
 
-  expect(song.persistFavoriteStatus).toHaveBeenCalledWith(true);
+  t(song.persistFavoriteStatus).toHaveBeenCalledWith(true);
 });
 
 /**demo of use of expected exceptions*/
 test("should throw an error on a currently playing song", t => {
   player.play(song);
-  expect(t => {
+  t(t => {
     player.resume()
   }).toThrow("Song is already playing");
 })

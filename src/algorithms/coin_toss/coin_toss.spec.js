@@ -3,11 +3,11 @@ const test = require("ava");
 const expect = require("expect");
 
 test("accepts number arguments only", t => {
-  expect(() => {
+  t.is(() => {
     throw coinToss("2");
   }).toThrow();
 });
 
 test('returns a number', t => {
-  expect(coinToss(2)).toBeTruthy();
+  t.is(coinToss(2)).toBeTruthy();
 });
