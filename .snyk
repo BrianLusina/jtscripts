@@ -1,0 +1,179 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - ts-jest > babel-core > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > babel-core > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > babel-plugin-transform-es2015-modules-commonjs > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > istanbul-lib-instrument > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > babel-core > babel-register > babel-core > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > istanbul-lib-instrument > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > babel-core > babel-helpers > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > istanbul-api > istanbul-lib-instrument > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > babel-core > babel-register > babel-core > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > babel-core > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - xo > globby > fast-glob > micromatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > istanbul-api > istanbul-lib-instrument > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > babel-core > babel-register > babel-core > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > babel-core > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - xo > globby > fast-glob > micromatch > braces > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - xo > globby > fast-glob > micromatch > extglob > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - xo > globby > fast-glob > micromatch > nanomatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-haste-map > sane > micromatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > cpx > chokidar > fsevents > node-pre-gyp > tar-pack > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > babel-core > babel-helpers > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-haste-map > sane > micromatch > braces > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - xo > globby > fast-glob > micromatch > extglob > expand-brackets > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-haste-map > sane > micromatch > extglob > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-haste-map > sane > micromatch > nanomatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-haste-map > sane > anymatch > micromatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > jest-haste-map > sane > micromatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-haste-map > sane > micromatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-helpers > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-haste-map > sane > anymatch > micromatch > braces > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > jest-haste-map > sane > micromatch > braces > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-haste-map > sane > micromatch > braces > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-haste-map > sane > micromatch > extglob > expand-brackets > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-haste-map > sane > anymatch > micromatch > extglob > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > jest-haste-map > sane > micromatch > extglob > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-haste-map > sane > micromatch > extglob > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-haste-map > sane > anymatch > micromatch > nanomatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > jest-haste-map > sane > micromatch > nanomatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-haste-map > sane > micromatch > nanomatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > jest-haste-map > sane > anymatch > micromatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-haste-map > sane > anymatch > micromatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > jest-haste-map > sane > micromatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > babel-jest > babel-plugin-istanbul > istanbul-lib-instrument > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > jest-haste-map > sane > anymatch > micromatch > braces > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-haste-map > sane > anymatch > micromatch > braces > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > jest-haste-map > sane > micromatch > braces > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-haste-map > sane > anymatch > micromatch > extglob > expand-brackets > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > jest-haste-map > sane > micromatch > extglob > expand-brackets > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-haste-map > sane > micromatch > extglob > expand-brackets > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > jest-haste-map > sane > anymatch > micromatch > extglob > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-haste-map > sane > anymatch > micromatch > extglob > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > jest-haste-map > sane > micromatch > extglob > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > jest-haste-map > sane > anymatch > micromatch > nanomatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-haste-map > sane > anymatch > micromatch > nanomatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > jest-haste-map > sane > micromatch > nanomatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > jest-haste-map > sane > anymatch > micromatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > babel-core > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > jest-haste-map > sane > anymatch > micromatch > braces > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runtime > jest-haste-map > sane > anymatch > micromatch > extglob > expand-brackets > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-haste-map > sane > anymatch > micromatch > extglob > expand-brackets > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > jest-haste-map > sane > micromatch > extglob > expand-brackets > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > jest-haste-map > sane > anymatch > micromatch > extglob > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > jest-haste-map > sane > anymatch > micromatch > nanomatch > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+    - jest > jest-cli > jest-runner > jest-runtime > jest-haste-map > sane > anymatch > micromatch > extglob > expand-brackets > snapdragon > debug:
+        patched: '2020-04-21T07:10:51.262Z'
+  'npm:hoek:20180212':
+    - ts-jest > cpx > chokidar > fsevents > node-pre-gyp > request > hawk > hoek:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > cpx > chokidar > fsevents > node-pre-gyp > request > hawk > boom > hoek:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > cpx > chokidar > fsevents > node-pre-gyp > request > hawk > sntp > hoek:
+        patched: '2020-04-21T07:10:51.262Z'
+    - ts-jest > cpx > chokidar > fsevents > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2020-04-21T07:10:51.262Z'

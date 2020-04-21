@@ -9,7 +9,9 @@
     "test:cover": "nyc ava",
     "send-cover-report": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
     "lint": "tsc --noEmit -p . && tslint \"*.ts?(x)\"",
-    "lintci": "tslint \"*.ts?(x)\" --force"
+    "lintci": "tslint \"*.ts?(x)\" --force",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -38,10 +40,10 @@
     "codecov": "^3.6.5",
     "expect": "^25.3.0",
     "istanbul": "^0.4.5",
-    "jest": "^21.2.1",
+    "jest": "^24.0.0",
     "nyc": "^15.0.1",
     "sinon": "^9.0.2",
-    "ts-jest": "^21.1.3",
+    "ts-jest": "^23.1.0",
     "tslint": "^5.8.0",
     "typescript": "^3.8.3",
     "xo": "^0.29.0"
@@ -56,5 +58,9 @@
       "tsx",
       "js"
     ]
+  },
+  "snyk": true,
+  "dependencies": {
+    "snyk": "^1.306.0"
   }
 }
