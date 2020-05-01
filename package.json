@@ -9,7 +9,9 @@
     "test:cover": "nyc ava",
     "send-cover-report": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
     "lint": "tsc --noEmit -p . && tslint \"*.ts?(x)\"",
-    "lintci": "tslint \"*.ts?(x)\" --force"
+    "lintci": "tslint \"*.ts?(x)\" --force",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -56,5 +58,9 @@
       "tsx",
       "js"
     ]
+  },
+  "snyk": true,
+  "dependencies": {
+    "snyk": "^1.316.1"
   }
 }
