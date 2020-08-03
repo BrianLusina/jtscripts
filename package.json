@@ -61,6 +61,6 @@
   },
   "snyk": true,
   "dependencies": {
-    "snyk": "^1.316.1"
+    "snyk": "^1.369.2"
   }
 }
