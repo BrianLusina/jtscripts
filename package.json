@@ -33,7 +33,7 @@
   "homepage": "https://github.com/BrianLusina/JS-Snippets#readme",
   "devDependencies": {
     "@types/jest": "^21.1.5",
-    "@types/node": "^14.11.8",
+    "@types/node": "^14.11.10",
     "ava": "^3.13.0",
     "chai": "^4.2.0",
     "codacy-coverage": "^3.4.0",
