@@ -11,5 +11,5 @@
 
 export type SinglyLinkedListNode = {
     data: any;
-    next: SinglyLinkedListNode | null;
+    next?: SinglyLinkedListNode | null;
 }
