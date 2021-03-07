@@ -1,4 +1,4 @@
-import { SinglyLinkedListNode } from "../types";
+import { SinglyLinkedListNode } from "../nodes";
 
 export function hasCycle(head: SinglyLinkedListNode) {
     let fastRunner = head;

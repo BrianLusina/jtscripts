@@ -1,6 +1,13 @@
-import { SinglyLinkedListNode } from "../types";
+import { SinglyLinkedListNode } from "../nodes";
+import SinglyLinkedList from "../SinglyLinkedList";
 
-export function removeDuplicates(head: SinglyLinkedListNode): SinglyLinkedListNode {
+const node: SinglyLinkedListNode<Number> = {
+    data: 1,
+}
+
+const nodeList = new SinglyLinkedList(node);
+
+export function removeDuplicates(head: SinglyLinkedListNode<Number>): SinglyLinkedListNode<Number> {
     if(!head || !head.next) {
         return head
     }

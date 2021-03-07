@@ -1,4 +1,4 @@
-import { SinglyLinkedListNode } from "../types";
+import { SinglyLinkedListNode } from "../nodes";
 
 export function getKthToLastNode(head: SinglyLinkedListNode, positionFromTail: number) : SinglyLinkedListNode {
     let runner = head
