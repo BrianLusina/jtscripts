@@ -63,7 +63,7 @@ function quicksortSubArray(theList: number[], startIndex: number, endIndex: numb
  * Quiksorts a list of numbers
  * @param {Number[]} theList list of numbers to sort
  */
-export function quicksort(theList: number[]) {
+export function quicksort(theList: number[]): number[] {
     let length = theList.length;
 
     // Nothing to sort here
@@ -72,4 +72,5 @@ export function quicksort(theList: number[]) {
     }
 
     quicksortSubArray(theList, 0, length - 1);
+    return theList;
 }
