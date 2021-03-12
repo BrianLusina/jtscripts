@@ -29,4 +29,6 @@ export default abstract class Tree<TreeNode> {
     abstract inorderTraversalMorrisTraversal(): any[];
 
     abstract preorderTraversal(): any[];
+
+    abstract postorderTraversal(): any[];
 }

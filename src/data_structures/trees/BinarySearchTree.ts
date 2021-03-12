@@ -130,7 +130,7 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
         const result = []
 
         if(!this.root) {
-            return []
+            return [];
         }
 
         const stack: BinaryTreeNode<T>[] = []
@@ -149,5 +149,47 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
         }
 
         return result;
+    }
+
+    /**
+     * 
+     * 1. Push root to first stack.
+     * 2. Loop while first stack is not empty
+     *  2.1 Pop a node from first stack and push it to second stack
+     *  2.2 Push left and right children of the popped node to first stack
+     * 3. Print contents of second stack  
+     * @returns {any[]}
+     */
+    postorderTraversal(): any[] {
+        const stackOne: BinaryTreeNode<T>[] = [];
+        const stackTwo: BinaryTreeNode<T>[] = [];
+        const values: any[] = [];
+
+        if(!this.root) {
+            return values;
+        }
+
+        stackOne.push(this.root);
+
+        while(stackOne.length){
+            let node = stackOne.pop();
+            // @ts-ignore
+            stackTwo.push(node);
+
+            if(node?.left){ 
+                stackOne.push(node.left);
+            }
+            
+            if(node?.right){
+                stackOne.push(node.right);
+            }
+        }
+
+        while(stackTwo.length) {
+            let node = stackTwo.pop();
+            values.push(node?.data);
+        }
+
+        return values;
     }
 }
