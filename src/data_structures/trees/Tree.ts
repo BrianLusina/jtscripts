@@ -27,4 +27,6 @@ export default abstract class Tree<TreeNode> {
      *      b. Go to this left child, i.e., current = current.left
      */
     abstract inorderTraversalMorrisTraversal(): any[];
+
+    abstract preorderTraversal(): any[];
 }

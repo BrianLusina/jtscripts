@@ -2,6 +2,7 @@ import Tree from "./Tree";
 import { BinaryTreeNode } from "./trees";
 
 export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
+
     private root: BinaryTreeNode<T> | null | undefined;
 
     constructor(rootNode: BinaryTreeNode<T> | null | undefined) {
@@ -79,6 +80,72 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
                 current = current.left;
                 temp.left = null;
             }
+        }
+
+        return result;
+    }
+
+    /**
+     * Checks if a Binary Search Tree is valid
+     * @returns {Boolean} true if a valid binary search tree, false otherwise
+     */
+    isValid(): Boolean {
+        // empty trees are valid BST
+        if(!this.root) {
+            return true;
+        }
+
+        const stack = [[Number.NEGATIVE_INFINITY, this.root, Number.POSITIVE_INFINITY]]
+
+        while(stack) {
+            let [lowerBound, node, upperBound] = stack.pop();
+
+            if(!node) {
+                continue;
+            }
+
+            if(lowerBound <= node.data || node.data >= upperBound) {
+                return false;
+            }
+
+            if(node.left) {
+                stack.push([lowerBound, node.left, node.data]);
+            }
+
+            if(node.right) {
+                stack.push([node.data, node.right, upperBound]);
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Goes through each left node subtree first, then moves to the right if a right exists.
+     * This uses a stack to keep track of visited nodes
+     * Iteratively goes through each node obtaining the values of each node and returning them in an array.
+     * @returns {any[]} Values of each Tree Node
+     */
+    preorderTraversal(): any[] {
+        const result = []
+
+        if(!this.root) {
+            return []
+        }
+
+        const stack: BinaryTreeNode<T>[] = []
+
+        let current: BinaryTreeNode<T> | undefined | null = this.root;
+
+        while(current || stack.length != 0) {
+            while(current) {
+                result.push(current.data)
+                stack.push(current)
+                current = current.left
+            }
+
+            current = stack.pop();
+            current = current?.right;
         }
 
         return result;
