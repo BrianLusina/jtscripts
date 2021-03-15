@@ -1,8 +1,7 @@
 import Tree from "./Tree";
-import { BinaryTreeNode } from "./trees";
+import { BinaryTreeNode } from "./types";
 
 export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
-
     private root: BinaryTreeNode<T> | null | undefined;
 
     constructor(rootNode: BinaryTreeNode<T> | null | undefined) {
@@ -191,5 +190,49 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
         }
 
         return values;
+    }
+
+    findLargestNode(node?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
+        let current = node || this.root;
+        
+        while(current) {
+            if(!current.right) {
+                return current;
+            }
+            current = current.right
+        }
+
+        // @ts-ignore
+        return current;
+    }
+    
+    findSecondLargestNode(node?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
+        let treeNode = node || this.root;
+
+        if(!treeNode || (!treeNode.left && !treeNode.right)) {
+            throw new Error("Tree must have at least 2 nodes");
+        }
+        
+        let current = treeNode
+        
+        while(current) {
+            // case: current is largest and has a left subtree
+            // 2nd largest is the largest in that subtree
+            if(current.left && !current.right) {
+                return this.findLargestNode(current.left);
+            }
+
+            // case: current is parent of largest, and
+            // largest has no children, so
+            // current is 2nd largest
+            if(current.right && !current.right.left && !current.right.right){
+                return current
+            }
+
+            // @ts-ignore
+            current = current.right
+        }
+
+    return current
     }
 }

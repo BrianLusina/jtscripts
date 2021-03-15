@@ -1,4 +1,4 @@
-import { BinaryTreeNode } from "../trees";
+import { BinaryTreeNode } from "../types";
 
 /**
  * Merges 2 Trees

@@ -31,4 +31,18 @@ export default abstract class Tree<TreeNode> {
     abstract preorderTraversal(): any[];
 
     abstract postorderTraversal(): any[];
+
+    /**
+     * Finds the largest node in a Tree given a node. This node does not necessarily have to be the root node
+     * but if not provided, the root node is used to traverse. If a node is provided, this finds the largest 
+     * in that subtree from the root node
+     */
+    abstract findLargestNode(node?: TreeNode | null): TreeNode;
+
+    /**
+     * Finds the second largest node in a Tree given a node. This node does not necessarily have to be the root node
+     * but if not provided, the root node is used to traverse. If a node is provided, this finds the largest 
+     * in that subtree from the root node
+     */
+     abstract findSecondLargestNode(node?: TreeNode | null): TreeNode;
 }
