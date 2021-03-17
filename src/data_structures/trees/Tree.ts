@@ -4,10 +4,11 @@ export default abstract class Tree<TreeNode> {
     }
 
     /**
-     * Create new node add it to the end of the Linked List
-     * @param {TreeNode} node
+     * Create new node adds it to the Tree
+     * @param {any} value Value to add to a node in the Tree
+     * @returns {TreeNode} Returns the new root of the Node
      */
-    abstract push(node: TreeNode): void;
+    abstract insertNode(value: any): TreeNode;
 
     abstract inorderTraversalRecurse(root: TreeNode | null): any[];
 

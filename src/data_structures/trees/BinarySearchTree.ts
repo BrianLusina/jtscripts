@@ -10,11 +10,47 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
     }
 
     /**
-     * Create new node add it to the end of the Binary Search Tree
-     * @param {BinaryTreeNode} node
+     * Inserts a Node in the BST. If the value is greater than the root. Then the new node is inserted
+     * in the right subtree. If the value is less than the root. Then the new node is inserted in the
+     * left subtree. This process is repeated until the node is inserted in the right place.
+     * If there is no root, then a new Node is created & becomes the new Root Node.
+     * @param value Value to insert into the Node
+     * @returns {BinaryTreeNode} Root of the Tree with the node inserted in the right place
      */
-     push(node: BinaryTreeNode<T>): void {
-        throw new Error("Method not implemented.");
+    insertNode(value: any): BinaryTreeNode<T> {
+        if(!this.root) {
+            return {
+                data: value
+            };
+        }
+        let parent = this.root
+        let dummy = this.root
+        
+        while(this.root) {
+            parent = this.root;
+            
+            if(value < this.root.data) {
+                this.root = this.root.left;
+            } else {
+                this.root = this.root.right
+            }
+        }
+        
+        if(!parent) {
+            parent = {
+                data: value
+            }
+        } else if(value < parent.data) {
+            parent.left = {
+                data: value
+            }
+        } else {
+            parent.right = {
+                data: value
+            }
+        }
+
+        return dummy
     }
 
     /**
