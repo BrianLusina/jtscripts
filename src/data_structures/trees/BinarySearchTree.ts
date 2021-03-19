@@ -37,11 +37,11 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
                 let node = queue.shift()
 
                 if(node?.left) {
-                    queue.push(node)
+                    queue.push(node.left)
                 }
 
                 if(node?.right) {
-                    queue.push
+                    queue.push(node.right)
                 }
 
                 currentLevelNodes -= 1
