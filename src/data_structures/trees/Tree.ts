@@ -4,6 +4,13 @@ export default abstract class Tree<TreeNode> {
     }
 
     /**
+     * Returns the height of a Tree or the maximum depth.
+     * That is, the number of links from the root to the furtheset leaf
+     * @returns {number} Height of the tree
+     */
+    abstract height(): number
+
+    /**
      * Create new node adds it to the Tree
      * @param {any} value Value to add to a node in the Tree
      * @returns {TreeNode} Returns the new root of the Node

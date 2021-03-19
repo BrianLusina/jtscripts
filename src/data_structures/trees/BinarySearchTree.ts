@@ -11,6 +11,43 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
         this.stack = [];
         this.leftMostInorder(rootNode);
     }
+
+    height(): number {
+        if(!this.root){
+            return 0
+        }
+
+        if(!this.root.left && !this.root.right) {
+            return 0
+        }
+
+        let height = 0;
+        const queue = [this.root]
+
+        while(true) {
+            let currentLevelNodes = queue.length;
+
+            if(currentLevelNodes === 0) {
+                return height
+            }
+
+            height += 1
+
+            while(currentLevelNodes > 0) {
+                let node = queue.shift()
+
+                if(node?.left) {
+                    queue.push(node)
+                }
+
+                if(node?.right) {
+                    queue.push
+                }
+
+                currentLevelNodes -= 1
+            }
+        }
+    }
     
     private leftMostInorder(root: BinaryTreeNode<T> | null | undefined): void {
         while(root) {
