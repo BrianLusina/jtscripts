@@ -3,10 +3,53 @@ import { BinaryTreeNode } from "./types";
 
 export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
     private root: BinaryTreeNode<T> | null | undefined;
+    private stack: BinaryTreeNode<T>[];
 
     constructor(rootNode: BinaryTreeNode<T> | null | undefined) {
         super(rootNode);
         this.root = rootNode;
+        this.stack = [];
+        this.leftMostInorder(rootNode);
+    }
+    
+    private leftMostInorder(root: BinaryTreeNode<T> | null | undefined): void {
+        while(root) {
+            this.stack.push(root)
+            root = root.left;
+        }
+    }
+
+    /**
+     * 
+     * Returns the next smallest number in a BST.
+     * This involves two major operations. One is where we pop an element from the stack which becomes the next smallest element to return. This is a O(1) operation. 
+     * However, we then make a call to our helper function _leftmost_inorder which iterates over a bunch of nodes. This is clearly a linear time operation i.e. O(N) in the worst case.
+     * However, the important thing to note here is that we only make such a call for nodes which have a right child. Otherwise, we simply return. 
+     * Also, even if we end up calling the helper function, it won't always process N nodes. They will be much lesser. Only if we have a skewed tree would there be N nodes for the root. 
+     * But that is the only node for which we would call the helper function.
+     * 
+     * Thus, the amortized (average) time complexity for this function would still be O(1). We don't need to have a solution which gives constant time operations for every call. 
+     * We need that complexity on average and that is what we get.
+     * @returns {T | undefined}
+     */
+    next(): T | undefined {
+        const topNode = this.stack.pop();
+
+        if(topNode?.right) {
+            this.leftMostInorder(topNode.right);
+        }
+
+        return topNode?.data;
+    }
+
+    /**
+     * Checks if the BST has items left. Since this uses a stack, then we simply check if the stack still has items.
+     * This is used in an iterator approach to getting items from the BST. This returns True if there are items & False
+     * otherwise, the Time Complexity here is O(1)
+     * @returns {boolean}
+     */
+    hasNext(): boolean {
+        return this.stack.length > 0;
     }
 
     /**

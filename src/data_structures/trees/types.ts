@@ -5,6 +5,6 @@ export type TreeNode<T> = {
 }
 
 export interface BinaryTreeNode<T> extends TreeNode<T> {
-    left?: BinaryTreeNode<T> | null | undefined;
-    right?: BinaryTreeNode<T> | null | undefined;
+    left?: BinaryTreeNode<T> | null;
+    right?: BinaryTreeNode<T> | null;
 }
