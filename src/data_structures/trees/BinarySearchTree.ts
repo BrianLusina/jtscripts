@@ -351,4 +351,46 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
 
     return current
     }
+
+    /**
+     * Considering it is a BST, we can assume that this tree is a valid BST, we could also check for this
+     * If both of the values in the 2 nodes provided are greater than the root node, then we move to the right.
+     * if the nodes are less than the root node, we move to the left.
+     * If there is no root node, then we exit and return None, as no common ancestor could exist in such a case with
+     * no root node.
+     * 
+     * Assumptions:
+     * - assumes that the node itself can also be an ancestor/descendant of itself
+     * 
+     * Complexity Analysis:
+     * Time Complexity: O(h).
+     * The Time Complexity of the above solution is O(h), where h is the height of the tree.
+     * 
+     * Space Complexity: O(1).
+     * The space complexity of the above solution is constant.
+     * @param {BinaryTreeNode<T>} nodeOne 
+     * @param {BinaryTreeNode<T>} nodeTwo 
+     * @returns {BinaryTreeNode<T>}
+     */
+    lowestCommonAncestor(nodeOne: BinaryTreeNode<T>, nodeTwo: BinaryTreeNode<T>): BinaryTreeNode<T> | null | undefined {
+        if(!this.root) {
+            return null
+        }
+
+        while(this.root) {
+            // if both node_one and node_two are smaller than root, then LCA lies in the left
+            if (this.root.data > nodeOne.data && this.root.data > nodeTwo.data){
+                this.root = this.root.left;
+            }
+            
+            // if both node_one and node_two are greater than root, then LCA lies in the right
+            else if(this.root.data < nodeOne.data && this.root.data < nodeTwo.data) {
+                this.root = this.root.right;
+            } else {
+                break;
+            }
+        }
+        
+        return this.root;
+    }
 }

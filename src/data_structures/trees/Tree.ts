@@ -53,4 +53,12 @@ export default abstract class Tree<TreeNode> {
      * in that subtree from the root node
      */
      abstract findSecondLargestNode(node?: TreeNode | null): TreeNode;
+
+     /**
+      * Returns the lowest common ancestor of 2 nodes in a Tree.
+      * @param {TreeNode} nodeOne Node one
+      * @param {TreeNode} nodeTwo Node Two
+      * @returns {TreeNode}
+      */
+     abstract lowestCommonAncestor(nodeOne: TreeNode, nodeTwo: TreeNode): TreeNode | null | undefined;
 }
