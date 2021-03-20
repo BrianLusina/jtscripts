@@ -377,6 +377,11 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
             return null
         }
 
+        // if any of the node values matches the data value for the root node, return the root node
+        if(this.root.data === nodeOne.data || this.root.data === nodeTwo.data) {
+            return this.root;
+        }
+
         while(this.root) {
             // if both node_one and node_two are smaller than root, then LCA lies in the left
             if (this.root.data > nodeOne.data && this.root.data > nodeTwo.data){
