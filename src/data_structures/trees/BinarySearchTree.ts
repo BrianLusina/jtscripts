@@ -398,4 +398,34 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
         
         return this.root;
     }
+
+    paths(): string[] {
+        if(!this.root) {
+            return [];
+        }
+
+        const stack: [[BinaryTreeNode<T>, string]] = [[this.root, ""]]
+        // stack.push([this.root, ""])
+        const res: string[] = []
+
+        while(stack.length) {
+            // @ts-ignore
+            const [node, path] = stack.pop();
+            // const [node, path] = item;
+            
+            if (!(node.left || node.right)) {
+                res.push(`${path} ${node.data}`);
+            }
+            
+            if (node.left) {
+                stack.push([node.left, `${path} ${node.data} ->`]);
+            }
+            
+            if (node.right) {
+                stack.push([node.right, `${path} ${node.data} ->`]);
+            }
+        }
+
+        return res;
+    }
 }

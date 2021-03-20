@@ -61,4 +61,10 @@ export default abstract class Tree<TreeNode> {
       * @returns {TreeNode}
       */
      abstract lowestCommonAncestor(nodeOne: TreeNode, nodeTwo: TreeNode): TreeNode | null | undefined;
+
+     /**
+      * Gets all the paths of a Tree and returns the values in an array
+      * @returns {any[]} 2D Array of values/data of each node in the tree representing paths
+      */
+     abstract paths(): any[]
 }
