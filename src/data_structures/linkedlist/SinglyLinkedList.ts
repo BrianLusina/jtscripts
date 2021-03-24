@@ -44,5 +44,38 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
         
         // @ts-ignore 
         return [first, second];
-    } 
+    }
+
+    isPalindrome(): boolean {
+        if(!this.head) {
+            return false
+        }
+        if(!this.head.next) {
+            return true;
+        }
+
+        let current = this.head;
+        const stack: any[] = [];
+
+        while(current) {
+            stack.push(current.data);
+            // @ts-ignore
+            current = current.next;
+        }
+
+        current = this.head;
+
+        while(current) {
+            const data = stack.pop();
+
+            if(current.data !== data) {
+                return false;
+            }
+            
+            // @ts-ignore
+            current = current.next;
+        }
+
+        return true;
+    }
 }
