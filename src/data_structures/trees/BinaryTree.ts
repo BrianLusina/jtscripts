@@ -103,4 +103,29 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
         // @ts-ignore
         return lca;
     }
+
+    size(): number {
+        if(!this.root) {
+            return 0
+        }
+
+        let counter: number = 0;
+        const stack: BinaryTreeNode<T>[] = [this.root];
+
+        while(stack.length) {
+            const node = stack.pop();
+
+            if(node?.left) {
+                counter += 1;
+                stack.push(node.left);
+            }
+
+            if(node?.right) {
+                counter += 1;
+                stack.push(node.right);
+            }
+        }
+
+        return counter;
+    }
 }

@@ -67,4 +67,10 @@ export default abstract class Tree<TreeNode> {
       * @returns {any[]} 2D Array of values/data of each node in the tree representing paths
       */
      abstract paths(): any[]
+
+     /**
+      * Returns the number of nodes in this Tree
+      * @returns {number} number of nodes
+      */
+     abstract size(): number
 }
