@@ -9,6 +9,13 @@ export default abstract class LinkedList<Node> {
      */
     abstract push(node: Node): void
 
+    /**
+     * Deletes a node from the specified position in the LinkedList. Assumes 0 based indexing
+     * @param position Index of node to delete
+     * @returns {Node} deleted node
+     */
+    abstract deleteNodeAtPosition(position: number): Node | null | undefined
+
     abstract alternateSplit(): [Node, Node]
 
     /**

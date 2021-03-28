@@ -1,8 +1,7 @@
-import LinkedList from "./linkedlist";
+import LinkedList from "./LinkedList";
 import { DoublyLinkedListNode } from "./nodes";
 
 export default class DoublyLinkedList<T> extends LinkedList<DoublyLinkedListNode<T>> {
-
     head: DoublyLinkedListNode<T> | null | undefined;
 
     constructor(headNode: DoublyLinkedListNode<T> | null | undefined) {
@@ -14,7 +13,16 @@ export default class DoublyLinkedList<T> extends LinkedList<DoublyLinkedListNode
         throw new Error("Method not implemented.");
     }  
 
+    deleteNodeAtPosition(position: number): void {
+
+    }
+
     alternateSplit(): [DoublyLinkedListNode<T>, DoublyLinkedListNode<T>] {
         throw new Error("Method not implemented.");
     }
+
+    isPalindrome(): boolean {
+        throw new Error("Method not implemented.");
+    }
+
 }

@@ -1,4 +1,4 @@
-import LinkedList from "./linkedlist";
+import LinkedList from "./LinkedList";
 import { SinglyLinkedListNode } from "./nodes";
 
 export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode<T>> {
@@ -12,6 +12,46 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
 
     push(node: SinglyLinkedListNode<T>): void {
 
+    }
+
+    deleteNodeAtPosition(position: number): SinglyLinkedListNode<T> | null | undefined {
+        if(position < 0) {
+            const errMessage = `Invalid Index position given. Index is ${position}, expected position >= 0"`
+            throw new Error(errMessage);
+        }
+    
+        // Nothing to delete here
+        if (this.head == null) {
+            return null
+        }
+    
+        if (this.head != null && position == 0) {
+            const current = this.head
+            this.head = null
+            return current
+        }
+    
+        let current = this.head
+
+        while(current) {
+            for (let index = 0; index < position; index++) {
+                // @ts-ignore
+                current = current.next
+
+                if (!current) {
+                    throw new Error(`Invalid position ${position} specified, reached end of list`)
+                }
+            }
+        }
+    
+        const node = current
+        
+        // @ts-ignore
+        current.data = current.next.Data
+        // @ts-ignore
+        current.next = current.dext.Next
+    
+        return node
     }
 
     alternateSplit(): [SinglyLinkedListNode<T>, SinglyLinkedListNode<T>] {
