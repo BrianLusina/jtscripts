@@ -5,7 +5,7 @@ export type LinkedListNode<T> = {
 
 export interface SinglyLinkedListNode<T> extends LinkedListNode<T> {
     data: T;
-    next?: SinglyLinkedListNode<T> | null | undefined;
+    next?: SinglyLinkedListNode<T> | null;
 }
 
 export interface DoublyLinkedListNode<T> extends LinkedListNode<T> {

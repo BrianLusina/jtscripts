@@ -2,10 +2,9 @@ import LinkedList from "./LinkedList";
 import { SinglyLinkedListNode } from "./nodes";
 
 export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode<T>> {
+    head: SinglyLinkedListNode<T> | null;
 
-    head: SinglyLinkedListNode<T> | null | undefined;
-
-    constructor(headNode: SinglyLinkedListNode<T> | null | undefined) {
+    constructor(headNode: SinglyLinkedListNode<T> | null) {
         super(headNode);
         this.head = headNode
     }
@@ -117,5 +116,36 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
         }
 
         return true;
+    }
+
+    pairwiseSwap(): SinglyLinkedListNode<T> | null {
+        // there is no head here, nothing to do
+        if(!this.head) {
+            return this.head;
+        }
+
+        let current = this.head;
+
+        // While there are at least 2 nodes left
+        while(current && current.next) {
+
+            // if the 2 nodes have the same data value
+            if(current.data === current.next.data) {
+                // @ts-ignore
+                // then we move to the next pair
+                current = current.next.next
+            } else {
+                // Swap the 2 data values of the next pair
+                let temp = current.data
+                current.data = current.next.data
+                current.next.data = temp
+                
+                // @ts-ignore
+                // move to the next pair
+                current = current.next.next
+            }
+        }
+
+        return this.head;
     }
 }
