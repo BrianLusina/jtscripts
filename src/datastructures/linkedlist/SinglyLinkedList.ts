@@ -148,4 +148,33 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
 
         return this.head;
     }
+
+    swapNodes(k: number): SinglyLinkedListNode<T> | null {
+        let a = this.head; 
+        let b = this.head;
+
+        for (let index = 1; index < k; index++) {
+            // @ts-ignore
+            a = a?.next;            
+        }
+
+        let node = a
+        // @ts-ignore
+        a = a?.next
+
+        while(a) {
+            // @ts-ignore
+            a = a.next
+            // @ts-ignore
+            b = b?.next
+        }
+        
+        let temp = node?.data
+        // @ts-ignore
+        node.data = b?.data
+        // @ts-ignore
+        b.data = temp;
+
+        return this.head;
+    }
 }

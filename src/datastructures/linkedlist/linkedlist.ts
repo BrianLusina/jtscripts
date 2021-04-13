@@ -1,5 +1,5 @@
 export default abstract class LinkedList<Node> {
-    constructor(head: Node | null | undefined) {
+    constructor(head: Node | null) {
         head = null
     }
 
@@ -36,4 +36,14 @@ export default abstract class LinkedList<Node> {
      * @returns {Node} new head of linked list
      */
     abstract pairwiseSwap(): Node | null
+
+    /**
+     * Return the head of the linked list after swapping the values of the kth node from the beginning and the kth node
+     * from the end (the list is 1-indexed).
+     * Input: head = [7,9,6,6,7,8,3,0,9,5], k = 5
+     * Output: [7,9,6,6,8,7,3,0,9,5]
+     * @param {number} k kth node from beginning & kth node position from end
+     * @returns {Node} head of linked list
+     */
+    abstract swapNodes(k: number): Node | null
 }
