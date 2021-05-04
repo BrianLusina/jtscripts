@@ -1,4 +1,4 @@
-# JS Snippets
+# JavaScript & TypeScript Snippets
 
 [![Build Status](https://travis-ci.org/BrianLusina/JS-Snippets.svg?branch=master)](https://travis-ci.org/BrianLusina/JS-Snippets)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b871db59f2544adb906bec4da66cda3a)](https://www.codacy.com/app/BrianLusina/JS-Snippets?utm_source=github.com&utm_medium=referral&utm_content=BrianLusina/JS-Snippets&utm_campaign=badger)
