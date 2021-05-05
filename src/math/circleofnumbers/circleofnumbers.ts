@@ -6,5 +6,5 @@
  * @param firstNumber Number which we need to get the radially opposite number
  */
 export function circleOfNumbers(n: number, firstNumber: number): number {
-    return (firstNumber + (n/2)) % n
+    return (firstNumber + (n/2)) % n;
 }
