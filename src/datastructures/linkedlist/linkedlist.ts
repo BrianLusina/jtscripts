@@ -7,7 +7,7 @@ export default abstract class LinkedList<Node> {
      * Create new node add it to the end of the Linked List
      * @param {Node} node
      */
-    abstract push(node: Node): void
+    abstract append(node: Node): void
 
     /**
      * Deletes a node from the specified position in the LinkedList. Assumes 0 based indexing
@@ -15,6 +15,21 @@ export default abstract class LinkedList<Node> {
      * @returns {Node} deleted node
      */
     abstract deleteNodeAtPosition(position: number): Node | null | undefined
+
+    /**
+     * Delets a node from the LinkedList if the node can be found in the LinkedList
+     * @param {Node} node Node to delete
+     * @returns {Node}
+     */
+    abstract deleteNode(node: Node): Node | null
+
+    /**
+     * Delets a node from the LinkedList by its data if the node can be found in the LinkedList. This deletes the first occurrence
+     * of the found data
+     * @param {any} data data to find and delete
+     * @returns {Node}
+     */
+    abstract deleteNodeByData(data: any): Node | null
 
     abstract alternateSplit(): [Node, Node]
 
@@ -45,5 +60,5 @@ export default abstract class LinkedList<Node> {
      * @param {number} k kth node from beginning & kth node position from end
      * @returns {Node} head of linked list
      */
-    abstract swapNodes(k: number): Node | null
+    abstract swapNodesAtKthAndKPlusOne(k: number): Node | null
 }

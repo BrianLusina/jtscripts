@@ -2,6 +2,7 @@ import LinkedList from "./LinkedList";
 import { SinglyLinkedListNode } from "./nodes";
 
 export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode<T>> {
+
     head: SinglyLinkedListNode<T> | null;
 
     constructor(headNode: SinglyLinkedListNode<T> | null) {
@@ -9,7 +10,7 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
         this.head = headNode
     }
 
-    push(node: SinglyLinkedListNode<T>): void {
+    append(node: SinglyLinkedListNode<T>): void {
 
     }
 
@@ -51,6 +52,14 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
         current.next = current.dext.Next
     
         return node
+    }
+
+    deleteNode(node: SinglyLinkedListNode<T>): SinglyLinkedListNode<T> | null {
+        throw new Error("Method not implemented.");
+    }
+    
+    deleteNodeByData(data: any): SinglyLinkedListNode<T> | null {
+        throw new Error("Method not implemented.");
     }
 
     alternateSplit(): [SinglyLinkedListNode<T>, SinglyLinkedListNode<T>] {
@@ -149,7 +158,7 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
         return this.head;
     }
 
-    swapNodes(k: number): SinglyLinkedListNode<T> | null {
+    swapNodesAtKthAndKPlusOne(k: number): SinglyLinkedListNode<T> | null {
         let a = this.head; 
         let b = this.head;
 
