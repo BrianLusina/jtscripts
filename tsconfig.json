@@ -1,7 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
+    "target": "ESNext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "module": "ESNext",
     "alwaysStrict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -16,6 +29,9 @@
     "outDir": "./build"
   },
   "compileOnSave": true,
+  "include": [
+    "src"
+  ],  
   "exclude": [
     "node_modules"
   ]
