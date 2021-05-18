@@ -182,4 +182,28 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
 
     return this.head;
   }
+
+  reverse() {
+    if (this.head?.next == null) {
+      return;
+    }
+
+    var listToReverse = this.head.next;
+    var reversedList = this.head;
+    reversedList.next = null;
+
+    while (listToReverse) {
+      const temp = listToReverse;
+
+      // move pointer to next node
+      // @ts-ignore
+      listToReverse = listToReverse.next;
+
+      temp.next = reversedList;
+      reversedList = temp;
+    }
+
+    this.head = reversedList;
+  }
+
 }

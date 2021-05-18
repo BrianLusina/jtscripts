@@ -113,4 +113,9 @@ export default abstract class LinkedList<Node> {
             // @ts-ignore
       currentTwo.data = tempTwo; 
   }
+
+  /**
+   * Reverses the LinkedList such that the head becomes the tail and the tail becomes the head
+   */
+  abstract reverse(): void
 }

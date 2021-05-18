@@ -10,6 +10,6 @@ export interface SinglyLinkedListNode<T> extends LinkedListNode<T> {
 
 export interface DoublyLinkedListNode<T> extends LinkedListNode<T> {
     data: T;
-    next?: DoublyLinkedListNode<T> | null | undefined;
-    previous?: DoublyLinkedListNode<T> | null | undefined;
+    next?: DoublyLinkedListNode<T> | null;
+    previous?: DoublyLinkedListNode<T> | null;
 }
