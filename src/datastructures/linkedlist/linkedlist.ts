@@ -1,6 +1,9 @@
 export default abstract class LinkedList<Node> {
+    
+  head: Node | null;
+
   constructor(head: Node | null) {
-    head = null;
+    this.head = head;
   }
 
   /**
@@ -61,4 +64,53 @@ export default abstract class LinkedList<Node> {
    * @returns {Node} head of linked list
    */
   abstract swapNodesAtKthAndKPlusOne(k: number): Node | null;
+
+  /**
+   * Swaps two nodes based on the data they contain. We search through the LinkedList looking for the data item in
+   * each node. Once the first is found, we keep track of it and move on until we find the next data item. Once that
+   * is found, we swap the two nodes' data items.
+   * If we can't find the first data item nor the second. No need to perform swap. If the 2 data items are similar
+   * no need to perform swap as well.
+   * If the LinkedList is empty (i.e. has no head node), return, no need to swap when we have no LinkedList :)
+   * @param {Any} dataOne Data Item One
+   * @param {Any} dataTwo Data Item Two
+   */
+  swapNodes(dataOne: any, dataTwo: any) {
+      if (!this.head) {
+        throw Error("Empty LinkedList")
+      }
+
+      if (dataOne === dataTwo) {
+        return;
+      }
+
+      let currentOne = this.head;
+      let currentTwo = this.head;
+
+      // @ts-ignore
+      while(currentOne && currentOne.data !== dataOne) {
+        // @ts-ignore
+        currentOne = currentOne.next;
+      }
+
+      // @ts-ignore
+      while(currentTwo && currentTwo.data !== dataTwo) {
+          // @ts-ignore
+          currentTwo = currentTwo.next;
+      }
+
+      if (!currentOne || !currentTwo) {
+        return;
+      }
+      
+      // @ts-ignore
+      let tempOne = currentOne.data;
+        // @ts-ignore
+      let tempTwo = currentTwo.data;
+
+    // @ts-ignore
+      currentOne.data = tempOne;
+            // @ts-ignore
+      currentTwo.data = tempTwo; 
+  }
 }

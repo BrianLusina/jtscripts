@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 import LinkedList from './LinkedList';
 import { SinglyLinkedListNode } from './nodes';
 
@@ -159,11 +161,11 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
     let b = this.head;
 
     for (let index = 1; index < k; index++) {
-      // @ts-ignore
       a = a?.next;
     }
 
     const node = a;
+
     // @ts-ignore
     a = a?.next;
 
@@ -175,9 +177,7 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
     }
 
     const temp = node?.data;
-    // @ts-ignore
     node.data = b?.data;
-    // @ts-ignore
     b.data = temp;
 
     return this.head;
