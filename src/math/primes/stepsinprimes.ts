@@ -1,7 +1,7 @@
 import isprime from "./isprime";
 
 
-export function step(g: number, m: number, n: number): number[] | null {
+export default function step(g: number, m: number, n: number): number[] | null {
     if ((n - m) < g) {
         return null;
     }
