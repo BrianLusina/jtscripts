@@ -3,17 +3,25 @@
 import LinkedList from './LinkedList';
 import { SinglyLinkedListNode } from './nodes';
 
-export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode<T>> {
-  head: SinglyLinkedListNode<T> | null;
+export default class SinglyLinkedList<K, D> extends LinkedList<SinglyLinkedListNode<K, D>> {
+  head: SinglyLinkedListNode<K, D> | null;
 
-  constructor(headNode: SinglyLinkedListNode<T> | null) {
+  constructor(headNode: SinglyLinkedListNode<K, D> | null) {
     super(headNode);
     this.head = headNode;
   }
 
-  append(node: SinglyLinkedListNode<T>): void {}
+  append(node: SinglyLinkedListNode<K, D>): void {}
 
-  deleteNodeAtPosition(position: number): SinglyLinkedListNode<T> | null | undefined {
+  prepend(node: SinglyLinkedListNode<K, D>): void {
+    throw new Error('Method not implemented.');
+  }
+
+  moveToHead(node: SinglyLinkedListNode<K, D>): void {
+    throw new Error('Method not implemented.');
+  }
+
+  deleteNodeAtPosition(position: number): SinglyLinkedListNode<K, D> | null | undefined {
     if (position < 0) {
       const errMessage = `Invalid Index position given. Index is ${position}, expected position >= 0"`;
       throw new Error(errMessage);
@@ -53,15 +61,15 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
     return node;
   }
 
-  deleteNode(node: SinglyLinkedListNode<T>): SinglyLinkedListNode<T> | null {
+  deleteNode(node: SinglyLinkedListNode<K, D>): void {
     throw new Error('Method not implemented.');
   }
 
-  deleteNodeByData(data: any): SinglyLinkedListNode<T> | null {
+  deleteNodeByData(data: any): SinglyLinkedListNode<K, D> | null {
     throw new Error('Method not implemented.');
   }
 
-  alternateSplit(): [SinglyLinkedListNode<T>, SinglyLinkedListNode<T>] {
+  alternateSplit(): [SinglyLinkedListNode<K, D>, SinglyLinkedListNode<K, D>] {
     if (!this.head || !this.head?.next) {
       throw new Error('Head should not be null');
     }
@@ -126,7 +134,7 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
     return true;
   }
 
-  pairwiseSwap(): SinglyLinkedListNode<T> | null {
+  pairwiseSwap(): SinglyLinkedListNode<K, D> | null {
     // there is no head here, nothing to do
     if (!this.head) {
       return this.head;
@@ -156,7 +164,7 @@ export default class SinglyLinkedList<T> extends LinkedList<SinglyLinkedListNode
     return this.head;
   }
 
-  swapNodesAtKthAndKPlusOne(k: number): SinglyLinkedListNode<T> | null {
+  swapNodesAtKthAndKPlusOne(k: number): SinglyLinkedListNode<K, D> | null {
     let a = this.head;
     let b = this.head;
 

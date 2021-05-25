@@ -1,15 +1,12 @@
-export type LinkedListNode<T> = {
-    data: T;
-    next?: LinkedListNode<T> | null;
+export interface SinglyLinkedListNode<K, D> {
+    data: D;
+    key: K
+    next?: SinglyLinkedListNode<K, D> | null;
 }
 
-export interface SinglyLinkedListNode<T> extends LinkedListNode<T> {
-    data: T;
-    next?: SinglyLinkedListNode<T> | null;
-}
-
-export interface DoublyLinkedListNode<T> extends LinkedListNode<T> {
-    data: T;
-    next?: DoublyLinkedListNode<T> | null;
-    previous?: DoublyLinkedListNode<T> | null;
+export interface DoublyLinkedListNode<K, D> {
+    data: D;
+    key: K,
+    next?: DoublyLinkedListNode<K, D> | null;
+    previous?: DoublyLinkedListNode<K, D> | null;
 }

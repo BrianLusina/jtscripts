@@ -12,6 +12,10 @@ export default abstract class LinkedList<Node> {
    */
   abstract append(node: Node): void;
 
+  abstract prepend(node: Node): void;
+
+  abstract moveToHead(node: Node): void;
+
   /**
    * Deletes a node from the specified position in the LinkedList. Assumes 0 based indexing
    * @param position Index of node to delete
@@ -24,7 +28,7 @@ export default abstract class LinkedList<Node> {
    * @param {Node} node Node to delete
    * @returns {Node}
    */
-  abstract deleteNode(node: Node): Node | null;
+  abstract deleteNode(node: Node): void;
 
   /**
    * Delets a node from the LinkedList by its data if the node can be found in the LinkedList. This deletes the first occurrence
