@@ -31,7 +31,8 @@
   "compileOnSave": true,
   "include": [
     "src", 
-    "bitmanipulation",
+    "puzzles",   
+    "bitmanipulation"
   ],  
   "exclude": [
     "node_modules"
