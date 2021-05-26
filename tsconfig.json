@@ -30,7 +30,8 @@
   },
   "compileOnSave": true,
   "include": [
-    "src"
+    "src", 
+    "bitmanipulation",
   ],  
   "exclude": [
     "node_modules"
