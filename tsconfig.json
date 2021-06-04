@@ -32,8 +32,20 @@
   "include": [
     "src", 
     "puzzles",   
-    "bitmanipulation"
-  ],  
+    "bitmanipulation", 
+    "algorithms",
+    "datastructures",
+    "cryptography",
+    "eventloops",
+    "hocs",
+    "math",
+    "oop",
+    "partial",
+    "regex",
+    "strings",
+    "time",
+    "web"
+  ],
   "exclude": [
     "node_modules"
   ]

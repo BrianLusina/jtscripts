@@ -1,10 +1,10 @@
 {
-  "name": "js-snippets",
+  "name": "jtscripts",
   "version": "3.0.0",
   "private": true,
-  "description": "Small JavaScript Algorithms, snippets and programs",
+  "description": "Small JavaScript & TypeScript Algorithms, DataStructures, Snippets and programs",
   "scripts": {
-    "test": "tsc --noEmit -p . && ava",
+    "test": "ava",
     "test:watch": "ava --watch",
     "test:cover": "nyc ava",
     "send-cover-report": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
