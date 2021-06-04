@@ -37,7 +37,7 @@ class Cipher {
      * @returns {String} an encoded string
      */
   encode (plainText) {
-    const characters = plainText.spltest('')
+    const characters = plainText.split('')
     const result = []
 
     // sum of the character index in the alphabet and
@@ -61,7 +61,7 @@ class Cipher {
      * @returns {String} the decoded cipher text
      */
   decode (cipherText) {
-    const characters = cipherText.spltest('')
+    const characters = cipherText.split('')
     const result = []
 
     for (let n = 0; n < characters.length; n++) {

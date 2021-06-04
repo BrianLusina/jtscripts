@@ -1,11 +1,9 @@
-const expect = require('expect')
-const test = require('ava')
 const minMax = require('./minmax')
 
-test('Test 1', t => {
+test('Test 1', () => {
   const tester = function (arr, res) {
     const minmax = new minMax()
-    t.is(minmax.getMaxMin(arr), res)
+    expect(minmax.getMaxMin(arr)).toEqual(res)
   }
 
   let i, r

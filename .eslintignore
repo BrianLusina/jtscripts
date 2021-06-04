@@ -60,3 +60,7 @@ typings/
 .env
 src/resources/
 __tests__/
+*.spec.ts
+*.spec.js
+*.test.js
+*.test.ts

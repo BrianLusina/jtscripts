@@ -1,53 +1,51 @@
 const Crypto = require('./cryptosquare')
-const test = require('ava')
-const expect = require('expect')
 
-test('normalize strange characters', t => {
+test('normalize strange characters', () => {
   const crypto = new Crypto('s#$%^&plunk')
-  t.is(crypto.normalizePlaintext.is(), 'splunk')
+  expect(crypto.normalizePlaintext()).toEqual('splunk')
 })
 
-test('normalize numbers', t => {
+test('normalize numbers', () => {
   const crypto = new Crypto('1, 2, 3 GO!')
-  t.is(crypto.normalizePlaintext.is(), '123go')
+  expect(crypto.normalizePlaintext()).toEqual('123go')
 })
 
-test('size of small square', t => {
+test('size of small square', () => {
   const crypto = new Crypto('1234')
-  t.is(crypto.size(), 2)
+  expect(crypto.size()).toEqual(2)
 })
 
-test('size of small square with additional non-nuber chars', t => {
+test('size of small square with additional non-nuber chars', () => {
   const crypto = new Crypto('1 2 3 4')
-  t.is(crypto.size(), 2)
+  expect(crypto.size()).toEqual(2)
 })
 
-test('size of slightly larger square', t => {
+test('size of slightly larger square', () => {
   const crypto = new Crypto('123456789')
-  t.is(crypto.size(), 3)
+  expect(crypto.size()).toEqual(3)
 })
 
-test('size of non-perfect square', t => {
+test('size of non-perfect square', () => {
   const crypto = new Crypto('123456789abc')
-  t.is(crypto.size(), 4)
+  expect(crypto.size()).toEqual(4)
 })
 
-test('plain text segments', t => {
+test('plain text segments', () => {
   const crypto = new Crypto('Never vex thine heart with idle woes')
-  t.is(crypto.plaintextSegments(), ['neverv', 'exthin', 'eheart', 'withid', 'lewoes'])
+  expect(crypto.plaintextSegments()).toEqual(['neverv', 'exthin', 'eheart', 'withid', 'lewoes'])
 })
 
-test('plain text segments 2', t => {
+test('plain text segments 2', () => {
   const crypto = new Crypto('ZOMG! ZOMBIES!!!')
-  t.is(crypto.plaintextSegments(), ['zomg', 'zomb', 'ies'])
+  expect(crypto.plaintextSegments()).toEqual(['zomg', 'zomb', 'ies'])
 })
 
-test('cipher text', t => {
+test('cipher text', () => {
   const crypto = new Crypto('Time is an illusion. Lunchtime doubly so.')
-  t.is(crypto.ciphertext.is(), 'tasneyinicdsmiohooelntuillibsuuml')
+  expect(crypto.ciphertext()).toEqual('tasneyinicdsmiohooelntuillibsuuml')
 })
 
-test('cipher text 2', t => {
+test('cipher text 2', () => {
   const crypto = new Crypto('We all know interspecies romance is weird.')
-  t.is(crypto.ciphertext.is(), 'wneiaweoreneawssciliprerlneoidktcms')
+  expect(crypto.ciphertext()).toEqual('wneiaweoreneawssciliprerlneoidktcms')
 })

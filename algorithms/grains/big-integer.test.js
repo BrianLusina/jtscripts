@@ -1,53 +1,53 @@
-const test = require('ava')
-const expect = require('expect')
-const BigInt = require('./big-integer.js')
+import BigInt from './big-integer.js'
 
-let bigI
+xdescribe('Big Integer', () => {
+  let bigI
 
-test.beforeEach(t => {
-  bigI = BigInt.is(42)
-})
-
-test.afterEach(t => {
-  bigI = null
-})
-
-test('is not a number', t => {
-  t.is(typeof 42).toBe('number')
-  t.is(typeof bigI).not.toBe('number')
-  t.is(typeof bigI).toBe('object')
-})
-
-test('can be compared to a stringified number by calling \'.toString()\'',
-  t => {
-    t.is(bigI).not.toBe(42)
-    t.is(bigI).not.toBe('42')
-    t.is(bigI.toString()).toBe('42')
-    // NOTE:
-    // The '==' operator calls '.toString()' here in order to compare.
-    t.is(bigI === '42').toBe(true)
-    // While the line above is easier to write and read, we will use the
-    // 't.is(bigI.toString()).toBe(expected)' way so that test failure
-    // messages will be more informative. Eg,
-    // "Expected '84' to be '42'." instead of
-    // "Expected false to be true."
+  beforeEach(() => {
+    bigI = BigInt.is(42)
   })
 
-test('is immutable', t => {
-  bigI.add(10)
-  t.is(bigI.toString()).toBe('42')
-  bigI.subtract.is(10)
-  t.is(bigI.toString()).toBe('42')
-})
+  afterEach(() => {
+    bigI = null
+  })
 
-test('can add', t => {
-  bigI = bigI.add(42)
+  test('is not a number', () => {
+    expect(typeof 42).toBe('number')
+    expect(typeof bigI).not.toBe('number')
+    expect(typeof bigI).toBe('object')
+  })
 
-  t.is(bigI.toString()).toBe('84')
-})
+  test('can be compared to a stringified number by calling \'.toString()\'',
+    () => {
+      expect(bigI).not.toBe(42)
+      expect(bigI).not.toBe('42')
+      expect(bigI.toString()).toBe('42')
+      // NOTE:
+      // The '==' operator calls '.toString()' here in order to compare.
+      expect(bigI === '42').toBe(true)
+      // While the line above is easier to write and read, we will use the
+      // 'expect(bigI.toString()).toBe(expected)' way so that test failure
+      // messages will be more informative. Eg,
+      // "Expected '84' to be '42'." instead of
+      // "Expected false to be true."
+    })
 
-test('can perform power operations', t => {
-  bigI = BigInt.is(10)
-  bigI = bigI.pow(2)
-  t.is(bigI.toString()).toBe('100')
+  test('is immutable', () => {
+    bigI.add(10)
+    expect(bigI.toString()).toBe('42')
+    bigI.subtract.is(10)
+    expect(bigI.toString()).toBe('42')
+  })
+
+  test('can add', () => {
+    bigI = bigI.add(42)
+
+    expect(bigI.toString()).toBe('84')
+  })
+
+  test('can perform power operations', () => {
+    bigI = BigInt.is(10)
+    bigI = bigI.pow(2)
+    expect(bigI.toString()).toBe('100')
+  })
 })

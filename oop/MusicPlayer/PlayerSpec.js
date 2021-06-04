@@ -1,14 +1,13 @@
 /**
  * Created by lusinabrian on 04/03/17.
  */
-const test = require('ava')
-const expect = require('expect')
+
 const Player = require('./Player')
 const Song = require('./Song')
 
 let player, song
 
-test.before(t => {
+test.before(() => {
   player = new Player()
   song = new Song()
 
@@ -26,7 +25,7 @@ test.before(t => {
   })
 })
 
-test('should be able to play a song', t => {
+test('should be able to play a song', () => {
   player.play(song)
 
   t(player.currentlyPlayingSong).toEqual(song)
@@ -35,13 +34,13 @@ test('should be able to play a song', t => {
   t(player).toBePlaying(song)
 })
 
-test('when song has been paused', t => {
-  test.before(t => {
+test('when song has been paused', () => {
+  test.before(() => {
     player.play(song)
     player.pause()
   })
 
-  test('should indicate that the song is currently paused', t => {
+  test('should indicate that the song is currently paused', () => {
     t(player.isPlaying).toBeFalsy()
 
     // demo of use of not with custom matcher
@@ -49,7 +48,7 @@ test('when song has been paused', t => {
     // t(player.currentlyPlayingSong).not.toBePlaying(song);
   })
 
-  test('should be able to resume', t => {
+  test('should be able to resume', () => {
     player.resume()
     t(player.isPlaying).toBeTruthy()
     t(player.currentlyPlayingSong).toBePlaying(song)
@@ -57,7 +56,7 @@ test('when song has been paused', t => {
 })
 
 /* use of spies to intercept method calls */
-test('tells the current song if the user has made it a favorite', t => {
+test('tells the current song if the user has made it a favorite', () => {
   spyOn(song, 'persistFavoriteStatus')
 
   player.play(song)
@@ -67,9 +66,9 @@ test('tells the current song if the user has made it a favorite', t => {
 })
 
 /** demo of use of expected exceptions */
-test('should throw an error on a currently playing song', t => {
+test('should throw an error on a currently playing song', () => {
   player.play(song)
-  t(t => {
+  t(() => {
     player.resume()
   }).toThrow('Song is already playing')
 })

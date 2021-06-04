@@ -35,7 +35,7 @@ module.exports = {
   encode (phrase) {
     let encoded = ''
     const characters = []
-    phrase.toLowerCase().spltest('').forEach(this.invert, characters)
+    phrase.toLowerCase().split('').forEach(this.invert, characters)
     encoded = this.insertSpacing(characters.join(''), 5)
     return encoded
   }

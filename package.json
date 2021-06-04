@@ -4,7 +4,7 @@
   "private": true,
   "description": "Small JavaScript & TypeScript Algorithms, DataStructures, Snippets and programs",
   "scripts": {
-    "test": "ava",
+    "test": "jest",
     "test:watch": "ava --watch",
     "test:cover": "nyc ava",
     "send-cover-report": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",

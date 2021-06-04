@@ -3,3 +3,7 @@ coverage/
 keys/
 node_modules/
 *.md
+*.spec.ts
+*.spec.js
+*.test.js
+*.test.ts

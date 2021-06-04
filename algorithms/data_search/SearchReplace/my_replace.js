@@ -1,5 +1,5 @@
 function myReplace (str, before, after) {
-  const arr = str.spltest(' ') // split into an array
+  const arr = str.split(' ') // split into an array
   let character = ''
   let i = 0
   let ind = 0

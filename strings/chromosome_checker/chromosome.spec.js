@@ -1,15 +1,13 @@
-const test = require('ava')
-const expect = require('expect')
 const ChromosomeCheck = require('./chromosomeCheck')
 
-test('Son', t => {
+test('Son', () => {
   const chromosome = new ChromosomeCheck('XY')
 
-  t.is(chromosome.chromosomeCheck('XY'), 'Congratulations! You\'re going to have a son.')
+  expect(chromosome.chromosomeCheck('XY')).toEqual('Congratulations! You\'re going to have a son.')
 })
 
-test('Daughter', t => {
+test('Daughter', () => {
   const chromosome = new ChromosomeCheck('XX')
 
-  t.is(chromosome.chromosomeCheck('XX'), 'Congratulations! You\'re going to have a daughter.')
+  expect(chromosome.chromosomeCheck('XX')).toEqual('Congratulations! You\'re going to have a daughter.')
 })

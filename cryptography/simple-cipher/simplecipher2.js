@@ -33,13 +33,13 @@ module.exports = function (userDefinedKey) {
 
   this.encode = function (plaintext) {
     const characters = []
-    plaintext.spltest('').forEach(addEncodedCharacter, characters)
+    plaintext.split('').forEach(addEncodedCharacter, characters)
     return characters.join('')
   }
 
   this.decode = function (ciphertext) {
     const characters = []
-    ciphertext.spltest('').forEach(addDecodedCharacter, characters)
+    ciphertext.split('').forEach(addDecodedCharacter, characters)
     return characters.join('')
   }
 

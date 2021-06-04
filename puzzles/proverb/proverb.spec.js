@@ -1,28 +1,26 @@
-const test = require('ava')
-const expect = require('expect')
 const Proverb = require('./proverb')
 
-test('tests a single consequence', t => {
+test('tests a single consequence', () => {
   const proverb = new Proverb('nail', 'shoe')
 
-  t.is(proverb.toString(),
+  expect(proverb.toString()).toEqual(
     'For want of a nail the shoe was lost.\n' +
     'And all for the want of a nail.')
 })
 
-test('tests a short chain of consequences', t => {
+test('tests a short chain of consequences', () => {
   const proverb = new Proverb('nail', 'shoe', 'horse')
 
-  t.is(proverb.toString(),
+  expect(proverb.toString()).toEqual(
     'For want of a nail the shoe was lost.\n' +
     'For want of a shoe the horse was lost.\n' +
     'And all for the want of a nail.')
 })
 
-test('tests a longer chain of consequences', t => {
+test('tests a longer chain of consequences', () => {
   const proverb = new Proverb('nail', 'shoe', 'horse', 'rider')
 
-  t.is(proverb.toString(),
+  expect(proverb.toString()).toEqual(
     'For want of a nail the shoe was lost.\n' +
     'For want of a shoe the horse was lost.\n' +
     'For want of a horse the rider was lost.\n' +
@@ -30,19 +28,19 @@ test('tests a longer chain of consequences', t => {
 })
 
 test('tests Proverb class does not hard code the rhyme dictionary',
-  t => {
+  () => {
     const proverb = new Proverb('key', 'value')
 
-    t.is(proverb.toString(),
+    expect(proverb.toString()).toEqual(
       'For want of a key the value was lost.\n' +
       'And all for the want of a key.')
   })
 
-test('tests the whole proveb', t => {
+test('tests the whole proveb', () => {
   const proverb = new Proverb('nail', 'shoe', 'horse', 'rider',
     'message', 'battle', 'kingdom')
 
-  t.is(proverb.toString(),
+  expect(proverb.toString()).toEqual(
     'For want of a nail the shoe was lost.\n' +
     'For want of a shoe the horse was lost.\n' +
     'For want of a horse the rider was lost.\n' +
@@ -53,13 +51,13 @@ test('tests the whole proveb', t => {
 })
 
 test('tests the use of an optional qualifier in the final consequence',
-  t => {
+  () => {
     const proverb = new Proverb('nail', 'shoe', 'horse', 'rider',
       'message', 'battle', 'kingdom', {
         qualifier: 'horseshoe'
       })
 
-    t.is(proverb.toString(),
+    expect(proverb.toString()).toEqual(
       'For want of a nail the shoe was lost.\n' +
       'For want of a shoe the horse was lost.\n' +
       'For want of a horse the rider was lost.\n' +
@@ -69,8 +67,8 @@ test('tests the use of an optional qualifier in the final consequence',
       'And all for the want of a horseshoe nail.')
   })
 
-test('tests the proverb is the same each time', t => {
+test('tests the proverb is the same each time', () => {
   const proverb = new Proverb('nail', 'shoe')
 
-  t.is(proverb.toString(), proverb.toString())
+  expect(proverb.toString()).toEqual(proverb.toString())
 })

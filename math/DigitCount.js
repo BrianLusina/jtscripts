@@ -16,7 +16,7 @@ function nbDig (n, d) {
     res.push(Math.pow(x, 2))
   }
   for (let y = 0; y < res.length; y++) {
-    const a = String(res[y]).spltest('')
+    const a = String(res[y]).split('')
   	for (let i = 0; i < a.length; i++) {
   		if (a[i] === String(d)) {
         counter++

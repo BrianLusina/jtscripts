@@ -1,5 +1,5 @@
 function permutations (str) {
-  const arr = str.spltest('')
+  const arr = str.split('')
   const len = arr.length
   const perms = []
   let rest; let picked; let restPerms; let next

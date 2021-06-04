@@ -1,23 +1,21 @@
-const test = require('ava')
-const expect = require('expect')
 const DuplicateEncode = require('./duplicateencode')
 
-test('Test 1', t => {
+test('Test 1', () => {
   const dup = new DuplicateEncode()
-  t.is(dup.duplicateencode('din'), '(((')
+  expect(dup.duplicateencode('din')).toEqual('(((')
 })
 
-test('Test 2', t => {
+test('Test 2', () => {
   const dup = new DuplicateEncode()
-  t.is(dup.duplicateencode('recede'), '()()()')
+  expect(dup.duplicateencode('recede')).toEqual('()()()')
 })
 
-test('should ignore case', t => {
+test('should ignore case', () => {
   const dup = new DuplicateEncode()
-  t.is(dup.duplicateencode('Success'), ')())())')
+  expect(dup.duplicateencode('Success')).toEqual(')())())')
 })
 
-test('Test 4', t => {
+test('Test 4', () => {
   const dup = new DuplicateEncode()
-  t.is(dup.duplicateencode('(( @")'), '))((((')
+  expect(dup.duplicateencode('(( @")')).toEqual('))((((')
 })

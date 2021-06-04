@@ -6,7 +6,7 @@ loop through each letter in the word, comparing it to the counter object
 */
 DuplicateEncode.prototype.duplicateencode = function (word) {
   const charMap = {}
-  const charArray = word.toLowerCase().spltest('')
+  const charArray = word.toLowerCase().split('')
 
   // check if each character is in the object and increase its count if found
   charArray.forEach(function (char) {

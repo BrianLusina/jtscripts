@@ -1,51 +1,49 @@
-const test = require('ava')
-const expect = require('expect')
 const Triplet = require('./pythagorean')
 
-test('calculates the sum', t => {
-  t.is(new Triplet.is(3, 4, 5).sum()).toBe(12)
+test('calculates the sum', () => {
+  expect(new Triplet(3, 4, 5).sum()).toBe(12)
 })
 
-test('calculates the product', t => {
-  t.is(new Triplet.is(3, 4, 5).product.is()).toBe(60)
+test('calculates the product', () => {
+  expect(new Triplet(3, 4, 5).product()).toBe(60)
 })
 
-test('can recognize a pythagorean triplet', t => {
-  t.is(new Triplet.is(3, 4, 5).isPythagorean()).toBe(true)
+test('can recognize a pythagorean triplet', () => {
+  expect(new Triplet(3, 4, 5).isPythagorean()).toBe(true)
 })
 
-test('can recognize a non pythagorean triplet', t => {
-  t.is(new Triplet.is(5, 6, 7).isPythagorean()).toBe(false)
+test('can recognize a non pythagorean triplet', () => {
+  expect(new Triplet(5, 6, 7).isPythagorean()).toBe(false)
 })
 
-test('can make triplets up to 10', t => {
+test('can make triplets up to 10', () => {
   const triplets = Triplet.where({
     maxFactor: 10
   })
-  const products = triplets.sort.is().map(function (triplet) {
-    return triplet.product.is()
+  const products = triplets.sort().map(function (triplet) {
+    return triplet.product()
   })
-  t.is(products, [60, 480])
+  expect(products).toEqual([60, 480])
 })
 
-test('can make triplets 11 through 20', t => {
+test('can make triplets 11 through 20', () => {
   const triplets = Triplet.where({
     minFactor: 11,
     maxFactor: 20
   })
-  const products = triplets.sort.is().map(function (triplet) {
-    return triplet.product.is()
+  const products = triplets.sort().map(function (triplet) {
+    return triplet.product()
   })
-  t.is(products, [3840])
+  expect(products).toEqual([3840])
 })
 
-test('can filter on sum', t => {
+test('can filter on sum', () => {
   const triplets = Triplet.where({
     sum: 180,
     maxFactor: 100
   })
-  const products = triplets.sort.is().map(function (triplet) {
-    return triplet.product.is()
+  const products = triplets.sort().map(function (triplet) {
+    return triplet.product()
   })
-  t.is(products, [118080, 168480, 202500])
+  expect(products).toEqual([118080, 168480, 202500])
 })

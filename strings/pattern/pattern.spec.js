@@ -1,18 +1,16 @@
-const test = require('ava')
-const expect = require('expect')
 const Pattern = require('./pattern')
 
-test('Test 1', t => {
+test('Test 1', () => {
   const pattern = new Pattern()
-  t.is(pattern.getPattern(1), '1')
+  expect(pattern.getPattern(1)).toEqual('1')
 })
 
-test('Test 2', t => {
+test('Test 2', () => {
   const pattern = new Pattern()
-  t.is(pattern.getPattern(2), '1\n22')
+  expect(pattern.getPattern(2)).toEqual('1\n22')
 })
 
-test('Test 3', t => {
+test('Test 3', () => {
   const pattern = new Pattern()
-  t.is(pattern.getPattern(5), '1\n22\n333\n4444\n55555')
+  expect(pattern.getPattern(5)).toEqual('1\n22\n333\n4444\n55555')
 })

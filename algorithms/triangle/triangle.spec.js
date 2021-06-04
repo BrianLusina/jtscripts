@@ -1,83 +1,81 @@
 const Triangle = require('./triangle.js')
-const test = require('ava')
-const expect = require('expect')
 
-test('equilateral triangles have equal sides', t => {
+test('equilateral triangles have equal sides', () => {
   const triangle = new Triangle(2, 2, 2)
-  t.is(triangle.kind(), 'equilateral')
+  expect(triangle.kind()).toEqual('equilateral')
 })
 
-test('larger equilateral triangles also have equal sides', t => {
+test('larger equilateral triangles also have equal sides', () => {
   const triangle = new Triangle(10, 10, 10)
-  t.is(triangle.kind(), 'equilateral')
+  expect(triangle.kind()).toEqual('equilateral')
 })
 
-test('isosceles triangles have last two sides equal', t => {
+test('isosceles triangles have last two sides equal', () => {
   const triangle = new Triangle(3, 4, 4)
-  t.is(triangle.kind(), 'isosceles')
+  expect(triangle.kind()).toEqual('isosceles')
 })
 
-test('isosceles triangles have first two sides equal', t => {
+test('isosceles triangles have first two sides equal', () => {
   const triangle = new Triangle(2, 2, 3)
-  t.is(triangle.kind(), 'isosceles')
+  expect(triangle.kind()).toEqual('isosceles')
 })
 
-test('isosceles trianges have first and last sides equal', t => {
+test('isosceles trianges have first and last sides equal', () => {
   const triangle = new Triangle(4, 3, 4)
-  t.is(triangle.kind(), 'isosceles')
+  expect(triangle.kind()).toEqual('isosceles')
 })
 
-test('isosceles triangles have two first sides equal', t => {
+test('isosceles triangles have two first sides equal', () => {
   const triangle = new Triangle(4, 4, 3)
-  t.is(triangle.kind(), 'isosceles')
+  expect(triangle.kind()).toEqual('isosceles')
 })
 
-test('isosceles triangles have in fact exactly two sides equal', t => {
+test('isosceles triangles have in fact exactly two sides equal', () => {
   const triangle = new Triangle(10, 10, 2)
-  t.is(triangle.kind(), 'isosceles')
+  expect(triangle.kind()).toEqual('isosceles')
 })
 
-test('scalene triangles have no equal sides', t => {
+test('scalene triangles have no equal sides', () => {
   const triangle = new Triangle(3, 4, 5)
-  t.is(triangle.kind(), 'scalene')
+  expect(triangle.kind()).toEqual('scalene')
 })
 
-test('scalene triangles have no equal sides at a larger scale too', t => {
+test('scalene triangles have no equal sides at a larger scale too', () => {
   const triangle = new Triangle(10, 11, 12)
-  t.is(triangle.kind(), 'scalene')
+  expect(triangle.kind()).toEqual('scalene')
 })
 
-test('scalene triangles have no equal sides in descending order either', t => {
+test('scalene triangles have no equal sides in descending order either', () => {
   const triangle = new Triangle(5, 4, 2)
-  t.is(triangle.kind(), 'scalene')
+  expect(triangle.kind()).toEqual('scalene')
 })
 
-test('very small triangles are legal', t => {
+test('very small triangles are legal', () => {
   const triangle = new Triangle(0.4, 0.6, 0.3)
-  t.is(triangle.kind(), 'scalene')
+  expect(triangle.kind()).toEqual('scalene')
 })
 
-test('test triangles with no size are illegal', t => {
+test('test triangles with no size are illegal', () => {
   const triangle = new Triangle(0, 0, 0)
-  t.is(triangle.kind.bind(triangle)).toThrow()
+  expect(triangle.kind.bind(triangle)).toThrow()
 })
 
-test('triangles with negative sides are illegal', t => {
+test('triangles with negative sides are illegal', () => {
   const triangle = new Triangle(3, 4, -5)
-  t.is(triangle.kind.bind(triangle)).toThrow()
+  expect(triangle.kind.bind(triangle)).toThrow()
 })
 
-test('triangles violating triangle inequality are illegal', t => {
+test('triangles violating triangle inequality are illegal', () => {
   const triangle = new Triangle(1, 1, 3)
-  t.is(triangle.kind.bind(triangle)).toThrow()
+  expect(triangle.kind.bind(triangle)).toThrow()
 })
 
-test('triangles violating triangle inequality are illegal 2', t => {
+test('triangles violating triangle inequality are illegal 2', () => {
   const triangle = new Triangle(7, 3, 2)
-  t.is(triangle.kind.bind(triangle)).toThrow()
+  expect(triangle.kind.bind(triangle)).toThrow()
 })
 
-test('triangles violating triangle inequality are illegal 3', t => {
+test('triangles violating triangle inequality are illegal 3', () => {
   const triangle = new Triangle(10, 1, 3)
-  t.is(triangle.kind.bind(triangle)).toThrow()
+  expect(triangle.kind.bind(triangle)).toThrow()
 })

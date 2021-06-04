@@ -1,88 +1,87 @@
-const test = require('ava')
-const expect = require('expect')
+
 const WordProblem = require('./wordy').WordProblem
 const ArgumentError = require('./wordy').ArgumentError
 
-test('add 1', t => {
+test('add 1', () => {
   const question = 'What is 1 plus 1?'
-  t.is(new WordProblem(question).answer(), 2)
+  expect(new WordProblem(question).answer()).toEqual(2)
 })
 
-test('add 2', t => {
+test('add 2', () => {
   const question = 'What is 53 plus 2?'
-  t.is(new WordProblem(question).answer(), 55)
+  expect(new WordProblem(question).answer()).toEqual(55)
 })
 
-test('add negative numbers', t => {
+test('add negative numbers', () => {
   const question = 'What is -1 plus -10?'
-  t.is(new WordProblem(question).answer(), -11)
+  expect(new WordProblem(question).answer()).toEqual(-11)
 })
 
-test('add more digits', t => {
+test('add more digits', () => {
   const question = 'What is 123 plus 45678?'
-  t.is(new WordProblem(question).answer(), 45801)
+  expect(new WordProblem(question).answer()).toEqual(45801)
 })
 
-test('subtract', t => {
+test('subtract', () => {
   const question = 'What is 4 minus -12?'
-  t.is(new WordProblem(question).answer(), 16)
+  expect(new WordProblem(question).answer()).toEqual(16)
 })
 
-test('multiply', t => {
+test('multiply', () => {
   const question = 'What is -3 multiplied by 25?'
-  t.is(new WordProblem(question).answer(), -75)
+  expect(new WordProblem(question).answer()).toEqual(-75)
 })
 
-test('divide', t => {
+test('divide', () => {
   const question = 'What is 33 divided by -3?'
-  t.is(new WordProblem(question).answer(), -11)
+  expect(new WordProblem(question).answer()).toEqual(-11)
 })
 
-test('add twice', t => {
+test('add twice', () => {
   const question = 'What is 1 plus 1 plus 1?'
-  t.is(new WordProblem(question).answer(), 3)
+  expect(new WordProblem(question).answer()).toEqual(3)
 })
 
-test('add then subtract', t => {
+test('add then subtract', () => {
   const question = 'What is 1 plus 5 minus -2?'
-  t.is(new WordProblem(question).answer(), 8)
+  expect(new WordProblem(question).answer()).toEqual(8)
 })
 
-test('subtract twice', t => {
+test('subtract twice', () => {
   const question = 'What is 20 minus 4 minus 13?'
-  t.is(new WordProblem(question).answer(), 3)
+  expect(new WordProblem(question).answer()).toEqual(3)
 })
 
-test('subtract then add', t => {
+test('subtract then add', () => {
   const question = 'What is 17 minus 6 plus 3?'
-  t.is(new WordProblem(question).answer(), 14)
+  expect(new WordProblem(question).answer()).toEqual(14)
 })
 
-test('multiply twice', t => {
+test('multiply twice', () => {
   const question = 'What is 2 multiplied by -2 multiplied by 3?'
-  t.is(new WordProblem(question).answer(), -12)
+  expect(new WordProblem(question).answer()).toEqual(-12)
 })
 
-test('add then multiply', t => {
+test('add then multiply', () => {
   const question = 'What is -3 plus 7 multiplied by -2?'
-  t.is(new WordProblem(question).answer(), -8)
+  expect(new WordProblem(question).answer()).toEqual(-8)
 })
 
-test('divide twice', t => {
+test('divide twice', () => {
   const question = 'What is -12 divided by 2 divided by -3?'
-  t.is(new WordProblem(question).answer(), 2)
+  expect(new WordProblem(question).answer()).toEqual(2)
 })
 
-test('too advanced', t => {
+test('too advanced', () => {
   const question = 'What is 53 cubed?'
   const problem = new WordProblem(question)
 
-  t.is(problem.answer.bind(problem)).toThrow(new ArgumentError())
+  expect(problem.answer.bind(problem)).toThrow(new ArgumentError())
 })
 
-test('irrelevant', t => {
+test('irrelevant', () => {
   const question = 'Who is the president of the United States?'
   const problem = new WordProblem(question)
 
-  t.is(problem.answer.bind(problem)).toThrow(new ArgumentError())
+  expect(problem.answer.bind(problem)).toThrow(new ArgumentError())
 })

@@ -1,5 +1,5 @@
 function calculate (string) {
-  const t = string.spltest(' ')
+  const t = string.split(' ')
   const num = []
   let res = 0
   for (var x = 0; x < t.length; x++) {

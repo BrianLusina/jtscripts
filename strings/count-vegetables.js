@@ -1,7 +1,7 @@
 function countVegetables (string) {
   const veggies = ['cabbage', 'carrot', 'celery', 'cucumber', 'mushroom', 'onion', 'pepper', 'potato', 'tofu', 'turnip']
   let counter = 0; const obj = {}
-  const arr = string.spltest(' ')
+  const arr = string.split(' ')
 
   for (let x = 0; x < arr.length; x++) {
     for (let y = 0; y < veggies.length; y++) {

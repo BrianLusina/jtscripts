@@ -1,44 +1,42 @@
 const SecretHandshake = require('./secret-handshake')
-const test = require('ava')
-const expect = require('expect')
 
-test('1 is a wink', t => {
+test('1 is a wink', () => {
   const handshake = new SecretHandshake(1)
-  t.is(handshake.commands(), ['wink'])
+  expect(handshake.commands()).toEqual(['wink'])
 })
 
-test('10 is a double blink', t => {
+test('10 is a double blink', () => {
   const handshake = new SecretHandshake(2)
-  t.is(handshake.commands(), ['double blink'])
+  expect(handshake.commands()).toEqual(['double blink'])
 })
 
-test('100 is close your eyes', t => {
+test('100 is close your eyes', () => {
   const handshake = new SecretHandshake(4)
-  t.is(handshake.commands(), ['close your eyes'])
+  expect(handshake.commands()).toEqual(['close your eyes'])
 })
 
-test('1000 is jump', t => {
+test('1000 is jump', () => {
   const handshake = new SecretHandshake(8)
-  t.is(handshake.commands(), ['jump'])
+  expect(handshake.commands()).toEqual(['jump'])
 })
 
-test('11 is wink and double blink', t => {
+test('11 is wink and double blink', () => {
   const handshake = new SecretHandshake(3)
-  t.is(handshake.commands(), ['wink', 'double blink'])
+  expect(handshake.commands()).toEqual(['wink', 'double blink'])
 })
 
-test('10011 is double blink and wink', t => {
+test('10011 is double blink and wink', () => {
   const handshake = new SecretHandshake(19)
-  t.is(handshake.commands(), ['double blink', 'wink'])
+  expect(handshake.commands()).toEqual(['double blink', 'wink'])
 })
 
-test('11111 is jump, close your eyes, double blink, and wink', t => {
+test('11111 is jump, close your eyes, double blink, and wink', () => {
   const handshake = new SecretHandshake(31)
-  t.is(handshake.commands(), ['jump', 'close your eyes', 'double blink', 'wink'])
+  expect(handshake.commands()).toEqual(['jump', 'close your eyes', 'double blink', 'wink'])
 })
 
-test('text is an invalid secret handshake', t => {
-  t.is(t => {
+test('text is an invalid secret handshake', () => {
+  expect(() => {
     const handshake = new SecretHandshake('piggies')
   }).toThrow(new Error('Handshake must be a number'))
 })

@@ -1,27 +1,25 @@
-const test = require('ava')
-const expect = require('expect')
 const Acronyms = require('./acronym.js')
 
-test('title cased phrases', t => {
-  t.is(Acronyms.parse('Portable Network Graphics'), 'PNG')
+test('title cased phrases', () => {
+  expect(Acronyms.parse('Portable Network Graphics')).toEqual('PNG')
 })
 
-test('other title cased phrases', t => {
-  t.is(Acronyms.parse('Ruby on Rails'), 'ROR')
+test('other title cased phrases', () => {
+  expect(Acronyms.parse('Ruby on Rails')).toEqual('ROR')
 })
 
-test('inconsistently cased phrases', t => {
-  t.is(Acronyms.parse('HyperText Markup Language'), 'HTML')
+test('inconsistently cased phrases', () => {
+  expect(Acronyms.parse('HyperText Markup Language')).toEqual('HTML')
 })
 
-test('phrases with punctuation', t => {
-  t.is(Acronyms.parse('First In, First Out'), 'FIFO')
+test('phrases with punctuation', () => {
+  expect(Acronyms.parse('First In, First Out')).toEqual('FIFO')
 })
 
-test('other phrases with punctuation', t => {
-  t.is(Acronyms.parse('PHP: Hypertext Preprocessor'), 'PHP')
+test('other phrases with punctuation', () => {
+  expect(Acronyms.parse('PHP: Hypertext Preprocessor')).toEqual('PHP')
 })
 
-test('phrases with punctuation and sentence casing', t => {
-  t.is(Acronyms.parse('Complementary metal-oxide semiconductor'), 'CMOS')
+test('phrases with punctuation and sentence casing', () => {
+  expect(Acronyms.parse('Complementary metal-oxide semiconductor')).toEqual('CMOS')
 })

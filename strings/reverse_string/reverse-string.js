@@ -1,3 +1,3 @@
 module.exports = function (word) {
-  return word.spltest('').reverse().join('')
+  return word.split('').reverse().join('')
 }

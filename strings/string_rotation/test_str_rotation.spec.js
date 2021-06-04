@@ -1,31 +1,29 @@
-const test = require('ava')
-const expect = require('expect')
 const shiftedDiff = require('./str_rotation.js')
 
-test('test 1', t => {
-  t.is(shiftedDiff('eecoff', 'coffee'), 4)
+test('test 1', () => {
+  expect(shiftedDiff('eecoff', 'coffee')).toEqual(4)
 })
 
-test('test 2', t => {
-  t.is(shiftedDiff('Moose', 'moose'), -1)
+test('test 2', () => {
+  expect(shiftedDiff('Moose', 'moose')).toEqual(-1)
 })
 
-test('test 3', t => {
-  t.is(shiftedDiff('isn\'t', '\'tisn'), 2)
+test('test 3', () => {
+  expect(shiftedDiff('isn\'t', '\'tisn')).toEqual(2)
 })
 
-test('test 4', t => {
-  t.is(shiftedDiff('Esham', 'Esham'), 0)
+test('test 4', () => {
+  expect(shiftedDiff('Esham', 'Esham')).toEqual(0)
 })
 
-test('test 5', t => {
-  t.is(shiftedDiff(' ', ' '), 0)
+test('test 5', () => {
+  expect(shiftedDiff(' ', ' ')).toEqual(0)
 })
 
-test('test 6', t => {
-  t.is(shiftedDiff('hoop', 'pooh'), -1)
+test('test 6', () => {
+  expect(shiftedDiff('hoop', 'pooh')).toEqual(-1)
 })
 
-test('test 7', t => {
-  t.is(shiftedDiff('  ', ' '), -1)
+test('test 7', () => {
+  expect(shiftedDiff('  ', ' ')).toEqual(-1)
 })

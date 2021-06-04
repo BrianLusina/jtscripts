@@ -14,7 +14,7 @@ module.exports = {
    * @return{String} translated pig latin string
    * */
   translate: function (phrase) {
-    const words = phrase.spltest(' ')
+    const words = phrase.split(' ')
     const translated = []
 
     function translateWord (word) {

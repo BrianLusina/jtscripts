@@ -249,7 +249,7 @@ var bigInt = (function (e) {
         const t = Number(e); if (t === p(t)) {
           return new u(t)
         } throw 'Invalid integer: ' + e
-      } const r = e[0] === '-'; r && (e = e.slice(1)); const i = e.spltest(/e/i); if (i.length > 2) {
+      } const r = e[0] === '-'; r && (e = e.slice(1)); const i = e.split(/e/i); if (i.length > 2) {
         throw new Error('Invalid integer: ' + f.join('e'))
       } if (i.length === 2) {
         let s = i[1]; s[0] === '+' && (s = s.slice(1)), s = Number(s); if (s !== p(s) || !a(s)) {

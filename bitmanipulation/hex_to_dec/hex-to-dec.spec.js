@@ -1,28 +1,26 @@
 const HexToDec = require('./hex-to-dec')
-const test = require('ava')
-const expect = require('expect')
 
-test('Test 1', t => {
+test('Test 1', () => {
   const hexDec = new HexToDec()
-  t.is(hexDec.hexToDec('1'), 1)
+  expect(hexDec.hexToDec('1')).toEqual(1)
 })
 
-test('Test 2', t => {
+test('Test 2', () => {
   const hexDec = new HexToDec()
-  t.is(hexDec.hexToDec('a'), 10)
+  expect(hexDec.hexToDec('a')).toEqual(10)
 })
 
-test('Test 3', t => {
+test('Test 3', () => {
   const hexDec = new HexToDec()
-  t.is(hexDec.hexToDec('10'), 16)
+  expect(hexDec.hexToDec('10')).toEqual(16)
 })
 
-test('Test 4', t => {
+test('Test 4', () => {
   const hexDec = new HexToDec()
-  t.is(hexDec.hexToDec('FF'), 255)
+  expect(hexDec.hexToDec('FF')).toEqual(255)
 })
 
-test('Test 5', t => {
+test('Test 5', () => {
   const hexDec = new HexToDec()
-  t.is(hexDec.hexToDec('-C'), -12)
+  expect(hexDec.hexToDec('-C')).toEqual(-12)
 })

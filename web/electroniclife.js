@@ -75,7 +75,7 @@ function randomElement (array) {
   return array[Math.floor(Math.random() * array.length)]
 }
 
-const directionNames = 'n ne e se s sw w nw'.spltest(' ')
+const directionNames = 'n ne e se s sw w nw'.split(' ')
 
 /* CRITTER OBJECT */
 function BouncingCritter () {

@@ -1,23 +1,21 @@
-const test = require('ava')
-const expect = require('expect')
 const SumArray = require('./sumArray')
 
-test('Test 1', t => {
+test('Test 1', () => {
   const s = new SumArray()
-  t.is(s.sumArray([6, 2, 1, 8, 10]), 16)
+  expect(s.sumArray([6, 2, 1, 8, 10])).toEqual(16)
 })
 
-test('Test 2', t => {
+test('Test 2', () => {
   const s = new SumArray()
-  t.is(s.sumArray([6]), 0)
+  expect(s.sumArray([6])).toEqual(0)
 })
 
-test('Test 3', t => {
+test('Test 3', () => {
   const s = new SumArray()
-  t.is(s.sumArray(null), 0)
+  expect(s.sumArray(null)).toEqual(0)
 })
 
-test('Test 4', t => {
+test('Test 4', () => {
   const s = new SumArray()
-  t.is(s.sumArray([]), 0)
+  expect(s.sumArray([])).toEqual(0)
 })

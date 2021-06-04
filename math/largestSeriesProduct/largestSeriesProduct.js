@@ -12,7 +12,7 @@ class Series {
      * @returns {Array} of numbers from the series input
      */
   getDigits () {
-    return this.series.spltest('').map(Number)
+    return this.series.split('').map(Number)
   }
 
   /**

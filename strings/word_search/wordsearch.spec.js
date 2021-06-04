@@ -1,23 +1,21 @@
-const test = require('ava')
-const expect = require('expect')
 const WordSearch = require('./wordsearch')
 
-test('Test 1', t => {
+test('Test 1', () => {
   const ws = new WordSearch()
-  t.is(ws.wordSearch('ab', ['za', 'ab', 'abc', 'zab', 'zbc']), ['ab', 'abc', 'zab'])
+  expect(ws.wordSearch('ab', ['za', 'ab', 'abc', 'zab', 'zbc'])).toEqual(['ab', 'abc', 'zab'])
 })
 
-test('Test 2', t => {
+test('Test 2', () => {
   const ws = new WordSearch()
-  t.is(ws.wordSearch('aB', ['za', 'ab', 'abc', 'zab', 'zbc']), ['ab', 'abc', 'zab'])
+  expect(ws.wordSearch('aB', ['za', 'ab', 'abc', 'zab', 'zbc'])).toEqual(['ab', 'abc', 'zab'])
 })
 
-test('Test 3', t => {
+test('Test 3', () => {
   const ws = new WordSearch()
-  t.is(ws.wordSearch('ab', ['za', 'aB', 'Abc', 'zAB', 'zbc']), ['aB', 'Abc', 'zAB'])
+  expect(ws.wordSearch('ab', ['za', 'aB', 'Abc', 'zAB', 'zbc'])).toEqual(['aB', 'Abc', 'zAB'])
 })
 
-test('Test 4', t => {
+test('Test 4', () => {
   const ws = new WordSearch()
-  t.is(ws.wordSearch('abcd', ['za', 'aB', 'Abc', 'zAB', 'zbc']), ['Empty'])
+  expect(ws.wordSearch('abcd', ['za', 'aB', 'Abc', 'zAB', 'zbc'])).toEqual(['Empty'])
 })

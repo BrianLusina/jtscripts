@@ -1,5 +1,5 @@
-const Prime = new require('../../math/primes/Primes')
-// import Prime from '../../math/primes/Primes'
+const Prime = require('../../math/primes/Primes')
+// import Prime from '../../math/primes/Primes';
 
 /**
  * An key, value map of characters to unique prime numbers.
@@ -51,7 +51,7 @@ const asciiLetters = (function () {
  * @return {Number}
  */
 const hash = function (str) {
-  return str.spltest('').reduce(function (memo, char) {
+  return str.split('').reduce(function (memo, char) {
     return memo * primeMap[char]
   }, 1)
 }

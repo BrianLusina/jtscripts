@@ -1,65 +1,65 @@
-const test = require('ava')
-const expect = require('expect')
-const Allergies = require('./allergies')
+import Allergies from './allergies'
 
-test('no allergies at all', t => {
-  const allergies = new Allergies(0)
-  t.is(allergies.list.is(), [])
-})
+describe('Allergies', () => {
+  test('no allergies at all', () => {
+    const allergies = new Allergies(0)
+    expect(allergies.list()).toEqual([])
+  })
 
-test('allergies to eggs', t => {
-  const allergies = new Allergies(1)
-  t.is(allergies.list.is(), ['eggs'])
-})
+  test('allergies to eggs', () => {
+    const allergies = new Allergies(1)
+    expect(allergies.list()).toEqual(['eggs'])
+  })
 
-test('allergies to peanuts', t => {
-  const allergies = new Allergies(2)
-  t.is(allergies.list.is(), ['peanuts'])
-})
+  test('allergies to peanuts', () => {
+    const allergies = new Allergies(2)
+    expect(allergies.list()).toEqual(['peanuts'])
+  })
 
-test('allergies to strawberries', t => {
-  const allergies = new Allergies(8)
-  t.is(allergies.list.is(), ['strawberries'])
-})
+  test('allergies to strawberries', () => {
+    const allergies = new Allergies(8)
+    expect(allergies.list()).toEqual(['strawberries'])
+  })
 
-test('allergies to eggs and peanuts', t => {
-  const allergies = new Allergies(3)
-  t.is(allergies.list.is(), ['eggs', 'peanuts'])
-})
+  test('allergies to eggs and peanuts', () => {
+    const allergies = new Allergies(3)
+    expect(allergies.list()).toEqual(['eggs', 'peanuts'])
+  })
 
-test('allergies to more than eggs but not peanuts', t => {
-  const allergies = new Allergies(5)
-  t.is(allergies.list.is(), ['eggs', 'shellfish'])
-})
+  test('allergies to more than eggs but not peanuts', () => {
+    const allergies = new Allergies(5)
+    expect(allergies.list()).toEqual(['eggs', 'shellfish'])
+  })
 
-test('allergic to lots of stuff', t => {
-  const allergies = new Allergies(248)
-  t.is(allergies.list.is(), ['strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats'])
-})
+  test('allergic to lots of stuff', () => {
+    const allergies = new Allergies(248)
+    expect(allergies.list()).toEqual(['strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats'])
+  })
 
-test('allergic to everything', t => {
-  const allergies = new Allergies(255)
-  t.is(allergies.list.is(), ['eggs', 'peanuts', 'shellfish', 'strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats'])
-})
+  test('allergic to everything', () => {
+    const allergies = new Allergies(255)
+    expect(allergies.list()).toEqual(['eggs', 'peanuts', 'shellfish', 'strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats'])
+  })
 
-test('no allergic means not allergic', t => {
-  const allergies = new Allergies(0)
-  t.is(allergies.allergicTo('peanuts'), false)
-  t.is(allergies.allergicTo('cats'), false)
-  t.is(allergies.allergicTo('strawberries'), false)
-})
+  test('no allergic means not allergic', () => {
+    const allergies = new Allergies(0)
+    expect(allergies.allergicTo('peanuts')).toEqual(false)
+    expect(allergies.allergicTo('cats')).toEqual(false)
+    expect(allergies.allergicTo('strawberries')).toEqual(false)
+  })
 
-test('allergic to eggs', t => {
-  const allergies = new Allergies(1)
-  t.is(allergies.allergicTo('eggs'), true)
-})
+  test('allergic to eggs', () => {
+    const allergies = new Allergies(1)
+    expect(allergies.allergicTo('eggs')).toEqual(true)
+  })
 
-test('allergic to eggs and other things', t => {
-  const allergies = new Allergies(5)
-  t.is(allergies.allergicTo('eggs'), true)
-})
+  test('allergic to eggs and other things', () => {
+    const allergies = new Allergies(5)
+    expect(allergies.allergicTo('eggs')).toEqual(true)
+  })
 
-test('ignore non allergen score parts', t => {
-  const allergies = new Allergies(509)
-  t.is(allergies.list.is(), ['eggs', 'shellfish', 'strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats'])
+  test('ignore non allergen score parts', () => {
+    const allergies = new Allergies(509)
+    expect(allergies.list()).toEqual(['eggs', 'shellfish', 'strawberries', 'tomatoes', 'chocolate', 'pollen', 'cats'])
+  })
 })

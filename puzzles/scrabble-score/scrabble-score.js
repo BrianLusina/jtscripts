@@ -1,4 +1,4 @@
-SCORES = {
+const SCORES = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
   2: ['D', 'G'],
   3: ['B', 'C', 'M', 'P'],
@@ -16,7 +16,7 @@ function score (word) {
   }
   var word = word.toUpperCase()
 
-  for (w in word) {
+  for (const w in word) {
     for (const key in SCORES) {
       if (SCORES[key].includes(word[w])) {
         counter += Number(key)

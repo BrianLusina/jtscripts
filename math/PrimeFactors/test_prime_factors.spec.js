@@ -1,47 +1,45 @@
-const test = require('ava')
-const expect = require('expect')
 const primeFactors = require('./primefactors.js')
 
-test('returns an empty array for 1', t => {
-  t.is(primeFactors.for(1), [])
+test('returns an empty array for 1', () => {
+  expect(primeFactors.for(1)).toEqual([])
 })
 
-test('factors 2', t => {
-  t.is(primeFactors.for(2), [2])
+test('factors 2', () => {
+  expect(primeFactors.for(2)).toEqual([2])
 })
 
-test('factors 3', t => {
-  t.is(primeFactors.for(3), [3])
+test('factors 3', () => {
+  expect(primeFactors.for(3)).toEqual([3])
 })
 
-test('factors 4', t => {
-  t.is(primeFactors.for(4), [2, 2])
+test('factors 4', () => {
+  expect(primeFactors.for(4)).toEqual([2, 2])
 })
 
-test('factors 6', t => {
-  t.is(primeFactors.for(6), [2, 3])
+test('factors 6', () => {
+  expect(primeFactors.for(6)).toEqual([2, 3])
 })
 
-test('factors 8', t => {
-  t.is(primeFactors.for(8), [2, 2, 2])
+test('factors 8', () => {
+  expect(primeFactors.for(8)).toEqual([2, 2, 2])
 })
 
-test('factors 9', t => {
-  t.is(primeFactors.for(9), [3, 3])
+test('factors 9', () => {
+  expect(primeFactors.for(9)).toEqual([3, 3])
 })
 
-test('factors 27', t => {
-  t.is(primeFactors.for(27), [3, 3, 3])
+test('factors 27', () => {
+  expect(primeFactors.for(27)).toEqual([3, 3, 3])
 })
 
-test('factors 625', t => {
-  t.is(primeFactors.for(625), [5, 5, 5, 5])
+test('factors 625', () => {
+  expect(primeFactors.for(625)).toEqual([5, 5, 5, 5])
 })
 
-test('factors 901255', t => {
-  t.is(primeFactors.for(901255), [5, 17, 23, 461])
+test('factors 901255', () => {
+  expect(primeFactors.for(901255)).toEqual([5, 17, 23, 461])
 })
 
-test('factors 93819012551', t => {
-  t.is(primeFactors.for(93819012551), [11, 9539, 894119])
+test('factors 93819012551', () => {
+  expect(primeFactors.for(93819012551)).toEqual([11, 9539, 894119])
 })

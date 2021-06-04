@@ -1,5 +1,5 @@
 const chai = require('chai');
-const compose  = require("./compose");
+import compose from "./compose";
 const assert = chai.assert;
 
 let doubleTheValue = function(v) { return v * 2 };

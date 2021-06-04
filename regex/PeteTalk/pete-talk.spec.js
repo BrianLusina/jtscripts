@@ -1,33 +1,31 @@
 const PeteTalk = require('./pete-talk')
-const test = require('ava')
-const expect = require('expect')
 
-test('Test 1', t => {
+test('Test 1', () => {
   const pete = new PeteTalk()
-  t.is(pete.peteTalk(''))
+  expect(pete.peteTalk(''))
 })
 
-test('Test 2', t => {
+xtest('Test 2', () => {
   const pete = new PeteTalk()
-  t.is(pete.peteTalk('I want to punch someone in the face'), 'I w**t to p***h s*****e in t*e f**e')
+  expect(pete.peteTalk('I want to punch someone in the face')).toEqual('I w**t to p***h s*****e in t*e f**e')
 })
 
-test('Test 3', t => {
+xtest('Test 3', () => {
   const pete = new PeteTalk()
-  t.is(pete.peteTalk('uh!'), 'Uh!')
+  expect(pete.peteTalk('uh!')).toEqual('Uh!')
 })
 
-test('Test 4', t => {
+xtest('Test 4', () => {
   const pete = new PeteTalk()
-  t.is(pete.peteTalk('What the hell am I doing here? And where is my wallet? PETE SMASH!'), 'W**t t*e h**l am i d***g h**e? A*d w***e is my w****t? P**e s***h!')
+  expect(pete.peteTalk('What the hell am I doing here? And where is my wallet? PETE SMASH!')).toEqual('W**t t*e h**l am i d***g h**e? A*d w***e is my w****t? P**e s***h!')
 })
 
-test('Test 5', t => {
+xtest('Test 5', () => {
   const pete = new PeteTalk()
-  t.is(pete.peteTalk('I want to punch someone in the face', ['someone', 'face']), 'I w**t to p***h someone in t*e face')
+  expect(pete.peteTalk('I want to punch someone in the face', ['someone', 'face'])).toEqual('I w**t to p***h someone in t*e face')
 })
 
-test('Test 6', t => {
+xtest('Test 6', () => {
   const pete = new PeteTalk()
-  t.is(pete.peteTalk('I want to punch someone in the face', ['drink', 'job', 'girls']), 'I w**t to p***h s*****e in t*e f**e')
+  expect(pete.peteTalk('I want to punch someone in the face', ['drink', 'job', 'girls'])).toEqual('I w**t to p***h s*****e in t*e f**e')
 })

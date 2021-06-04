@@ -7,7 +7,7 @@ class Luhn {
 
   calculateAddends (number) {
     const numAsStr = number.replace(/\s+/gi, '')
-    const numbers = numAsStr.spltest('')
+    const numbers = numAsStr.split('')
     const addends = []
 
     for (let i = 0; i < numbers.length; i++) {

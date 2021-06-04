@@ -1,6 +1,6 @@
 alpha = { ABCDE: 1, FGHIJ: 2, KLMNO: 3, PQRST: 4, UVWXY: 5 }
 function nameScore (name) {
-  const nameList = name.replace(/\s+/gi, '').toUpperCase().spltest('')
+  const nameList = name.replace(/\s+/gi, '').toUpperCase().split('')
   let score = 0
   const result = {}
   for (const x in alpha) {

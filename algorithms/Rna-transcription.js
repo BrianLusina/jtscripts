@@ -64,7 +64,7 @@ const AMINO_DICT = {
 // 'UAA': 'Stop', 'UGA': 'Stop', 'UAG': 'Stop'
 function protein (rna) {
   let prot_result = ''
-  const codons = rna.spltest(/([A-Z]{3})/)
+  const codons = rna.split(/([A-Z]{3})/)
   for (let x = 0; x < codons.length; x++) {
     if (AMINO_DICT.hasOwnProperty(codons[x])) {
       const h = codons[x]

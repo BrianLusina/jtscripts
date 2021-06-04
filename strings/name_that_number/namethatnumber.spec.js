@@ -1,28 +1,26 @@
-const test = require('ava')
-const expect = require('expect')
 const NameNumber = require('./namethatnumber')
 
-test('test 1, Zero', t => {
+test('test 1, Zero', () => {
   const name = new NameNumber()
-  t.is(name.nameThatNumber(0), 'zero')
+  expect(name.nameThatNumber(0)).toEqual('zero')
 })
 
-test('test 2, Four', t => {
+test('test 2, Four', () => {
   const name = new NameNumber()
-  t.is(name.nameThatNumber(4), 'four')
+  expect(name.nameThatNumber(4)).toEqual('four')
 })
 
-test('test 3, Nine', t => {
+test('test 3, Nine', () => {
   const name = new NameNumber()
-  t.is(name.nameThatNumber(9), 'nine')
+  expect(name.nameThatNumber(9)).toEqual('nine')
 })
 
-test('test 23', t => {
+test('test 23', () => {
   const name = new NameNumber()
-  t.is(name.nameThatNumber(23), 'twenty three')
+  expect(name.nameThatNumber(23)).toEqual('twenty three')
 })
 
-test('test 40', t => {
+test('test 40', () => {
   const name = new NameNumber()
-  t.is(name.nameThatNumber(40), 'forty')
+  expect(name.nameThatNumber(40)).toEqual('forty')
 })

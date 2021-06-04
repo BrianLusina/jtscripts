@@ -1,33 +1,31 @@
-const test = require('ava')
-const expect = require('expect')
 const reverseString = require('./reverse-string.js')
 
-test('empty string', t => {
+test('empty string', () => {
   const expected = ''
   const actual = reverseString('')
-  t.is(actual, expected)
+  expect(actual).toEqual(expected)
 })
 
-test('a word', t => {
+test('a word', () => {
   const expected = 'tobor'
   const actual = reverseString('robot')
-  t.is(actual, expected)
+  expect(actual).toEqual(expected)
 })
 
-test('a capitalized word', t => {
+test('a capitalized word', () => {
   const expected = 'nemaR'
   const actual = reverseString('Ramen')
-  t.is(actual, expected)
+  expect(actual).toEqual(expected)
 })
 
-test('a sentence with punctuation', t => {
+test('a sentence with punctuation', () => {
   const expected = '!yrgnuh ma I'
   const actual = reverseString('I am hungry!')
-  t.is(actual, expected)
+  expect(actual).toEqual(expected)
 })
 
-test('a palindrome', t => {
+test('a palindrome', () => {
   const expected = 'racecar'
   const actual = reverseString('racecar')
-  t.is(actual, expected)
+  expect(actual).toEqual(expected)
 })

@@ -7,8 +7,8 @@ NameNumber.prototype.nameThatNumber = function (num) {
   if (NAMES.hasOwnProperty(num)) {
     return NAMES[num]
   } else {
-    tens = Math.floor(num / 10)
-    ones = num % 10
+    const tens = Math.floor(num / 10)
+    const ones = num % 10
     return `${NAMESTWO[tens - 2]} ${(ones != 0) ? NAMES[ones] : ''}`.trim()
   }
 }
