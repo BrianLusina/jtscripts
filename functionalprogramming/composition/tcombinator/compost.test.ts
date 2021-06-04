@@ -21,7 +21,7 @@ describe("Example Tests", function() {
 });
 
 function randomBool() {
-  return Math.floor(Math.random()) == 0;
+  return Math.floor(Math.random()) === 0;
 }
 
 function randomNumber(lower, upper) {

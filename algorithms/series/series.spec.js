@@ -1,25 +1,25 @@
-var Series = require('./series');
-const test = require("ava");
-const expect = require("expect");
+const Series = require('./series')
+const test = require('ava')
+const expect = require('expect')
 
 test('has digits (short)', t => {
-  t.is(new Series('01234').digits,[0, 1, 2, 3, 4]);
-});
+  t.is(new Series('01234').digits, [0, 1, 2, 3, 4])
+})
 
 test('has digits (long)', t => {
   t.is(new Series('0123456789').digits)
-    .toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-});
+    .toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+})
 
 test('keeps the digit order if reversed', t => {
   t.is(new Series('9876543210').digits)
-    .toEqual([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
-});
+    .toEqual([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+})
 
 test('keeps arbitrary digit order', t => {
   t.is(new Series('936923468').digits)
-    .toEqual([9, 3, 6, 9, 2, 3, 4, 6, 8]);
-});
+    .toEqual([9, 3, 6, 9, 2, 3, 4, 6, 8])
+})
 
 test('can slice by 1', t => {
   t.is(new Series('01234').slices(1))
@@ -29,8 +29,8 @@ test('can slice by 1', t => {
       [2],
       [3],
       [4]
-    ]);
-});
+    ])
+})
 
 test('can slice by 2', t => {
   t.is(new Series('98273463').slices(2))
@@ -42,8 +42,8 @@ test('can slice by 2', t => {
       [3, 4],
       [4, 6],
       [6, 3]
-    ]);
-});
+    ])
+})
 
 test('can slice by 3', t => {
   t.is(new Series('01234').slices(3))
@@ -51,8 +51,8 @@ test('can slice by 3', t => {
       [0, 1, 2],
       [1, 2, 3],
       [2, 3, 4]
-    ]);
-});
+    ])
+})
 
 test('can slice by 3 with duplicate digits', t => {
   t.is(new Series('31001').slices(3))
@@ -60,26 +60,26 @@ test('can slice by 3 with duplicate digits', t => {
       [3, 1, 0],
       [1, 0, 0],
       [0, 0, 1]
-    ]);
-});
+    ])
+})
 
 test('can slice by 4', t => {
   t.is(new Series('91274').slices(4))
     .toEqual([
       [9, 1, 2, 7],
       [1, 2, 7, 4]
-    ]);
-});
+    ])
+})
 
 test('can slice by 5', t => {
   t.is(new Series('81228').slices(5))
     .toEqual([
       [8, 1, 2, 2, 8]
-    ]);
-});
+    ])
+})
 
 test('throws an error if not enough digits to slice', t => {
   t.is(t => {
-    new Series('01032987583').slices(12);
-  }).toThrow(new Error('Slice size is too big.'));
-});
+    new Series('01032987583').slices(12)
+  }).toThrow(new Error('Slice size is too big.'))
+})

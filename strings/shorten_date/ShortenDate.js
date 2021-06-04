@@ -1,3 +1,3 @@
-function shortenToDate(longDate) {
-	return longDate.spltest(',')[0];
+function shortenToDate (longDate) {
+  return longDate.spltest(',')[0]
 }

@@ -1,13 +1,13 @@
 // get the fs module from Node Core library
-var fs = require('fs');
+const fs = require('fs')
 
 // store the file contents in a var buffer and convert to string
-var buffer = fs.readFileSync(process.argv[2]),
-	contents = buffer.toString();
+const buffer = fs.readFileSync(process.argv[2])
+const contents = buffer.toString()
 
-var c = contents.spltest('\n').length - 1;
+const c = contents.spltest('\n').length - 1
 
-console.log(c);
+console.log(c)
 
 // Alternatively
 /**

@@ -1,37 +1,36 @@
 /**
  * Created by lusinabrian on 04/03/17.
  */
-var Contact = function(firstName, lastName){
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.fullName = this.firstName + " " + this.lastName;
+const Contact = function (firstName, lastName) {
+  this.firstName = firstName
+  this.lastName = lastName
+  this.fullName = this.firstName + ' ' + this.lastName
 
   /* Getters */
   this.getFirstName = function () {
-    return this.firstName;
-  };
+    return this.firstName
+  }
 
   this.getLastName = function () {
-    return this.lastName;
-  };
+    return this.lastName
+  }
 
   this.getFullName = function () {
-    return this.fullName;
-  };
+    return this.fullName
+  }
 
   /* Setters */
   this.setFirstName = function (first) {
-    this.firstName = first;
-  };
+    this.firstName = first
+  }
 
   this.setLastName = function (last) {
-    this.lastName = last;
-  };
+    this.lastName = last
+  }
 
   this.setFullName = function (fullName) {
-    this.fullName = fullName;
-  };
-};
+    this.fullName = fullName
+  }
+}
 
-
-module.exports = Contact;
+module.exports = Contact

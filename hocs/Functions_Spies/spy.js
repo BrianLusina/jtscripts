@@ -1,13 +1,13 @@
-function Spy(target, method) {
-	var spy = {count: 0};
-	var oldie = target[method];
+function Spy (target, method) {
+  const spy = { count: 0 }
+  const oldie = target[method]
 
-	target[method] = function () {
-		spy.count++;
-		return oldie.apply(target, arguments);
-	};
+  target[method] = function () {
+    spy.count++
+    return oldie.apply(target, arguments)
+  }
 
-	return spy;
+  return spy
 }
 
-module.exports = Spy;
+module.exports = Spy

@@ -94,7 +94,7 @@ export default class DoublyLinkedList<K, D> extends LinkedList<DoublyLinkedListN
   }
 
   reverse() {
-    if (this.head?.next == null) {
+    if (this.head?.next === null) {
       return;
     }
 

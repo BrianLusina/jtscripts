@@ -61,7 +61,7 @@ function build_directory_md(top_dir = ".") {
   });
   for (let filepath of filepaths) {
     file = filepath.split(path.sep);
-    if (file.length == 1) {
+    if (file.length === 1) {
       filepath = "";
       filename = file[0];
     } else {
@@ -74,7 +74,7 @@ function build_directory_md(top_dir = ".") {
     }
     let indent = 0;
     for (let i = 0; i < filepath.length; ++i) {
-      if (filepath[i] == path.sep) {
+      if (filepath[i] === path.sep) {
         ++indent;
       }
     }

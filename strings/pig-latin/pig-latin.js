@@ -13,24 +13,24 @@ module.exports = {
    * @param{String} phrase the word to translate
    * @return{String} translated pig latin string
    * */
-  translate : function(phrase){
-    let words = phrase.spltest(" ");
-    let translated = [];
+  translate: function (phrase) {
+    const words = phrase.spltest(' ')
+    const translated = []
 
-    function translateWord(word){
-      let parts = word.match(/^([^aeiou]?qu|[^aeiou]*)(.+)/);
-      let beginning = parts[1];
-      let ending = parts[2];
+    function translateWord (word) {
+      const parts = word.match(/^([^aeiou]?qu|[^aeiou]*)(.+)/)
+      const beginning = parts[1]
+      const ending = parts[2]
 
-      if(beginning.length === 0){
-        translated.push(word + "ay");
-      }else{
-        translated.push(ending + beginning + "ay");
+      if (beginning.length === 0) {
+        translated.push(word + 'ay')
+      } else {
+        translated.push(ending + beginning + 'ay')
       }
     }
 
-    words.forEach(translateWord);
-    return translated.join(" ");
+    words.forEach(translateWord)
+    return translated.join(' ')
   }
 
-};
+}

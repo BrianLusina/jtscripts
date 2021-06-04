@@ -1,22 +1,22 @@
-class Hexadecimal{
-    constructor(hexa){
-        this.hexa = hexa;
-    }
+class Hexadecimal {
+  constructor (hexa) {
+    this.hexa = hexa
+  }
 
-    /**
+  /**
      * Converts a hexadecimal number to decimal
-     * @returns {Number} 
+     * @returns {Number}
      */
-    toDecimal(){
-        let regex = new RegExp(/[^0-9a-fA-F]/);
+  toDecimal () {
+    const regex = new RegExp(/[^0-9a-fA-F]/)
 
-        for(let x = 0;x < this.hexa.length; x++){
-            if(regex.exec(this.hexa[x])){
-                return 0;
-            }
-        }
-        return parseInt(this.hexa, 16);
+    for (let x = 0; x < this.hexa.length; x++) {
+      if (regex.exec(this.hexa[x])) {
+        return 0
+      }
     }
+    return parseInt(this.hexa, 16)
+  }
 }
 
-module.exports = Hexadecimal;
+module.exports = Hexadecimal

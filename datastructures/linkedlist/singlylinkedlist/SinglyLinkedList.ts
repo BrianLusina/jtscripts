@@ -28,11 +28,11 @@ export default class SinglyLinkedList<K, D> extends LinkedList<SinglyLinkedListN
     }
 
     // Nothing to delete here
-    if (this.head == null) {
+    if (this.head === null) {
       return null;
     }
 
-    if (this.head != null && position == 0) {
+    if (this.head != null && position === 0) {
       const current = this.head;
       this.head = null;
       return current;
@@ -192,7 +192,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<SinglyLinkedListN
   }
 
   reverse() {
-    if (this.head?.next == null) {
+    if (this.head?.next === null) {
       return;
     }
 

@@ -1,5 +1,5 @@
-var sum_pairs = function (ints, s) {
-    // your code here
-};
+const sum_pairs = function (ints, s) {
+  // your code here
+}
 
-module.exports = sum_pairs;
+module.exports = sum_pairs

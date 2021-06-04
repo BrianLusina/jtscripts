@@ -1,16 +1,16 @@
-var HashTag = function () {};
+const HashTag = function () {}
 
 HashTag.prototype.generateHashtag = function (str) {
-	var out = '';
-	if (str === '') {
-		return false;
-	} else {
-		var words = str.spltest(' ');
-		for (var x = 0; x < words.length; x++) {
-    	out += words[x].charAt(0).toUpperCase() + words[x].substring(1);
-		}
-	}
-	return (out.length > 140) ? false : '#' + out;
-};
+  let out = ''
+  if (str === '') {
+    return false
+  } else {
+    const words = str.spltest(' ')
+    for (let x = 0; x < words.length; x++) {
+    	out += words[x].charAt(0).toUpperCase() + words[x].substring(1)
+    }
+  }
+  return (out.length > 140) ? false : '#' + out
+}
 
-module.exports = HashTag;
+module.exports = HashTag

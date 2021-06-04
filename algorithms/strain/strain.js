@@ -1,26 +1,26 @@
-'use strict';
-let strain = {
+'use strict'
+const strain = {
 
-	create(array, filter, keepMatches) {
-		var results = [];
-		for (var x = 0; x < array.length; x++) {
-			if (filter(array[x]) === keepMatches) {
-				results.push(array[x]);
-			}
-		}
+  create (array, filter, keepMatches) {
+    const results = []
+    for (let x = 0; x < array.length; x++) {
+      if (filter(array[x]) === keepMatches) {
+        results.push(array[x])
+      }
+    }
 
-		return results;
-	},
+    return results
+  },
 
-	keep(array, filter) {
-		return this.create(array, filter, true);
-	},
+  keep (array, filter) {
+    return this.create(array, filter, true)
+  },
 
-	discard(array, filter) {
-		return this.create(array, filter, false);
-	}
-};
-module.exports = strain;
+  discard (array, filter) {
+    return this.create(array, filter, false)
+  }
+}
+module.exports = strain
 
 // or alternatively
 // module.exports = {

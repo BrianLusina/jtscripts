@@ -87,7 +87,7 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
             let right = recurseTree(currentNode.right);
 
             // # If the current node is one of nodeOne or nodeTwo
-            let mid = currentNode == nodeOne || currentNode == nodeTwo
+            let mid = currentNode === nodeOne || currentNode === nodeTwo
 
             // # If any two of the three flags left, right or mid become True.
             // @ts-ignore

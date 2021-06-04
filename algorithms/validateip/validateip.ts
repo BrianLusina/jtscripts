@@ -57,9 +57,9 @@ export function validateIpv6(ip: string) : string {
  * @param ip 
  */
 export function validIPAddressRegexDivConquer(ip: string): string {
-    if(ip.match(/\./)?.length == 3) {
+    if(ip.match(/\./)?.length === 3) {
         return validateIpv4(ip);
-    } else if (ip.match(/:/)?.length == 7) {
+    } else if (ip.match(/:/)?.length === 7) {
         return validateIpv6(ip);
     } else {
         return "Neither";

@@ -34,9 +34,9 @@ export function canFinish(numCourses: number, prerequisites: number[][]): boolea
 
         if (adjacencyList.has(node)){
             for (const neighbour of adjacencyList.get(node) || []) {
-                if(color.get(neighbour) == WHITE) {
+                if(color.get(neighbour) === WHITE) {
                     dfs(neighbour);
-                } else if (color.get(neighbour) == GRAY) {
+                } else if (color.get(neighbour) === GRAY) {
                     isPossible = false;
                 }
             }
@@ -46,7 +46,7 @@ export function canFinish(numCourses: number, prerequisites: number[][]): boolea
     }
     
     for (let index = 0; index < numCourses; index++) {
-        if (color.get(index) == WHITE) {
+        if (color.get(index) === WHITE) {
             dfs(index);
         }
     }

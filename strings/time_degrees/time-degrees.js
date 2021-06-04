@@ -1,8 +1,8 @@
-var TimeDegrees = function () {};
+const TimeDegrees = function () {}
 
-//TODO: implement clock degree
+// TODO: implement clock degree
 TimeDegrees.prototype.clockDegree = function (timeStr) {
 
-};
+}
 
-module.exports = TimeDegrees;
+module.exports = TimeDegrees

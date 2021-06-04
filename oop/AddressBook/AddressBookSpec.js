@@ -1,40 +1,38 @@
 /**
  * Created by lusinabrian on 04/03/17.
  */
-var test = require("ava");
-var expect = require("expect")
-const AddressBook = require("./AddressBook");
-const Contact = require("./Contact");
+const test = require('ava')
+const expect = require('expect')
+const AddressBook = require('./AddressBook')
+const Contact = require('./Contact')
 
-let addressBook, thisContact;
+let addressBook, thisContact
 
 /**
- * setup each spec with new slate*/
+ * setup each spec with new slate */
 test.before(t => {
-  addressBook = new AddressBook();
-  thisContact = new Contact();
+  addressBook = new AddressBook()
+  thisContact = new Contact()
 
   addressBook.getInitialContacts(t => {
-    done();
-  });
-});
+    done()
+  })
+})
 
-test("should be able to add a contact", t => {
-  addressBook.addContact(thisContact);
+test('should be able to add a contact', t => {
+  addressBook.addContact(thisContact)
 
-  t(addressBook.getContact(0)).toBe(thisContact);
-});
+  t(addressBook.getContact(0)).toBe(thisContact)
+})
 
-test("should be able to delete a contact", t => {
+test('should be able to delete a contact', t => {
+  addressBook.addContact(thisContact)
+  addressBook.deleteContact(thisContact)
 
-  addressBook.addContact(thisContact);
-  addressBook.deleteContact(thisContact);
+  t(addressBook.getContact(0)).not.toBeDefined()
+})
 
-  t(addressBook.getContact(0)).not.toBeDefined();
-
-});
-
-test("should grab initial contacts", function (done) {
-  t(addressBook.initialComplete).toBe(true);
-  done();
-});
+test('should grab initial contacts', function (done) {
+  t(addressBook.initialComplete).toBe(true)
+  done()
+})

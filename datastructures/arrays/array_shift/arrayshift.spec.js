@@ -1,34 +1,34 @@
-var expect = require("expect");
-var test = require("ava");
-var ArrayShift = require('./arrayshift');
+const expect = require('expect')
+const test = require('ava')
+const ArrayShift = require('./arrayshift')
 
 test('Test one', t => {
-  var arrayOfArrays = [
+  const arrayOfArrays = [
     [1, 2, 3, 4, 5, 6],
     [7, 7, 7, 7, 7, -7]
-  ];
-  var expected = [8, 9, 10, 11, 12, -1];
-  var arr = new ArrayShift.is();
-  t.is(arr.addingShifted(arrayOfArrays, 0),expected);
-});
+  ]
+  const expected = [8, 9, 10, 11, 12, -1]
+  const arr = new ArrayShift.is()
+  t.is(arr.addingShifted(arrayOfArrays, 0), expected)
+})
 
 test('Test two', t => {
-  var arrayOfArrays = [
+  const arrayOfArrays = [
     [1, 2, 3, 4, 5, 6],
     [7, 7, 7, 7, 7, 7]
-  ];
-  var expected = [1, 2, 3, 11, 12, 13, 7, 7, 7];
-  var arr = new ArrayShift.is();
-  t.is(arr.addingShifted(arrayOfArrays, 3),expected);
-});
+  ]
+  const expected = [1, 2, 3, 11, 12, 13, 7, 7, 7]
+  const arr = new ArrayShift.is()
+  t.is(arr.addingShifted(arrayOfArrays, 3), expected)
+})
 
 test('Test three', t => {
-  var arrayOfArrays = [
+  const arrayOfArrays = [
     [1, 2, 3, 4, 5, 6],
     [7, 7, 7, -7, 7, 7],
     [1, 1, 1, 1, 1, 1]
-  ];
-  var expected = [1, 2, 3, 11, 12, 13, -6, 8, 8, 1, 1, 1];
-  var arr = new ArrayShift.is();
-  t.is(arr.addingShifted(arrayOfArrays, 3),expected);
-});
+  ]
+  const expected = [1, 2, 3, 11, 12, 13, -6, 8, 8, 1, 1, 1]
+  const arr = new ArrayShift.is()
+  t.is(arr.addingShifted(arrayOfArrays, 3), expected)
+})

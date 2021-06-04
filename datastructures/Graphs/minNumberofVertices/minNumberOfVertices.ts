@@ -6,7 +6,7 @@ export function findSmallestSetOfVertices(n: number, edges: number[][]): number[
     const vertices: number[] = []
     
     for(let x = 0;x < n; x++) {
-        if(inDegrees[x] == 0) {
+        if(inDegrees[x] === 0) {
             vertices.push(x)
         }
     }
