@@ -5,8 +5,6 @@
     * [allergies](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/allergies/allergies.spec.js)
   * beeramid
     * [beeramid](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/beeramid/beeramid.js)
-  * binary-search
-    * [test](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/binary-search/test.js)
   * busstops
     * [busstops](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/busstops/busstops.js)
   * coin toss
@@ -18,8 +16,6 @@
       * [search_names](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/data_search/SearchNames/search_names.js)
     * SearchReplace
       * [my_replace](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/data_search/SearchReplace/my_replace.js)
-    * SupernaturalSearch
-      * [supernatural](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/data_search/SupernaturalSearch/supernatural.js)
   * duplicatechars
     * [duplicatechars](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/duplicatechars/duplicatechars.js)
   * grains
