@@ -127,6 +127,10 @@
   * Stacks
     * [stacks](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/Stacks/stacks.js)
 
+## designpatterns
+  * orderedstream
+    * [ordered_stream](https://github.com/BrianLusina/jtscripts/blob/master/designpatterns/orderedstream/ordered_stream.js)
+
 ## eventloops
   * AsyncLoops
     * [async](https://github.com/BrianLusina/jtscripts/blob/master/eventloops/AsyncLoops/async.js)
