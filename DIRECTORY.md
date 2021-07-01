@@ -128,6 +128,8 @@
     * [stacks](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/Stacks/stacks.js)
 
 ## designpatterns
+  * hashset
+    * [MyHashSetJs](https://github.com/BrianLusina/jtscripts/blob/master/designpatterns/hashset/MyHashSetJs.js)
   * orderedstream
     * [ordered_stream](https://github.com/BrianLusina/jtscripts/blob/master/designpatterns/orderedstream/ordered_stream.js)
 
