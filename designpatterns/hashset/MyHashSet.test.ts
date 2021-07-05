@@ -7,14 +7,14 @@ describe("HashSet Tests", () => {
         const n = 5
         const hashSet = new MyHashSet();
 
-        it("add 1 should add 1 to map", () => {
+        it("add 1 to map", () => {
             const actual = new Map();
             actual.set(1, true);
             hashSet.add(1);
             expect(hashSet.map).toEqual(actual)
         })
 
-        it("add 2 should add 2 to existing map", () => {
+        it("add 2 to existing map", () => {
             const actual = new Map();
             actual.set(1, true);
             actual.set(2, true);
