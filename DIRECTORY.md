@@ -375,6 +375,7 @@
     * [clock_2](https://github.com/BrianLusina/jtscripts/blob/master/time/clock/clock_2.spec.js)
   * DateTime
     * [FriendlyDateRanges](https://github.com/BrianLusina/jtscripts/blob/master/time/DateTime/FriendlyDateRanges.js)
+  * [daysbetween](https://github.com/BrianLusina/jtscripts/blob/master/time/daysbetween.js)
 
 ## web
   * [electroniclife](https://github.com/BrianLusina/jtscripts/blob/master/web/electroniclife.js)
