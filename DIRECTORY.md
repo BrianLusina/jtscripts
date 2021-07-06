@@ -124,8 +124,11 @@
   * queues
     * [Queue](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/queues/Queue.js)
     * [test_queue](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/queues/test_queue.spec.js)
-  * Stacks
-    * [stacks](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/Stacks/stacks.js)
+  * Stack
+    * max
+      * [MaxStackJs](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/Stack/max/MaxStackJs.js)
+    * min
+      * [MinStackJs](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/Stack/min/MinStackJs.js)
 
 ## designpatterns
   * hashset
