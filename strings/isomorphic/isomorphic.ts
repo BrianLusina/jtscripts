@@ -11,7 +11,7 @@ export default function isIsomorphic(s: string, t: string): boolean {
                 return false
             }
         } else {
-            if(Object.values(mapping).indexOf(t[i]) !== -1) {
+            if (Object.values(mapping).indexOf(t[i]) !== -1) {
                 return false
             }
             mapping[s[i]] = t[i]
