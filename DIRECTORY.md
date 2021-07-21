@@ -131,6 +131,8 @@
       * [MinStackJs](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/Stack/min/MinStackJs.js)
 
 ## designpatterns
+  * hashmap
+    * [HashMapJs](https://github.com/BrianLusina/jtscripts/blob/master/designpatterns/hashmap/HashMapJs.js)
   * hashset
     * [MyHashSetJs](https://github.com/BrianLusina/jtscripts/blob/master/designpatterns/hashset/MyHashSetJs.js)
   * orderedstream
