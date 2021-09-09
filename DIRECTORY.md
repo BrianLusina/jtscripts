@@ -196,11 +196,14 @@
   * PopulationGrowth
     * [population](https://github.com/BrianLusina/jtscripts/blob/master/math/PopulationGrowth/population.js)
     * [population](https://github.com/BrianLusina/jtscripts/blob/master/math/PopulationGrowth/population.spec.js)
-  * PrimeFactors
-    * [primefactors](https://github.com/BrianLusina/jtscripts/blob/master/math/PrimeFactors/primefactors.js)
-    * [test_prime_factors](https://github.com/BrianLusina/jtscripts/blob/master/math/PrimeFactors/test_prime_factors.spec.js)
   * primes
+    * PrimeFactors
+      * [primefactors](https://github.com/BrianLusina/jtscripts/blob/master/math/primes/PrimeFactors/primefactors.js)
+      * [test_prime_factors](https://github.com/BrianLusina/jtscripts/blob/master/math/primes/PrimeFactors/test_prime_factors.spec.js)
     * [Primes](https://github.com/BrianLusina/jtscripts/blob/master/math/primes/Primes.js)
+    * SieveOfErastothenes
+      * [sieve](https://github.com/BrianLusina/jtscripts/blob/master/math/primes/SieveOfErastothenes/sieve.js)
+      * [sieve](https://github.com/BrianLusina/jtscripts/blob/master/math/primes/SieveOfErastothenes/sieve.spec.js)
   * ProductOfLargestPair
     * [maxproduct](https://github.com/BrianLusina/jtscripts/blob/master/math/ProductOfLargestPair/maxproduct.js)
     * [maxproduct](https://github.com/BrianLusina/jtscripts/blob/master/math/ProductOfLargestPair/maxproduct.spec.js)
@@ -215,9 +218,6 @@
     * [roman-numerals](https://github.com/BrianLusina/jtscripts/blob/master/math/roman-numerals/roman-numerals.spec.js)
     * [roman-numerals2](https://github.com/BrianLusina/jtscripts/blob/master/math/roman-numerals/roman-numerals2.js)
     * [roman_numerals](https://github.com/BrianLusina/jtscripts/blob/master/math/roman-numerals/roman_numerals.js)
-  * sieve
-    * [sieve](https://github.com/BrianLusina/jtscripts/blob/master/math/sieve/sieve.js)
-    * [sieve](https://github.com/BrianLusina/jtscripts/blob/master/math/sieve/sieve.spec.js)
   * space-age
     * [space-age](https://github.com/BrianLusina/jtscripts/blob/master/math/space-age/space-age.js)
     * [space-age](https://github.com/BrianLusina/jtscripts/blob/master/math/space-age/space-age.spec.js)
