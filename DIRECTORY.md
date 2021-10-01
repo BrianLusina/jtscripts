@@ -53,6 +53,8 @@
     * [triangle](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/triangle/triangle.js)
     * [triangle](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/triangle/triangle.spec.js)
 
+## [babel](https://github.com/BrianLusina/jtscripts/blob/master//babel.config.js)
+
 ## bitmanipulation
   * binary first_principles
     * [binary](https://github.com/BrianLusina/jtscripts/blob/master/bitmanipulation/binary_first_principles/binary.spec.js)
