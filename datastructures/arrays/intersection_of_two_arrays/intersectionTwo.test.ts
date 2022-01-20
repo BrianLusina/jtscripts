@@ -12,6 +12,6 @@ describe('Intersection', () => {
     const nums1 = [4, 9, 5]
     const nums2 = [9, 4, 9, 8, 4]
     const expected = [4, 9]
-    expect(intersection(nums1, nums2)).toEqual(expected)
+    expect(intersection(nums1, nums2).sort()).toEqual(expected.sort())
   })
 })
