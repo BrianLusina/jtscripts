@@ -90,7 +90,6 @@
     * array shift
       * [arrayshift](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/arrays/array_shift/arrayshift.js)
       * [arrayshift](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/arrays/array_shift/arrayshift.spec.js)
-    * [checkUsersValid](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/arrays/checkUsersValid.js)
     * chunks
       * [chunk_array](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/arrays/chunks/chunk_array.js)
     * [countWords](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/arrays/countWords.js)
