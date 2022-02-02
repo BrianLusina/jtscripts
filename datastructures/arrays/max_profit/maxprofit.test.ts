@@ -1,4 +1,4 @@
-import maxProfit from "./maxprofit";
+import maxProfit from "./maxprofit"
 
 describe("maxProfit", () => {
     it("should return 5 for prices of 7,1,5,3,6,4", () => {
