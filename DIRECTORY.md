@@ -182,7 +182,6 @@
   * largestSeriesProduct
     * [largestSeriesProduct](https://github.com/BrianLusina/jtscripts/blob/master/math/largestSeriesProduct/largestSeriesProduct.js)
     * [largestSeriesProduct](https://github.com/BrianLusina/jtscripts/blob/master/math/largestSeriesProduct/largestSeriesProduct.spec.js)
-  * [leapyears](https://github.com/BrianLusina/jtscripts/blob/master/math/leapyears.js)
   * Narcissistic
     * [narcissitic](https://github.com/BrianLusina/jtscripts/blob/master/math/Narcissistic/narcissitic.js)
   * OctalNumber
