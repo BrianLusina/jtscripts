@@ -1,6 +1,5 @@
 export default abstract class LinkedList<Node> {
-    
-  head: Node | null;
+  head: Node | null | undefined;
 
   constructor(head: Node | null) {
     this.head = head;
