@@ -37,7 +37,6 @@
       * [reducer](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/Recursion/reducer/reducer.js)
     * ReduceRecursion
       * [reduce-recursion](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/Recursion/ReduceRecursion/reduce-recursion.js)
-  * [Rna-transcription](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/Rna-transcription.js)
   * secret-handshake
     * [secret-handshake](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/secret-handshake/secret-handshake.js)
     * [secret-handshake](https://github.com/BrianLusina/jtscripts/blob/master/algorithms/secret-handshake/secret-handshake.spec.js)
