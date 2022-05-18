@@ -16,7 +16,7 @@ class BrowserHistory {
 
         this.currentNode.next = node
         node.previous = this.currentNode
-        this.currentNode = node    
+        this.currentNode = node
     }
 
     /**

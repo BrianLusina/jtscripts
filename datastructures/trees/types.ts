@@ -1,10 +1,5 @@
+// base tree node. here it has a generic data and children as a Tree node could have more than 2 children
 export type TreeNode<T> = {
-    data: T;
-    left?: TreeNode<T> | null;
-    right?: TreeNode<T> | null;
-}
-
-export interface BinaryTreeNode<T> extends TreeNode<T> {
-    left?: BinaryTreeNode<T> | null;
-    right?: BinaryTreeNode<T> | null;
+  data: T;
+  children: Array<TreeNode<T>>
 }
