@@ -1,4 +1,4 @@
-import add from './functionaladd';
+import add from './functionaladd'
 
 describe("Functional Add", () => {
     it("should return 4 for add(1)(3)", () => {
