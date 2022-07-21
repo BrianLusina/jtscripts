@@ -3,6 +3,16 @@ import rps from './rps'
 
 describe("Beginner - Lost Without a Map", () => {
 
+  const solution = (p1: string, p2: string): string => {
+    const winMap: {[ejini战神: string]: string} = {
+      rock: 'scissors',
+      scissors: 'paper',
+      paper: 'rock',
+    }
+    const v: number = winMap[p1] === p2 ? 1 : 2
+    return p1 === p2 ? 'Draw!' : `Player ${v} won!`
+  }
+
     const getMsg = (n: number): string => `Player ${n} won!`
 
     it('player 1 win', () => {
@@ -22,4 +32,16 @@ describe("Beginner - Lost Without a Map", () => {
       assert.strictEqual(rps('scissors', 'scissors'), 'Draw!')
       assert.strictEqual(rps('paper', 'paper'), 'Draw!')
     })
+
+    for (let i: number = 0; i < 50; ++i) {
+      const options: string[] = ['rock', 'paper', 'scissors']
+      const rnd1: string = options[~~(Math.random() * 3)]
+      const rnd2: string = options[~~(Math.random() * 3)]
+      const expected = solution(rnd1, rnd2)
+      const actual = rps(rnd1, rnd2)
+
+      it(`should return ${expected} for p1=${rnd1}, p2=${rnd2}`, () => {
+        assert.strictEqual(actual, expected)
+      })
+    }
   })
