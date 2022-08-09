@@ -4,7 +4,7 @@ export default abstract class Tree<TreeNode> {
    * That is, the number of links from the root to the furtheset leaf
    * @returns {number} Height of the tree
    */
-  abstract height(): number
+  abstract height(): number;
 
   /**
    * Create new node adds it to the Tree
@@ -62,11 +62,11 @@ export default abstract class Tree<TreeNode> {
    * Gets all the paths of a Tree and returns the values in an array
    * @returns {any[]} 2D Array of values/data of each node in the tree representing paths
    */
-  abstract paths(): any[]
+  abstract paths(): any[];
 
   /**
    * Returns the number of nodes in this Tree
    * @returns {number} number of nodes
    */
-  abstract size(): number
+  abstract size(): number;
 }

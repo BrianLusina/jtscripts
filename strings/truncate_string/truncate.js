@@ -1,14 +1,14 @@
-function truncateString (str, num) {
-  const dots = '...'
+function truncateString(str, num) {
+  const dots = '...';
 
   if (num < dots.length) {
-    return str.slice(0, num) + dots
+    return str.slice(0, num) + dots;
   }
   if (str.length > num) {
-    return str.slice(0, num - dots.length) + dots
+    return str.slice(0, num - dots.length) + dots;
   } else {
-    return str
+    return str;
   }
 }
 
-console.log(truncatetring('pippi', 3))
+console.log(truncatetring('pippi', 3));

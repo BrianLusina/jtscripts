@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
-module.exports = number => {
-  let result = ''
+module.exports = (number) => {
+  let result = '';
   const mappings = [
     { arabic: 1000, roman: 'M' },
     { arabic: 900, roman: 'CM' },
@@ -15,16 +15,16 @@ module.exports = number => {
     { arabic: 9, roman: 'IX' },
     { arabic: 5, roman: 'V' },
     { arabic: 4, roman: 'IV' },
-    { arabic: 1, roman: 'I' }
-  ]
+    { arabic: 1, roman: 'I' },
+  ];
 
   for (let i = 0; i < mappings.length; i++) {
-    const mapping = mappings[i]
+    const mapping = mappings[i];
     while (number >= mapping.arabic) {
-      result += mapping.roman
-      number -= mapping.arabic
+      result += mapping.roman;
+      number -= mapping.arabic;
     }
   }
 
-  return result
-}
+  return result;
+};

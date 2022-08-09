@@ -67,14 +67,14 @@ export default class SinglyLinkedList<K, D> extends LinkedList<SinglyLinkedListN
 
   deleteNodeByData(data: any): SinglyLinkedListNode<K, D> | null {
     // @ts-ignore
-    const dummyHead: SinglyLinkedListNode<Number, any> = {data: -1, next: this.head, key: -1};
+    const dummyHead: SinglyLinkedListNode<number, any> = { data: -1, next: this.head, key: -1 };
     let current = dummyHead;
-  
-    while(current.next){
-      if(current.next.data === data) {
+
+    while (current.next) {
+      if (current.next.data === data) {
         current.next = current.next.next;
       } else {
-        current = current.next
+        current = current.next;
       }
     }
 
@@ -209,8 +209,8 @@ export default class SinglyLinkedList<K, D> extends LinkedList<SinglyLinkedListN
       return;
     }
 
-    var listToReverse = this.head.next;
-    var reversedList = this.head;
+    let listToReverse = this.head.next;
+    let reversedList = this.head;
     reversedList.next = null;
 
     while (listToReverse) {
@@ -226,5 +226,4 @@ export default class SinglyLinkedList<K, D> extends LinkedList<SinglyLinkedListN
 
     this.head = reversedList;
   }
-
 }

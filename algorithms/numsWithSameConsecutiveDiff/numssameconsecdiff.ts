@@ -24,38 +24,38 @@
  *     We use two queues to maintain the intermediate solutions, which contain no more than two levels of elements.
  *     The number of elements at the level of i is up to 9 * 2^{i-1}
  *     To sum up, the space complexity of the algorithm would be {O}(9 * 2^{N-1} + 9 * 2^{N-2}) = O(2^N).
- * @param n 
- * @param k 
- * @returns 
+ * @param n
+ * @param k
+ * @returns
  */
 export function numsSameConsecDiff(n: number, k: number): number[] {
-    if (n === 1) {
-        return Array.from({length: 10}, (_, i) => i);
-    }
+  if (n === 1) {
+    return Array.from({ length: 10 }, (_, i) => i);
+  }
 
-    let queue = Array.from({length: 9}, (_, i) => i + 1);
+  let queue = Array.from({ length: 9 }, (_, i) => i + 1);
 
-    for(let level = 0; level < n - 1; level++) {
-        const nextQueue: number[] = [];
+  for (let level = 0; level < n - 1; level++) {
+    const nextQueue: number[] = [];
 
-        for(let num of queue) {
-            let tailDigit = num % 10;
-            
-            // # using set() to avoid duplicates when K == 0
-            const nextDigits: Set<number> = new Set();
-            nextDigits.add(tailDigit + k);
-            nextDigits.add(tailDigit - k);
+    for (const num of queue) {
+      const tailDigit = num % 10;
 
-            for (const nextDigit of nextDigits) {
-                if (0 <= nextDigit && nextDigit < 10) {
-                    const newNum = num * 10 + nextDigit;
-                    nextQueue.push(newNum);
-                }
-            }            
+      // # using set() to avoid duplicates when K == 0
+      const nextDigits: Set<number> = new Set();
+      nextDigits.add(tailDigit + k);
+      nextDigits.add(tailDigit - k);
+
+      for (const nextDigit of nextDigits) {
+        if (0 <= nextDigit && nextDigit < 10) {
+          const newNum = num * 10 + nextDigit;
+          nextQueue.push(newNum);
         }
-
-        queue = nextQueue;
+      }
     }
 
-    return queue;
-};
+    queue = nextQueue;
+  }
+
+  return queue;
+}

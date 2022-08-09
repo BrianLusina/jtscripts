@@ -1,6 +1,6 @@
 const setIntersection = (set1: Set<number>, set2: Set<number>) => {
-    return [...set1].filter((x) => set2.has(x))
-}
+  return [...set1].filter((x) => set2.has(x));
+};
 
 /**
  * Returns the intersection of two arrays. Uses a set to solve the problem in linear time. A set provides in/contains
@@ -12,12 +12,12 @@ const setIntersection = (set1: Set<number>, set2: Set<number>) => {
  * @returns intersection between the 2 array of numbers
  */
 export default function intersection(nums1: number[], nums2: number[]): number[] {
-    const set1 = new Set(nums1)
-    const set2 = new Set(nums2)
+  const set1 = new Set(nums1);
+  const set2 = new Set(nums2);
 
-    if (set1.size < set2.size) {
-      return setIntersection(set1, set2)
-    } else {
-      return setIntersection(set2, set1)
-    }
+  if (set1.size < set2.size) {
+    return setIntersection(set1, set2);
+  } else {
+    return setIntersection(set2, set1);
+  }
 }

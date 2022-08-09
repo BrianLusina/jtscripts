@@ -6,49 +6,49 @@ const SPACE_AGES = {
   jupiter: 11.862615,
   saturn: 29.447498,
   uranus: 84.016846,
-  neptune: 164.79132
-}
+  neptune: 164.79132,
+};
 
 const SpaceAge = function (seconds) {
-  this.seconds = seconds
-  this.earthYears = seconds / 31557600
-}
+  this.seconds = seconds;
+  this.earthYears = seconds / 31557600;
+};
 
 SpaceAge.prototype.yearsOnPlanet = function (planet) {
-  const years = this.earthYears / SPACE_AGES[planet]
-  return parseFloat(years.toFixed(2))
-}
+  const years = this.earthYears / SPACE_AGES[planet];
+  return parseFloat(years.toFixed(2));
+};
 
 SpaceAge.prototype.onEarth = function () {
-  return this.yearsOnPlanet('earth')
-}
+  return this.yearsOnPlanet('earth');
+};
 
 SpaceAge.prototype.onMercury = function () {
-  return this.yearsOnPlanet('mercury')
-}
+  return this.yearsOnPlanet('mercury');
+};
 
 SpaceAge.prototype.onVenus = function () {
-  return this.yearsOnPlanet('venus')
-}
+  return this.yearsOnPlanet('venus');
+};
 
 SpaceAge.prototype.onMars = function () {
-  return this.yearsOnPlanet('mars')
-}
+  return this.yearsOnPlanet('mars');
+};
 
 SpaceAge.prototype.onJupiter = function () {
-  return this.yearsOnPlanet('jupiter')
-}
+  return this.yearsOnPlanet('jupiter');
+};
 
 SpaceAge.prototype.onSaturn = function () {
-  return this.yearsOnPlanet('saturn')
-}
+  return this.yearsOnPlanet('saturn');
+};
 
 SpaceAge.prototype.onUranus = function () {
-  return this.yearsOnPlanet('uranus')
-}
+  return this.yearsOnPlanet('uranus');
+};
 
 SpaceAge.prototype.onNeptune = function () {
-  return this.yearsOnPlanet('neptune')
-}
+  return this.yearsOnPlanet('neptune');
+};
 
-module.exports = SpaceAge
+module.exports = SpaceAge;

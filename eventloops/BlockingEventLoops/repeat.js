@@ -1,28 +1,28 @@
-function repeat (operation, num, callback) {
+function repeat(operation, num, callback) {
   setTimeout(function () {
     if (num <= 0) {
-      return callback()
+      return callback();
     }
-    operation()
-    return repeat(operation, --num, callback)
-  }, 0)
+    operation();
+    return repeat(operation, --num, callback);
+  }, 0);
 }
 
 // altenative solution
-function repeat_2 (operation, num) {
+function repeat_2(operation, num) {
   if (num <= 0) {
-    return
+    return;
   }
-  operation()
+  operation();
 
   // release operation every 10 iterations
   if (num % 10 === 0) {
     setTimeout(function () {
-      repeat_2(operation, --num)
-    })
+      repeat_2(operation, --num);
+    });
   } else {
-    repeat_2(operation, --num)
+    repeat_2(operation, --num);
   }
 }
 
-module.exports = repeat
+module.exports = repeat;

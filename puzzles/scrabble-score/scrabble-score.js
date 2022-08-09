@@ -5,25 +5,25 @@ const SCORES = {
   4: ['F', 'H', 'V', 'W', 'Y'],
   5: ['K'],
   8: ['J', 'X'],
-  10: ['Q', 'Z']
-}
+  10: ['Q', 'Z'],
+};
 
-function score (word) {
-  let counter = 0
+function score(word) {
+  let counter = 0;
 
   if (word === null) {
-    return counter
+    return counter;
   }
-  var word = word.toUpperCase()
+  var word = word.toUpperCase();
 
   for (const w in word) {
     for (const key in SCORES) {
       if (SCORES[key].includes(word[w])) {
-        counter += Number(key)
+        counter += Number(key);
       }
     }
   }
-  return counter
+  return counter;
 }
 
-module.exports = score
+module.exports = score;

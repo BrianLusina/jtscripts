@@ -1,22 +1,22 @@
 export function makeValley(arr: number[]): number[] {
-    if(arr.length === 0) {
-      return [];
-    }
-    
-    arr.sort();
+  if (arr.length === 0) {
+    return [];
+  }
 
-    let leftWing = [];
-    let rightWing = [];
+  arr.sort();
 
-    for (let index = arr.length - 1; 0 < index; index -= 2) {
-        leftWing.push(arr[index]);
-    }
+  const leftWing = [];
+  const rightWing = [];
 
-    for (let index = arr.length - 2; 0 < index; index -= 2) {
-        rightWing.push(arr[index]);
-    }
+  for (let index = arr.length - 1; 0 < index; index -= 2) {
+    leftWing.push(arr[index]);
+  }
 
-    rightWing.sort((a, b) => a - b);
+  for (let index = arr.length - 2; 0 < index; index -= 2) {
+    rightWing.push(arr[index]);
+  }
 
-    return leftWing.concat(rightWing);
+  rightWing.sort((a, b) => a - b);
+
+  return leftWing.concat(rightWing);
 }

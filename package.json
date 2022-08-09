@@ -4,19 +4,16 @@
   "private": true,
   "description": "Small JavaScript & TypeScript Algorithms, DataStructures, Snippets and programs",
   "scripts": {
-    "test": "yarn lint:types && jest --no-cache",
+    "test": "yarn lint && jest --no-cache",
     "test:watch": "ava --watch",
     "test:cover": "nyc ava",
     "send-cover-report": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
-    "lint": "yarn lint:types && yarn lint:ci",
-    "lintci": "eslint . --ext .tsx,.ts,.js,.jsx",
-    "lint:types": "yarn tsc --noEmit -p .",
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect"
+    "lint": "eslint . --ext .tsx,.ts,.js,.jsx",
+    "lint:fix": "eslint '*/**/*.{js,ts,tsx}' --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BrianLusina/JS-Snippets.git"
+    "url": "git+https://github.com/BrianLusina/jtscripts.git"
   },
   "keywords": [
     "JavaScript",
@@ -50,9 +47,9 @@
     "codacy-coverage": "^3.4.0",
     "codecov": "^3.8.1",
     "core-js": "^3.18.1",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "expect": "^25.5.0",
     "istanbul": "^0.4.5",
     "jest": "^24.0.0",
@@ -60,12 +57,7 @@
     "prettier": "^2.3.0",
     "sinon": "^9.2.1",
     "ts-jest": "^21.1.3",
-    "tslint": "^5.8.0",
     "typescript": "^4.5.4",
     "xo": "^0.34.2"
-  },
-  "snyk": true,
-  "dependencies": {
-    "snyk": "^1.424.4"
   }
 }

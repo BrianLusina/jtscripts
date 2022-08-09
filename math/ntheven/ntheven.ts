@@ -1,3 +1,3 @@
 export function nthEven(n: number) {
-    return 2 * (n-1);
-  }
+  return 2 * (n - 1);
+}

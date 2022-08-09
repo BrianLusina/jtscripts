@@ -2,9 +2,9 @@
  * Created by lusinabrian on 04/03/17.
  */
 class Player {
-  constructor () {
-    this.currentlyPlayingSong = undefined
-    this.isPlaying = false
+  constructor() {
+    this.currentlyPlayingSong = undefined;
+    this.isPlaying = false;
   }
 
   /**
@@ -12,33 +12,33 @@ class Player {
    * sets the isPlaying variable to True
    * @param{Object} song, a song object
    * */
-  play (song) {
-    this.currentlyPlayingSong = song
-    this.isPlaying = true
+  play(song) {
+    this.currentlyPlayingSong = song;
+    this.isPlaying = true;
   }
 
   /**
    * Sets the isPlaying variable to false to indicate that the song is not being played */
-  pause () {
-    this.isPlaying = false
-    this.currentlyPlayingSong = undefined
+  pause() {
+    this.isPlaying = false;
+    this.currentlyPlayingSong = undefined;
   }
 
   /**
    * Resumes playing a song, checks if the song is currently playing, throws an error if it is,
    * else sets the song to currently playing */
-  resume () {
+  resume() {
     if (this.isPlaying) {
-      throw new Error('Song is already playing')
+      throw new Error('Song is already playing');
     }
-    this.isPlaying = true
+    this.isPlaying = true;
   }
 
   /**
    * Makes a currently playing song to be a favorite */
-  makeFavorite () {
-    this.currentlyPlayingSong.persistFavoriteStatus(true)
+  makeFavorite() {
+    this.currentlyPlayingSong.persistFavoriteStatus(true);
   }
 }
 
-module.exports = Player
+module.exports = Player;

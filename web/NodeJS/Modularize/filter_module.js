@@ -1,18 +1,18 @@
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
 
-function filereader (directory, fileExt, callback) {
+function filereader(directory, fileExt, callback) {
   fs.readdir(directory, (err, data) => {
     // early callback
     if (err) {
-      return callback(err)
+      return callback(err);
     }
 
-    data = data.filter(d => {
-      return path.extname(d) === '.' + fileExt
-    })
-    callback(null, data)
-  })
+    data = data.filter((d) => {
+      return path.extname(d) === '.' + fileExt;
+    });
+    callback(null, data);
+  });
 }
 
-module.exports = filereader
+module.exports = filereader;

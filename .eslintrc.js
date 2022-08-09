@@ -1,56 +1,57 @@
 module.exports = {
-  root: true,
+  parser: '@typescript-eslint/parser',
   env: {
-    jest: true,
+    browser: true,
     es6: true,
-    node: true
+    node: true,
+    jest: true,
+  },
+  globals: {
+    document: true,
+    navigator: true,
+    window: true,
   },
   extends: [
-    'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
-    'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
-    'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
-    'eslint:recommended'
+    'eslint:recommended',
+    'prettier',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
   ],
   parserOptions: {
-    ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
-    sourceType: 'module', // Allows for the use of imports
+    // Allows for the parsing of modern ECMAScript features
+    ecmaVersion: 2020,
     ecmaFeatures: {
-      experimentalObjectRestSpread: true
-    }
+      experimentalObjectRestSpread: true,
+      modules: true,
+    },
+    sourceType: 'module',
   },
-  // plugins: [''],
+  plugins: ['prettier', '@typescript-eslint'],
   rules: {
+    strict: 0,
+    'import/no-named-as-default': 0,
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    'no-param-reassign': ['off', { props: false }],
+    'prettier/prettier': 'warn',
+    'no-tabs': ['error', { allowIndentationTabs: true }],
+    'no-unused-expressions': 0,
     'no-unused-vars': [
       'error',
       {
         vars: 'all',
         args: 'after-used',
         ignoreRestSiblings: false,
-        varsIgnorePattern: 'error'
-      }
+        varsIgnorePattern: 'error',
+        argsIgnorePattern: '^own[p|P]rops$|^prev[s|S]tate$|^e$|^_$',
+      },
     ],
-    // indent: ['error', 'tab'],
-    'linebreak-style': ['error', 'unix'],
-    //    "quotes": [
-    //      "error",
-    //      "double",
-    //      "single"
-    //    ],
-    // "@typescript-eslint/object-curly-spacing": ["error", "always"],
-    '@typescript-eslint/indent': ['error', 2, { SwitchCase: 1 }],
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    'capitalized-comments': 'off',
-    'comma-dangle': ['error', 'always-multiline'],
-    'no-warning-comments': 'off',
-    complexity: 'off',
-    '@typescript-eslint/strict-boolean-expressions': 'off',
-    '@typescript-eslint/no-unnecessary-condition': 'off',
-    '@typescript-eslint/no-unsafe-call': 'off',
-    '@typescript-eslint/no-unsafe-member-access': 'off',
-    '@typescript-eslint/restrict-template-expressions': 'off',
-    '@typescript-eslint/prefer-readonly-parameter-types': 'off',
-    '@typescript-eslint/no-unsafe-return': 'off',
-    '@typescript-eslint/comma-dangle': 'off',
-    '@typescript-eslint/no-confusing-void-expression': 'off'
-  }
-}
+    'class-methods-use-this': 0,
+    'import/extensions': 0,
+    'linebreak-style': 0,
+    'no-console': 0,
+    'no-restricted-globals': 'warn',
+    'prefer-destructuring': ['warn', { object: true, array: false }],
+    'import/no-unresolved': 0,
+    'import/no-extraneous-dependencies': 0,
+  },
+};

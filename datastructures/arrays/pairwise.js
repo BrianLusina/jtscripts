@@ -14,21 +14,21 @@ Below we'll take their corresponding indices and add them.
 3 + 3 = 6 → Return 6
 */
 
-function pairwise (arr, arg) {
-  let sum = 0
+function pairwise(arr, arg) {
+  let sum = 0;
   for (x = 0; x < arr.length; x++) {
     for (i = x + 1; i < arr.length; i++) {
       if (arr[x] + arr[i] === arg) {
-        sum += i + x
-        arr[x] = arr[i] = NaN
+        sum += i + x;
+        arr[x] = arr[i] = NaN;
       }
     }
   }
-  return sum
+  return sum;
 }
 
-console.log(pairwise([1, 4, 2, 3, 0, 5], 7))// should return 11.
-console.log(pairwise([1, 3, 2, 4], 4))// should return 1.
-console.log(pairwise([1, 1, 1], 2))// should return 1.
-console.log(pairwise([0, 0, 0, 0, 1, 1], 1))// should return 10.
-console.log(pairwise([], 100))// should return 0.
+console.log(pairwise([1, 4, 2, 3, 0, 5], 7)); // should return 11.
+console.log(pairwise([1, 3, 2, 4], 4)); // should return 1.
+console.log(pairwise([1, 1, 1], 2)); // should return 1.
+console.log(pairwise([0, 0, 0, 0, 1, 1], 1)); // should return 10.
+console.log(pairwise([], 100)); // should return 0.

@@ -11,17 +11,17 @@
     is_empty checks if the queue is empty
  */
 class Queue {
-  constructor (size) {
+  constructor(size) {
     // super(size);
-    this.queue = []
-    this.size = size
+    this.queue = [];
+    this.size = size;
   }
 
   /** Adds an item to the front of the queue
-     * Checks if the item is full before adding an item to the queue
-    */
-  enqueue (item) {
-    this.queue.push(item)
+   * Checks if the item is full before adding an item to the queue
+   */
+  enqueue(item) {
+    this.queue.push(item);
     // if (this.is_full) {
     // 	throw new Error('QueueFull', 'Queue is currently full.');
     // } else {
@@ -30,26 +30,26 @@ class Queue {
   }
 
   /** Removes an item from the front of the queue and returns it
-     * Checks if the queue has any item before returning the first item in the queue
-    */
-  dequeue () {
+   * Checks if the queue has any item before returning the first item in the queue
+   */
+  dequeue() {
     if (!this.is_empty) {
-      return this.queue.shift()
+      return this.queue.shift();
     } else {
-      throw new Error('QueueEmpty', 'Queue is currently empty.')
+      throw new Error('QueueEmpty', 'Queue is currently empty.');
     }
   }
 
   // Gets the size of the queue
-  size () {
-    return this.queue.length
+  size() {
+    return this.queue.length;
   }
 
   /** Gets the item at the front of the queue without removing it
-     * Will first check if there are items in the queue before peeking
-    */
-  peek () {
-    return this.queue[0]
+   * Will first check if there are items in the queue before peeking
+   */
+  peek() {
+    return this.queue[0];
     // if (this.is_empty) {
     // 	throw new Error('QueueEmpty', 'Queue is currently empty');
     // } else {
@@ -58,14 +58,14 @@ class Queue {
   }
 
   //* *Checks if the queue is full */
-  is_full () {
-    return this.queue.length === this.size
+  is_full() {
+    return this.queue.length === this.size;
   }
 
   /** checks if a the queue is empty */
-  is_empty () {
-    return this.queue.length === 0
+  is_empty() {
+    return this.queue.length === 0;
   }
 }
 
-module.exports = Queue
+module.exports = Queue;

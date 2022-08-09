@@ -1,34 +1,33 @@
 function longestSubstringUtil(s: string, start: number, end: number, k: number): number {
-    if (end < k) {
-        return 0;
+  if (end < k) {
+    return 0;
+  }
+
+  const countMap = Array(26).fill(0);
+
+  for (let x = start; x < end; x++) {
+    countMap[s.charCodeAt(i) - 'a'.charCodeAt(0)] += 1;
+  }
+
+  for (let mid = start; mid < end; mid++) {
+    if (countMap[s.charCodeAt(mid) - 'a'.charCodeAt(0)] >= k) {
+      continue;
     }
 
-    const countMap = Array(26).fill(0);
+    let midNext = mid + 1;
 
-    for (let x = start; x < end; x++) {
-        countMap[s.charCodeAt(i) - 'a'.charCodeAt(0)] += 1;
+    while (midNext < end && countMap[s.charCodeAt(midNext) - 'a'.charCodeAt(0)] < k) {
+      midNext += 1;
     }
 
-    for (let mid = start; mid < end; mid++) {
+    const leftSub = longestSubstringUtil(s, start, mid, k);
+    const rightSub = longestSubstringUtil(s, midNext, end, k);
 
-        if (countMap[s.charCodeAt(mid) - 'a'.charCodeAt(0)] >=k) {
-            continue;
-        }
-        
-        let midNext = mid + 1
+    return Math.max(leftSub, rightSub);
+  }
 
-        while(midNext < end && countMap[s.charCodeAt(midNext) - 'a'.charCodeAt(0)] < k) {
-            midNext += 1
-        }
-
-        const leftSub = longestSubstringUtil(s, start, mid, k)
-        const rightSub = longestSubstringUtil(s, midNext, end, k)
-
-        return Math.max(leftSub, rightSub);
-    }
-
-    return end - start;
-};
+  return end - start;
+}
 
 /**
  * Divide and Conquer is one of the popular strategies that work in 2 phases.
@@ -38,7 +37,7 @@ function longestSubstringUtil(s: string, start: number, end: number, k: number):
  * We could apply this strategy by recursively splitting the string into substrings and combine the result to find the
  * longest substring that satisfies the given condition. The longest substring for a string starting at index start and
  *  ending at index end can be given by,
- *     
+ *
  * longestSustring(start, end) = max(longestSubstring(start, mid), longestSubstring(mid+1, end))
  * Finding the split position (mid)
  *
@@ -69,7 +68,7 @@ function longestSubstringUtil(s: string, start: number, end: number, k: number):
  * @param s: String to evaluate for
  * @param k: length of the longest substring
  * @return: length of longest substring with at most repeating characters of length k
-*/
+ */
 export function longestSubstring(s: string, k: number): number {
-    return longestSubstringUtil(s, 0, s.length, k);
-};
+  return longestSubstringUtil(s, 0, s.length, k);
+}

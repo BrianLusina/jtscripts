@@ -1,12 +1,12 @@
-const express = require('express')
-const bodyParser = require('body-parser')
+const express = require('express');
+const bodyParser = require('body-parser');
 
-const app = express()
+const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/form', function (req, res) {
-  res.send(req.body.str.split('').reverse().join(''))
-})
+  res.send(req.body.str.split('').reverse().join(''));
+});
 
-app.listen(process.argv[2] || 3000)
+app.listen(process.argv[2] || 3000);

@@ -4,26 +4,26 @@ export function parse(data: string): number[] {
   const result: number[] = [];
 
   for (const d of data) {
-      switch (d) {
-        case "i":
-            value += 1            
-            break;
-        
-        case "s":
-            value *= value
-            break;
-        
-        case "d":
-            value -= 1
-            break;
-        
-        case "o":
-            result.push(value);
-            break;
-                
-        default:
-            break;
-      }     
+    switch (d) {
+      case 'i':
+        value += 1;
+        break;
+
+      case 's':
+        value *= value;
+        break;
+
+      case 'd':
+        value -= 1;
+        break;
+
+      case 'o':
+        result.push(value);
+        break;
+
+      default:
+        break;
+    }
   }
 
   return result;

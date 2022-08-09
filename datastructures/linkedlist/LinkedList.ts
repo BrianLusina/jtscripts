@@ -79,46 +79,46 @@ export default abstract class LinkedList<Node> {
    * @param {Any} dataTwo Data Item Two
    */
   swapNodes(dataOne: any, dataTwo: any) {
-      if (!this.head) {
-        throw Error("Empty LinkedList")
-      }
+    if (!this.head) {
+      throw Error('Empty LinkedList');
+    }
 
-      if (dataOne === dataTwo) {
-        return;
-      }
+    if (dataOne === dataTwo) {
+      return;
+    }
 
-      let currentOne = this.head;
-      let currentTwo = this.head;
-
-      // @ts-ignore
-      while(currentOne && currentOne.data !== dataOne) {
-        // @ts-ignore
-        currentOne = currentOne.next;
-      }
-
-      // @ts-ignore
-      while(currentTwo && currentTwo.data !== dataTwo) {
-          // @ts-ignore
-          currentTwo = currentTwo.next;
-      }
-
-      if (!currentOne || !currentTwo) {
-        return;
-      }
-      
-      // @ts-ignore
-      let tempOne = currentOne.data;
-        // @ts-ignore
-      let tempTwo = currentTwo.data;
+    let currentOne = this.head;
+    let currentTwo = this.head;
 
     // @ts-ignore
-      currentOne.data = tempOne;
-            // @ts-ignore
-      currentTwo.data = tempTwo; 
+    while (currentOne && currentOne.data !== dataOne) {
+      // @ts-ignore
+      currentOne = currentOne.next;
+    }
+
+    // @ts-ignore
+    while (currentTwo && currentTwo.data !== dataTwo) {
+      // @ts-ignore
+      currentTwo = currentTwo.next;
+    }
+
+    if (!currentOne || !currentTwo) {
+      return;
+    }
+
+    // @ts-ignore
+    const tempOne = currentOne.data;
+    // @ts-ignore
+    const tempTwo = currentTwo.data;
+
+    // @ts-ignore
+    currentOne.data = tempOne;
+    // @ts-ignore
+    currentTwo.data = tempTwo;
   }
 
   /**
    * Reverses the LinkedList such that the head becomes the tail and the tail becomes the head
    */
-  abstract reverse(): void
+  abstract reverse(): void;
 }

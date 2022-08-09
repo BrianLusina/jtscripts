@@ -1,4 +1,4 @@
-import DoubleNode from "./DoubleNode"
-import DoublyLinkedListNode from "./DoublyLinkedList"
+import DoubleNode from './DoubleNode';
+import DoublyLinkedListNode from './DoublyLinkedList';
 
-export { DoubleNode, DoublyLinkedListNode }
+export { DoubleNode, DoublyLinkedListNode };

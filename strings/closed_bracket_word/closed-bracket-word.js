@@ -5,18 +5,18 @@
  * @param{String} word input word
  * @returns{Boolean} True if word is PCBW, false otherwise
  */
-function closedBracketWord (word) {
+function closedBracketWord(word) {
   if (word.length % 2 !== 0) {
-    return false
+    return false;
   }
-  const count = Math.floor(word.length / 2)
+  const count = Math.floor(word.length / 2);
 
   for (let x = 0; x < count; x++) {
     if (word.charCodeAt(x) - 96 + word.charCodeAt(word.length - x - 1) - 96 !== 27) {
-      return false
+      return false;
     }
   }
-  return true
+  return true;
 }
 
-module.exports = closedBracketWord
+module.exports = closedBracketWord;

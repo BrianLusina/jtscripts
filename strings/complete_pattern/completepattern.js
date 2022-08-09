@@ -1,21 +1,21 @@
-function pattern (n) {
-  let output = ''
-  const range = []
-  const res = []
+function pattern(n) {
+  let output = '';
+  const range = [];
+  const res = [];
   if (n === 1) {
-    output = '1'
+    output = '1';
   } else {
     for (let i = 1; i <= n; i++) {
-      range.push(String(i))
+      range.push(String(i));
     }
-    range.reverse()
+    range.reverse();
     for (let x = 0; x < n; x++) {
-      res.push(range.join(''))
-      const last = range.pop()
+      res.push(range.join(''));
+      const last = range.pop();
     }
-    output = res.join('\n')
+    output = res.join('\n');
   }
-  return output
+  return output;
 }
 
-module.exports = pattern
+module.exports = pattern;

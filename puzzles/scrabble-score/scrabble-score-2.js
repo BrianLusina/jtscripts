@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const letterScores = {
   a: 1,
@@ -26,24 +26,24 @@ const letterScores = {
   j: 8,
   x: 8,
   q: 10,
-  z: 10
-}
+  z: 10,
+};
 
-function letterScore (letter) {
-  return letterScores[letter] || 0
+function letterScore(letter) {
+  return letterScores[letter] || 0;
 }
 
 module.exports = function (word) {
-  word || (word = '')
-  word = word.toLowerCase()
+  word || (word = '');
+  word = word.toLowerCase();
 
-  let sum = 0
-  let idx = -1
-  const end = word.length
+  let sum = 0;
+  let idx = -1;
+  const end = word.length;
 
   while (++idx < end) {
-    sum += letterScore(word[idx])
+    sum += letterScore(word[idx]);
   }
 
-  return sum
-}
+  return sum;
+};

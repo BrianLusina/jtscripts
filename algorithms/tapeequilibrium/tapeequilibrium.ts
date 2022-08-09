@@ -4,19 +4,19 @@
  * @returns {Number} minimum difference
  */
 export function tapeEquilibrium(tape: number[]): number {
-    let parts = []
+  const parts = [];
 
-    parts[0] = tape[0]
+  parts[0] = tape[0];
 
-    for (let index = 1; index < tape.length; index++) {
-		parts[index] = tape[index] + parts[index - 1]
-    }
-    
-    let difference = Number.MAX_SAFE_INTEGER
+  for (let index = 1; index < tape.length; index++) {
+    parts[index] = tape[index] + parts[index - 1];
+  }
 
-    for (let index = 0; index < parts.length - 1; index++) {
-        difference = Math.min(difference, Math.abs(parts[-1] - 2 * parts[index]))
-    }
+  let difference = Number.MAX_SAFE_INTEGER;
 
-    return difference
+  for (let index = 0; index < parts.length - 1; index++) {
+    difference = Math.min(difference, Math.abs(parts[-1] - 2 * parts[index]));
+  }
+
+  return difference;
 }

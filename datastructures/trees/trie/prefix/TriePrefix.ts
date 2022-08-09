@@ -1,22 +1,16 @@
 type TrieNode = {
   children: Map<string, TrieNode>;
   isLeaf: boolean;
-}
+};
 
 class Trie {
   constructor() {
-    child
+    child;
   }
 
-  insert(word: string): void {
+  insert(word: string): void {}
 
-  }
+  search(word: string): boolean {}
 
-  search(word: string): boolean {
-
-  }
-
-  startsWith(prefix: string): boolean {
-
-  }
+  startsWith(prefix: string): boolean {}
 }

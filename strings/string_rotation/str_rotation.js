@@ -4,8 +4,8 @@
  * @param second second word
  * @return the number of characters to move the first to match the second
  */
-function shiftedDiff (first, second) {
-  return first.length === second.length ? (second + second).indexOf(first) : -1
+function shiftedDiff(first, second) {
+  return first.length === second.length ? (second + second).indexOf(first) : -1;
 }
 
-module.exports = shiftedDiff
+module.exports = shiftedDiff;

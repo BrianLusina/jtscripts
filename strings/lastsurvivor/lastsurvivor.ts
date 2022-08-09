@@ -1,10 +1,10 @@
 export function lastSurvivor(letters: string, coords: number[]): string {
-    let letterArr = letters.split('');
+  const letterArr = letters.split('');
 
-    for (let x = 0; x < coords.length; x++) {
-      let pos = coords[x];
-      letterArr.splice(pos, 1);
-    }
-    
-    return letterArr.join('');
+  for (let x = 0; x < coords.length; x++) {
+    const pos = coords[x];
+    letterArr.splice(pos, 1);
+  }
+
+  return letterArr.join('');
 }

@@ -1,4 +1,4 @@
-import isPrime from "../isprime"
+import isPrime from '../isprime';
 
 /**
  * Seive of erastothenes returns a list of numbers which are prime froms tart to end
@@ -6,12 +6,12 @@ import isPrime from "../isprime"
  * @param end End of the range
  * @returns List of prime numbers
  */
-export default function sieveOfErastothenes(end: number, start: number = 2, ): number[] {
-    const possiblePrimes: number[] = []
+export default function sieveOfErastothenes(end: number, start = 2): number[] {
+  const possiblePrimes: number[] = [];
 
-    for (let i = start; i <= end; i++) {
-        possiblePrimes.push(i)
-    }
+  for (let i = start; i <= end; i++) {
+    possiblePrimes.push(i);
+  }
 
-    return possiblePrimes.filter(isPrime)
+  return possiblePrimes.filter(isPrime);
 }

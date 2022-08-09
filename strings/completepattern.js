@@ -5,24 +5,26 @@ add to an array each string literal (convert each number to a string)
 perform a for loop on the reversed array, adding each string to output
 remove the last element at each loop using pop
 */
-function pattern (n) {
-  let output = ''; const range = []; const res = []
+function pattern(n) {
+  let output = '';
+  const range = [];
+  const res = [];
   if (n === 1) {
-    output = '1'
+    output = '1';
   } else {
     for (let i = 1; i <= n; i++) {
-      range.push(String(i))
+      range.push(String(i));
     }
-    range.reverse()
+    range.reverse();
     for (let x = 0; x < n; x++) {
-      res.push(range.join(''))
-      const last = range.pop()
+      res.push(range.join(''));
+      const last = range.pop();
     }
-    output = res.join('\n')
+    output = res.join('\n');
   }
-  return output
+  return output;
 }
 
 // console.log(pattern(1));//,"1"));
 // console.log(pattern(2));//,"21\n2");
-console.log(pattern(5))//, "54321\n5432\n543\n54\n5");
+console.log(pattern(5)); //, "54321\n5432\n543\n54\n5");

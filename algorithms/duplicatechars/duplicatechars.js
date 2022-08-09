@@ -1,10 +1,10 @@
-function sortAlphabets (text) {
-  return text.split('').sort().join('')
+function sortAlphabets(text) {
+  return text.split('').sort().join('');
 }
 
-function duplicateChars (wordone, wordtwo) {
+function duplicateChars(wordone, wordtwo) {
   if (wordone.length !== wordtwo.length) {
-    return false
+    return false;
   }
-  return sortAlphabets(wordone) === sortAlphabets(wordtwo)
+  return sortAlphabets(wordone) === sortAlphabets(wordtwo);
 }

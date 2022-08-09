@@ -14,14 +14,22 @@
  * @returns - The maximum time of the day
  */
 export default function maximumTime(time: string): string {
-    const [hh, mm] = time.split(':')
-    const hours = hh.split('')
-    const minutes = mm.split('')
+  const [hh, mm] = time.split(':');
+  const hours = hh.split('');
+  const minutes = mm.split('');
 
-    if (hours[0] === '?') { hours[0] = parseInt(hours[1], 10) > 3 ? '1' : '2'}
-    if (hours[1] === '?') { hours[1] = hours[0] === '2' ? '3' : '9' }
-    if (minutes[0] === '?') { minutes[0] = '5' }
-    if (minutes[1] === '?') { minutes[1] = '9' }
+  if (hours[0] === '?') {
+    hours[0] = parseInt(hours[1], 10) > 3 ? '1' : '2';
+  }
+  if (hours[1] === '?') {
+    hours[1] = hours[0] === '2' ? '3' : '9';
+  }
+  if (minutes[0] === '?') {
+    minutes[0] = '5';
+  }
+  if (minutes[1] === '?') {
+    minutes[1] = '9';
+  }
 
-    return `${hours[0]}${hours[1]}:${minutes[0]}${minutes[1]}`
+  return `${hours[0]}${hours[1]}:${minutes[0]}${minutes[1]}`;
 }

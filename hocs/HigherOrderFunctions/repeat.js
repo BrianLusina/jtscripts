@@ -1,9 +1,9 @@
-function repeat (operation, num) {
+function repeat(operation, num) {
   if (num <= 0) {
-    return operation()
+    return operation();
   }
-  return repeat(operation, --num)
+  return repeat(operation, --num);
 }
 
 // Do not remove the line below
-module.exports = repeat
+module.exports = repeat;

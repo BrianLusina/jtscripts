@@ -1,7 +1,5 @@
-const PeteTalk = function () {}
+const PeteTalk = function () {};
 
-PeteTalk.prototype.peteTalk = function (speech, ok) {
+PeteTalk.prototype.peteTalk = function (speech, ok) {};
 
-}
-
-module.exports = PeteTalk
+module.exports = PeteTalk;

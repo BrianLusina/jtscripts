@@ -1,22 +1,22 @@
-function CompareLists (llist1, llist2) {
+function CompareLists(llist1, llist2) {
   if (!llist1 || !llist2) {
-    return false
+    return false;
   }
 
-  let pointerOne = llist1
-  let pointerTwo = llist2
+  let pointerOne = llist1;
+  let pointerTwo = llist2;
 
   while (pointerOne && pointerTwo) {
     if (pointerOne.data != pointerTwo.data) {
-      return false
+      return false;
     }
 
-    pointerOne = pointerOne.next
-    pointerTwo = pointerTwo.next
+    pointerOne = pointerOne.next;
+    pointerTwo = pointerTwo.next;
   }
 
   if ((pointerOne && !pointerTwo) || (pointerTwo && !pointerOne)) {
-    return false
+    return false;
   }
-  return true
+  return true;
 }

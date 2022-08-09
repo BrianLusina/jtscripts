@@ -28,8 +28,8 @@ ROMANS = {
   900: 'CM',
   1000: 'M',
   2000: 'MM',
-  3000: 'MMM'
-}
+  3000: 'MMM',
+};
 /** 1. Get the length of the number
  * 2. if number is ones, return the roman numeral
  * 3. if number is tens(length of 2) evaluate if divisble by 10
@@ -39,54 +39,55 @@ ROMANS = {
  * 4. if number is 100s (length of 3)
  * 4a check for divisibility by both 100 and 10, return the roman numeral if true
  */
-function toRoman (arabic) {
-  const len = arabic.toString().length
+function toRoman(arabic) {
+  const len = arabic.toString().length;
   switch (len) {
     // eval for ones
     case 1:
-      return ROMANS[arabic]
-      // eval for tens
+      return ROMANS[arabic];
+    // eval for tens
     case 2:
       // check for divisibility
       if (arabic % 10 === 0) {
-        return ROMANS[arabic]
+        return ROMANS[arabic];
       } else {
-        const ones = arabic % 10
-        const tens = ((arabic / 10) - (ones / 10)) * 10
-        return ROMANS[tens] + ROMANS[ones]
+        const ones = arabic % 10;
+        const tens = (arabic / 10 - ones / 10) * 10;
+        return ROMANS[tens] + ROMANS[ones];
       }
-      // evaluate for 100s
+    // evaluate for 100s
     case 3:
       // check for divisibility by 100 and 10
       if (arabic % 10 === 0 && arabic % 100 === 0) {
-        return ROMANS[arabic]
+        return ROMANS[arabic];
       } else {
-        const ones = arabic % 10
-        const tens = (arabic % 100) - ones
-        const hund = Math.floor((arabic / 100) - (tens / 100)) * 100
-        return (tens === 0) ? ROMANS[hund] + ROMANS[ones]
-          : ROMANS[hund] + ROMANS[tens] + ROMANS[ones]
+        const ones = arabic % 10;
+        const tens = (arabic % 100) - ones;
+        const hund = Math.floor(arabic / 100 - tens / 100) * 100;
+        return tens === 0
+          ? ROMANS[hund] + ROMANS[ones]
+          : ROMANS[hund] + ROMANS[tens] + ROMANS[ones];
       }
-      // evaluate for 1000s
+    // evaluate for 1000s
     case 4:
       // check for divisibility
       if (arabic % 1000 === 0) {
-        return ROMANS[arabic]
+        return ROMANS[arabic];
       } else {
-        const ones = arabic % 10
-        const tens = (arabic % 100) - ones
-        const hund = (arabic % 1000) - (tens + ones)
-        const thou = Math.floor(arabic / 1000) * 1000
+        const ones = arabic % 10;
+        const tens = (arabic % 100) - ones;
+        const hund = (arabic % 1000) - (tens + ones);
+        const thou = Math.floor(arabic / 1000) * 1000;
         if (ones === 0) {
-          return ROMANS[thou] + ROMANS[hund] + ROMANS[tens]
-        }				else if (tens === 0) {
-          return ROMANS[thou] + ROMANS[hund] + ROMANS[ones]
-        }				else if (hund === 0) {
-          return ROMANS[thou] + ROMANS[tens] + ROMANS[ones]
+          return ROMANS[thou] + ROMANS[hund] + ROMANS[tens];
+        } else if (tens === 0) {
+          return ROMANS[thou] + ROMANS[hund] + ROMANS[ones];
+        } else if (hund === 0) {
+          return ROMANS[thou] + ROMANS[tens] + ROMANS[ones];
         }
-        return ROMANS[thou] + ROMANS[hund] + ROMANS[tens] + ROMANS[ones]
+        return ROMANS[thou] + ROMANS[hund] + ROMANS[tens] + ROMANS[ones];
       }
   }
 }
 
-module.exports = toRoman
+module.exports = toRoman;

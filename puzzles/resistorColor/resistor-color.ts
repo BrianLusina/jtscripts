@@ -1,12 +1,12 @@
-type Colors = typeof COLORS[number]
+type Colors = typeof COLORS[number];
 
 export const colorCode = (color: Colors): number => {
-  const value = COLORS.indexOf(color)
+  const value = COLORS.indexOf(color);
   if (value === -1) {
-    throw new Error(`Invalid color: ${color}`)
+    throw new Error(`Invalid color: ${color}`);
   }
-  return value
-}
+  return value;
+};
 
 export const COLORS = [
   'black',
@@ -19,4 +19,4 @@ export const COLORS = [
   'violet',
   'grey',
   'white',
-]
+];

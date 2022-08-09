@@ -1,5 +1,5 @@
 interface BandMap {
-  [key: string]: number
+  [key: string]: number;
 }
 
 const bandMap: BandMap = {
@@ -12,13 +12,14 @@ const bandMap: BandMap = {
   blue: 6,
   violet: 7,
   grey: 8,
-  white: 9
-}
+  white: 9,
+};
 
 export function decodedResistorValue(bands: string[]): string {
-  const [ bandOne, bandTwo, bandThree] = bands
-  const resistanceValue = (bandMap[bandOne] * 10 + bandMap[bandTwo]) * Math.pow(10, bandMap[bandThree])
-  const value = resistanceValue < 1000 ? resistanceValue : resistanceValue / 1000
-  const unit = `${resistanceValue >= 1000 ? 'kilo' : ''}ohms`
-  return `${value} ${unit}`
+  const [bandOne, bandTwo, bandThree] = bands;
+  const resistanceValue =
+    (bandMap[bandOne] * 10 + bandMap[bandTwo]) * Math.pow(10, bandMap[bandThree]);
+  const value = resistanceValue < 1000 ? resistanceValue : resistanceValue / 1000;
+  const unit = `${resistanceValue >= 1000 ? 'kilo' : ''}ohms`;
+  return `${value} ${unit}`;
 }

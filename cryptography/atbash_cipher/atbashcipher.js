@@ -1,18 +1,17 @@
-'use-strict'
+'use-strict';
 
-const LETTERS = 'abcdefghijklmnopqrstuvwxyz'
-const REVERSED_LETTERS = LETTERS.split('').reverse().join('')
+const LETTERS = 'abcdefghijklmnopqrstuvwxyz';
+const REVERSED_LETTERS = LETTERS.split('').reverse().join('');
 
 module.exports = {
-
   /** Inserts spacing to the words in the phrase after a specific interval.
    * @param str, the string to insert spacing
    * @param interval, the interval to insert
    */
-  insertSpacing (str, interval) {
+  insertSpacing(str, interval) {
     // matches new characters except line terminators
-    const matcher = new RegExp('.{1,' + interval + '}', 'g')
-    return str.match(matcher).join(' ')
+    const matcher = new RegExp('.{1,' + interval + '}', 'g');
+    return str.match(matcher).join(' ');
   },
 
   /**
@@ -20,8 +19,8 @@ module.exports = {
    * if not, invert the character
    * @param character: character to check for
    */
-  invert (character) {
-    this.push(character.match(/\d/) ? character : LETTERS[REVERSED_LETTERS.indexOf(character)])
+  invert(character) {
+    this.push(character.match(/\d/) ? character : LETTERS[REVERSED_LETTERS.indexOf(character)]);
   },
 
   /**
@@ -32,11 +31,11 @@ module.exports = {
    * @param phrase, the phrase to encode, usually a string.
    * @returns an encoded message
    */
-  encode (phrase) {
-    let encoded = ''
-    const characters = []
-    phrase.toLowerCase().split('').forEach(this.invert, characters)
-    encoded = this.insertSpacing(characters.join(''), 5)
-    return encoded
-  }
-}
+  encode(phrase) {
+    let encoded = '';
+    const characters = [];
+    phrase.toLowerCase().split('').forEach(this.invert, characters);
+    encoded = this.insertSpacing(characters.join(''), 5);
+    return encoded;
+  },
+};
