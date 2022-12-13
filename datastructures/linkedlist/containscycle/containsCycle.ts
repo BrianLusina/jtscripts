@@ -1,6 +1,6 @@
 import { SinglyLinkedListNode } from '../nodes';
 
-export function hasCycle(head: SinglyLinkedListNode) {
+export function hasCycle(head: SinglyLinkedListNode<number, number>): boolean {
   let fastRunner = head;
   let slowRunner = head;
 
@@ -22,8 +22,8 @@ export function hasCycle(head: SinglyLinkedListNode) {
  * @returns {SinglyLinkedListNode} Node with Cycle
  */
 export function detectNodeWithCycle(
-  head: SinglyLinkedListNode | null,
-): SinglyLinkedListNode | null {
+  head: SinglyLinkedListNode<number, number>,
+): SinglyLinkedListNode<number, number> | null {
   if (!head || !head.next) {
     return null;
   }
