@@ -5,7 +5,7 @@ interface Item {
 
 type ItemList = Array<Item>;
 
-class MyHashMap {
+export default class HashMap {
   private size: number;
   private map: ItemList[];
   // Current MAX_SIZE, is 10**3, change this to change the default size of the hashmap
@@ -53,5 +53,3 @@ class MyHashMap {
     this.map[hashed] = this.map[hashed].filter((item) => item.key !== key);
   }
 }
-
-export default MyHashMap;

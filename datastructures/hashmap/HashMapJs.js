@@ -21,7 +21,6 @@ MyHashMap.prototype.put = function (key, value) {
  * @return {number}
  */
 MyHashMap.prototype.get = function (key) {
-  let keyString = key;
   if (this.data[key] !== undefined) {
     return this.data[key];
   } else {

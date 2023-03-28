@@ -1,7 +1,6 @@
 import MyHashSet from './HashSet';
 
 describe("HashSet Tests", () => {
-    const n = 5
     const hashSet = new MyHashSet();
 
     it("add 1 to map", () => {
