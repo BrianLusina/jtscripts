@@ -1,5 +1,3 @@
-// test.todo('check on queue');
-
 /**
  * Queue Data structure implementation in JavaScript.
  * Methods:
@@ -22,11 +20,6 @@ class Queue {
    */
   enqueue(item) {
     this.queue.push(item);
-    // if (this.is_full) {
-    // 	throw new Error('QueueFull', 'Queue is currently full.');
-    // } else {
-    // 	this.queue.push(item);
-    // }
   }
 
   /** Removes an item from the front of the queue and returns it
@@ -50,11 +43,6 @@ class Queue {
    */
   peek() {
     return this.queue[0];
-    // if (this.is_empty) {
-    // 	throw new Error('QueueEmpty', 'Queue is currently empty');
-    // } else {
-    // 	return this.queue[0];
-    // }
   }
 
   //* *Checks if the queue is full */
