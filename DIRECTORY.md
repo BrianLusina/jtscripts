@@ -118,25 +118,23 @@
     * [circular-buffer](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/circular-buffer/circular-buffer.spec.js)
   * Graphs
     * [devbook](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/Graphs/devbook.js)
+  * hashmap
+    * [HashMapJs](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/hashmap/HashMapJs.js)
   * linkedlist
     * comparelinkedlists
       * [compare](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/linkedlist/comparelinkedlists/compare.js)
   * queues
     * [Queue](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/queues/Queue.js)
-    * [test_queue](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/queues/test_queue.spec.js)
+    * [Queue](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/queues/Queue.spec.js)
   * Stack
     * max
       * [MaxStackJs](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/Stack/max/MaxStackJs.js)
     * min
       * [MinStackJs](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/Stack/min/MinStackJs.js)
 
-## designpatterns
-  * hashmap
-    * [HashMapJs](https://github.com/BrianLusina/jtscripts/blob/master/designpatterns/hashmap/HashMapJs.js)
-  * hashset
-    * [MyHashSetJs](https://github.com/BrianLusina/jtscripts/blob/master/designpatterns/hashset/MyHashSetJs.js)
+## design
   * orderedstream
-    * [ordered_stream](https://github.com/BrianLusina/jtscripts/blob/master/designpatterns/orderedstream/ordered_stream.js)
+    * [ordered_stream](https://github.com/BrianLusina/jtscripts/blob/master/design/orderedstream/ordered_stream.js)
 
 ## eventloops
   * AsyncLoops
