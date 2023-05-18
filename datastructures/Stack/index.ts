@@ -1,13 +1,9 @@
 // tslint:disable: no-any
 /**
- * Stack class to create Stack objects for browserHistory
- * underscore denotes that these variables are private and should not be manipulated externally
- * top method returns the current position
- * push method updates the browserHistory increasing the position variable which will be the key
- * pop removes the current object and goes to the next previous one */
-class Stack {
+ * Stack abstract data structure */
+export default class Stack {
   // tslint:disable-next-line: no-any
-  stack: any[];
+  private stack: any[];
   private storage: Record<number, any>;
   private position: number;
   private size: number;
@@ -61,5 +57,3 @@ class Stack {
     return this.stack.length === 0;
   }
 }
-
-export default Stack;

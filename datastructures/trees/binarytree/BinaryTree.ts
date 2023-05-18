@@ -1,16 +1,17 @@
+import Stack from '../../Stack';
 import Tree from '../Tree';
-import { BinaryTreeNode } from './BinaryTreeNode';
+import BinaryTreeNode from './BinaryTreeNode';
 
 export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
-  paths(): any[] {
-    throw new Error('Method not implemented.');
-  }
-
   private readonly root: BinaryTreeNode<T> | null | undefined;
 
   constructor(rootNode: BinaryTreeNode<T> | null | undefined) {
     super();
     this.root = rootNode;
+  }
+
+  paths(): any[] {
+    throw new Error('Method not implemented.');
   }
 
   height(): number {
@@ -26,7 +27,26 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
   }
 
   inorderTraversalIteratively(): any[] {
-    throw new Error('Method not implemented.');
+    if (!this.root) {
+      return []
+    }
+
+    const result = []
+    const stack = new Stack()
+    let current = this.root;
+    
+    while (!stack.isEmpty() || current) {
+      while(current) {
+        stack.push(current)
+        current = current.left!
+      }
+      
+      current = stack.pop()
+      result.push(current.data)
+      current = current.right!
+    }
+   
+    return result
   }
 
   inorderTraversalMorrisTraversal(): any[] {
@@ -34,11 +54,59 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
   }
 
   preorderTraversal(): any[] {
-    throw new Error('Method not implemented.');
+    if (!this.root) {
+      return [];
+    }
+    
+    const result = [];
+    const stack = new Stack();
+    
+    let current = this.root;
+    
+    while (current || !stack.isEmpty()) {
+      while(current) {
+        result.push(current.data)
+        stack.push(current)
+        current = current.left!
+      }
+      
+      current = stack.pop()
+      current = current.right!
+    }
+    
+    return result;
   }
 
   postorderTraversal(): any[] {
-    throw new Error('Method not implemented.');
+    if (!this.root) {
+      return []
+    }
+    
+    const stackOne = new Stack()
+    const stackTwo = new Stack()
+    const result = []
+    
+    stackOne.push(this.root)
+    
+    while (!stackOne.isEmpty()) {
+      const current = stackOne.pop()
+      stackTwo.push(current)
+      
+      if (current.left) {
+        stackOne.push(current.left)
+      }
+      
+      if (current.right) {
+        stackOne.push(current.right)
+      }
+    }
+    
+    while (!stackTwo.isEmpty()) {
+      const current = stackTwo.pop()
+      result.push(current.data)
+    }
+    
+    return result
   }
 
   findLargestNode(node?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
@@ -117,17 +185,18 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
     }
 
     let counter = 0;
-    const stack: Array<BinaryTreeNode<T>> = [this.root];
+    const stack = new Stack();
+    stack.push(this.root)
 
-    while (stack.length) {
+    while (!stack.isEmpty()) {
       const node = stack.pop();
 
-      if (node?.left) {
+      if (node.left) {
         counter += 1;
         stack.push(node.left);
       }
 
-      if (node?.right) {
+      if (node.right) {
         counter += 1;
         stack.push(node.right);
       }

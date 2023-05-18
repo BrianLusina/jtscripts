@@ -2,7 +2,7 @@
   "name": "jtscripts",
   "version": "3.0.0",
   "private": true,
-  "description": "Small JavaScript & TypeScript Algorithms, DataStructures, Snippets and programs",
+  "description": "JavaScript & TypeScript Algorithms, DataStructures, Snippets and programs",
   "scripts": {
     "test": "yarn lint && jest --no-cache",
     "test:watch": "ava --watch",
@@ -17,8 +17,9 @@
   },
   "keywords": [
     "JavaScript",
-    "JS-snippets",
-    "JS-Algorithms",
+    "TypeScript",
+    "Algorithms",
+    "DataStructures",
     "ES6",
     "ES5",
     "ES2016"
