@@ -58,7 +58,7 @@ function quicksortSubArray(theList: number[], startIndex: number, endIndex: numb
 }
 
 /**
- * Quiksorts a list of numbers
+ * Sorts an array of numbers using Quicksort algorithm
  * @param {Number[]} theList list of numbers to sort
  */
 export function quicksort(theList: number[]): number[] {

@@ -1,12 +1,12 @@
 export interface SinglyLinkedListNode<K, D> {
   data: D;
   key: K;
-  next?: SinglyLinkedListNode<K, D> | null;
+  next: SinglyLinkedListNode<K, D> | null;
 }
 
 export interface DoublyLinkedListNode<K, D> {
   data: D;
   key: K;
-  next?: DoublyLinkedListNode<K, D> | null;
-  previous?: DoublyLinkedListNode<K, D> | null;
+  next: DoublyLinkedListNode<K, D> | null;
+  previous: DoublyLinkedListNode<K, D> | null;
 }
