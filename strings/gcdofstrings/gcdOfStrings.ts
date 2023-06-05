@@ -1,3 +1,5 @@
+import { gcd } from '../../math/utils/utils';
+
 export default function gcdOfStringsBruteForce(str1: string, str2: string): string {
   const len1 = str1.length;
   const len2 = str2.length;
@@ -23,4 +25,16 @@ export default function gcdOfStringsBruteForce(str1: string, str2: string): stri
   }
 
   return '';
+}
+
+export function gcdOfStringsGcd(str1: string, str2: string): string {
+  if (str1 + str2 != str2 + str1) {
+    return '';
+  }
+
+  const len1 = str1.length;
+  const len2 = str2.length;
+
+  const maxLength = gcd(len1, len2);
+  return str1.slice(-maxLength);
 }

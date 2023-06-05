@@ -1,4 +1,4 @@
-import gcdOfStringsBruteForce from "./gcdOfStrings"
+import gcdOfStringsBruteForce, { gcdOfStringsGcd } from "./gcdOfStrings"
 
 type testCase = {
 	word1:    string
@@ -29,6 +29,15 @@ describe("GCD of strings", () => {
 		testCases.forEach(({ word1, word2, expected }) => {
 			it(`Should return ${expected} from str1=${word1} and str2=${word2}`, () => {
 				const actual = gcdOfStringsBruteForce(word1, word2)
+				expect(actual).toEqual(expected)
+			})
+		})
+	})
+
+	describe('GCD', () => {
+		testCases.forEach(({ word1, word2, expected }) => {
+			it(`Should return ${expected} from str1=${word1} and str2=${word2}`, () => {
+				const actual = gcdOfStringsGcd(word1, word2)
 				expect(actual).toEqual(expected)
 			})
 		})
