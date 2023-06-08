@@ -54,7 +54,35 @@ describe("BinaryTree", () => {
                     expect(actual).toEqual(expected)
                 })
             })
+        })
+    })
 
+    describe("IsPerfect", () => {
+        it("should return false for a tree with no root", () => {
+            const binaryTree = new BinaryTree(null)
+
+            const actual = binaryTree.isPerfect()
+            expect(actual).toEqual(false)
+        })
+
+        it("should return true for a binary tree with root and no children", () => {
+            const a = new BinaryTreeNode(5);
+
+            const binaryTree = new BinaryTree(a)
+
+            const actual = binaryTree.isPerfect()
+            expect(actual).toEqual(true)
+        })
+
+        it("should return true for a binary tree with root and 2 children", () => {
+            const left = new BinaryTreeNode(5);
+            const right = new BinaryTreeNode(5);
+            const root = new BinaryTreeNode(5, left, right);
+
+            const binaryTree = new BinaryTree(root)
+
+            const actual = binaryTree.isPerfect()
+            expect(actual).toEqual(true)
         })
     })
 })

@@ -204,4 +204,47 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
 
     return counter;
   }
+
+  getDepth(): number {
+      let depth = 0
+
+      let current = this.root
+
+      while (current) {
+        depth +=1
+        current = current.left
+      }
+
+      return depth
+  }
+
+  isPerfect(): boolean {
+    if (!this.root) {
+      return false
+    }
+
+    if (!this.root.left && !this.root.right) {
+      return true
+    }
+
+    const depth = this.getDepth()
+
+    const isPerfectHelper = (root: BinaryTreeNode<T> | null | undefined, level: number): boolean => {
+      if(!root) {
+        return true
+      }
+  
+      if (!root.left && !root.right) {
+        return depth == level + 1
+       }
+  
+      if (!root.left && !root.right) {
+        return false
+      }
+  
+      return isPerfectHelper(root.left, level + 1) && isPerfectHelper(root.right, level + 1)
+    }
+
+  return isPerfectHelper(this.root, 0)
+  }
 }
