@@ -78,7 +78,6 @@ Let m,n be the lengths of the two input strings str1 and str2.
 
 ---
 
-
 ### Approach 2: GCD
 
 #### Intuition

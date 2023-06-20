@@ -69,4 +69,9 @@ export default abstract class Tree<TreeNode> {
    * @returns {number} number of nodes
    */
   abstract size(): number;
+
+  /**
+   * Returns the depth of the tree
+   */
+  abstract getDepth(): number;
 }
