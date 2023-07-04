@@ -340,9 +340,6 @@
   * pig latin
     * [pig_latin](https://github.com/BrianLusina/jtscripts/blob/master/strings/pig_latin/pig_latin.js)
     * [pig_latin_2](https://github.com/BrianLusina/jtscripts/blob/master/strings/pig_latin/pig_latin_2.js)
-  * reverse string
-    * [reverse-string](https://github.com/BrianLusina/jtscripts/blob/master/strings/reverse_string/reverse-string.js)
-    * [reverse-string](https://github.com/BrianLusina/jtscripts/blob/master/strings/reverse_string/reverse-string.spec.js)
   * shorten date
     * [ShortenDate](https://github.com/BrianLusina/jtscripts/blob/master/strings/shorten_date/ShortenDate.js)
   * [ShortenDate](https://github.com/BrianLusina/jtscripts/blob/master/strings/ShortenDate.js)
