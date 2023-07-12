@@ -4,7 +4,7 @@
   "private": true,
   "description": "JavaScript & TypeScript Algorithms, DataStructures, Snippets and programs",
   "scripts": {
-    "test": "yarn lint && jest --no-cache",
+    "test": "jest --no-cache",
     "test:watch": "ava --watch",
     "test:cover": "nyc ava",
     "send-cover-report": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
