@@ -1,15 +1,13 @@
-import { DoublyLinkedListNode } from '../nodes';
+import { LinkedListNode } from '../nodes';
 
-export default class DoubleNode<K, D> implements DoublyLinkedListNode<K, D> {
+export default class DoubleNode<D> implements LinkedListNode<D> {
   data: D;
-  key: K;
-  next?: DoublyLinkedListNode<K, D> | null | undefined;
-  previous?: DoublyLinkedListNode<K, D> | null | undefined;
+  next?: DoubleNode<D> | null | undefined;
+  previous?: DoubleNode<D> | null | undefined;
 
-  constructor(key: K, data: D) {
-    this.key = key;
+  constructor(data: D) {
     this.data = data;
-    this.next = undefined;
-    this.previous = undefined;
+    this.next = null;
+    this.previous = null;
   }
 }

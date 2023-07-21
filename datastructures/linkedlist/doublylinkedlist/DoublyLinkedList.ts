@@ -1,35 +1,57 @@
 import LinkedList from '../LinkedList';
-import { DoublyLinkedListNode } from '../nodes';
+import DoubleNode from './DoubleNode';
 
-export default class DoublyLinkedList<K, D> extends LinkedList<DoublyLinkedListNode<K, D>> {
-  head: DoublyLinkedListNode<K, D> | null | undefined;
-  tail: DoublyLinkedListNode<K, D> | null | undefined;
+export default class DoublyLinkedList<T> extends LinkedList<T> {
+  head: DoubleNode<T> | null | undefined;
+  tail: DoubleNode<T> | null | undefined;
+  private size: number;
 
-  constructor(headNode: DoublyLinkedListNode<K, D> | null = null) {
-    super(headNode);
+  constructor(headNode: DoubleNode<T> | null = null) {
+    super();
+    this.size = 0;
     this.head = headNode;
     this.tail = headNode;
   }
 
-  append(node: DoublyLinkedListNode<K, D>): void {
+  append(data: T): void {
+    this.size += 1;
+    const newNode = new DoubleNode(data);
+    if (this.head === null) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.previous = this.tail;
+      if (this.tail) {
+        this.tail.next = newNode;
+      }
+      this.tail = newNode;
+
+      // This is also viable if the doubly linked list does not have a tail node reference. This will traverse
+      // the entire list until it reaches the end and add this node to the end, this results in an O(n) operation
+      //            var current = head
+      //            while (current?.next != null) {
+      //                current = current.next
+      //            }
+      //            current?.next = newNode
+      //            newNode.prev = current
+    }
+  }
+
+  prepend(data: T): void {
     throw new Error('Method not implemented.');
   }
 
-  prepend(node: DoublyLinkedListNode<K, D>): void {
+  moveToHead(data: T): void {
     throw new Error('Method not implemented.');
   }
 
-  moveToHead(node: DoublyLinkedListNode<K, D>): void {
-    throw new Error('Method not implemented.');
-  }
-
-  deleteNode(node: DoublyLinkedListNode<K, D> | null): void {
+  deleteNode(data: T | null): void {
     let currentNode = this.head;
 
-    if (node) {
+    if (data) {
       while (currentNode) {
         // we have found our node
-        if (currentNode.key === node.key) {
+        if (currentNode.data === data) {
           // if it has a previous node(not the head) and a next node(not the tail). we move pointers around this
           // node, i.e. it's next is assigned to it's previous' next and its previous' next is assigned to its next
           if (currentNode.previous && currentNode.next) {
@@ -53,23 +75,23 @@ export default class DoublyLinkedList<K, D> extends LinkedList<DoublyLinkedListN
     return;
   }
 
-  deleteNodeByData(data: any): DoublyLinkedListNode<K, D> | null {
+  deleteNodeByData(data: T): DoubleNode<T> | null {
     throw new Error('Method not implemented.');
   }
 
-  deleteNodeAtPosition(position: number): DoublyLinkedListNode<K, D> | null | undefined {
+  deleteNodeAtPosition(position: number): DoubleNode<T> | null | undefined {
     throw new Error('Method not implemented.');
   }
 
-  pairwiseSwap(): DoublyLinkedListNode<K, D> | null {
+  pairwiseSwap(): DoubleNode<T> | null {
     throw new Error('Method not implemented.');
   }
 
-  swapNodesAtKthAndKPlusOne(k: number): DoublyLinkedListNode<K, D> | null {
+  swapNodesAtKthAndKPlusOne(k: number): DoubleNode<T> | null {
     throw new Error('Method not implemented.');
   }
 
-  alternateSplit(): [DoublyLinkedListNode<K, D>, DoublyLinkedListNode<K, D>] {
+  alternateSplit(): [DoubleNode<T>, DoubleNode<T>] {
     throw new Error('Method not implemented.');
   }
 
@@ -77,14 +99,14 @@ export default class DoublyLinkedList<K, D> extends LinkedList<DoublyLinkedListN
     throw new Error('Method not implemented.');
   }
 
-  reverse() {
+  reverse(): void {
     if (this.head && this.head.next === null) {
       return;
     }
 
     let current = this.head;
-    let previous: DoublyLinkedListNode<K, D> | null | undefined = null;
-    let next: DoublyLinkedListNode<K, D> | null | undefined = null;
+    let previous: DoubleNode<T> | null | undefined = null;
+    let next: DoubleNode<T> | null | undefined = null;
 
     while (current != undefined) {
       // copy a pointer to the next element, before we overwrite the current
@@ -101,5 +123,9 @@ export default class DoublyLinkedList<K, D> extends LinkedList<DoublyLinkedListN
     }
 
     this.head = previous;
+  }
+
+  get length(): number {
+    return this.size;
   }
 }

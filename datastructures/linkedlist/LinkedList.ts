@@ -1,33 +1,26 @@
-export default abstract class LinkedList<Node> {
-  head: Node | null | undefined;
-
-  constructor(head: Node | null) {
-    this.head = head;
-  }
-
+export default abstract class LinkedList<T> {
   /**
    * Create new node add it to the end of the Linked List
-   * @param {Node} node
+   * @param {T} data
    */
-  abstract append(node: Node): void;
+  abstract append(e: T): void;
 
-  abstract prepend(node: Node): void;
+  abstract prepend(e: T): void;
 
-  abstract moveToHead(node: Node): void;
+  abstract moveToHead(e: T): void;
 
   /**
    * Deletes a node from the specified position in the LinkedList. Assumes 0 based indexing
    * @param position Index of node to delete
    * @returns {Node} deleted node
    */
-  abstract deleteNodeAtPosition(position: number): Node | null | undefined;
+  abstract deleteNodeAtPosition(e: number): Node | null | undefined;
 
   /**
    * Delets a node from the LinkedList if the node can be found in the LinkedList
-   * @param {Node} node Node to delete
-   * @returns {Node}
+   * @param {T} node Node to delete
    */
-  abstract deleteNode(node: Node): void;
+  abstract deleteNode(e: T): void;
 
   /**
    * Delets a node from the LinkedList by its data if the node can be found in the LinkedList. This deletes the first occurrence
@@ -35,7 +28,7 @@ export default abstract class LinkedList<Node> {
    * @param {any} data data to find and delete
    * @returns {Node}
    */
-  abstract deleteNodeByData(data: any): Node | null;
+  abstract deleteNodeByData(e: T): Node | null;
 
   abstract alternateSplit(): [Node, Node];
 
@@ -66,7 +59,7 @@ export default abstract class LinkedList<Node> {
    * @param {number} k kth node from beginning & kth node position from end
    * @returns {Node} head of linked list
    */
-  abstract swapNodesAtKthAndKPlusOne(k: number): Node | null;
+  abstract swapNodesAtKthAndKPlusOne(e: number): Node | null;
 
   /**
    * Swaps two nodes based on the data they contain. We search through the LinkedList looking for the data item in
@@ -78,44 +71,44 @@ export default abstract class LinkedList<Node> {
    * @param {Any} dataOne Data Item One
    * @param {Any} dataTwo Data Item Two
    */
-  swapNodes(dataOne: any, dataTwo: any) {
-    if (!this.head) {
-      throw Error('Empty LinkedList');
-    }
+  // swapNodes(dataOne: T, dataTwo: T): void {
+  //   if (!this.head) {
+  //     throw Error('Empty LinkedList');
+  //   }
 
-    if (dataOne === dataTwo) {
-      return;
-    }
+  //   if (dataOne === dataTwo) {
+  //     return;
+  //   }
 
-    let currentOne = this.head;
-    let currentTwo = this.head;
+  //   let currentOne = this.head;
+  //   let currentTwo = this.head;
 
-    // @ts-ignore
-    while (currentOne && currentOne.data !== dataOne) {
-      // @ts-ignore
-      currentOne = currentOne.next;
-    }
+  //   // @ts-ignore
+  //   while (currentOne && currentOne.data !== dataOne) {
+  //     // @ts-ignore
+  //     currentOne = currentOne.next;
+  //   }
 
-    // @ts-ignore
-    while (currentTwo && currentTwo.data !== dataTwo) {
-      // @ts-ignore
-      currentTwo = currentTwo.next;
-    }
+  //   // @ts-ignore
+  //   while (currentTwo && currentTwo.data !== dataTwo) {
+  //     // @ts-ignore
+  //     currentTwo = currentTwo.next;
+  //   }
 
-    if (!currentOne || !currentTwo) {
-      return;
-    }
+  //   if (!currentOne || !currentTwo) {
+  //     return;
+  //   }
 
-    // @ts-ignore
-    const tempOne = currentOne.data;
-    // @ts-ignore
-    const tempTwo = currentTwo.data;
+  //   // @ts-ignore
+  //   const tempOne = currentOne.data;
+  //   // @ts-ignore
+  //   const tempTwo = currentTwo.data;
 
-    // @ts-ignore
-    currentOne.data = tempOne;
-    // @ts-ignore
-    currentTwo.data = tempTwo;
-  }
+  //   // @ts-ignore
+  //   currentOne.data = tempOne;
+  //   // @ts-ignore
+  //   currentTwo.data = tempTwo;
+  // }
 
   /**
    * Reverses the LinkedList such that the head becomes the tail and the tail becomes the head
