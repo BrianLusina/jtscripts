@@ -3,18 +3,35 @@
 import LinkedList from '../LinkedList';
 import { SinglyLinkedListNode } from '../nodes';
 
-export default class SinglyLinkedList<K, D> extends LinkedList<SinglyLinkedListNode<K, D>> {
+export default class SinglyLinkedList<K, D> extends LinkedList<D> {
   head: SinglyLinkedListNode<K, D> | null;
 
   constructor(headNode: SinglyLinkedListNode<K, D> | null) {
-    super(headNode);
+    super();
     this.head = headNode;
   }
 
-  append(node: SinglyLinkedListNode<K, D>): void {}
+  append(node: SinglyLinkedListNode<K, D>): void {
+    throw new Error('Method not implemented.');
+  }
 
   prepend(node: SinglyLinkedListNode<K, D>): void {
     throw new Error('Method not implemented.');
+  }
+
+  length(): number {
+    if (!this.head) {
+      return 0;
+    }
+    let count = 0;
+    let current = this.head;
+
+    while (current) {
+      // @ts-ignore
+      current = current.next;
+      count += 1;
+    }
+    return count;
   }
 
   moveToHead(node: SinglyLinkedListNode<K, D>): void {
@@ -80,6 +97,48 @@ export default class SinglyLinkedList<K, D> extends LinkedList<SinglyLinkedListN
 
     // @ts-ignore
     return dummyHead.next;
+  }
+
+  deleteMiddle(): SinglyLinkedListNode<K, D> | null {
+    if (!this.head || !this.head.next) {
+      return null;
+    }
+
+    const nodeCount = this.length();
+    const middleIndex = nodeCount / 2;
+
+    let current = this.head;
+    for (let index = 0; index < middleIndex - 1; index++) {
+      // @ts-ignore
+      current = current.next;
+    }
+
+    const middleNode = current.next;
+    // @ts-ignore
+    current.next = current.next?.next;
+
+    return middleNode;
+  }
+
+  deleteMiddle2Pointer(): SinglyLinkedListNode<K, D> | null  {
+    if (!this.head || !this.head.next) {
+      return null;
+    }
+
+    let slowPointer = this.head;
+    let fastPointer = this.head.next?.next;
+
+    while (fastPointer && fastPointer.next) {
+      // @ts-ignore
+      slowPointer = slowPointer.next;
+      fastPointer = fastPointer.next.next;
+    }
+
+    const middleNode = slowPointer?.next;
+    // @ts-ignore
+    slowPointer.next = slowPointer.next?.next;
+
+    return middleNode;
   }
 
   alternateSplit(): [SinglyLinkedListNode<K, D>, SinglyLinkedListNode<K, D>] {

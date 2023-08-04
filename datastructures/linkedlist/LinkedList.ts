@@ -1,3 +1,5 @@
+import { LinkedListNode } from './nodes';
+
 export default abstract class LinkedList<T> {
   /**
    * Create new node add it to the end of the Linked List
@@ -7,30 +9,44 @@ export default abstract class LinkedList<T> {
 
   abstract prepend(e: T): void;
 
+  /**
+   * Returns the number of nodes in the linked list
+   * This is an O(n) operation were n is the number of nodes in the linked list. Requires constant extra space resulting in
+   * O(1) space complexity.
+   * @returns {number} number of nodes in the linked list
+   */
+  abstract length(): number;
+
   abstract moveToHead(e: T): void;
 
   /**
    * Deletes a node from the specified position in the LinkedList. Assumes 0 based indexing
    * @param position Index of node to delete
-   * @returns {Node} deleted node
+   * @returns {LinkedListNode} deleted node
    */
-  abstract deleteNodeAtPosition(e: number): Node | null | undefined;
+  abstract deleteNodeAtPosition(e: number): LinkedListNode<T> | null | undefined;
 
   /**
    * Delets a node from the LinkedList if the node can be found in the LinkedList
-   * @param {T} node Node to delete
+   * @param {T} node LinkedListNode to delete
    */
   abstract deleteNode(e: T): void;
+
+  /**
+   * Deletes the middle node from the linked list and returns it
+   * @returns {LinkedListNode} middle node
+   */
+  abstract deleteMiddle(): LinkedListNode<T> | null;
 
   /**
    * Delets a node from the LinkedList by its data if the node can be found in the LinkedList. This deletes the first occurrence
    * of the found data
    * @param {any} data data to find and delete
-   * @returns {Node}
+   * @returns {LinkedListNode}
    */
-  abstract deleteNodeByData(e: T): Node | null;
+  abstract deleteNodeByData(e: T): LinkedListNode<T> | null;
 
-  abstract alternateSplit(): [Node, Node];
+  abstract alternateSplit(): [LinkedListNode<T>, LinkedListNode<T>];
 
   /**
    * Checks if a Linked list is a palindrome
@@ -47,9 +63,9 @@ export default abstract class LinkedList<T> {
    * 1 -> 2 -> 3 -> 4
    * becomes
    * 2 -> 1 -> 4 -> 3
-   * @returns {Node} new head of linked list
+   * @returns {LinkedListNode} new head of linked list
    */
-  abstract pairwiseSwap(): Node | null;
+  abstract pairwiseSwap(): LinkedListNode<T> | null;
 
   /**
    * Return the head of the linked list after swapping the values of the kth node from the beginning and the kth node
@@ -57,9 +73,9 @@ export default abstract class LinkedList<T> {
    * Input: head = [7,9,6,6,7,8,3,0,9,5], k = 5
    * Output: [7,9,6,6,8,7,3,0,9,5]
    * @param {number} k kth node from beginning & kth node position from end
-   * @returns {Node} head of linked list
+   * @returns {LinkedListNode} head of linked list
    */
-  abstract swapNodesAtKthAndKPlusOne(e: number): Node | null;
+  abstract swapNodesAtKthAndKPlusOne(e: number): LinkedListNode<T> | null;
 
   /**
    * Swaps two nodes based on the data they contain. We search through the LinkedList looking for the data item in

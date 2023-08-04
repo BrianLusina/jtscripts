@@ -3,14 +3,12 @@ export interface LinkedListNode<D> {
   next?: LinkedListNode<D> | null;
 }
 
-export interface SinglyLinkedListNode<K, D> {
-  data: D;
+export interface SinglyLinkedListNode<K, D> extends LinkedListNode<D> {
   key: K;
   next: SinglyLinkedListNode<K, D> | null;
 }
 
-export interface DoublyLinkedListNode<K, D> {
-  data: D;
+export interface DoublyLinkedListNode<K, D> extends LinkedListNode<D> {
   key: K;
   next: DoublyLinkedListNode<K, D> | null;
   previous: DoublyLinkedListNode<K, D> | null;
