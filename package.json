@@ -47,7 +47,7 @@
     "chai": "^4.2.0",
     "codacy-coverage": "^3.4.0",
     "codecov": "^3.8.1",
-    "core-js": "^3.18.1",
+    "core-js": "^3.32.0",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
