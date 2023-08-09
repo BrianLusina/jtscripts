@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import LinkedList from '../LinkedList';
-import { SinglyLinkedListNode } from '../nodes';
+import SinglyLinkedListNode from './SinglyLinkedListNode';
 
 export default class SinglyLinkedList<K, D> extends LinkedList<D> {
   head: SinglyLinkedListNode<K, D> | null;
@@ -11,8 +11,22 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     this.head = headNode;
   }
 
-  append(node: SinglyLinkedListNode<K, D>): void {
-    throw new Error('Method not implemented.');
+  append(data: D): void {
+    const node = new SinglyLinkedListNode<K, D>(data);
+
+    if (!this.head) {
+      this.head = node;
+      return;
+    }
+
+    let current = this.head;
+
+    while (current) {
+      current = current.next;
+    }
+
+    current.next = node;
+    return;
   }
 
   prepend(node: SinglyLinkedListNode<K, D>): void {
@@ -120,7 +134,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     return middleNode;
   }
 
-  deleteMiddle2Pointer(): SinglyLinkedListNode<K, D> | null  {
+  deleteMiddle2Pointer(): SinglyLinkedListNode<K, D> | null {
     if (!this.head || !this.head.next) {
       return null;
     }
@@ -263,7 +277,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     return this.head;
   }
 
-  reverse() {
+  reverse(): void {
     if (this.head?.next === null) {
       return;
     }
@@ -284,5 +298,25 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     }
 
     this.head = reversedList;
+  }
+
+  oddEvenList(): SinglyLinkedListNode<K, D> | null {
+    if (!this.head || !this.head.next) {
+      return this.head;
+    }
+
+    let odd = this.head;
+    let even = this.head.next;
+    const evenHead = even;
+
+    while (even && even.next) {
+      odd.next = even.next;
+      odd = odd.next;
+      even.next = odd.next;
+      even = even.next;
+    }
+
+    odd.next = evenHead;
+    return this.head;
   }
 }

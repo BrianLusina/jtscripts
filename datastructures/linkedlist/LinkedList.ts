@@ -130,4 +130,6 @@ export default abstract class LinkedList<T> {
    * Reverses the LinkedList such that the head becomes the tail and the tail becomes the head
    */
   abstract reverse(): void;
+
+  abstract oddEvenList(): LinkedListNode<T> | null;
 }
