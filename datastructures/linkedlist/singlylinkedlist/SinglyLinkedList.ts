@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
+import { add } from '../../../utils/utils';
 import LinkedList from '../LinkedList';
 import SinglyLinkedListNode from './SinglyLinkedListNode';
 
@@ -48,7 +49,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     return count;
   }
 
-  moveToHead(node: SinglyLinkedListNode<K, D>): void {
+  moveToHead(data: D): void {
     throw new Error('Method not implemented.');
   }
 
@@ -92,13 +93,13 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     return node;
   }
 
-  deleteNode(node: SinglyLinkedListNode<K, D>): void {
+  deleteNode(data: D): void {
     throw new Error('Method not implemented.');
   }
 
-  deleteNodeByData(data: any): SinglyLinkedListNode<K, D> | null {
+  deleteNodeByData(data: D): SinglyLinkedListNode<K, D> | null {
     // @ts-ignore
-    const dummyHead: SinglyLinkedListNode<number, any> = { data: -1, next: this.head, key: -1 };
+    const dummyHead: SinglyLinkedListNode<number, D> = { data: -1, next: this.head, key: -1 };
     let current = dummyHead;
 
     while (current.next) {
@@ -187,6 +188,25 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     return [first, second];
   }
 
+  getMiddle(): SinglyLinkedListNode<K, D> | null {
+    if (!this.head || !this.head.next) {
+      return null;
+    }
+
+    const nodeCount = this.length();
+    const middleIndex = nodeCount / 2;
+
+    let current = this.head;
+    for (let index = 0; index < middleIndex - 1; index++) {
+      // @ts-ignore
+      current = current.next;
+    }
+
+    const middleNode = current.next;
+
+    return middleNode;
+  }
+
   isPalindrome(): boolean {
     if (!this.head) {
       return false;
@@ -196,7 +216,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     }
 
     let current = this.head;
-    const stack: any[] = [];
+    const stack: D[] = [];
 
     while (current) {
       stack.push(current.data);
@@ -318,5 +338,89 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     odd.next = evenHead;
     return this.head;
+  }
+
+  maxPairSum(): D | null {
+    if (this.head === null) {
+      return null;
+    }
+
+    let current: SinglyLinkedListNode<K, D> | null = this.head;
+    const values: D[] = [];
+
+    while (current != null) {
+      values.push(current.data);
+      current = current.next;
+    }
+
+    let maximumSum: D | null = null;
+    let left = 0;
+    let right = values.length - 1;
+
+    while (left < right) {
+      const p = add(values[left], values[right]);
+      maximumSum = max(maximumSum, p);
+      left += 1;
+      right -= 1;
+    }
+
+    return maximumSum;
+  }
+
+  maximumPairSumStack(): D | null {
+    if (!this.head) {
+      return null;
+    }
+
+    let current: SinglyLinkedListNode<K, D> | null | undefined = this.head;
+    const stack: D[] = [];
+
+    while (current) {
+      stack.push(current.data);
+      current = current.next;
+    }
+
+    current = this.head;
+    let maximumSum: D | null = null;
+    const size = stack.length;
+    let count = 1;
+
+    while (count < size / 2) {
+      const topValue = stack.pop();
+
+      maximumSum = max(maximumSum, add(current?.data, topValue));
+      current = current?.next;
+      count += 1;
+    }
+
+    return maximumSum;
+  }
+
+  maximumPairSumReverseInPlace(): D | null {
+    if (!this.head) {
+      return null;
+    }
+
+    const middleNode = this.getMiddle();
+
+    // reverse the second half of linked list
+    let current = middleNode;
+    let previous: SinglyLinkedListNode<K, D> | null = null;
+    let maximumSum: D | null = null;
+
+    while (current) {
+      current.next = previous;
+      previous = current;
+      current = current.next;
+    }
+
+    let start: SinglyLinkedListNode<K, D> | null | undefined = this.head;
+    while (previous) {
+      maximumSum = max(maximumSum, add(start?.data, previous?.data));
+      previous = previous.next;
+      start = start?.next;
+    }
+
+    return maximumSum;
   }
 }

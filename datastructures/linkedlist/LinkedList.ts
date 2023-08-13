@@ -27,7 +27,7 @@ export default abstract class LinkedList<T> {
   abstract deleteNodeAtPosition(e: number): LinkedListNode<T> | null | undefined;
 
   /**
-   * Delets a node from the LinkedList if the node can be found in the LinkedList
+   * Deletes a node from the LinkedList if the node can be found in the LinkedList
    * @param {T} node LinkedListNode to delete
    */
   abstract deleteNode(e: T): void;
@@ -37,6 +37,12 @@ export default abstract class LinkedList<T> {
    * @returns {LinkedListNode} middle node
    */
   abstract deleteMiddle(): LinkedListNode<T> | null;
+
+  /**
+   * Retrieves the middle node of a linked list
+   * @returns {LinkedListNode} middle node of a linked list
+   */
+  abstract getMiddle(): LinkedListNode<T> | null;
 
   /**
    * Delets a node from the LinkedList by its data if the node can be found in the LinkedList. This deletes the first occurrence
@@ -132,4 +138,12 @@ export default abstract class LinkedList<T> {
   abstract reverse(): void;
 
   abstract oddEvenList(): LinkedListNode<T> | null;
+
+  /**
+   * maximumPairSum returns the maximum twin sum of a node and its twin, where a node's twin is at the index (n-1-i) where n is the
+   * number of nodes in the linked list.
+   * For example, if n = 4, then node 0 is the twin of node 3, and node 1 is the twin of node 2. These are the only
+   * nodes with twins for n = 4.
+   */
+  abstract maxPairSum(): T | null;
 }

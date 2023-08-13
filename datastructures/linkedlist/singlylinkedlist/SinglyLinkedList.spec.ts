@@ -37,4 +37,69 @@ describe('SinglyLinkedList', () => {
             oddEvenListTest(data, expected)
         })
     })
+    
+    describe("maximumPairSum", () => {
+        type testCase = {
+            values: number[];
+            expected: number;
+        }
+
+        const testCases: testCase[] = [
+            {
+                values: [5, 4, 2, 1],
+                expected: 6
+            },
+            {
+                values: [4,2,2,3],
+                expected: 7
+            },
+            {
+                values: [1,100000],
+                expected: 100001
+            },
+        ]
+
+        describe("with list of integers", () => {
+
+            testCases.forEach(({ values, expected }) => {
+                it(`should return ${expected} from a linked list of ${values}`, () => {
+                    const linkedList = new SinglyLinkedList(null)
+                    for (const data of values) {
+                        linkedList.append(data)
+                    }
+            
+                    const actual = linkedList.maxPairSum()
+                    expect(actual).toEqual(expected)
+                })
+            })
+        })
+
+        describe("using a stack", () => {
+            testCases.forEach(({ values, expected }) => {
+                it(`should return ${expected} from a linked list of ${values}`, () => {
+                    const linkedList = new SinglyLinkedList(null)
+                    for (const data of values) {
+                        linkedList.append(data)
+                    }
+            
+                    const actual = linkedList.maximumPairSumStack()
+                    expect(actual).toEqual(expected)
+                })
+            })
+        })
+
+        describe('with reversing in place', () => {
+            testCases.forEach(({ values, expected }) => {
+                it(`should return ${expected} from a linked list of ${values}`, () => {
+                    const linkedList = new SinglyLinkedList(null)
+                    for (const data of values) {
+                        linkedList.append(data)
+                    }
+            
+                    const actual = linkedList.maximumPairSumReverseInPlace()
+                    expect(actual).toEqual(expected)
+                })
+            })
+        })
+    })
 })
