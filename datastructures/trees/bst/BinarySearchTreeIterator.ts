@@ -1,16 +1,16 @@
-import { BinaryTreeNode } from './types';
+import BinarySearchTreeNode from './BinarySearchTreeNode';
 
 export default class BSTIterator<T> {
-  private root: BinaryTreeNode<T> | null;
-  private stack: BinaryTreeNode<T>[] = [];
+  private root: BinarySearchTreeNode<T> | null;
+  private stack: BinarySearchTreeNode<T>[] = [];
 
-  constructor(root: BinaryTreeNode<T> | null) {
+  constructor(root: BinarySearchTreeNode<T> | null) {
     this.root = root;
     this.stack = [];
     this.leftMostInorder(root);
   }
 
-  private leftMostInorder(root: BinaryTreeNode<T> | null | undefined): void {
+  private leftMostInorder(root: BinarySearchTreeNode<T> | null | undefined): void {
     while (root) {
       this.stack.push(root);
       root = root.left;

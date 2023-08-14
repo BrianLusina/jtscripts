@@ -1,55 +1,35 @@
-import Tree from './Tree';
-import { BinaryTreeNode } from './types';
+import Tree from '../Tree';
+import BinarySearchTreeNode from './BinarySearchTreeNode';
 
-export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
-  private root: BinaryTreeNode<T> | null | undefined;
-  private stack: BinaryTreeNode<T>[];
+export default class BinarySearchTree<T> extends Tree<BinarySearchTreeNode<T>> {
+  private root: BinarySearchTreeNode<T> | null | undefined;
+  private stack: BinarySearchTreeNode<T>[];
 
-  constructor(rootNode: BinaryTreeNode<T> | null | undefined) {
-    super(rootNode);
+  constructor(rootNode: BinarySearchTreeNode<T> | null | undefined) {
+    super();
     this.root = rootNode;
     this.stack = [];
     this.leftMostInorder(rootNode);
   }
 
-  height(): number {
-    if (!this.root) {
-      return 0;
-    }
+  size(): number {}
 
-    if (!this.root.left && !this.root.right) {
-      return 0;
-    }
-
-    let height = 0;
-    const queue = [this.root];
-
-    while (true) {
-      let currentLevelNodes = queue.length;
-
-      if (currentLevelNodes === 0) {
-        return height;
-      }
-
-      height += 1;
-
-      while (currentLevelNodes > 0) {
-        const node = queue.shift();
-
-        if (node?.left) {
-          queue.push(node.left);
-        }
-
-        if (node?.right) {
-          queue.push(node.right);
-        }
-
-        currentLevelNodes -= 1;
-      }
-    }
+  getDepth(): number {
+    return this.height();
   }
 
-  private leftMostInorder(root: BinaryTreeNode<T> | null | undefined): void {
+  height(): number {
+    const heightHelper = (node: BinarySearchTreeNode<T> | null | undefined): number => {
+      if (!node) {
+        return 0;
+      }
+      return Math.max(heightHelper(node.left), heightHelper(node.right)) + 1;
+    };
+
+    return heightHelper(this.root);
+  }
+
+  private leftMostInorder(root: BinarySearchTreeNode<T> | null | undefined): void {
     while (root) {
       this.stack.push(root);
       root = root.left;
@@ -95,9 +75,9 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
    * left subtree. This process is repeated until the node is inserted in the right place.
    * If there is no root, then a new Node is created & becomes the new Root Node.
    * @param value Value to insert into the Node
-   * @returns {BinaryTreeNode} Root of the Tree with the node inserted in the right place
+   * @returns {BinarySearchTreeNode} Root of the Tree with the node inserted in the right place
    */
-  insertNode(value: any): BinaryTreeNode<T> {
+  insertNode(value: any): BinarySearchTreeNode<T> {
     if (!this.root) {
       return {
         data: value,
@@ -135,10 +115,10 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
 
   /**
    * Inorder Traversal recursively
-   * @param {BinaryTreeNode} root
+   * @param {BinarySearchTreeNode} root
    * @returns {any[]} Array of values from each node in the tree
    */
-  inorderTraversalRecurse(root: BinaryTreeNode<T> | null): any[] {
+  inorderTraversalRecurse(root: BinarySearchTreeNode<T> | null): any[] {
     const result = [];
     if (root) {
       if (root.left) {
@@ -248,9 +228,9 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
       return [];
     }
 
-    const stack: BinaryTreeNode<T>[] = [];
+    const stack: BinarySearchTreeNode<T>[] = [];
 
-    let current: BinaryTreeNode<T> | undefined | null = this.root;
+    let current: BinarySearchTreeNode<T> | undefined | null = this.root;
 
     while (current || stack.length != 0) {
       while (current) {
@@ -276,8 +256,8 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
    * @returns {any[]}
    */
   postorderTraversal(): any[] {
-    const stackOne: BinaryTreeNode<T>[] = [];
-    const stackTwo: BinaryTreeNode<T>[] = [];
+    const stackOne: BinarySearchTreeNode<T>[] = [];
+    const stackTwo: BinarySearchTreeNode<T>[] = [];
     const values: any[] = [];
 
     if (!this.root) {
@@ -308,7 +288,7 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
     return values;
   }
 
-  findLargestNode(node?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
+  findLargestNode(node?: BinarySearchTreeNode<T> | null): BinarySearchTreeNode<T> {
     let current = node || this.root;
 
     while (current) {
@@ -322,7 +302,7 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
     return current;
   }
 
-  findSecondLargestNode(node?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
+  findSecondLargestNode(node?: BinarySearchTreeNode<T> | null): BinarySearchTreeNode<T> {
     const treeNode = node || this.root;
 
     if (!treeNode || (!treeNode.left && !treeNode.right)) {
@@ -368,14 +348,14 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
    *
    * Space Complexity: O(1).
    * The space complexity of the above solution is constant.
-   * @param {BinaryTreeNode<T>} nodeOne
-   * @param {BinaryTreeNode<T>} nodeTwo
-   * @returns {BinaryTreeNode<T>}
+   * @param {BinarySearchTreeNode<T>} nodeOne
+   * @param {BinarySearchTreeNode<T>} nodeTwo
+   * @returns {BinarySearchTreeNode<T>}
    */
   lowestCommonAncestor(
-    nodeOne: BinaryTreeNode<T>,
-    nodeTwo: BinaryTreeNode<T>,
-  ): BinaryTreeNode<T> | null | undefined {
+    nodeOne: BinarySearchTreeNode<T>,
+    nodeTwo: BinarySearchTreeNode<T>,
+  ): BinarySearchTreeNode<T> | null | undefined {
     if (!this.root) {
       return null;
     }
@@ -407,7 +387,7 @@ export default class BinarySearchTree<T> extends Tree<BinaryTreeNode<T>> {
       return [];
     }
 
-    const stack: [[BinaryTreeNode<T>, string]] = [[this.root, '']];
+    const stack: [[BinarySearchTreeNode<T>, string]] = [[this.root, '']];
     // stack.push([this.root, ""])
     const res: string[] = [];
 

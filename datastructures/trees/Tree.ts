@@ -8,17 +8,17 @@ export default abstract class Tree<TreeNode> {
 
   /**
    * Create new node adds it to the Tree
-   * @param {any} value Value to add to a node in the Tree
+   * @param {unknown} value Value to add to a node in the Tree
    * @returns {TreeNode} Returns the new root of the Node
    */
-  abstract insertNode(value: any): TreeNode;
+  abstract insertNode(e: unknown): TreeNode;
 
-  abstract inorderTraversalRecurse(root: TreeNode | null): any[];
+  abstract inorderTraversalRecurse(e: TreeNode | null): unknown[];
 
   /**
    * Uses a stack to get the nodes of a Tree
    */
-  abstract inorderTraversalIteratively(): any[];
+  abstract inorderTraversalIteratively(): unknown[];
 
   /**
    * Step 1: Initialize current as root
@@ -30,25 +30,25 @@ export default abstract class Tree<TreeNode> {
    *      a. In current's left subtree, make current the right child of the rightmost node
    *      b. Go to this left child, i.e., current = current.left
    */
-  abstract inorderTraversalMorrisTraversal(): any[];
+  abstract inorderTraversalMorrisTraversal(): unknown[];
 
-  abstract preorderTraversal(): any[];
+  abstract preorderTraversal(): unknown[];
 
-  abstract postorderTraversal(): any[];
+  abstract postorderTraversal(): unknown[];
 
   /**
    * Finds the largest node in a Tree given a node. This node does not necessarily have to be the root node
    * but if not provided, the root node is used to traverse. If a node is provided, this finds the largest
    * in that subtree from the root node
    */
-  abstract findLargestNode(node?: TreeNode | null): TreeNode;
+  abstract findLargestNode(e: TreeNode | null): TreeNode;
 
   /**
    * Finds the second largest node in a Tree given a node. This node does not necessarily have to be the root node
    * but if not provided, the root node is used to traverse. If a node is provided, this finds the largest
    * in that subtree from the root node
    */
-  abstract findSecondLargestNode(node?: TreeNode | null): TreeNode;
+  abstract findSecondLargestNode(e: TreeNode | null): TreeNode;
 
   /**
    * Returns the lowest common ancestor of 2 nodes in a Tree.
@@ -56,13 +56,14 @@ export default abstract class Tree<TreeNode> {
    * @param {TreeNode} nodeTwo Node Two
    * @returns {TreeNode}
    */
+  // eslint-disable-next-line no-unused-vars
   abstract lowestCommonAncestor(nodeOne: TreeNode, nodeTwo: TreeNode): TreeNode | null | undefined;
 
   /**
    * Gets all the paths of a Tree and returns the values in an array
-   * @returns {any[]} 2D Array of values/data of each node in the tree representing paths
+   * @returns {unknown[]} 2D Array of values/data of each node in the tree representing paths
    */
-  abstract paths(): any[];
+  abstract paths(): unknown[];
 
   /**
    * Returns the number of nodes in this Tree
