@@ -75,4 +75,12 @@ export default abstract class Tree<TreeNode> {
    * Returns the depth of the tree
    */
   abstract getDepth(): number;
+
+  /**
+   * LeafSimilar returns true if this tree has similar leaf value sequence to another tree.
+   * For example: If this tree has nodes = [3,5,1,6,2,9,8,null,null,7,4] and other tree has nodes =
+   * [3,5,1,6,7,4,2,null,null,null,null,null,null,9,8]. Then the leaf value sequence of both is [6,7,4,9,8] which is similar
+   * @param other Other tree to compare to
+   */
+  abstract leafSimilar(e: Tree<TreeNode>): boolean;
 }

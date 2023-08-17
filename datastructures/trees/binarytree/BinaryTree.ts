@@ -1,16 +1,18 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import Stack from '../../Stack';
 import Tree from '../Tree';
 import BinaryTreeNode from './BinaryTreeNode';
 
 export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
-  private readonly root: BinaryTreeNode<T> | null | undefined;
+  root: BinaryTreeNode<T> | null | undefined;
 
-  constructor(rootNode: BinaryTreeNode<T> | null | undefined) {
+  constructor(rootNode: BinaryTreeNode<T> | null | undefined = null) {
     super();
     this.root = rootNode;
   }
 
-  paths(): any[] {
+  paths(): unknown[] {
     throw new Error('Method not implemented.');
   }
 
@@ -18,102 +20,102 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
     throw new Error('Method not implemented.');
   }
 
-  insertNode(value: any): BinaryTreeNode<T> {
+  insertNode(e: unknown): BinaryTreeNode<T> {
     throw new Error('Method not implemented.');
   }
 
-  inorderTraversalRecurse(root: BinaryTreeNode<T> | null): any[] {
+  inorderTraversalRecurse(e: BinaryTreeNode<T> | null): unknown[] {
     throw new Error('Method not implemented.');
   }
 
-  inorderTraversalIteratively(): any[] {
-    if (!this.root) {
-      return []
-    }
-
-    const result = []
-    const stack = new Stack()
-    let current = this.root;
-    
-    while (!stack.isEmpty() || current) {
-      while(current) {
-        stack.push(current)
-        current = current.left!
-      }
-      
-      current = stack.pop()
-      result.push(current.data)
-      current = current.right!
-    }
-   
-    return result
-  }
-
-  inorderTraversalMorrisTraversal(): any[] {
-    throw new Error('Method not implemented.');
-  }
-
-  preorderTraversal(): any[] {
+  inorderTraversalIteratively(): unknown[] {
     if (!this.root) {
       return [];
     }
-    
+
     const result = [];
     const stack = new Stack();
-    
     let current = this.root;
-    
-    while (current || !stack.isEmpty()) {
-      while(current) {
-        result.push(current.data)
-        stack.push(current)
-        current = current.left!
+
+    while (!stack.isEmpty() || current) {
+      while (current) {
+        stack.push(current);
+        current = current.left!;
       }
-      
-      current = stack.pop()
-      current = current.right!
+
+      current = stack.pop();
+      result.push(current.data);
+      current = current.right!;
     }
-    
+
+    return result;
+  }
+
+  inorderTraversalMorrisTraversal(): unknown[] {
+    throw new Error('Method not implemented.');
+  }
+
+  preorderTraversal(): unknown[] {
+    if (!this.root) {
+      return [];
+    }
+
+    const result = [];
+    const stack = new Stack();
+
+    let current = this.root;
+
+    while (current || !stack.isEmpty()) {
+      while (current) {
+        result.push(current.data);
+        stack.push(current);
+        current = current.left!;
+      }
+
+      current = stack.pop();
+      current = current.right!;
+    }
+
     return result;
   }
 
   postorderTraversal(): any[] {
     if (!this.root) {
-      return []
+      return [];
     }
-    
-    const stackOne = new Stack()
-    const stackTwo = new Stack()
-    const result = []
-    
-    stackOne.push(this.root)
-    
+
+    const stackOne = new Stack();
+    const stackTwo = new Stack();
+    const result = [];
+
+    stackOne.push(this.root);
+
     while (!stackOne.isEmpty()) {
-      const current = stackOne.pop()
-      stackTwo.push(current)
-      
+      const current = stackOne.pop();
+      stackTwo.push(current);
+
       if (current.left) {
-        stackOne.push(current.left)
+        stackOne.push(current.left);
       }
-      
+
       if (current.right) {
-        stackOne.push(current.right)
+        stackOne.push(current.right);
       }
     }
-    
+
     while (!stackTwo.isEmpty()) {
-      const current = stackTwo.pop()
-      result.push(current.data)
+      const current = stackTwo.pop();
+      result.push(current.data);
     }
-    
-    return result
+
+    return result;
   }
 
-  findLargestNode(node?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
+  findLargestNode(e?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
     throw new Error('Method not implemented.');
   }
 
-  findSecondLargestNode(node?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
+  findSecondLargestNode(e?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
     throw new Error('Method not implemented.');
   }
 
@@ -186,7 +188,7 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
 
     let counter = 0;
     const stack = new Stack();
-    stack.push(this.root)
+    stack.push(this.root);
 
     while (!stack.isEmpty()) {
       const node = stack.pop();
@@ -206,45 +208,72 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
   }
 
   getDepth(): number {
-      let depth = 0
+    let depth = 0;
 
-      let current = this.root
+    let current = this.root;
 
-      while (current) {
-        depth +=1
-        current = current.left
-      }
+    while (current) {
+      depth += 1;
+      current = current.left;
+    }
 
-      return depth
+    return depth;
   }
 
   isPerfect(): boolean {
     if (!this.root) {
-      return false
+      return false;
     }
 
     if (!this.root.left && !this.root.right) {
-      return true
+      return true;
     }
 
-    const depth = this.getDepth()
+    const depth = this.getDepth();
 
-    const isPerfectHelper = (root: BinaryTreeNode<T> | null | undefined, level: number): boolean => {
-      if(!root) {
-        return true
+    const isPerfectHelper = (
+      root: BinaryTreeNode<T> | null | undefined,
+      level: number,
+    ): boolean => {
+      if (!root) {
+        return true;
       }
-  
+
       if (!root.left && !root.right) {
-        return depth == level + 1
-       }
-  
-      if (!root.left && !root.right) {
-        return false
+        return depth == level + 1;
       }
-  
-      return isPerfectHelper(root.left, level + 1) && isPerfectHelper(root.right, level + 1)
+
+      if (!root.left && !root.right) {
+        return false;
+      }
+
+      return isPerfectHelper(root.left, level + 1) && isPerfectHelper(root.right, level + 1);
+    };
+
+    return isPerfectHelper(this.root, 0);
+  }
+
+  leafSimilar(other: BinaryTree<T>): boolean {
+    if ((this.root && !other.root) || (other.root && !this.root)) {
+      return false;
     }
 
-  return isPerfectHelper(this.root, 0)
+    const leaves1: T[] = [];
+    const leaves2: T[] = [];
+
+    const dfs = (node: BinaryTreeNode<T> | null | undefined, leafValues: T[]) => {
+      if (node) {
+        if (!node.left && !node.right) {
+          leafValues.push(node.data);
+        }
+        dfs(node.left, leafValues);
+        dfs(node.right, leafValues);
+      }
+    };
+
+    dfs(this.root, leaves1);
+    dfs(other.root, leaves2);
+
+    return leaves1.length === leaves2.length && leaves1.every((v, i) => v === leaves2[i]);
   }
 }

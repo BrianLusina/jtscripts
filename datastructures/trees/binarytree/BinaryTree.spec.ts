@@ -85,4 +85,46 @@ describe("BinaryTree", () => {
             expect(actual).toEqual(true)
         })
     })
+
+    describe("LeafSimilar", () => {
+        it("should return false for tree 1 having no root and tree 2 having a root", () => {
+            const root = new BinaryTreeNode(1)
+            const tree1 = new BinaryTree(root)
+
+            const tree2 = new BinaryTree<number>()
+
+            const actual = tree1.leafSimilar(tree2)
+            expect(actual).toEqual(false)
+        })
+
+        it("should return true for tree1=3,5,1,6,2,9,8,null,null,7,4 and tree2=3,5,1,6,7,4,2,null,null,null,null,null,null,9,8", () => {
+            const left1 = new BinaryTreeNode(5, new BinaryTreeNode(6), new BinaryTreeNode(2, new BinaryTreeNode(7), new BinaryTreeNode(4)))
+            const right1 = new BinaryTreeNode(1, new BinaryTreeNode(9), new BinaryTreeNode(8))
+
+            const root1 = new BinaryTreeNode(3, left1, right1)
+            const tree1 = new BinaryTree(root1)
+
+            const left2 = new BinaryTreeNode(5, new BinaryTreeNode(6), new BinaryTreeNode(7))
+            const right2 = new BinaryTreeNode(1, new BinaryTreeNode(4), new BinaryTreeNode(2, new BinaryTreeNode(9), new BinaryTreeNode(8)))
+
+            const root2 = new BinaryTreeNode(3, left2, right2)
+            const tree2 = new BinaryTree(root2)
+
+            const actual = tree1.leafSimilar(tree2)
+
+            expect(actual).toEqual(true)
+        })
+
+        it("should return false for tree1=1,2,3 and tree2=1,3,2", () => {
+            const root1 = new BinaryTreeNode(1, new BinaryTreeNode(2), new BinaryTreeNode(3))
+            const tree1 = new BinaryTree(root1)
+
+            const root2 = new BinaryTreeNode(1, new BinaryTreeNode(3), new BinaryTreeNode(2))
+            const tree2 = new BinaryTree(root2)
+
+            const actual = tree1.leafSimilar(tree2)
+
+            expect(actual).toEqual(false)
+        })
+    })
 })

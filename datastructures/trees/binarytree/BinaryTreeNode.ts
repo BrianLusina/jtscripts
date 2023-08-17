@@ -2,7 +2,7 @@ import { TreeNode } from '../types';
 
 export default class BinaryTreeNode<T> implements TreeNode<T> {
   data: T;
-  children: BinaryTreeNode<T>[];
+  readonly children: (TreeNode<T> | null)[];
   left?: BinaryTreeNode<T> | null;
   right?: BinaryTreeNode<T> | null;
 
@@ -14,5 +14,6 @@ export default class BinaryTreeNode<T> implements TreeNode<T> {
     this.data = data;
     this.left = left;
     this.right = right;
+    this.children = [left, right];
   }
 }
