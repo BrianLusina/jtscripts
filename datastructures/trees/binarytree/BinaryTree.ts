@@ -276,4 +276,31 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
 
     return leaves1.length === leaves2.length && leaves1.every((v, i) => v === leaves2[i]);
   }
+
+  countGoodNodes(): number {
+    if (!this.root) {
+      return 0;
+    }
+
+    // root is regarded as good
+    if (!this.root.left && !this.root.right) {
+      return 1;
+    }
+
+    const goodNodesHelper = (node: BinaryTreeNode<T> | null | undefined, data: T): number => {
+      if (node) {
+        let nodeCount =
+          goodNodesHelper(node.left, max(data, node.data)) +
+          goodNodesHelper(node.right, max(data, node.data));
+        if (node.data >= data) {
+          nodeCount += 1;
+        }
+        return nodeCount;
+      }
+
+      return 0;
+    };
+
+    return goodNodesHelper(this.root, this.root.data);
+  }
 }

@@ -127,4 +127,40 @@ describe("BinaryTree", () => {
             expect(actual).toEqual(false)
         })
     })
+ 
+    describe("CountGoodNodes", () => {
+        it("should return 0 for tree having no root", () => {
+            const tree = new BinaryTree()
+
+            const actual = tree.countGoodNodes()
+            expect(actual).toEqual(0)
+        })
+
+        it("should return 1 for tree having root, but no children", () => {
+            const root = new BinaryTreeNode(1)
+            const tree = new BinaryTree(root)
+
+            const actual = tree.countGoodNodes()
+            expect(actual).toEqual(1)
+        })
+
+        it("should return 4 for tree=(3,1,4,3,null,1,5)", () => {
+            const root = new BinaryTreeNode(3, new BinaryTreeNode(1, new BinaryTreeNode(3)), new BinaryTreeNode(4, new BinaryTreeNode(1), new BinaryTreeNode(5)))
+
+            const tree = new BinaryTree(root)
+
+            const actual = tree.countGoodNodes()
+
+            expect(actual).toEqual(4)
+        })
+
+        it("should return 3 for tree=(3,3,null,4,2)", () => {
+            const root = new BinaryTreeNode(3, new BinaryTreeNode(3, new BinaryTreeNode(4), new BinaryTreeNode(2)))
+            const tree = new BinaryTree(root)
+
+            const actual = tree.countGoodNodes()
+
+            expect(actual).toEqual(3)
+        })
+    })
 })

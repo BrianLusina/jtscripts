@@ -83,4 +83,11 @@ export default abstract class Tree<TreeNode> {
    * @param other Other tree to compare to
    */
   abstract leafSimilar(e: Tree<TreeNode>): boolean;
+
+  /**
+   * Finds the number of good nodes in a tree. A good node is a node in which in the path from root to the node there
+   * are no nodes with a value greater than it
+   * @return {number} The number of good nodes
+   */
+  abstract countGoodNodes(): number;
 }
