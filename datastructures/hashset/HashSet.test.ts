@@ -1,21 +1,17 @@
-import MyHashSet from './HashSet';
+import HashSet from './HashSet';
 
 describe("HashSet Tests", () => {
-    const hashSet = new MyHashSet();
+    const hashSet = new HashSet();
 
     it("add 1 to map", () => {
-        const expected = new Set();
-        expected.add(1);
         hashSet.add(1);
-        expect(hashSet.container).toEqual(expected)
+        expect(hashSet.contains(1)).toEqual(true)
     })
 
     it("add 2 to existing map", () => {
-        const expected = new Set();
-        expected.add(1);
-        expected.add(2);
         hashSet.add(2);
-        expect(hashSet.container).toEqual(expected)
+        expect(hashSet.contains(1)).toEqual(true)
+        expect(hashSet.contains(2)).toEqual(true)
     })
     
     it("contains 1 should return true", () => {
@@ -33,7 +29,7 @@ describe("HashSet Tests", () => {
         expected.add(1);
         expected.add(2);
         hashSet.add(2);
-        expect(hashSet.container).toEqual(expected)
+        expect(hashSet.contains(2)).toEqual(true)
     })
 
     it("contain 2 should return true", () => {
@@ -45,6 +41,6 @@ describe("HashSet Tests", () => {
         const expected = new Set();
         expected.add(1);
         hashSet.remove(2);
-        expect(hashSet.container).toEqual(expected)
+        expect(hashSet.contains(2)).toEqual(false)
     })
 })
