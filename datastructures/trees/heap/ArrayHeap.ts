@@ -74,4 +74,8 @@ export abstract class ArrayHeap<T> extends Heap<T> {
 
     return idx;
   }
+
+  size(): number {
+    return this.items.length;
+  }
 }

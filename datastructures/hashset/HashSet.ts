@@ -1,21 +1,34 @@
-class MyHashSet {
-  container: Set<unknown>;
+class HashSet<T> {
+  private container: Set<T>;
 
   constructor() {
     this.container = new Set();
   }
 
-  add(key: number): void {
+  /**
+   * Adds a given key to the set, overwriting any similar keys
+   * @param {T} key key to add to set
+   */
+  add(key: T): void {
     this.container.add(key);
   }
 
-  remove(key: number): void {
+  /**
+   * Removes a key from the set
+   * @param {T} key Key to remove
+   */
+  remove(key: T): void {
     this.container.delete(key);
   }
 
-  contains(key: number): boolean {
+  /**
+   * Checks if a given key is in the set
+   * @param {T} key Key to check.
+   * @returns {boolean} true if the key is available, false otherwise
+   */
+  contains(key: T): boolean {
     return this.container.has(key);
   }
 }
 
-export default MyHashSet;
+export default HashSet;
