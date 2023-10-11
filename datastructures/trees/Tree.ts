@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export default abstract class Tree<TreeNode> {
   /**
    * Returns the height of a Tree or the maximum depth.
@@ -90,4 +91,17 @@ export default abstract class Tree<TreeNode> {
    * @return {number} The number of good nodes
    */
   abstract countGoodNodes(): number;
+
+  /**
+   * serializes a tree into a string
+   * @returns {string} serialized tree as string
+   */
+  abstract serialize(): string;
+
+  /**
+   * Deserializes a given string into a tree returning the root node
+   * @param {string} tree serialized string of tree
+   * @return {TreeNode} root node of tree
+   */
+  abstract deserialize(tree: string): TreeNode | null;
 }

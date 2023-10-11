@@ -303,4 +303,40 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
 
     return goodNodesHelper(this.root, this.root.data);
   }
+
+  serialize(): string {
+    const nodeValues: string[] = [];
+
+    const dfs = (node: BinaryTreeNode<T> | null | undefined) => {
+      if (!node) {
+        nodeValues.push('null');
+        return;
+      }
+      nodeValues.push(`${node.data}`);
+      dfs(node.left);
+      dfs(node.right);
+    };
+
+    dfs(this.root);
+    return nodeValues.join(',');
+  }
+
+  deserialize(tree: string): BinaryTreeNode<T> | null {
+    const nodeValues = tree.split(',')[Symbol.iterator]();
+
+    const dfs = (nodeData: IterableIterator<string>): BinaryTreeNode<T> | null => {
+      const data = nodeData.next().value;
+
+      if (data == 'null') {
+        return null;
+      }
+
+      const current = new BinaryTreeNode(data);
+      current.left = dfs(nodeData);
+      current.right = dfs(nodeData);
+      return current;
+    };
+
+    return dfs(nodeValues);
+  }
 }
