@@ -17,7 +17,7 @@ export abstract class ArrayHeap<T> extends Heap<T> {
    * @returns {T} root node if available
    * @throws {Error} if heap is empty
    */
-  rootNode(): T {
+  protected rootNode(): T {
     if (this.items.length === 0) {
       throw new Error('Heap is empty, can not retrieve root node');
     }
@@ -29,7 +29,7 @@ export abstract class ArrayHeap<T> extends Heap<T> {
    * @returns {T} Last node in the heap
    * @throws {Error} if the heap is empty
    */
-  lastNode(): T {
+  protected lastNode(): T {
     if (this.items.length === 0) {
       throw new Error('Heap is empty, can not retrieve last node');
     }
@@ -42,7 +42,7 @@ export abstract class ArrayHeap<T> extends Heap<T> {
    * @param {number} index index of the node
    * @returns {number} left child index of the given node
    */
-  leftChildIndex(index: number): number {
+  protected leftChildIndex(index: number): number {
     return index * 2 + 1;
   }
 
@@ -53,7 +53,7 @@ export abstract class ArrayHeap<T> extends Heap<T> {
    * @param {number} index index of the node
    * @returns {number} right child index of the given node
    */
-  rightChildIndex(index: number): number {
+  protected rightChildIndex(index: number): number {
     return index * 2 + 2;
   }
 
@@ -65,7 +65,7 @@ export abstract class ArrayHeap<T> extends Heap<T> {
    * @param {number} index index of the node
    * @returns {number} parent index of the given node
    */
-  parentIndex(index: number): number {
+  protected parentIndex(index: number): number {
     const idx = Math.floor((index - 1) / 2);
 
     if (idx < 0) {
@@ -77,5 +77,9 @@ export abstract class ArrayHeap<T> extends Heap<T> {
 
   size(): number {
     return this.items.length;
+  }
+
+  peek(): T {
+    return this.rootNode();
   }
 }

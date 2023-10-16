@@ -21,4 +21,10 @@ export default abstract class Heap<T> {
    * @returns {number} number of elements in the heap
    */
   abstract size(): number;
+
+  /**
+   * Returns the root node without removing it
+   * @returns {T} root node
+   */
+  abstract peek(): T;
 }
