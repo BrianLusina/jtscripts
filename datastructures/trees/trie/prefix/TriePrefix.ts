@@ -1,11 +1,10 @@
-type TrieNode = {
-  children: Map<string, TrieNode>;
-  isLeaf: boolean;
-};
+import TrieNode from '../node';
 
-class Trie {
+export default class Trie<T> {
+  root: TrieNode<T>;
+
   constructor() {
-    child;
+    this.root = new TrieNode();
   }
 
   insert(word: string): void {}
