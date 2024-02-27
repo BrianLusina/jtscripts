@@ -1,5 +1,5 @@
-import HashSet from '../../datastructures/hashset';
-import { ArrayMinHeap as MinHeap } from '../../datastructures/trees/heap/binary/minheap';
+import HashSet from '../hashset';
+import { ArrayMinHeap as MinHeap } from '../trees/heap/binary/minheap';
 
 export default class SmallestInfiniteSet {
   private hashSet: HashSet<number>;
