@@ -146,4 +146,12 @@ export default abstract class LinkedList<T> {
    * nodes with twins for n = 4.
    */
   abstract maxPairSum(): T | null;
+
+  /**
+   * Inserts a given data element after the provided node
+   * @param {LinkedListNode} node node to insert data after
+   * @param {T} data data element to insert
+   */
+  // eslint-disable-next-line no-unused-vars
+  abstract insertAfterNode(node: LinkedListNode<T>, data: T): void;
 }

@@ -425,4 +425,18 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     return maximumSum;
   }
+
+  insertAfterNode(node: SinglyLinkedListNode<K, D>, data: D): void {
+    if (!node) {
+      return;
+    }
+    // node to insert
+    const newNode = new SinglyLinkedListNode<K, D>(data);
+
+    // set the new node's next pointer to point to the prevNode's next pointer
+    newNode.next = node.next;
+
+    // set the prevNode's next pointer to point to the new node
+    node.next = newNode;
+  }
 }
