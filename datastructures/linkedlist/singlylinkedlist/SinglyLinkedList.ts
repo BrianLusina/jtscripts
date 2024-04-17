@@ -100,20 +100,33 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
   }
 
   deleteNodeByData(data: D): SinglyLinkedListNode<K, D> | null {
-    // @ts-ignore
-    const dummyHead: SinglyLinkedListNode<number, D> = { data: -1, next: this.head, key: -1 };
-    let current = dummyHead;
+    let current = this.head;
 
-    while (current.next) {
-      if (current.next.data === data) {
-        current.next = current.next.next;
-      } else {
-        current = current.next;
-      }
+    // If the data we are deleting is at the head, then change the head to the next node in the linked list
+    // and return
+    if (current != null && current.data === data) {
+      this.head = current.next;
+      return current;
     }
 
-    // @ts-ignore
-    return dummyHead.next;
+    // this will be used to keep track of the previous node of the node to delete
+    let previous: SinglyLinkedListNode<K, D>;
+
+    // we move the pointer down the LinkedList until we find the Node whose data matches what we want to delete
+    while (current != null && current.data !== data) {
+      previous = current;
+      current = current.next;
+    }
+
+    //if there is no node that matches the condition above, we exit
+    if (current === null) {
+      return null;
+    }
+
+    // re-assign the pointers of the nodes around the node to delete. That is, moving the previous node's next
+    // pointer to the current node's next pointer. This essentially 'deletes' the node by the data attribute
+    previous!.next = current.next;
+    return current;
   }
 
   deleteMiddle(): SinglyLinkedListNode<K, D> | null {
