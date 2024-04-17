@@ -22,7 +22,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     let current = this.head;
 
-    while (current) {
+    while (current.next) {
       current = current.next;
     }
 
@@ -30,8 +30,10 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     return;
   }
 
-  prepend(node: SinglyLinkedListNode<K, D>): void {
-    throw new Error('Method not implemented.');
+  prepend(data: D): void {
+    const node = new SinglyLinkedListNode<K, D>(data);
+    node.next = this.head;
+    this.head = node;
   }
 
   length(): number {
