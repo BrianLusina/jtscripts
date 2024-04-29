@@ -102,4 +102,34 @@ describe('SinglyLinkedList', () => {
             })
         })
     })
+
+    describe("swapping nodes", () => {
+        it(`should swap nodes 2 & 3 in [1->2->3->4->5] to [1->3->2->4->5]`, () => {
+            const data = [1, 2, 3, 4, 5]
+            const linkedList = new SinglyLinkedList<number, number>(null)
+
+            for (let d of data) {
+                linkedList.append(d, d)
+            }
+
+            const expected = [1, 3, 2, 4, 5]
+            linkedList.swapNodes(2, 3);
+
+            let actualNodes: number[] = []
+
+            let actualHead = linkedList.head
+
+            while (actualHead){
+                actualNodes.push(actualHead.data)
+                actualHead = actualHead.next
+            }
+
+            const zipped = zip(actualNodes, expected)
+
+            for(const [actual, expected] of zipped) {
+                expect(actual).toEqual(expected)
+            }
+        })
+
+    })
 })

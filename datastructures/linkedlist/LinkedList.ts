@@ -93,44 +93,6 @@ export default abstract class LinkedList<T> {
    * @param {Any} dataOne Data Item One
    * @param {Any} dataTwo Data Item Two
    */
-  // swapNodes(dataOne: T, dataTwo: T): void {
-  //   if (!this.head) {
-  //     throw Error('Empty LinkedList');
-  //   }
-
-  //   if (dataOne === dataTwo) {
-  //     return;
-  //   }
-
-  //   let currentOne = this.head;
-  //   let currentTwo = this.head;
-
-  //   // @ts-ignore
-  //   while (currentOne && currentOne.data !== dataOne) {
-  //     // @ts-ignore
-  //     currentOne = currentOne.next;
-  //   }
-
-  //   // @ts-ignore
-  //   while (currentTwo && currentTwo.data !== dataTwo) {
-  //     // @ts-ignore
-  //     currentTwo = currentTwo.next;
-  //   }
-
-  //   if (!currentOne || !currentTwo) {
-  //     return;
-  //   }
-
-  //   // @ts-ignore
-  //   const tempOne = currentOne.data;
-  //   // @ts-ignore
-  //   const tempTwo = currentTwo.data;
-
-  //   // @ts-ignore
-  //   currentOne.data = tempOne;
-  //   // @ts-ignore
-  //   currentTwo.data = tempTwo;
-  // }
 
   /**
    * Reverses the LinkedList such that the head becomes the tail and the tail becomes the head
@@ -154,4 +116,12 @@ export default abstract class LinkedList<T> {
    */
   // eslint-disable-next-line no-unused-vars
   abstract insertAfterNode(node: LinkedListNode<T>, data: T): void;
+
+  /**
+   * Swap two nodes in a linked list such as keyOne takes the place of keyTwo and vice versa
+   * @param {T} keyOne First key to swap
+   * @param {T} keyTwo Second key to swap
+   */
+  // eslint-disable-next-line no-unused-vars
+  abstract swapNodes(keyOne: T, keyTwo: T): void;
 }

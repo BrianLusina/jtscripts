@@ -12,8 +12,8 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     this.head = headNode;
   }
 
-  append(data: D): void {
-    const node = new SinglyLinkedListNode<K, D>(data);
+  append(data: D, key: K | null = null): void {
+    const node = SinglyLinkedListNode.create({ data, key });
 
     if (!this.head) {
       this.head = node;
@@ -52,6 +52,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
   }
 
   moveToHead(data: D): void {
+    data;
     throw new Error('Method not implemented.');
   }
 
@@ -96,6 +97,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
   }
 
   deleteNode(data: D): void {
+    data;
     throw new Error('Method not implemented.');
   }
 
@@ -286,8 +288,8 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
   }
 
   swapNodesAtKthAndKPlusOne(k: number): SinglyLinkedListNode<K, D> | null {
-    let a = this.head;
-    let b = this.head;
+    let a: SinglyLinkedListNode<K, D> | null | undefined = this.head;
+    let b: SinglyLinkedListNode<K, D> | null | undefined = this.head;
 
     for (let index = 1; index < k; index++) {
       a = a?.next;
@@ -306,13 +308,19 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     }
 
     const temp = node?.data;
+    // @ts-ignore
     node.data = b?.data;
+    // @ts-ignore
     b.data = temp;
 
     return this.head;
   }
 
   reverse(): void {
+    if (!this.head) {
+      return;
+    }
+
     if (this.head?.next === null) {
       return;
     }
@@ -341,7 +349,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     }
 
     let odd = this.head;
-    let even = this.head.next;
+    let even: SinglyLinkedListNode<K, D> | null = this.head.next;
     const evenHead = even;
 
     while (even && even.next) {
@@ -374,6 +382,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     while (left < right) {
       const p = add(values[left], values[right]);
+      // @ts-ignore
       maximumSum = max(maximumSum, p);
       left += 1;
       right -= 1;
@@ -403,6 +412,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     while (count < size / 2) {
       const topValue = stack.pop();
 
+      // @ts-ignore
       maximumSum = max(maximumSum, add(current?.data, topValue));
       current = current?.next;
       count += 1;
@@ -431,6 +441,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     let start: SinglyLinkedListNode<K, D> | null | undefined = this.head;
     while (previous) {
+      // @ts-ignore
       maximumSum = max(maximumSum, add(start?.data, previous?.data));
       previous = previous.next;
       start = start?.next;
@@ -451,5 +462,37 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     // set the prevNode's next pointer to point to the new node
     node.next = newNode;
+  }
+
+  // @ts-ignore
+  swapNodes(keyOne: K, keyTwo: K): void {
+    if (!this.head) {
+      throw Error('Empty LinkedList');
+    }
+
+    if (keyOne === keyTwo) {
+      return;
+    }
+
+    let currentOne: SinglyLinkedListNode<K, D> | null = this.head;
+    let currentTwo: SinglyLinkedListNode<K, D> | null = this.head;
+
+    while (currentOne && currentOne.key !== keyOne) {
+      currentOne = currentOne.next;
+    }
+
+    while (currentTwo && currentTwo.key !== keyTwo) {
+      currentTwo = currentTwo.next;
+    }
+
+    if (!currentOne || !currentTwo) {
+      return;
+    }
+
+    const tempOne = currentOne.data;
+    const tempTwo = currentTwo.data;
+
+    currentOne.data = tempOne;
+    currentTwo.data = tempTwo;
   }
 }
