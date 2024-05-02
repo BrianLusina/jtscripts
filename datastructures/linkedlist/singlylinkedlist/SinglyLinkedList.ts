@@ -495,4 +495,28 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     currentOne.data = tempOne;
     currentTwo.data = tempTwo;
   }
+
+  kthToLastNode(k: number): SinglyLinkedListNode<K, D> | null | undefined {
+    if (k < 0) {
+      throw new Error(`k ${k} can not be less than 0`);
+    }
+
+    let leftNode: SinglyLinkedListNode<K, D> | null | undefined = this.head;
+    let rightNode = this.head;
+
+    for (let index = 0; index < k - 1; index++) {
+      if (!rightNode?.next) {
+        throw new Error(`k ${k} is larger than the length of the linked list`);
+      }
+
+      rightNode = rightNode.next;
+    }
+
+    while (rightNode?.next) {
+      rightNode = rightNode.next;
+      leftNode = leftNode?.next;
+    }
+
+    return leftNode;
+  }
 }

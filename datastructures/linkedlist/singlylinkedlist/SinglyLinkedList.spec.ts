@@ -130,6 +130,40 @@ describe('SinglyLinkedList', () => {
                 expect(actual).toEqual(expected)
             }
         })
+    })
 
+    describe("kth to last node", () => {
+        type testCase<T> = {
+            data: T[];
+            n: number;
+            expected: T;
+        }
+
+        const testCases: testCase<unknown>[] = [
+            {
+                data: ["A", "B", "C", "D"],
+                n: 2,
+                expected: "C"
+            },
+            {
+                data: [1, 2, 3, 4],
+                n: 2,
+                expected: 3
+            }
+        ]
+
+        testCases.forEach(({ data, n, expected }) => {
+            it(`should return ${expected} from data=${data} with n=${n}`, () => {
+                const linkedList = new SinglyLinkedList(null);
+                for (let d of data) {
+                    linkedList.append(d, d);
+                }
+
+                const actual = linkedList.kthToLastNode(n);
+                expect(actual).toBeTruthy()
+
+                expect(actual?.data).toEqual(expected);
+            })
+        })
     })
 })

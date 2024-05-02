@@ -124,4 +124,10 @@ export default abstract class LinkedList<T> {
    */
   // eslint-disable-next-line no-unused-vars
   abstract swapNodes(keyOne: T, keyTwo: T): void;
+
+  /**
+   * Returns the kth to the last node in the linked list if available
+   * @param k {number} the position from the last node in the linked list
+   */
+  abstract kthToLastNode(e: number): LinkedListNode<T> | null | undefined;
 }

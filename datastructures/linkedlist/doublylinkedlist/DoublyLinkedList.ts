@@ -1,4 +1,5 @@
 import LinkedList from '../LinkedList';
+import { LinkedListNode } from '../nodes';
 import DoubleNode from './DoubleNode';
 
 export default class DoublyLinkedList<T> extends LinkedList<T> {
@@ -127,5 +128,13 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
 
   get length(): number {
     return this.size;
+  }
+
+  swapNodes(keyOne: T, keyTwo: T): void {
+    
+  }
+
+  kthToLastNode(e: number): LinkedListNode<T> | null {
+    
   }
 }
