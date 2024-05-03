@@ -519,4 +519,22 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     return leftNode;
   }
+
+  countOccurrences(data: D): number {
+    if (!this.head) {
+      return 0;
+    }
+
+    let occurrences = 0;
+    let current: SinglyLinkedListNode<K, D> | null = this.head;
+
+    while (current) {
+      if (current.data === data) {
+        occurrences += 1;
+      }
+      current = current.next;
+    }
+
+    return occurrences;
+  }
 }

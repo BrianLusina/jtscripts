@@ -134,7 +134,40 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
     
   }
 
-  kthToLastNode(e: number): LinkedListNode<T> | null {
+  kthToLastNode(e: number): DoubleNode<T> | null {
     
   }
+
+  countOccurrences(data: T): number {
+    if (!this.head) {
+      return 0;
+    }
+
+    let occurrences = 0;
+    let current: DoubleNode<T> | null | undefined = this.head;
+
+    while (current) {
+      if (current.data === data) {
+        occurrences += 1;
+      }
+      current = current.next;
+    }
+
+    return occurrences;
+  }
+  deleteMiddle(): LinkedListNode<T> | null {
+    throw new Error('Method not implemented.');
+  }
+  getMiddle(): LinkedListNode<T> | null {
+    throw new Error('Method not implemented.');
+  }
+  oddEvenList(): LinkedListNode<T> | null {
+    throw new Error('Method not implemented.');
+  }
+  maxPairSum(): T | null {
+    throw new Error('Method not implemented.');
+  }
+  insertAfterNode(node: LinkedListNode<T>, data: T): void {
+    throw new Error('Method not implemented.');
+  }  
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { LinkedListNode } from './nodes';
 
 export default abstract class LinkedList<T> {
@@ -130,4 +131,22 @@ export default abstract class LinkedList<T> {
    * @param k {number} the position from the last node in the linked list
    */
   abstract kthToLastNode(e: number): LinkedListNode<T> | null | undefined;
+
+  /**
+   * Count the number of occurrences of a data item in a linked list
+   * If the linked list is empty(no head). 0 is returned.
+   * otherwise the occurrences of the data element will be sought using the equality operator. This assumes that the
+   * data element in each node already implements this operator.
+   * Complexity:
+   * The assumption here is that n is the number of nodes in the linked list.
+   *
+   * Time O(n): This is because the algorithm iterates through each node in the linked list to find data values in
+   * each node that equal the provided data argument in the function. This is both for the worst and best case as
+   * each node in the linked list has to be checked
+   * Space O(1): no extra space is required other than the value being incremented for each node whose data element
+   * equals the provided data argument.
+   * @param {T} data element to count occurrences for.
+   * @returns {number} number of occurrences for a given data item.
+   */
+  abstract countOccurrences(data: T): number;
 }
