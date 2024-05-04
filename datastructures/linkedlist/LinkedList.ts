@@ -149,4 +149,11 @@ export default abstract class LinkedList<T> {
    * @returns {number} number of occurrences for a given data item.
    */
   abstract countOccurrences(data: T): number;
+
+  /**
+   * Rotates a linked list by k position
+   * @param {number} k positions to rotate linked list by
+   * @returns {LinkedListNode} new head node
+   */
+  abstract rotate(k: number): LinkedListNode<T> | null;
 }

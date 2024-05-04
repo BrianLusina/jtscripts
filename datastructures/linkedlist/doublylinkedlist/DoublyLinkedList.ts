@@ -169,5 +169,9 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
   }
   insertAfterNode(node: LinkedListNode<T>, data: T): void {
     throw new Error('Method not implemented.');
-  }  
+  } 
+
+  rotate(k: number): LinkedListNode<T> | null {
+    throw new Error('Method not implemented.');
+  }
 }

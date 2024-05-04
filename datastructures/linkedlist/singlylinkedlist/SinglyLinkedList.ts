@@ -537,4 +537,46 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     return occurrences;
   }
+
+  rotate(k: number): SinglyLinkedListNode<K, D> | null {
+    if (k === 0) {
+      return this.head;
+    }
+
+    if (!this.head || !this.head.next) {
+      return this.head;
+    }
+
+    let current: SinglyLinkedListNode<K, D> | null = this.head;
+    let count = 1;
+
+    // move pointer until it reaches the kth node
+    while (current && count < k) {
+      current = current.next;
+      count += 1;
+    }
+
+    // if we don't have a kth node(current is nil), k is greater than or equal to
+    // count of nodes in linked list. So no need to rotate
+    if (!current) {
+      return null;
+    }
+
+    const kthNode = current;
+
+    // move pointer to the end of the linked list
+    while (current.next) {
+      current = current?.next;
+    }
+
+    // change next of current node to point to previous head. This makes the linked list circular
+    current.next = this.head;
+
+    // change head to k+1th node
+    this.head = kthNode.next;
+
+    // break the circular linked list by setting the next of the kth node to null
+    kthNode.next = null;
+    return this.head;
+  }
 }

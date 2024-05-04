@@ -166,4 +166,56 @@ describe('SinglyLinkedList', () => {
             })
         })
     })
+
+    describe("rotate", () => {
+        type testCase<T> = {
+            data: T[];
+            k: number;
+            expected: T[];
+        }
+
+        const testCases: testCase<unknown>[] = [
+            {
+                data: [10, 20, 30, 40, 50, 60],
+                k: 0,
+                expected: [10, 20, 30, 40, 50, 60]
+            },
+            {
+                data: [10, 20, 30, 40, 50, 60],
+                k: 4,
+                expected: [50, 60, 10, 20, 30, 40]
+            },
+            {
+                data: [1,2,3,4,5,6],
+                k: 4,
+                expected: [5, 6, 1, 2, 3, 4]
+            },
+            {
+                data: [1,2,3,4,5],
+                k: 2,
+                expected: [3,4,5,1,2]
+            }
+        ]
+
+        testCases.forEach(({ data, k, expected }) => {
+            it(`should return ${expected} from data=${data} with n=${k}`, () => {
+                const linkedList = new SinglyLinkedList(null);
+                for (let d of data) {
+                    linkedList.append(d, d);
+                }
+
+                let actual = linkedList.rotate(k);
+                expect(actual).toBeTruthy()
+
+                const actualData = [];
+                while (actual) {
+                    actualData.push(actual.data);
+                    actual = actual.next;
+                }
+
+                expect(actualData).toEqual(expected);
+            })
+        })
+    })
+
 })
