@@ -218,4 +218,46 @@ describe('SinglyLinkedList', () => {
         })
     })
 
+    describe("isPalindrome", () => {
+        type testCase<T> = {
+            data: T[];
+            expected: boolean;
+        }
+
+        const testCases: testCase<unknown>[] = [
+            {
+                data: ["r", "a", "c", "e", "c", "a", "r"],
+                expected: true
+            },
+        ]
+
+        describe('using a stack', () => {
+            testCases.forEach(({ data, expected }) => {
+                it(`should return ${expected} from data=${data}`, () => {
+                    const linkedList = new SinglyLinkedList(null);
+                    for (let d of data) {
+                        linkedList.append(d, d);
+                    }
+    
+                    let actual = linkedList.isPalindrome();
+                    expect(actual).toEqual(expected)
+                })
+            })
+        })
+
+        describe('using 2 pointers', () => {
+            testCases.forEach(({ data, expected }) => {
+                it(`should return ${expected} from data=${data}`, () => {
+                    const linkedList = new SinglyLinkedList(null);
+                    for (let d of data) {
+                        linkedList.append(d, d);
+                    }
+    
+                    let actual = linkedList.isPalindromeTwoPointers();
+                    expect(actual).toEqual(expected)
+                })
+            })            
+        })
+    })
+
 })

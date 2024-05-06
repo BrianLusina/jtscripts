@@ -232,12 +232,11 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
       return true;
     }
 
-    let current = this.head;
+    let current: SinglyLinkedListNode<K, D> | null = this.head;
     const stack: D[] = [];
 
     while (current) {
       stack.push(current.data);
-      // @ts-ignore
       current = current.next;
     }
 
@@ -250,8 +249,42 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
         return false;
       }
 
-      // @ts-ignore
       current = current.next;
+    }
+
+    return true;
+  }
+  
+  isPalindromeTwoPointers(): boolean {
+    if (!this.head) {
+      return false;
+    }
+
+    if (!this.head.next) {
+      return true;
+    }
+
+    let firstPointer: SinglyLinkedListNode<K, D> | null = this.head;
+    let lastPointer: SinglyLinkedListNode<K, D> | null = this.head;
+    const previous: SinglyLinkedListNode<K, D>[] = [];
+    let i = 0;
+
+    while (lastPointer) {
+      previous.push(lastPointer);
+      lastPointer = lastPointer.next;
+      i += 1;
+    }
+    lastPointer = previous[i - 1];
+
+    let count = 0;
+
+    while (count <= i / 2 + 1) {
+      if (previous[previous.length - count - 1].data != firstPointer?.data) {
+        return false;
+      }
+
+      firstPointer = firstPointer?.next;
+      count += 1;
     }
 
     return true;
