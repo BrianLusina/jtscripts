@@ -254,7 +254,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     return true;
   }
-  
+
   isPalindromeTwoPointers(): boolean {
     if (!this.head) {
       return false;
@@ -611,5 +611,31 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     // break the circular linked list by setting the next of the kth node to null
     kthNode.next = null;
     return this.head;
+  }
+
+  moveTailToHead(): void {
+    if (this.head && this.head.next) {
+      // pointer that is initially set to the head node of the linked list. This will be used to keep track of the last node in the linked list
+      let last = this.head;
+      // secondToLast is a pointer initially set to nil that will be used to keep track of the second to last node in the linked list that will become
+      // the new tail
+      let secondToLast: SinglyLinkedListNode<K, D> | null = null;
+
+      // move the last pointer to the end of the linked list while the node has a next pointer. This will set the previous pointer to last while also
+      // setting the last pointer to the last node. After this loop, the previous will be at the second last node while the last will be at the last node
+      // in the linked list
+      while (last.next) {
+        secondToLast = last;
+        last = last.next;
+      }
+      // set the last node's next pointer to point to the head node. Note that at this point in time this has become a circular linked list
+      last.next = this.head;
+      // set the previous'(second to last node) next pointer to nil, consequentially breaking the circular linked list and setting this node as the last(tail)
+      // node in the linked list
+      // @ts-ignore
+      secondToLast.next = null;
+      // set the new head of the linked list as the last node
+      this.head = last;
+    }
   }
 }

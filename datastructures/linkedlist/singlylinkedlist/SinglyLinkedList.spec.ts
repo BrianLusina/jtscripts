@@ -260,4 +260,47 @@ describe('SinglyLinkedList', () => {
         })
     })
 
+    describe("Move Tail To Head", () => {
+        type testCase<T> = {
+            data: T[];
+            expectedHead: T;
+            expectedList: T[];
+        }
+
+        const testCases: testCase<unknown>[] = [
+            {
+                data: ["r", "a", "c", "e", "c", "a", "r"],
+                expectedHead: "r",
+                expectedList: ["r","r", "a", "c", "e", "c", "a"],
+            },
+            {
+                data: ["a", "b", "c", "d"],
+                expectedHead: "d",
+                expectedList: ["d", "a", "b", "c"],
+            },
+        ]
+
+        testCases.forEach(({ data, expectedHead, expectedList }) => {
+            it(`should set new head as ${expectedHead} and list should become ${expectedList} from data=${data}`, () => {
+                const linkedList = new SinglyLinkedList(null);
+                for (let d of data) {
+                    linkedList.append(d, d);
+                }
+
+                linkedList.moveTailToHead();
+                let actualHead = linkedList.head;
+                expect(actualHead).toBeDefined();
+                expect(actualHead?.data).toEqual(expectedHead);
+
+                const actualData = [];
+                while (actualHead) {
+                    actualData.push(actualHead.data)
+                    actualHead = actualHead.next;
+                }
+
+                expect(actualData).toEqual(expectedList);
+            })
+        })
+    })
+
 })

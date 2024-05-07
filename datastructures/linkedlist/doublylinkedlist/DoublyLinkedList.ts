@@ -174,4 +174,8 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
   rotate(k: number): LinkedListNode<T> | null {
     throw new Error('Method not implemented.');
   }
+
+  moveTailToHead(): void {
+    throw new Error('Method not implemented.');
+  } 
 }

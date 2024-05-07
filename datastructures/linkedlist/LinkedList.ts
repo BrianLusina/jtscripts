@@ -156,4 +156,16 @@ export default abstract class LinkedList<T> {
    * @returns {LinkedListNode} new head node
    */
   abstract rotate(k: number): LinkedListNode<T> | null;
+
+  /**
+   * Moves the tail node to the head node making the tail node the new head of the linked list
+   * Uses two pointers where last pointer will be moved until it points to the last node in the linked list. The second pointer, previous, will
+   * point to the second last node in the linked list.
+   * Complexity Analysis:
+   * An assumption is made where n is the number of nodes in the linked list
+   * Time: O(n) as the the pointers have to be moved through each node in the linked list until both point to the last and second last nodes in the linked list
+   * Space O(1) as no extra space is incurred in the iteration. Only pointers are moved at the end to move the tail node to the head and make the second to last node
+   * the new tail
+   */
+  abstract moveTailToHead(): void;
 }
