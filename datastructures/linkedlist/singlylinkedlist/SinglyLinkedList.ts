@@ -638,4 +638,38 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
       this.head = last;
     }
   }
+
+  // @ts-ignore
+  sumLinkedList(other: SinglyLinkedList<K, D>): SinglyLinkedList<K, D> {
+    let firstHead = this.head;
+    let secondHead = other.head;
+    const summedList = new SinglyLinkedList<K, D>(null);
+
+    let carry = 0;
+
+    while (firstHead || secondHead) {
+      const i = firstHead ? firstHead.data : 0;
+      const j = secondHead ? secondHead.data : 0;
+
+      const s = (i as number) + (j as number) + carry;
+
+      if (s >= 10) {
+        carry = 1;
+        const remainder = s & 10;
+        summedList.append(remainder as D);
+      } else {
+        carry = 0;
+        summedList.append(s as D);
+      }
+
+      if (firstHead != null) {
+        firstHead = firstHead.next;
+      }
+      if (secondHead != null) {
+        secondHead = secondHead.next;
+      }
+    }
+
+    return summedList;
+  }
 }

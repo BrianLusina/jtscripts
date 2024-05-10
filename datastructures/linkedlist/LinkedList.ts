@@ -168,4 +168,26 @@ export default abstract class LinkedList<T> {
    * the new tail
    */
   abstract moveTailToHead(): void;
+
+  /**
+   * Sums another linked list to create a new linked list
+   * In this exercise, you are required to sum two linked lists and return the sum embedded in another linked list.
+   *
+   * The first number that we append to the linked list represents the unit place and will be the least significant digit of
+   * a number. The next numbers appended to the linked list will subsequently represent the tenth, hundredth, thousandth, and
+   * so on places.
+   *
+   * For example,
+   *
+   * ```typescript
+   * const llist1 = new LinkedList()
+   * llist1.append(5)
+   * llist1.append(6)
+   * llist1.append(3)
+   * ```
+   *
+   * in the code above, llist1 represents the number 365.   *
+   * @param other Other linked list
+   */
+  abstract sumLinkedList(other: LinkedList<T>): LinkedList<T>;
 }
