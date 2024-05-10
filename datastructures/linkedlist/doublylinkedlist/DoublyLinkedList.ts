@@ -1,4 +1,5 @@
 import LinkedList from '../LinkedList';
+import { LinkedListNode } from '../nodes';
 import DoubleNode from './DoubleNode';
 
 export default class DoublyLinkedList<T> extends LinkedList<T> {
@@ -128,4 +129,53 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
   get length(): number {
     return this.size;
   }
+
+  swapNodes(keyOne: T, keyTwo: T): void {
+    
+  }
+
+  kthToLastNode(e: number): DoubleNode<T> | null {
+    
+  }
+
+  countOccurrences(data: T): number {
+    if (!this.head) {
+      return 0;
+    }
+
+    let occurrences = 0;
+    let current: DoubleNode<T> | null | undefined = this.head;
+
+    while (current) {
+      if (current.data === data) {
+        occurrences += 1;
+      }
+      current = current.next;
+    }
+
+    return occurrences;
+  }
+  deleteMiddle(): LinkedListNode<T> | null {
+    throw new Error('Method not implemented.');
+  }
+  getMiddle(): LinkedListNode<T> | null {
+    throw new Error('Method not implemented.');
+  }
+  oddEvenList(): LinkedListNode<T> | null {
+    throw new Error('Method not implemented.');
+  }
+  maxPairSum(): T | null {
+    throw new Error('Method not implemented.');
+  }
+  insertAfterNode(node: LinkedListNode<T>, data: T): void {
+    throw new Error('Method not implemented.');
+  } 
+
+  rotate(k: number): LinkedListNode<T> | null {
+    throw new Error('Method not implemented.');
+  }
+
+  moveTailToHead(): void {
+    throw new Error('Method not implemented.');
+  } 
 }

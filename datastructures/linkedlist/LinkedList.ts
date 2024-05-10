@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { LinkedListNode } from './nodes';
 
 export default abstract class LinkedList<T> {
@@ -93,44 +94,6 @@ export default abstract class LinkedList<T> {
    * @param {Any} dataOne Data Item One
    * @param {Any} dataTwo Data Item Two
    */
-  // swapNodes(dataOne: T, dataTwo: T): void {
-  //   if (!this.head) {
-  //     throw Error('Empty LinkedList');
-  //   }
-
-  //   if (dataOne === dataTwo) {
-  //     return;
-  //   }
-
-  //   let currentOne = this.head;
-  //   let currentTwo = this.head;
-
-  //   // @ts-ignore
-  //   while (currentOne && currentOne.data !== dataOne) {
-  //     // @ts-ignore
-  //     currentOne = currentOne.next;
-  //   }
-
-  //   // @ts-ignore
-  //   while (currentTwo && currentTwo.data !== dataTwo) {
-  //     // @ts-ignore
-  //     currentTwo = currentTwo.next;
-  //   }
-
-  //   if (!currentOne || !currentTwo) {
-  //     return;
-  //   }
-
-  //   // @ts-ignore
-  //   const tempOne = currentOne.data;
-  //   // @ts-ignore
-  //   const tempTwo = currentTwo.data;
-
-  //   // @ts-ignore
-  //   currentOne.data = tempOne;
-  //   // @ts-ignore
-  //   currentTwo.data = tempTwo;
-  // }
 
   /**
    * Reverses the LinkedList such that the head becomes the tail and the tail becomes the head
@@ -146,4 +109,85 @@ export default abstract class LinkedList<T> {
    * nodes with twins for n = 4.
    */
   abstract maxPairSum(): T | null;
+
+  /**
+   * Inserts a given data element after the provided node
+   * @param {LinkedListNode} node node to insert data after
+   * @param {T} data data element to insert
+   */
+  // eslint-disable-next-line no-unused-vars
+  abstract insertAfterNode(node: LinkedListNode<T>, data: T): void;
+
+  /**
+   * Swap two nodes in a linked list such as keyOne takes the place of keyTwo and vice versa
+   * @param {T} keyOne First key to swap
+   * @param {T} keyTwo Second key to swap
+   */
+  // eslint-disable-next-line no-unused-vars
+  abstract swapNodes(keyOne: T, keyTwo: T): void;
+
+  /**
+   * Returns the kth to the last node in the linked list if available
+   * @param k {number} the position from the last node in the linked list
+   */
+  abstract kthToLastNode(e: number): LinkedListNode<T> | null | undefined;
+
+  /**
+   * Count the number of occurrences of a data item in a linked list
+   * If the linked list is empty(no head). 0 is returned.
+   * otherwise the occurrences of the data element will be sought using the equality operator. This assumes that the
+   * data element in each node already implements this operator.
+   * Complexity:
+   * The assumption here is that n is the number of nodes in the linked list.
+   *
+   * Time O(n): This is because the algorithm iterates through each node in the linked list to find data values in
+   * each node that equal the provided data argument in the function. This is both for the worst and best case as
+   * each node in the linked list has to be checked
+   * Space O(1): no extra space is required other than the value being incremented for each node whose data element
+   * equals the provided data argument.
+   * @param {T} data element to count occurrences for.
+   * @returns {number} number of occurrences for a given data item.
+   */
+  abstract countOccurrences(data: T): number;
+
+  /**
+   * Rotates a linked list by k position
+   * @param {number} k positions to rotate linked list by
+   * @returns {LinkedListNode} new head node
+   */
+  abstract rotate(k: number): LinkedListNode<T> | null;
+
+  /**
+   * Moves the tail node to the head node making the tail node the new head of the linked list
+   * Uses two pointers where last pointer will be moved until it points to the last node in the linked list. The second pointer, previous, will
+   * point to the second last node in the linked list.
+   * Complexity Analysis:
+   * An assumption is made where n is the number of nodes in the linked list
+   * Time: O(n) as the the pointers have to be moved through each node in the linked list until both point to the last and second last nodes in the linked list
+   * Space O(1) as no extra space is incurred in the iteration. Only pointers are moved at the end to move the tail node to the head and make the second to last node
+   * the new tail
+   */
+  abstract moveTailToHead(): void;
+
+  /**
+   * Sums another linked list to create a new linked list
+   * In this exercise, you are required to sum two linked lists and return the sum embedded in another linked list.
+   *
+   * The first number that we append to the linked list represents the unit place and will be the least significant digit of
+   * a number. The next numbers appended to the linked list will subsequently represent the tenth, hundredth, thousandth, and
+   * so on places.
+   *
+   * For example,
+   *
+   * ```typescript
+   * const llist1 = new LinkedList()
+   * llist1.append(5)
+   * llist1.append(6)
+   * llist1.append(3)
+   * ```
+   *
+   * in the code above, llist1 represents the number 365.   *
+   * @param other Other linked list
+   */
+  abstract sumLinkedList(other: LinkedList<T>): LinkedList<T>;
 }

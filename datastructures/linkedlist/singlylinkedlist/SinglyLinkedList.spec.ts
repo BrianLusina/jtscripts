@@ -102,4 +102,205 @@ describe('SinglyLinkedList', () => {
             })
         })
     })
+
+    describe("swapping nodes", () => {
+        it(`should swap nodes 2 & 3 in [1->2->3->4->5] to [1->3->2->4->5]`, () => {
+            const data = [1, 2, 3, 4, 5]
+            const linkedList = new SinglyLinkedList<number, number>(null)
+
+            for (let d of data) {
+                linkedList.append(d, d)
+            }
+
+            const expected = [1, 3, 2, 4, 5]
+            linkedList.swapNodes(2, 3);
+
+            let actualNodes: number[] = []
+
+            let actualHead = linkedList.head
+
+            while (actualHead){
+                actualNodes.push(actualHead.data)
+                actualHead = actualHead.next
+            }
+
+            const zipped = zip(actualNodes, expected)
+
+            for(const [actual, expected] of zipped) {
+                expect(actual).toEqual(expected)
+            }
+        })
+    })
+
+    describe("kth to last node", () => {
+        type testCase<T> = {
+            data: T[];
+            n: number;
+            expected: T;
+        }
+
+        const testCases: testCase<unknown>[] = [
+            {
+                data: ["A", "B", "C", "D"],
+                n: 2,
+                expected: "C"
+            },
+            {
+                data: [1, 2, 3, 4],
+                n: 2,
+                expected: 3
+            }
+        ]
+
+        testCases.forEach(({ data, n, expected }) => {
+            it(`should return ${expected} from data=${data} with n=${n}`, () => {
+                const linkedList = new SinglyLinkedList(null);
+                for (let d of data) {
+                    linkedList.append(d, d);
+                }
+
+                const actual = linkedList.kthToLastNode(n);
+                expect(actual).toBeTruthy()
+
+                expect(actual?.data).toEqual(expected);
+            })
+        })
+    })
+
+    describe("rotate", () => {
+        type testCase<T> = {
+            data: T[];
+            k: number;
+            expected: T[];
+        }
+
+        const testCases: testCase<unknown>[] = [
+            {
+                data: [10, 20, 30, 40, 50, 60],
+                k: 0,
+                expected: [10, 20, 30, 40, 50, 60]
+            },
+            {
+                data: [10, 20, 30, 40, 50, 60],
+                k: 4,
+                expected: [50, 60, 10, 20, 30, 40]
+            },
+            {
+                data: [1,2,3,4,5,6],
+                k: 4,
+                expected: [5, 6, 1, 2, 3, 4]
+            },
+            {
+                data: [1,2,3,4,5],
+                k: 2,
+                expected: [3,4,5,1,2]
+            }
+        ]
+
+        testCases.forEach(({ data, k, expected }) => {
+            it(`should return ${expected} from data=${data} with n=${k}`, () => {
+                const linkedList = new SinglyLinkedList(null);
+                for (let d of data) {
+                    linkedList.append(d, d);
+                }
+
+                let actual = linkedList.rotate(k);
+                expect(actual).toBeTruthy()
+
+                const actualData = [];
+                while (actual) {
+                    actualData.push(actual.data);
+                    actual = actual.next;
+                }
+
+                expect(actualData).toEqual(expected);
+            })
+        })
+    })
+
+    describe("isPalindrome", () => {
+        type testCase<T> = {
+            data: T[];
+            expected: boolean;
+        }
+
+        const testCases: testCase<unknown>[] = [
+            {
+                data: ["r", "a", "c", "e", "c", "a", "r"],
+                expected: true
+            },
+        ]
+
+        describe('using a stack', () => {
+            testCases.forEach(({ data, expected }) => {
+                it(`should return ${expected} from data=${data}`, () => {
+                    const linkedList = new SinglyLinkedList(null);
+                    for (let d of data) {
+                        linkedList.append(d, d);
+                    }
+    
+                    let actual = linkedList.isPalindrome();
+                    expect(actual).toEqual(expected)
+                })
+            })
+        })
+
+        describe('using 2 pointers', () => {
+            testCases.forEach(({ data, expected }) => {
+                it(`should return ${expected} from data=${data}`, () => {
+                    const linkedList = new SinglyLinkedList(null);
+                    for (let d of data) {
+                        linkedList.append(d, d);
+                    }
+    
+                    let actual = linkedList.isPalindromeTwoPointers();
+                    expect(actual).toEqual(expected)
+                })
+            })            
+        })
+    })
+
+    describe("Move Tail To Head", () => {
+        type testCase<T> = {
+            data: T[];
+            expectedHead: T;
+            expectedList: T[];
+        }
+
+        const testCases: testCase<unknown>[] = [
+            {
+                data: ["r", "a", "c", "e", "c", "a", "r"],
+                expectedHead: "r",
+                expectedList: ["r","r", "a", "c", "e", "c", "a"],
+            },
+            {
+                data: ["a", "b", "c", "d"],
+                expectedHead: "d",
+                expectedList: ["d", "a", "b", "c"],
+            },
+        ]
+
+        testCases.forEach(({ data, expectedHead, expectedList }) => {
+            it(`should set new head as ${expectedHead} and list should become ${expectedList} from data=${data}`, () => {
+                const linkedList = new SinglyLinkedList(null);
+                for (let d of data) {
+                    linkedList.append(d, d);
+                }
+
+                linkedList.moveTailToHead();
+                let actualHead = linkedList.head;
+                expect(actualHead).toBeDefined();
+                expect(actualHead?.data).toEqual(expectedHead);
+
+                const actualData = [];
+                while (actualHead) {
+                    actualData.push(actualHead.data)
+                    actualHead = actualHead.next;
+                }
+
+                expect(actualData).toEqual(expectedList);
+            })
+        })
+    })
+
 })

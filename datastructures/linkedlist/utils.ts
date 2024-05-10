@@ -1,4 +1,4 @@
-import { SinglyLinkedListNode } from './nodes';
+import SinglyLinkedListNode from './singlylinkedlist/SinglyLinkedListNode';
 
 /**
  * Merges two sorted linked lists and returns 1 sorted linked list

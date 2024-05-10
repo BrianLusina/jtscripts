@@ -12,8 +12,8 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     this.head = headNode;
   }
 
-  append(data: D): void {
-    const node = new SinglyLinkedListNode<K, D>(data);
+  append(data: D, key: K | null = null): void {
+    const node = SinglyLinkedListNode.create({ data, key });
 
     if (!this.head) {
       this.head = node;
@@ -22,7 +22,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     let current = this.head;
 
-    while (current) {
+    while (current.next) {
       current = current.next;
     }
 
@@ -30,8 +30,10 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     return;
   }
 
-  prepend(node: SinglyLinkedListNode<K, D>): void {
-    throw new Error('Method not implemented.');
+  prepend(data: D): void {
+    const node = new SinglyLinkedListNode<K, D>(data);
+    node.next = this.head;
+    this.head = node;
   }
 
   length(): number {
@@ -50,6 +52,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
   }
 
   moveToHead(data: D): void {
+    data;
     throw new Error('Method not implemented.');
   }
 
@@ -94,24 +97,38 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
   }
 
   deleteNode(data: D): void {
+    data;
     throw new Error('Method not implemented.');
   }
 
   deleteNodeByData(data: D): SinglyLinkedListNode<K, D> | null {
-    // @ts-ignore
-    const dummyHead: SinglyLinkedListNode<number, D> = { data: -1, next: this.head, key: -1 };
-    let current = dummyHead;
+    let current = this.head;
 
-    while (current.next) {
-      if (current.next.data === data) {
-        current.next = current.next.next;
-      } else {
-        current = current.next;
-      }
+    // If the data we are deleting is at the head, then change the head to the next node in the linked list
+    // and return
+    if (current != null && current.data === data) {
+      this.head = current.next;
+      return current;
     }
 
-    // @ts-ignore
-    return dummyHead.next;
+    // this will be used to keep track of the previous node of the node to delete
+    let previous: SinglyLinkedListNode<K, D>;
+
+    // we move the pointer down the LinkedList until we find the Node whose data matches what we want to delete
+    while (current != null && current.data !== data) {
+      previous = current;
+      current = current.next;
+    }
+
+    //if there is no node that matches the condition above, we exit
+    if (current === null) {
+      return null;
+    }
+
+    // re-assign the pointers of the nodes around the node to delete. That is, moving the previous node's next
+    // pointer to the current node's next pointer. This essentially 'deletes' the node by the data attribute
+    previous!.next = current.next;
+    return current;
   }
 
   deleteMiddle(): SinglyLinkedListNode<K, D> | null {
@@ -215,12 +232,11 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
       return true;
     }
 
-    let current = this.head;
+    let current: SinglyLinkedListNode<K, D> | null = this.head;
     const stack: D[] = [];
 
     while (current) {
       stack.push(current.data);
-      // @ts-ignore
       current = current.next;
     }
 
@@ -233,8 +249,42 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
         return false;
       }
 
-      // @ts-ignore
       current = current.next;
+    }
+
+    return true;
+  }
+
+  isPalindromeTwoPointers(): boolean {
+    if (!this.head) {
+      return false;
+    }
+
+    if (!this.head.next) {
+      return true;
+    }
+
+    let firstPointer: SinglyLinkedListNode<K, D> | null = this.head;
+    let lastPointer: SinglyLinkedListNode<K, D> | null = this.head;
+    const previous: SinglyLinkedListNode<K, D>[] = [];
+    let i = 0;
+
+    while (lastPointer) {
+      previous.push(lastPointer);
+      lastPointer = lastPointer.next;
+      i += 1;
+    }
+    lastPointer = previous[i - 1];
+
+    let count = 0;
+
+    while (count <= i / 2 + 1) {
+      if (previous[previous.length - count - 1].data != firstPointer?.data) {
+        return false;
+      }
+
+      firstPointer = firstPointer?.next;
+      count += 1;
     }
 
     return true;
@@ -271,8 +321,8 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
   }
 
   swapNodesAtKthAndKPlusOne(k: number): SinglyLinkedListNode<K, D> | null {
-    let a = this.head;
-    let b = this.head;
+    let a: SinglyLinkedListNode<K, D> | null | undefined = this.head;
+    let b: SinglyLinkedListNode<K, D> | null | undefined = this.head;
 
     for (let index = 1; index < k; index++) {
       a = a?.next;
@@ -291,13 +341,19 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     }
 
     const temp = node?.data;
+    // @ts-ignore
     node.data = b?.data;
+    // @ts-ignore
     b.data = temp;
 
     return this.head;
   }
 
   reverse(): void {
+    if (!this.head) {
+      return;
+    }
+
     if (this.head?.next === null) {
       return;
     }
@@ -326,7 +382,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     }
 
     let odd = this.head;
-    let even = this.head.next;
+    let even: SinglyLinkedListNode<K, D> | null = this.head.next;
     const evenHead = even;
 
     while (even && even.next) {
@@ -359,6 +415,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     while (left < right) {
       const p = add(values[left], values[right]);
+      // @ts-ignore
       maximumSum = max(maximumSum, p);
       left += 1;
       right -= 1;
@@ -388,6 +445,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     while (count < size / 2) {
       const topValue = stack.pop();
 
+      // @ts-ignore
       maximumSum = max(maximumSum, add(current?.data, topValue));
       current = current?.next;
       count += 1;
@@ -416,11 +474,202 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     let start: SinglyLinkedListNode<K, D> | null | undefined = this.head;
     while (previous) {
+      // @ts-ignore
       maximumSum = max(maximumSum, add(start?.data, previous?.data));
       previous = previous.next;
       start = start?.next;
     }
 
     return maximumSum;
+  }
+
+  insertAfterNode(node: SinglyLinkedListNode<K, D>, data: D): void {
+    if (!node) {
+      return;
+    }
+    // node to insert
+    const newNode = new SinglyLinkedListNode<K, D>(data);
+
+    // set the new node's next pointer to point to the prevNode's next pointer
+    newNode.next = node.next;
+
+    // set the prevNode's next pointer to point to the new node
+    node.next = newNode;
+  }
+
+  // @ts-ignore
+  swapNodes(keyOne: K, keyTwo: K): void {
+    if (!this.head) {
+      throw Error('Empty LinkedList');
+    }
+
+    if (keyOne === keyTwo) {
+      return;
+    }
+
+    let currentOne: SinglyLinkedListNode<K, D> | null = this.head;
+    let currentTwo: SinglyLinkedListNode<K, D> | null = this.head;
+
+    while (currentOne && currentOne.key !== keyOne) {
+      currentOne = currentOne.next;
+    }
+
+    while (currentTwo && currentTwo.key !== keyTwo) {
+      currentTwo = currentTwo.next;
+    }
+
+    if (!currentOne || !currentTwo) {
+      return;
+    }
+
+    const tempOne = currentOne.data;
+    const tempTwo = currentTwo.data;
+
+    currentOne.data = tempOne;
+    currentTwo.data = tempTwo;
+  }
+
+  kthToLastNode(k: number): SinglyLinkedListNode<K, D> | null | undefined {
+    if (k < 0) {
+      throw new Error(`k ${k} can not be less than 0`);
+    }
+
+    let leftNode: SinglyLinkedListNode<K, D> | null | undefined = this.head;
+    let rightNode = this.head;
+
+    for (let index = 0; index < k - 1; index++) {
+      if (!rightNode?.next) {
+        throw new Error(`k ${k} is larger than the length of the linked list`);
+      }
+
+      rightNode = rightNode.next;
+    }
+
+    while (rightNode?.next) {
+      rightNode = rightNode.next;
+      leftNode = leftNode?.next;
+    }
+
+    return leftNode;
+  }
+
+  countOccurrences(data: D): number {
+    if (!this.head) {
+      return 0;
+    }
+
+    let occurrences = 0;
+    let current: SinglyLinkedListNode<K, D> | null = this.head;
+
+    while (current) {
+      if (current.data === data) {
+        occurrences += 1;
+      }
+      current = current.next;
+    }
+
+    return occurrences;
+  }
+
+  rotate(k: number): SinglyLinkedListNode<K, D> | null {
+    if (k === 0) {
+      return this.head;
+    }
+
+    if (!this.head || !this.head.next) {
+      return this.head;
+    }
+
+    let current: SinglyLinkedListNode<K, D> | null = this.head;
+    let count = 1;
+
+    // move pointer until it reaches the kth node
+    while (current && count < k) {
+      current = current.next;
+      count += 1;
+    }
+
+    // if we don't have a kth node(current is nil), k is greater than or equal to
+    // count of nodes in linked list. So no need to rotate
+    if (!current) {
+      return null;
+    }
+
+    const kthNode = current;
+
+    // move pointer to the end of the linked list
+    while (current.next) {
+      current = current?.next;
+    }
+
+    // change next of current node to point to previous head. This makes the linked list circular
+    current.next = this.head;
+
+    // change head to k+1th node
+    this.head = kthNode.next;
+
+    // break the circular linked list by setting the next of the kth node to null
+    kthNode.next = null;
+    return this.head;
+  }
+
+  moveTailToHead(): void {
+    if (this.head && this.head.next) {
+      // pointer that is initially set to the head node of the linked list. This will be used to keep track of the last node in the linked list
+      let last = this.head;
+      // secondToLast is a pointer initially set to nil that will be used to keep track of the second to last node in the linked list that will become
+      // the new tail
+      let secondToLast: SinglyLinkedListNode<K, D> | null = null;
+
+      // move the last pointer to the end of the linked list while the node has a next pointer. This will set the previous pointer to last while also
+      // setting the last pointer to the last node. After this loop, the previous will be at the second last node while the last will be at the last node
+      // in the linked list
+      while (last.next) {
+        secondToLast = last;
+        last = last.next;
+      }
+      // set the last node's next pointer to point to the head node. Note that at this point in time this has become a circular linked list
+      last.next = this.head;
+      // set the previous'(second to last node) next pointer to nil, consequentially breaking the circular linked list and setting this node as the last(tail)
+      // node in the linked list
+      // @ts-ignore
+      secondToLast.next = null;
+      // set the new head of the linked list as the last node
+      this.head = last;
+    }
+  }
+
+  // @ts-ignore
+  sumLinkedList(other: SinglyLinkedList<K, D>): SinglyLinkedList<K, D> {
+    let firstHead = this.head;
+    let secondHead = other.head;
+    const summedList = new SinglyLinkedList<K, D>(null);
+
+    let carry = 0;
+
+    while (firstHead || secondHead) {
+      const i = firstHead ? firstHead.data : 0;
+      const j = secondHead ? secondHead.data : 0;
+
+      const s = (i as number) + (j as number) + carry;
+
+      if (s >= 10) {
+        carry = 1;
+        const remainder = s & 10;
+        summedList.append(remainder as D);
+      } else {
+        carry = 0;
+        summedList.append(s as D);
+      }
+
+      if (firstHead != null) {
+        firstHead = firstHead.next;
+      }
+      if (secondHead != null) {
+        secondHead = secondHead.next;
+      }
+    }
+
+    return summedList;
   }
 }
