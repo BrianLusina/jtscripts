@@ -39,4 +39,43 @@ describe('CircularLinkedList', () => {
         })
 
     })
+    describe(`Prepend`, () => {
+        type testCase = {
+            initialData       : any[];
+            data : any;
+            expected   : any[];
+        }
+        
+        const testCases: testCase[] = [
+            {
+                initialData:       [1, 2, 3, 4, 5, 6],
+                data: 7,
+                expected:   [7, 1, 2, 3, 4, 5, 6],
+            },
+        ]
+
+        testCases.forEach(({ initialData, data, expected }) => {
+            it(`should prepend ${data} to ${initialData} to become ${expected}`, () => {
+                const circularLinkedList = new CircularLinkedList();
+                for (const d of initialData) {
+                    circularLinkedList.append(d)
+                }
+
+                circularLinkedList.prepend(data)
+
+                const actualHead = circularLinkedList.head
+                expect(actualHead).toBeTruthy()
+                expect(actualHead?.data).toEqual(expected[0])
+
+                const actualData = []
+
+                for (const node of circularLinkedList) {
+                    actualData.push(node.data)
+                }
+
+                expect(actualData).toEqual(expected)
+            })
+        })
+
+    })
 })

@@ -21,7 +21,7 @@ export default class CircularLinkedNode<T> implements LinkedListNode<T> {
     return this._next;
   }
 
-  public set next(node: CircularLinkedNode<T> | null) {
+  public set next(node: CircularLinkedNode<T> | null | undefined) {
     this._next = node;
   }
 }

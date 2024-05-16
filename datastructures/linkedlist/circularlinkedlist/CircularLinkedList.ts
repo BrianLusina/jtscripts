@@ -41,12 +41,32 @@ export default class CircularLinkedList<T>
     }
   }
 
-  prepend(_e: T): void {
-    throw new Error('Method not implemented.');
+  prepend(data: T): void {
+    const newNode = new CircularLinkedNode(data);
+    let current = this._head;
+    newNode.next = this._head;
+
+    if (!this._head) {
+      newNode.next = newNode;
+    } else {
+      while (current?.next != this._head) {
+        current = current?.next;
+      }
+      current.next = newNode;
+    }
+    this._head = newNode;
   }
 
   length(): number {
-    throw new Error('Method not implemented.');
+    let count = 0;
+    if (!this._head) {
+      return 0;
+    }
+
+    for (const _ of this) {
+      count += 1;
+    }
+    return count;
   }
 
   moveToHead(_e: T): void {
