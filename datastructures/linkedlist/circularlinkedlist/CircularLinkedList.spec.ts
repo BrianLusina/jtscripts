@@ -39,6 +39,7 @@ describe('CircularLinkedList', () => {
         })
 
     })
+
     describe(`Prepend`, () => {
         type testCase = {
             initialData       : any[];
@@ -62,6 +63,45 @@ describe('CircularLinkedList', () => {
                 }
 
                 circularLinkedList.prepend(data)
+
+                const actualHead = circularLinkedList.head
+                expect(actualHead).toBeTruthy()
+                expect(actualHead?.data).toEqual(expected[0])
+
+                const actualData = []
+
+                for (const node of circularLinkedList) {
+                    actualData.push(node.data)
+                }
+
+                expect(actualData).toEqual(expected)
+            })
+        })
+    })
+
+    describe(`Delete Node By Key`, () => {
+        type testCase = {
+            initialData       : any[];
+            key : any;
+            expected   : any[];
+        }
+        
+        const testCases: testCase[] = [
+            {
+                initialData:       [1, 2, 3, 4, 5, 6],
+                key: 3,
+                expected:   [1, 2, 4, 5, 6],
+            },
+        ]
+
+        testCases.forEach(({ initialData, key, expected }) => {
+            it(`should deleteNodeByKey(${key}) from ${initialData} to become ${expected}`, () => {
+                const circularLinkedList = new CircularLinkedList();
+                for (const d of initialData) {
+                    circularLinkedList.append(d)
+                }
+
+                circularLinkedList.deleteNodeByKey(key)
 
                 const actualHead = circularLinkedList.head
                 expect(actualHead).toBeTruthy()

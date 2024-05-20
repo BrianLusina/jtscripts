@@ -76,7 +76,7 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
     return;
   }
 
-  deleteNodeByData(data: T): DoubleNode<T> | null {
+  deleteNodeByKey(data: T): DoubleNode<T> | null {
     throw new Error('Method not implemented.');
   }
 

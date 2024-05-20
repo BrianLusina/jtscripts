@@ -51,7 +51,7 @@ export default abstract class LinkedList<T> {
    * @param {any} data data to find and delete
    * @returns {LinkedListNode}
    */
-  abstract deleteNodeByData(e: T): LinkedListNode<T> | null;
+  abstract deleteNodeByKey(key: unknown): void;
 
   abstract alternateSplit(): [LinkedListNode<T>, LinkedListNode<T>];
 
