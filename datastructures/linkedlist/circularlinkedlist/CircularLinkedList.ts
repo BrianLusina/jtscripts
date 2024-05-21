@@ -145,6 +145,45 @@ export default class CircularLinkedList<T>
     throw new Error('Method not implemented.');
   }
 
+  splitList(): [CircularLinkedList<T>, CircularLinkedList<T> | null] | null {
+    const size = this.length();
+
+    if (size === 0) {
+      return null;
+    }
+
+    if (size === 1) {
+      return [this, null];
+    }
+
+    const mid = Math.min(size / 2);
+    let count = 0;
+
+    let previous: CircularLinkedNode<T> | null | undefined;
+    let current: CircularLinkedNode<T> | null | undefined = this._head;
+
+    while (current && count < mid) {
+      count += 1;
+      previous = current;
+      current = current.next;
+    }
+
+    // @ts-ignore
+    previous?.next = this._head;
+
+    const secondList = new CircularLinkedList<T>();
+    while (current?.next != this._head) {
+      // @ts-ignore
+      secondList.append(current?.data);
+      current = current?.next;
+    }
+
+    // @ts-ignore
+    secondList.append(current?.data);
+
+    return [this, secondList];
+  }
+
   isPalindrome(): boolean {
     throw new Error('Method not implemented.');
   }

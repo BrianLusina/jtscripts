@@ -118,4 +118,54 @@ describe('CircularLinkedList', () => {
         })
 
     })
+    
+    describe(`Split List`, () => {
+        type testCase = {
+            data       : any[];
+            expectedOne : any[];
+            expectedTwo   : any[];
+        }
+        
+        const testCases: testCase[] = [
+            {
+                data:       [1, 2, 3, 4, 5, 6],
+                expectedOne: [1, 2, 3],
+                expectedTwo:   [4, 5, 6],
+            },
+        ]
+
+        testCases.forEach(({ data, expectedOne, expectedTwo }) => {
+            it(`should splitList from ${data} to become [${expectedOne}, ${expectedTwo}]`, () => {
+                const circularLinkedList = new CircularLinkedList();
+                for (const d of data) {
+                    circularLinkedList.append(d)
+                }
+
+                const actual = circularLinkedList.splitList()
+                expect(actual).toBeDefined()
+
+                const actualOne = actual?.[0]
+                expect(actualOne).toBeDefined()
+                
+                const actualTwo = actual?.[1]
+                expect(actualTwo).toBeDefined()
+
+                const actualDataOne = []
+                const actualDataTwo = []
+
+                for (const node of actualOne!) {
+                    actualDataOne.push(node.data)
+                }
+                
+                for (const node of actualTwo!) {
+                    actualDataTwo.push(node.data)
+                }
+
+                expect(actualDataOne).toEqual(expectedOne)
+                expect(actualDataOne).toEqual(expectedTwo)
+            })
+        })
+
+    })
+
 })
