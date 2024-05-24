@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import { add } from '../../../utils/utils';
@@ -96,17 +99,16 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     return node;
   }
 
-  deleteNode(data: D): void {
-    data;
+  deleteNode(_node: SinglyLinkedListNode<K, D>): void {
     throw new Error('Method not implemented.');
   }
 
-  deleteNodeByData(data: D): SinglyLinkedListNode<K, D> | null {
+  deleteNodeByKey(key: K): SinglyLinkedListNode<K, D> | null {
     let current = this.head;
 
     // If the data we are deleting is at the head, then change the head to the next node in the linked list
     // and return
-    if (current != null && current.data === data) {
+    if (current != null && current.key === key) {
       this.head = current.next;
       return current;
     }
@@ -115,7 +117,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     let previous: SinglyLinkedListNode<K, D>;
 
     // we move the pointer down the LinkedList until we find the Node whose data matches what we want to delete
-    while (current != null && current.data !== data) {
+    while (current != null && current.key !== key) {
       previous = current;
       current = current.next;
     }
