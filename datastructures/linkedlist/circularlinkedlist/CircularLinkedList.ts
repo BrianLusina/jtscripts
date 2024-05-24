@@ -73,8 +73,56 @@ export default class CircularLinkedList<T>
     throw new Error('Method not implemented.');
   }
 
-  deleteNode(_e: T): void {
-    throw new Error('Method not implemented.');
+  deleteNode(node: CircularLinkedNode<T>): void {
+    if (this._head) {
+      // if the head node matches the node we are looking for
+      if (this._head.equals(node)) {
+        // set the current pointer to the head node. This will be used to track the last node as the pointer
+        // moves through the list
+        let current: CircularLinkedNode<T> | undefined | null = this._head;
+        // move through the list until we reach the pointer that points back to the head node.
+        while (!current?.next?.equals(this._head)) {
+          current = current?.next;
+        }
+        // if the head node equals the next node, that means that this linked list has a length of 1, i.e. just 1
+        // node. The head node can be set to None
+        if (this._head.equals(this._head?.next)) {
+          this._head = null;
+        } else {
+          // set the current pointer's next to point to the head's next
+          current.next = this._head?.next;
+          // set the head to now become the next node
+          this._head = this._head?.next;
+        }
+      } else {
+        // we have a situation where the head node is not equal to the node, therefore, we need to
+        // traverse the list to find the first node which matches the given node. Setting current to the head
+        // node acts as the pointer that we keep track of
+        let current = this._head;
+        // previous pointer helps to keep track of the previous node as we traverse, it is initially set to null
+        let previous: CircularLinkedNode<T> | null | undefined = null;
+
+        // we iterate through the linked list as long as the next pointer of the current is not equal to
+        // the head node. This is to avoid an infinite loop as this is a circular linked list.
+        while (!current.next?.equals(this._head)) {
+          // we set the previous pointer to the current node to keep track of the node before we reset the
+          // current pointer to the next node
+          previous = current;
+          // move the current pointer to the next node
+          // @ts-ignore
+          current = current.next;
+        }
+        // if the current node is equal to the node we are searching for
+        if (current.equals(node)) {
+          // we set the previous node's next pointer to point to the current node's next pointer.
+          // Essentially removing the current node from the list
+          // @ts-ignore
+          previous.next = current.next;
+          // set the current node to the current's next node
+          current = current.next;
+        }
+      }
+    }
   }
 
   deleteMiddle(): LinkedListNode<T> | null {
@@ -169,7 +217,7 @@ export default class CircularLinkedList<T>
     }
 
     // @ts-ignore
-    previous?.next = this._head;
+    previous.next = this._head;
 
     const secondList = new CircularLinkedList<T>();
     while (current?.next != this._head) {

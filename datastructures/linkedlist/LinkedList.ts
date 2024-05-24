@@ -31,7 +31,7 @@ export default abstract class LinkedList<T> {
    * Deletes a node from the LinkedList if the node can be found in the LinkedList
    * @param {T} node LinkedListNode to delete
    */
-  abstract deleteNode(e: T): void;
+  abstract deleteNode(e: LinkedListNode<T>): void;
 
   /**
    * Deletes the middle node from the linked list and returns it

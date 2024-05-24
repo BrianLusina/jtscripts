@@ -37,4 +37,16 @@ export default class CircularLinkedNode<T> implements LinkedListNode<T> {
   public get key(): string {
     return this._key;
   }
+
+  /**
+   * Compares two nodes and returns true if they are the same. This comparison is based on the data and the key
+   * @param {CircularLinkedNode} other Other circular linked list node
+   * @returns {boolean}
+   */
+  equals(other: CircularLinkedNode<T> | null | undefined): boolean {
+    if (!other) {
+      return false;
+    }
+    return this._data === other._data || this._key === other._key;
+  }
 }

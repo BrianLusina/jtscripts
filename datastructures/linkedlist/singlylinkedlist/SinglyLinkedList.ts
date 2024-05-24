@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import { add } from '../../../utils/utils';
@@ -96,8 +99,7 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
     return node;
   }
 
-  deleteNode(data: D): void {
-    data;
+  deleteNode(_node: SinglyLinkedListNode<K, D>): void {
     throw new Error('Method not implemented.');
   }
 

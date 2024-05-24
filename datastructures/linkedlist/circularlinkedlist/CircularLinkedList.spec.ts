@@ -1,4 +1,5 @@
 import CircularLinkedList from "./CircularLinkedList"
+import CircularLinkedNode from "./CircularLinkedNode";
 
 describe('CircularLinkedList', () => {
     describe(`Append`, () => {
@@ -79,6 +80,32 @@ describe('CircularLinkedList', () => {
         })
     })
 
+    describe(`Length`, () => {
+        type testCase = {
+            data       : any[];
+            expected   : number;
+        }
+        
+        const testCases: testCase[] = [
+            {
+                data:       [1, 2, 3, 4, 5, 6],
+                expected:   6,
+            },
+        ]
+
+        testCases.forEach(({ data, expected }) => {
+            it(`should return length of ${expected} for ${data}`, () => {
+                const circularLinkedList = new CircularLinkedList();
+                for (const d of data) {
+                    circularLinkedList.append(d)
+                }
+
+                const actual = circularLinkedList.length()
+                expect(actual).toEqual(expected)
+            })
+        })
+    })
+
     describe(`Delete Node By Key`, () => {
         type testCase = {
             initialData       : any[];
@@ -118,7 +145,43 @@ describe('CircularLinkedList', () => {
         })
 
     })
-    
+
+    describe(`Delete Node`, () => {
+        type testCase = {
+            initialData       : any[];
+            node : CircularLinkedNode<any>;
+            expected   : any[];
+        }
+        
+        const testCases: testCase[] = [
+            {
+                initialData:       [1, 2, 3, 4, 5, 6],
+                node: new CircularLinkedNode(3),
+                expected:   [1, 2, 4, 5, 6],
+            },
+        ]
+
+        testCases.forEach(({ initialData, node, expected }) => {
+            it(`should deleteNode(${node}) from ${initialData} to become ${expected}`, () => {
+                const circularLinkedList = new CircularLinkedList();
+                for (const d of initialData) {
+                    circularLinkedList.append(d)
+                }
+
+                circularLinkedList.deleteNode(node)
+
+                const actualData = []
+
+                for (const node of circularLinkedList) {
+                    actualData.push(node.data)
+                }
+
+                expect(actualData).toEqual(expected)
+            })
+        })
+
+    })
+        
     describe(`Split List`, () => {
         type testCase = {
             data       : any[];
