@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import LinkedList from '../LinkedList';
 import { LinkedListNode } from '../nodes';
 import DoubleNode from './DoubleNode';
 
 export default class DoublyLinkedList<T> extends LinkedList<T> {
-  head: DoubleNode<T> | null | undefined;
-  tail: DoubleNode<T> | null | undefined;
+  protected head: DoubleNode<T> | null | undefined;
+  protected tail: DoubleNode<T> | null | undefined;
   private size: number;
 
   constructor(headNode: DoubleNode<T> | null = null) {
@@ -38,15 +40,15 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
     }
   }
 
-  prepend(data: T): void {
+  prepend(_data: T): void {
     throw new Error('Method not implemented.');
   }
 
-  moveToHead(data: T): void {
+  moveToHead(_data: T): void {
     throw new Error('Method not implemented.');
   }
 
-  deleteNode(data: T | null): void {
+  deleteNode(data: DoubleNode<T>): void {
     let currentNode = this.head;
 
     if (data) {
@@ -76,11 +78,11 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
     return;
   }
 
-  deleteNodeByKey(data: T): DoubleNode<T> | null {
+  deleteNodeByKey(_data: T): DoubleNode<T> | null {
     throw new Error('Method not implemented.');
   }
 
-  deleteNodeAtPosition(position: number): DoubleNode<T> | null | undefined {
+  deleteNodeAtPosition(_position: number): DoubleNode<T> | null | undefined {
     throw new Error('Method not implemented.');
   }
 
@@ -88,7 +90,7 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
     throw new Error('Method not implemented.');
   }
 
-  swapNodesAtKthAndKPlusOne(k: number): DoubleNode<T> | null {
+  swapNodesAtKthAndKPlusOne(_k: number): DoubleNode<T> | null {
     throw new Error('Method not implemented.');
   }
 
@@ -130,13 +132,9 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
     return this.size;
   }
 
-  swapNodes(keyOne: T, keyTwo: T): void {
-    
-  }
+  swapNodes(_keyOne: T, _keyTwo: T): void {}
 
-  kthToLastNode(e: number): DoubleNode<T> | null {
-    
-  }
+  kthToLastNode(_e: number): DoubleNode<T> | null {}
 
   countOccurrences(data: T): number {
     if (!this.head) {
@@ -167,15 +165,19 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
   maxPairSum(): T | null {
     throw new Error('Method not implemented.');
   }
-  insertAfterNode(node: LinkedListNode<T>, data: T): void {
+  insertAfterNode(_node: LinkedListNode<T>, _data: T): void {
     throw new Error('Method not implemented.');
-  } 
+  }
 
-  rotate(k: number): LinkedListNode<T> | null {
+  rotate(_k: number): LinkedListNode<T> | null {
     throw new Error('Method not implemented.');
   }
 
   moveTailToHead(): void {
     throw new Error('Method not implemented.');
-  } 
+  }
+
+  sumLinkedList(_other: LinkedList<T>): LinkedList<T> {
+    throw new Error('Method not implemented.');
+  }
 }
