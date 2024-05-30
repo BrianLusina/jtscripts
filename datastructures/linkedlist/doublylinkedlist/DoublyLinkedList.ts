@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import LinkedList from '../LinkedList';
-import { LinkedListNode } from '../nodes';
 import DoubleNode from './DoubleNode';
 
 export default class DoublyLinkedList<T> extends LinkedList<T> {
@@ -17,31 +17,34 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
   }
 
   append(data: T): void {
-    this.size += 1;
     const newNode = new DoubleNode(data);
     if (this.head === null) {
       this.head = newNode;
       this.tail = newNode;
     } else {
-      newNode.previous = this.tail;
-      if (this.tail) {
-        this.tail.next = newNode;
+      let current = this.head;
+      while (current?.next) {
+        current = current.next;
       }
-      this.tail = newNode;
-
-      // This is also viable if the doubly linked list does not have a tail node reference. This will traverse
-      // the entire list until it reaches the end and add this node to the end, this results in an O(n) operation
-      //            var current = head
-      //            while (current?.next != null) {
-      //                current = current.next
-      //            }
-      //            current?.next = newNode
-      //            newNode.prev = current
+      if (current) {
+        current.next = newNode;
+        newNode.previous = current;
+        this.tail = newNode;
+      }
     }
   }
 
-  prepend(_data: T): void {
-    throw new Error('Method not implemented.');
+  prepend(data: T): void {
+    const newNode = new DoubleNode(data);
+
+    if (this.head) {
+      this.head.previous = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    } else {
+      this.head = newNode;
+      this.tail = newNode;
+    }
   }
 
   moveToHead(_data: T): void {
@@ -113,6 +116,7 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
 
     while (current != undefined) {
       // copy a pointer to the next element, before we overwrite the current
+      // eslint-disable-next-line prefer-destructuring
       next = current.next;
 
       // reverse the next pointer & previous pointer
@@ -128,13 +132,27 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
     this.head = previous;
   }
 
-  get length(): number {
-    return this.size;
+  length(): number {
+    let count = 0;
+    if (!this.head) {
+      return count;
+    }
+
+    let current: DoubleNode<T> | null | undefined = this.head;
+    while (current) {
+      current = current.next;
+      count += 1;
+    }
+    return count;
   }
 
-  swapNodes(_keyOne: T, _keyTwo: T): void {}
+  swapNodes(_keyOne: T, _keyTwo: T): void {
+    return;
+  }
 
-  kthToLastNode(_e: number): DoubleNode<T> | null {}
+  kthToLastNode(_e: number): DoubleNode<T> | null {
+    return null;
+  }
 
   countOccurrences(data: T): number {
     if (!this.head) {
@@ -153,23 +171,23 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
 
     return occurrences;
   }
-  deleteMiddle(): LinkedListNode<T> | null {
+  deleteMiddle(): DoubleNode<T> | null {
     throw new Error('Method not implemented.');
   }
-  getMiddle(): LinkedListNode<T> | null {
+  getMiddle(): DoubleNode<T> | null {
     throw new Error('Method not implemented.');
   }
-  oddEvenList(): LinkedListNode<T> | null {
+  oddEvenList(): DoubleNode<T> | null {
     throw new Error('Method not implemented.');
   }
   maxPairSum(): T | null {
     throw new Error('Method not implemented.');
   }
-  insertAfterNode(_node: LinkedListNode<T>, _data: T): void {
+  insertAfterNode(_node: DoubleNode<T>, _data: T): void {
     throw new Error('Method not implemented.');
   }
 
-  rotate(_k: number): LinkedListNode<T> | null {
+  rotate(_k: number): DoubleNode<T> | null {
     throw new Error('Method not implemented.');
   }
 
@@ -177,7 +195,7 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
     throw new Error('Method not implemented.');
   }
 
-  sumLinkedList(_other: LinkedList<T>): LinkedList<T> {
+  sumLinkedList(_other: DoublyLinkedList<T>): DoublyLinkedList<T> {
     throw new Error('Method not implemented.');
   }
 }
