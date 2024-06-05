@@ -38,12 +38,4 @@ export default class CircularLinkedListIterator<T> implements Iterator<CircularL
       value,
     };
   }
-
-  //   return?(value?: number | undefined): IteratorResult<CircularLinkedNode<T>, number> {
-  //     throw new Error('Method not implemented.');
-  //   }
-
-  //   throw?(e?: any): IteratorResult<CircularLinkedNode<T>, number> {
-  //     throw new Error('Method not implemented.');
-  //   }
 }

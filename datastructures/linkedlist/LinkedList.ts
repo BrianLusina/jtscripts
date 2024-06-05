@@ -46,7 +46,7 @@ export default abstract class LinkedList<T> {
   abstract getMiddle(): LinkedListNode<T> | null;
 
   /**
-   * Delets a node from the LinkedList by its data if the node can be found in the LinkedList. This deletes the first occurrence
+   * Deletes a node from the LinkedList by its data if the node can be found in the LinkedList. This deletes the first occurrence
    * of the found data
    * @param {any} data data to find and delete
    * @returns {LinkedListNode}
