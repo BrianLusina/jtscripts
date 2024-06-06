@@ -49,4 +49,45 @@ describe('Doubly Linked List', () => {
             })
         })
     })
+
+    describe("reverse", () => {
+        type testCase = {
+            data: any[];
+            expected: any[];
+        }
+
+        const testCases: testCase[] = [
+            {
+                data: [10, 20, 30],
+                expected: [30, 20, 10],
+            },
+            {
+                data: ["A", "B", "C"],
+                expected: ["C", "B", "A"],
+            }
+        ]
+
+        testCases.forEach(({ data, expected }) => {
+            it(`should reverse ${data} to ${expected}`, () => {
+                const doublyLinkedList = new DoublyLinkedList()
+                for (const d of data) {
+                    doublyLinkedList.append(d)
+
+                }
+
+                expect(doublyLinkedList.length()).toEqual(data.length)
+    
+                doublyLinkedList.reverse()
+    
+                expect(doublyLinkedList.length()).toEqual(expected.length)
+    
+                const actualData = []
+                for (const node of doublyLinkedList) {
+                    actualData.push(node.data);
+                }
+    
+                expect(actualData).toEqual(expected);
+            })
+        })
+    })
 })

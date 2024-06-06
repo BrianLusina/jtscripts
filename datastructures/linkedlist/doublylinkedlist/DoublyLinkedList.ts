@@ -138,12 +138,9 @@ export default class DoublyLinkedList<T> extends LinkedList<T> implements Iterab
 
     let current = this.head;
     let previous: DoubleNode<T> | null | undefined = null;
-    let next: DoubleNode<T> | null | undefined = null;
 
     while (current != undefined) {
-      // copy a pointer to the next element, before we overwrite the current
-      // eslint-disable-next-line prefer-destructuring
-      next = current.next;
+      const { next } = current;
 
       // reverse the next pointer & previous pointer
       current.next = previous;
