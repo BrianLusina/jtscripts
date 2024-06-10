@@ -90,4 +90,53 @@ describe('Doubly Linked List', () => {
             })
         })
     })
+
+    describe("removeDuplicates", () => {
+        type testCase = {
+            data: any[];
+            expected: any[];
+        }
+
+        const testCases: testCase[] = [
+            {
+                data: [10, 20, 30, 30],
+                expected: [10, 20, 30],
+            },
+            {
+                data: ["A", "B", "B", "C"],
+                expected: ["A", "B", "C"],
+            },
+            {
+                data:     [1, 6, 1, 4, 2, 2, 4],
+                expected: [1, 6, 4, 2],
+            },
+            {
+                data:     [1, 4, 7, 4],
+                expected: [1, 4, 7],
+            },            
+        ]
+
+        testCases.forEach(({ data, expected }) => {
+            it(`should removeDuplicates from ${data} to become ${expected}`, () => {
+                const doublyLinkedList = new DoublyLinkedList()
+                for (const d of data) {
+                    doublyLinkedList.append(d)
+
+                }
+
+                expect(doublyLinkedList.length()).toEqual(data.length)
+    
+                doublyLinkedList.removeDuplicates()
+    
+                expect(doublyLinkedList.length()).toEqual(expected.length)
+    
+                const actualData = []
+                for (const node of doublyLinkedList) {
+                    actualData.push(node.data);
+                }
+    
+                expect(actualData).toEqual(expected);
+            })
+        })
+    })
 })

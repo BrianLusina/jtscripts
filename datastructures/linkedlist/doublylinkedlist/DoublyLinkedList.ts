@@ -194,6 +194,34 @@ export default class DoublyLinkedList<T> extends LinkedList<T> implements Iterab
 
     return occurrences;
   }
+
+  removeDuplicates(): void {
+    if (!this.head || !this.head.next) {
+      return;
+    }
+
+    let current: DoubleNode<T> | undefined | null = this.head;
+    const seen = new Map<unknown, boolean>();
+
+    while (current) {
+      if (!seen.has(current.key)) {
+        seen.set(current.key, true);
+        current = current.next;
+      } else {
+        const { next, previous } = current;
+
+        if (previous) {
+          previous.next = next;
+        }
+
+        if (next) {
+          next.previous = previous;
+        }
+        current = next;
+      }
+    }
+  }
+
   deleteMiddle(): DoubleNode<T> | null {
     throw new Error('Method not implemented.');
   }

@@ -283,4 +283,8 @@ export default class CircularLinkedList<T>
   sumLinkedList(_other: CircularLinkedList<T>): LinkedList<T> {
     throw new Error('Method not implemented.');
   }
+
+  removeDuplicates(): void {
+    throw Error('Not implemented');
+  }
 }
