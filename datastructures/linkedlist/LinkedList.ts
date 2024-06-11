@@ -40,18 +40,23 @@ export default abstract class LinkedList<T> {
   abstract deleteMiddle(): LinkedListNode<T> | null;
 
   /**
-   * Retrieves the middle node of a linked list
-   * @returns {LinkedListNode} middle node of a linked list
-   */
-  abstract getMiddle(): LinkedListNode<T> | null;
-
-  /**
-   * Delets a node from the LinkedList by its data if the node can be found in the LinkedList. This deletes the first occurrence
+   * Deletes a node from the LinkedList by its data if the node can be found in the LinkedList. This deletes the first occurrence
    * of the found data
    * @param {any} data data to find and delete
    * @returns {LinkedListNode}
    */
   abstract deleteNodeByKey(key: unknown): void;
+
+  /**
+   * Removes duplicates from a linked list
+   */
+  abstract removeDuplicates(): void;
+
+  /**
+   * Retrieves the middle node of a linked list
+   * @returns {LinkedListNode} middle node of a linked list
+   */
+  abstract getMiddle(): LinkedListNode<T> | null;
 
   abstract alternateSplit(): [LinkedListNode<T>, LinkedListNode<T>];
 

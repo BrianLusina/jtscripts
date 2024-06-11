@@ -1,5 +1,4 @@
-import { createHash } from 'crypto';
-
+import { generateHash } from '../../utils/hash';
 export interface LinkedListNode<D> {
   data: D;
   next?: LinkedListNode<D> | null;
@@ -23,11 +22,7 @@ export abstract class Node<D> {
     const { data, next, key } = opts;
     this._data = data;
     this._next = next;
-    this._key = key ? key : this.generateHash(data);
-  }
-
-  private generateHash(data: D): string {
-    return createHash('sha1').update(`${data}`).digest('hex');
+    this._key = key ? key : generateHash(data);
   }
 
   public get data(): D {
@@ -36,7 +31,7 @@ export abstract class Node<D> {
 
   public set data(v: D) {
     this._data = v;
-    const hash = this.generateHash(v);
+    const hash = generateHash(v);
     this._key = hash;
   }
 

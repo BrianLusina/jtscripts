@@ -674,4 +674,8 @@ export default class SinglyLinkedList<K, D> extends LinkedList<D> {
 
     return summedList;
   }
+
+  removeDuplicates(): void {
+    throw Error('Not implemented');
+  }
 }
