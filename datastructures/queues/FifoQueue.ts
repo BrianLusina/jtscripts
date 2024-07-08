@@ -14,7 +14,7 @@ export default class FifoQueue<T> {
    */
   constructor(size?: number) {
     this.size = size;
-    this.stack = new Array(size);
+    this.stack = size ? new Array(size) : [];
   }
 
   /**
@@ -23,7 +23,7 @@ export default class FifoQueue<T> {
    * @param {T} x item to add to queue
    * @throws {Error} if queue is full.
    */
-  push(x: T): void {
+  enqueue(x: T): void {
     if (this.isFull()) {
       throw new Error(`Queue is at capacity`);
     }
@@ -35,8 +35,17 @@ export default class FifoQueue<T> {
    * Time Complexity is O(1) operation as this is done in constant time
    * @returns {T} where T could also be undefined
    */
-  pop(): T | undefined {
-    return this.stack.shift();
+  dequeue(): T {
+    if (this.empty()) {
+      throw new Error('Queue is empty');
+    }
+
+    const first = this.stack.shift();
+    if (!first) {
+      throw new Error('Queue is empty');
+    }
+
+    return first;
   }
 
   /**

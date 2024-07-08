@@ -1,19 +1,15 @@
-import { TreeNode } from '../types';
+import { TreeNode } from '../node';
 
-export default class BinaryTreeNode<T> implements TreeNode<T> {
+type BinaryTreeNodeOptions<T> = {
   data: T;
-  readonly children: (TreeNode<T> | null)[];
   left?: BinaryTreeNode<T> | null;
   right?: BinaryTreeNode<T> | null;
+  key?: string | null;
+};
 
-  constructor(
-    data: T,
-    left: BinaryTreeNode<T> | null = null,
-    right: BinaryTreeNode<T> | null = null,
-  ) {
-    this.data = data;
-    this.left = left;
-    this.right = right;
-    this.children = [left, right];
+export default class BinaryTreeNode<T> extends TreeNode<T> {
+  constructor(options: BinaryTreeNodeOptions<T>) {
+    const { data, left, right, key } = options;
+    super({ data, left, right, key, children: [left, right] });
   }
 }

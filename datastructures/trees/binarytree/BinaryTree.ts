@@ -1,11 +1,14 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import Stack from '../../Stack';
+import FifoQueue from '../../queues/FifoQueue';
 import Tree from '../Tree';
 import BinaryTreeNode from './BinaryTreeNode';
 
 export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
-  root: BinaryTreeNode<T> | null | undefined;
+  private root: BinaryTreeNode<T> | null | undefined;
 
   constructor(rootNode: BinaryTreeNode<T> | null | undefined = null) {
     super();
@@ -20,11 +23,11 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
     throw new Error('Method not implemented.');
   }
 
-  insertNode(e: unknown): BinaryTreeNode<T> {
+  insertNode(_e: unknown): BinaryTreeNode<T> {
     throw new Error('Method not implemented.');
   }
 
-  inorderTraversalRecurse(e: BinaryTreeNode<T> | null): unknown[] {
+  inorderTraversalRecurse(_e: BinaryTreeNode<T> | null): unknown[] {
     throw new Error('Method not implemented.');
   }
 
@@ -111,11 +114,38 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
     return result;
   }
 
-  findLargestNode(e?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
+  levelOrderTraversal(): T[] {
+    if (!this.root) {
+      return [];
+    }
+
+    const fifoQueue = new FifoQueue<BinaryTreeNode<T>>();
+    fifoQueue.enqueue(this.root);
+    const result: T[] = [];
+
+    while (!fifoQueue.empty()) {
+      const node = fifoQueue.peek();
+      result.push(node.data);
+
+      const poppedNode = fifoQueue.dequeue();
+
+      if (poppedNode.left) {
+        fifoQueue.enqueue(poppedNode.left);
+      }
+
+      if (poppedNode.right) {
+        fifoQueue.enqueue(poppedNode.right);
+      }
+    }
+
+    return result;
+  }
+
+  findLargestNode(_e?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
     throw new Error('Method not implemented.');
   }
 
-  findSecondLargestNode(e?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
+  findSecondLargestNode(_e?: BinaryTreeNode<T> | null): BinaryTreeNode<T> {
     throw new Error('Method not implemented.');
   }
 
@@ -289,9 +319,10 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
 
     const goodNodesHelper = (node: BinaryTreeNode<T> | null | undefined, data: T): number => {
       if (node) {
+        // TODO: fix maximum check between values
         let nodeCount =
-          goodNodesHelper(node.left, max(data, node.data)) +
-          goodNodesHelper(node.right, max(data, node.data));
+          goodNodesHelper(node.left, Math.max(data as number, node.data as number) as T) +
+          goodNodesHelper(node.right, Math.max(data as number, node.data as number) as T);
         if (node.data >= data) {
           nodeCount += 1;
         }
@@ -331,7 +362,7 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
         return null;
       }
 
-      const current = new BinaryTreeNode(data);
+      const current = new BinaryTreeNode({ data });
       current.left = dfs(nodeData);
       current.right = dfs(nodeData);
       return current;
