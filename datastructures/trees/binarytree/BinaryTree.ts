@@ -37,7 +37,7 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
     }
 
     const result = [];
-    const stack = new Stack();
+    const stack = new Stack<BinaryTreeNode<T>>();
     let current = this.root;
 
     while (!stack.isEmpty() || current) {
@@ -64,7 +64,7 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
     }
 
     const result = [];
-    const stack = new Stack();
+    const stack = new Stack<BinaryTreeNode<T>>();
 
     let current = this.root;
 
@@ -82,13 +82,13 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
     return result;
   }
 
-  postorderTraversal(): any[] {
+  postorderTraversal(): T[] {
     if (!this.root) {
       return [];
     }
 
-    const stackOne = new Stack();
-    const stackTwo = new Stack();
+    const stackOne = new Stack<BinaryTreeNode<T>>();
+    const stackTwo = new Stack<BinaryTreeNode<T>>();
     const result = [];
 
     stackOne.push(this.root);
@@ -136,6 +136,40 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
       if (poppedNode.right) {
         fifoQueue.enqueue(poppedNode.right);
       }
+    }
+
+    return result;
+  }
+
+  reverseLevelOrderTraversal(): unknown[] {
+    if (!this.root) {
+      return [];
+    }
+
+    const fifoQueue = new FifoQueue<BinaryTreeNode<T>>();
+    const stack = new Stack<BinaryTreeNode<T>>();
+
+    fifoQueue.enqueue(this.root);
+
+    const result: T[] = [];
+
+    while (!fifoQueue.empty()) {
+      const node = fifoQueue.dequeue();
+
+      stack.push(node);
+
+      if (node.right) {
+        fifoQueue.enqueue(node.right);
+      }
+
+      if (node.left) {
+        fifoQueue.enqueue(node.left);
+      }
+    }
+
+    while (!stack.isEmpty()) {
+      const node = stack.pop();
+      result.push(node.data);
     }
 
     return result;
@@ -217,7 +251,7 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
     }
 
     let counter = 0;
-    const stack = new Stack();
+    const stack = new Stack<BinaryTreeNode<T>>();
     stack.push(this.root);
 
     while (!stack.isEmpty()) {

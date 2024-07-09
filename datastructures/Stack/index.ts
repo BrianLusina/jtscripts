@@ -1,10 +1,10 @@
 // tslint:disable: no-any
 /**
  * Stack abstract data structure */
-export default class Stack {
+export default class Stack<T> {
   // tslint:disable-next-line: no-any
-  private stack: any[];
-  private storage: Record<number, any>;
+  private stack: T[];
+  private storage: Record<number, T>;
   private position: number;
   private size: number;
 
@@ -15,34 +15,38 @@ export default class Stack {
     this.position = -1; // 0 indexed when we add items
   }
 
-  push(item: any) {
+  push(item: T) {
     this.stack.push(item);
-    this.position++;
+    this.position += 1;
     if (this.size) {
-      this.size++;
+      this.size += 1;
     }
     this.storage[this.position] = item;
   }
 
-  pop(): any {
+  pop(): T {
     if (this.isEmpty()) {
       throw new Error('Stack is empty');
     } else {
       if (this.position > -1) {
         delete this.storage[this.position];
-        this.position--;
+        this.position -= 1;
       }
       if (this.size) {
-        this.size--;
+        this.size -= 1;
       }
-      return this.stack.pop();
+      const value = this.stack.pop();
+      if (!value) {
+        throw new Error('Stack is empty');
+      }
+      return value;
     }
   }
 
   /**
    * Returns the top item in the stack without removing it
    **/
-  peek(): any {
+  peek(): T {
     if (this.isEmpty()) {
       throw new Error('Stack is empty');
     }

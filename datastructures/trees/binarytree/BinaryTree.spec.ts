@@ -91,6 +91,42 @@ describe("BinaryTree", () => {
                 })
             })
         })
+
+        describe("reverse level order traversal", () => {
+            type testCase<T> = {
+                expected: T[],
+                root: BinaryTreeNode<T> | null
+            }
+
+            const testCases: testCase<any>[] = [
+                {
+                    expected: [4, 5, 2, 3, 1],
+                    root: new BinaryTreeNode(
+                        {
+                            data: 1, 
+                            left: new BinaryTreeNode({
+                                data: 2,
+                                left: new BinaryTreeNode({data: 4}),
+                                right: new BinaryTreeNode({data: 5})
+                            }), 
+                            right: new BinaryTreeNode({data: 3})
+                        }
+                    )
+                },
+                {
+                    expected: [],
+                    root: null
+                }
+            ]
+
+            testCases.forEach(({ expected, root }) => {
+                it(`should return [${expected}] for root ${root}`, () => {
+                    const tree = new BinaryTree(root)
+                    const actual = tree.reverseLevelOrderTraversal()
+                    expect(actual).toEqual(expected)                    
+                })
+            })
+        })
     })
 
     describe("IsPerfect", () => {
