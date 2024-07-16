@@ -20,7 +20,22 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
   }
 
   height(): number {
-    throw new Error('Method not implemented.');
+    if (!this.root) {
+      return 0;
+    }
+
+    const heightHelper = (node: BinaryTreeNode<T> | null | undefined): number => {
+      if (!node) {
+        return -1;
+      }
+
+      const leftHeight = heightHelper(node.left);
+      const rightHeight = heightHelper(node.right);
+
+      return 1 + Math.max(leftHeight, rightHeight);
+    };
+
+    return heightHelper(this.root);
   }
 
   insertNode(_e: unknown): BinaryTreeNode<T> {
