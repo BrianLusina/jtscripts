@@ -265,7 +265,7 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
       return 0;
     }
 
-    let counter = 0;
+    let counter = 1;
     const stack = new Stack<BinaryTreeNode<T>>();
     stack.push(this.root);
 

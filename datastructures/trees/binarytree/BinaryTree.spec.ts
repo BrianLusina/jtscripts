@@ -203,6 +203,52 @@ describe("BinaryTree", () => {
             })
         })
     })
+    
+    describe("Size", () => {
+        type testCase = {
+            description: string;
+            expected: number;
+            root: BinaryTreeNode<unknown> | null | undefined;
+        }
+
+        const testCases: testCase[] = [
+            {
+                description: "should return 0 for no root",
+                expected: 0,
+                root: null,
+            },
+            {
+                description: "should return 1 if the binary tree has a root, but no left nor right subtrees",
+                expected: 1,
+                root: new BinaryTreeNode({ data: 1 }),
+            },
+            {
+                description: "should return 5 for tree of 3,9,20,null,null,15,7",
+                expected: 5,
+                root: new BinaryTreeNode({
+                    data: 3,
+                    left: new BinaryTreeNode({ data: 9 }),
+                    right: new BinaryTreeNode({ data: 20, left: new BinaryTreeNode({data: 15}), right: new BinaryTreeNode({ data: 7 }) })
+                }),
+            },
+            {
+                description: "should return 1 for tree of 1,null,2",
+                expected: 2,
+                root: new BinaryTreeNode({
+                    data: 1,
+                    right: new BinaryTreeNode({ data: 1 })
+                }),
+            },
+        ]
+
+        testCases.forEach(({ description, expected, root }) => {
+            it(description, () => {
+                const binaryTree = new BinaryTree(root)
+                const actual = binaryTree.size()
+                expect(actual).toEqual(expected)
+            })
+        })
+    })
 
     describe("LeafSimilar", () => {
         it("should return false for tree 1 having no root and tree 2 having a root", () => {
