@@ -8,7 +8,7 @@ import Tree from '../Tree';
 import BinaryTreeNode from './BinaryTreeNode';
 
 export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
-  private root: BinaryTreeNode<T> | null | undefined;
+  protected root: BinaryTreeNode<T> | null | undefined;
 
   constructor(rootNode: BinaryTreeNode<T> | null | undefined = null) {
     super();

@@ -6,10 +6,13 @@ export default class BinarySearchTree<T> extends BinaryTree<T> {
   private stack: BinaryTreeNode<T>[];
 
   constructor(rootNode: BinaryTreeNode<T> | null | undefined) {
-    super();
-    this.root = rootNode;
+    super(rootNode);
     this.stack = [];
     this.leftMostInorder(rootNode);
+  }
+
+  getRoot(): BinaryTreeNode<T> | null | undefined {
+    return this.root;
   }
 
   getDepth(): number {
@@ -77,31 +80,28 @@ export default class BinarySearchTree<T> extends BinaryTree<T> {
    */
   insertNode(value: T): BinaryTreeNode<T> {
     if (!this.root) {
-      return new BinaryTreeNode(value);
+      this.root = new BinaryTreeNode({ data: value });
+      return this.root;
     }
 
-    let parent = this.root;
-    const dummy = this.root;
-
-    while (this.root) {
-      parent = this.root;
-
-      if (value < this.root.data) {
-        this.root = this.root.left;
-      } else {
-        this.root = this.root.right;
+    const insertHelper = (
+      data: T,
+      node: BinaryTreeNode<T> | null | undefined,
+    ): BinaryTreeNode<T> | undefined | null => {
+      if (!node) {
+        return new BinaryTreeNode({ data });
       }
-    }
 
-    if (!parent) {
-      parent = new BinaryTreeNode(value);
-    } else if (value < parent.data) {
-      parent.left = new BinaryTreeNode(value);
-    } else {
-      parent.right = new BinaryTreeNode(value);
-    }
+      if (data < node.data) {
+        node.left = insertHelper(data, node.left);
+      } else {
+        node.right = insertHelper(data, node.right);
+      }
+      return node;
+    };
 
-    return dummy;
+    insertHelper(value, this.root);
+    return this.root;
   }
 
   /**
@@ -247,10 +247,10 @@ export default class BinarySearchTree<T> extends BinaryTree<T> {
    * 3. Print contents of second stack
    * @returns {T[]}
    */
-  postorderTraversal(): (T | undefined)[] {
+  postorderTraversal(): T[] {
     const stackOne: BinaryTreeNode<T>[] = [];
     const stackTwo: BinaryTreeNode<T>[] = [];
-    const values: (T | undefined)[] = [];
+    const values: T[] = [];
 
     if (!this.root) {
       return values;
@@ -274,7 +274,7 @@ export default class BinarySearchTree<T> extends BinaryTree<T> {
 
     while (stackTwo.length) {
       const node = stackTwo.pop();
-      values.push(node?.data);
+      values.push(node!.data);
     }
 
     return values;
