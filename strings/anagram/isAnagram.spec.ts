@@ -3,7 +3,7 @@ import isAnagram from "./isAnagram";
 const { assert } = require('chai');
 const _ = require('lodash');
 
-describe("Tests", () => {
+describe("isAnagram", () => {
 
   it('Fixed Tests', () => {
 
@@ -44,20 +44,20 @@ describe("Tests", () => {
   it('Random Tests', () => {
 
     const ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const changeCase = (c) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase());
-    const randomInt = (n) => ~~(Math.random() * n);
+    const changeCase = (c: string) => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase());
+    const randomInt = (n: number) => ~~(Math.random() * n);
     const randomChar = () => ALPHABET[randomInt(ALPHABET.length)];
-    const randomStr = (n) => [...new Array(n)].map((_) => randomChar()).join('');
-    const randomIndex = (s) => randomInt(s.length);
+    const randomStr = (n: number) => [...new Array(n)].map((_) => randomChar()).join('');
+    const randomIndex = (s: string | any[]) => randomInt(s.length);
 
-    const randomAddChar = (s, i = randomIndex(s)) => s.slice(0, i) + randomChar() + s.slice(i);
-    const randomDeleteChar = (s, i = randomIndex(s)) => s.slice(0, i) + s.slice(i + 1);
-    const randomEditChar = (s, i = randomIndex(s)) => s.slice(0, i) + randomChar() + s.slice(i + 1);
-    const randomChangeCase = (s, i = randomIndex(s)) => s.slice(0, i) + changeCase(s[i]) + s.slice(i + 1);
+    const randomAddChar = (s: string, i = randomIndex(s)) => s.slice(0, i) + randomChar() + s.slice(i);
+    const randomDeleteChar = (s: string, i = randomIndex(s)) => s.slice(0, i) + s.slice(i + 1);
+    const randomEditChar = (s: string, i = randomIndex(s)) => s.slice(0, i) + randomChar() + s.slice(i + 1);
+    const randomChangeCase = (s: string | any[], i = randomIndex(s)) => s.slice(0, i) + changeCase(s[i]) + s.slice(i + 1);
 
-    const shuffle = s => _.shuffle([...s]).join('');
+    const shuffle = (s: any) => _.shuffle([...s]).join('');
 
-    const randomModifyStr = (s) => {
+    const randomModifyStr = (s: string) => {
         const t = shuffle(s),
             r = Math.random();
         if (r < 0.25) return randomAddChar(t);
@@ -66,7 +66,7 @@ describe("Tests", () => {
         return randomChangeCase(t);
     };
 
-    const normalize = (s) => s.toLowerCase().split('').sort().join('');
+    const normalize = (s: string) => s.toLowerCase().split('').sort().join('');
 
       for (let i = 0; i < 100; i++) {
         const original = randomStr(8 + randomInt(12));
