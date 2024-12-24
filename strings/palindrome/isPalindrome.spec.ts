@@ -1,4 +1,4 @@
-import { isPalindrome } from './palindrome';
+import { isPalindrome } from './isPalindrome';
 
 describe('Palindrome Tests', () => {
   describe("isPalindrome", () => {
