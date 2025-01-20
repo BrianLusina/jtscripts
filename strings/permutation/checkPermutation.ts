@@ -7,7 +7,7 @@
  *
  * @param s1 {string} first string
  * @param s2 {string} second string
- * @returns {boolean}
+ * @returns {boolean} true if the strings are permutations of each other, false otherwise
  */
 export const checkPermutationWithSorting = (s1: string, s2: string): boolean => {
   if (s1.length !== s2.length) return false;
@@ -20,6 +20,21 @@ export const checkPermutationWithSorting = (s1: string, s2: string): boolean => 
   return true;
 };
 
+/**
+ * CheckPermutationWithMap checks if two strings are permutations of each other
+ * It uses a map to achieve this
+ *
+ * Complexity:
+ * Time: O(n) as it iterates through the strings once
+ * Space: O(n) as it uses a map to store the frequency of each character in the strings
+ *
+ * If the length of the strings are different, it returns false
+ * Otherwise, it returns true
+ *
+ * @param s1 {string} first string
+ * @param s2 {string} second string
+ * @returns {boolean} true if the strings are permutations of each other, false otherwise
+ */
 export const checkPermutationWithMap = (s1: string, s2: string): boolean => {
   if (s1.length !== s2.length) return false;
   const charMap = new Map<string, number>();
