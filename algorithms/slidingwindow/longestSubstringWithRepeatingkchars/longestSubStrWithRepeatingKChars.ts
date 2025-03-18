@@ -6,7 +6,7 @@ function longestSubstringUtil(s: string, start: number, end: number, k: number):
   const countMap = Array(26).fill(0);
 
   for (let x = start; x < end; x++) {
-    countMap[s.charCodeAt(i) - 'a'.charCodeAt(0)] += 1;
+    countMap[s.charCodeAt(x) - 'a'.charCodeAt(0)] += 1;
   }
 
   for (let mid = start; mid < end; mid++) {
