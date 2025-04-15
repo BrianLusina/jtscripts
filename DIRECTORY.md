@@ -116,8 +116,6 @@
   * circular-buffer
     * [circular-buffer](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/circular-buffer/circular-buffer.js)
     * [circular-buffer](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/circular-buffer/circular-buffer.spec.js)
-  * Graphs
-    * [devbook](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/Graphs/devbook.js)
   * hashmap
     * [HashMapJs](https://github.com/BrianLusina/jtscripts/blob/master/datastructures/hashmap/HashMapJs.js)
   * linkedlist
