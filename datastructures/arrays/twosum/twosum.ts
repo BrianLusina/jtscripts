@@ -41,3 +41,44 @@ export const twoSumII = (numbers: number[], target: number): number[] => {
 
   return [0, 0];
 };
+
+//TwoSum returns the indices of 2 numbers in a slice that add up to the target integer
+// Uses O(n) Space complexity as a map is used to store the seen integers
+export const twoNumberSum = (numbers: number[], target: number): number[] => {
+  const seen = new Set<number>();
+
+  for (let index = 0; index < numbers.length; index++) {
+    const number = numbers[index];
+    const diff = target - number;
+
+    if (seen.has(diff)) {
+      return [number, diff];
+    }
+
+    seen.add(number);
+  }
+
+  return [];
+};
+
+//TwoSum returns the indices of 2 numbers in a slice that add up to the target integer
+// Uses O(n) Space complexity as a map is used to store the seen integers
+export const twoNumberSumII = (numbers: number[], target: number): number[] => {
+  numbers.sort((a, b) => a - b);
+  let left = 0;
+  let right = numbers.length - 1;
+
+  while (left < right) {
+    const currentSum = numbers[left] + numbers[right];
+
+    if (currentSum === target) {
+      return [numbers[left], numbers[right]];
+    } else if (currentSum < target) {
+      left += 1;
+    } else {
+      right -= 1;
+    }
+  }
+
+  return [];
+};
