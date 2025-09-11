@@ -324,8 +324,6 @@
     * [say](https://github.com/BrianLusina/jtscripts/blob/master/strings/number_to_words/say.js)
   * palindrome
     * [longest_palindrome](https://github.com/BrianLusina/jtscripts/blob/master/strings/palindrome/longest_palindrome.js)
-    * [palindrome](https://github.com/BrianLusina/jtscripts/blob/master/strings/palindrome/palindrome.js)
-    * [palindrome](https://github.com/BrianLusina/jtscripts/blob/master/strings/palindrome/palindrome.spec.js)
   * pangram
     * [PangraChecker](https://github.com/BrianLusina/jtscripts/blob/master/strings/pangram/PangraChecker.js)
   * pattern
