@@ -75,10 +75,8 @@ const testCases: testCase[] = [
 ]
 
 describe("NonConstructibleChange", () => {
-	testCases.forEach(({ name, input, output }) => {
-		it(`${name}`, () => {
-			const actual = nonConstructibleChange(input)
-			expect(actual).toEqual(output)
-		})
+	it.each(testCases)(`%s`, ({ input, output }) => {
+		const actual = nonConstructibleChange(input)
+		expect(actual).toEqual(output)
 	})
 })
