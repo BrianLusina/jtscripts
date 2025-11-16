@@ -4,7 +4,7 @@ name: BitBucket RepoSync
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   sync:
