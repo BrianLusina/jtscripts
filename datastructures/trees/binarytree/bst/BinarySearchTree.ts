@@ -325,6 +325,50 @@ export default class BinarySearchTree<T> extends BinaryTree<T> {
   }
 
   /**
+   * Finds the kth largest node in a Binary Search Tree
+   * This uses a reverse in order traversal moving from right
+   * to root to left until the kth largest node can be found. We don't have to traverse the whole tree since binary
+   * search trees are already ordered following the property of the right subtree has nodes which have the left
+   * sub-tree always less than their parent and the right subtree has nodes with values that are either equal to or
+   * greater than the parent. With this property in mind, we perform a reverse in order traversal to be able to move
+   * from right to root to left to find the kth largest node in the tree.
+   *
+   * Complexity:
+   * Time: O(h + k): where h is the height of the tree and k is the input
+   * Space: O(h): where h is the height of the tree.
+   *
+   * @param k {number} the position of the node to find
+   * @returns {BinaryTreeNode<T> | null} the kth largest node or null if not found
+   */
+  findKthLargestNode(k: number): BinaryTreeNode<T> | null {
+    if (!this.root || k <= 0) {
+      return null;
+    }
+
+    let count = 0;
+    const stack: BinaryTreeNode<T>[] = [];
+    let current: BinaryTreeNode<T> | null | undefined = this.root;
+
+    while (stack.length > 0 || current) {
+      while (current) {
+        stack.push(current);
+        current = current.right;
+      }
+
+      current = stack.pop();
+      count += 1;
+
+      if (count === k) {
+        return current || null;
+      }
+
+      current = current?.left;
+    }
+
+    return null;
+  }
+
+  /**
    * Considering it is a BST, we can assume that this tree is a valid BST, we could also check for this
    * If both of the values in the 2 nodes provided are greater than the root node, then we move to the right.
    * if the nodes are less than the root node, we move to the left.

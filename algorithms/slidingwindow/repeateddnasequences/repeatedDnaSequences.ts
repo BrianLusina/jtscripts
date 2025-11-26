@@ -73,8 +73,8 @@ export const findRepeatedDnaSequencesNaive = (dnaSequence: string): string[] => 
     if (seen.has(subsequence)) {
       resultSet.add(subsequence);
     } else {
-		seen.add(subsequence);
-	}
+      seen.add(subsequence);
+    }
   }
   const result = [];
   for (const k of resultSet) {
