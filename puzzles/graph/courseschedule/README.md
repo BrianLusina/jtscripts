@@ -1,3 +1,5 @@
+# Course Schedule
+
 There are a total of n courses you have to take labelled from 0 to n - 1.
 
 Some courses may have prerequisites, for example, if prerequisites[i] = [ai, bi] this means you must take the course bi
@@ -26,12 +28,12 @@ Output: [0]
 
 Constraints:
 
-1 <= numCourses <= 2000 0 <= prerequisites.length <= numCourses * (numCourses - 1)
-prerequisites[i].length == 2 0 <= ai, bi < numCourses ai != bi All the pairs [ai, bi] are distinct.
+- 1 <= numCourses <= 2000 0 <= prerequisites.length <= numCourses * (numCourses - 1)
+- prerequisites[i].length == 2 0 <= ai, bi < numCourses ai != bi All the pairs [ai, bi] are distinct.
 
 ---
 
-# Solution Breakdown - Using Depth First Search
+## Solution Breakdown - Using Depth First Search
 
 Suppose we are at a node in our graph during the depth first traversal. Let's call this node A.
 
@@ -48,25 +50,29 @@ algorithm.
 ➔ for each neighbor in adjacency list of node ➔ dfs(neighbor)
 ➔ add node to S Let's now look at the formal algorithm based on this idea.
 
-Algorithm
+### Algorithm
 
-Initialize a stack S that will contain the topologically sorted order of the courses in our graph. Construct the
-adjacency list using the edge pairs given in the input. An important thing to note about the input for the problem is
+1. Initialize a stack S that will contain the topologically sorted order of the courses in our graph.
+
+2. Construct the adjacency list using the edge pairs given in the input. An important thing to note about the input for the problem is
 that a pair such as [a, b] represents that the course b needs to be taken in order to do the course a. This implies an
-edge of the form b ➔ a. Please take note of this when implementing the algorithm. For each of the nodes in our graph, we
-will run a depth first search in case that node was not already visited in some other node's DFS traversal. Suppose we
-are executing the depth first search for a node N. We will recursively traverse all of the neighbors of node N which
+edge of the form b ➔ a. Please take note of this when implementing the algorithm.
+
+3. For each of the nodes in our graph, we will run a depth first search in case that node was not already visited in some other node's DFS traversal.
+Suppose we are executing the depth first search for a node N. We will recursively traverse all of the neighbors of node N which
 have not been processed before. Once the processing of all the neighbors is done, we will add the node N to the stack.
 We are making use of a stack to simulate the ordering we need. When we add the node N to the stack, all the nodes that
-require the node N as a prerequisites (among others) will already be in the stack. Once all the nodes have been
-processed, we will simply return the nodes as they are present in the stack from top to bottom.
+require the node N as a prerequisites (among others) will already be in the stack.
 
-## Complexity Analysis
+4. Once all the nodes have been processed, we will simply return the nodes as they are present in the stack from top to bottom.
 
-Time Complexity: O(V+E) where V represents the number of vertices and E represents the number of edges.
-Essentially we iterate through each node and each vertex in the graph once and only once.
+### Complexity Analysis
 
-Space Complexity: O(V+E).
+#### Time Complexity: O(V+E)
+
+Where V represents the number of vertices and E represents the number of edges. Essentially we iterate through each node and each vertex in the graph once and only once.
+
+#### Space Complexity: O(V+E)
 
 We use the adjacency list to represent our graph initially. The space occupied is defined by the number of edges because
 for each node as the key, we have all its adjacent nodes in the form of a list as the value. Hence, O(E)
@@ -75,3 +81,41 @@ Additionally, we apply recursion in our algorithm, which in worst case will incu
 call stack.
 
 To sum up, the overall space complexity is O(V+E).
+
+---
+
+## Solution 2 Breakdown
+
+Initialize the hash map with the vertices and their children. We’ll use another hash map to keep track of the number of
+in-degrees of each vertex. Then we’ll find the source vertex (with 0 in-degree) and increment the counter. Retrieve the
+source node’s children and add them to the queue. Decrement the in-degrees of the retrieved children. We’ll check
+whether the in-degree of the child vertex becomes equal to zero, and we increment the counter. Repeat the process until
+the queue is empty.
+
+> Note: The in-degree is the number of edges coming into a vertex in a directed graph.
+
+The primary purpose of finding a vertex with 0 in-degree is to find a course with a pre-requisite count of 0. When we
+take a course, say a (that is the pre-requisite of another course, say b), we’ll decrement the in-degree of b by 1, and
+if the in-degree count becomes 0, we can say that the b’s pre-requisites have been completed.
+
+The images below illustrate the algorithm above, where num_courses = 6:
+
+![Solution_2_slide_1](./images/solution_2_slide_1.png)
+![Solution_2_slide_2](./images/solution_2_slide_2.png)
+![Solution_2_slide_3](./images/solution_2_slide_3.png)
+![Solution_2_slide_4](./images/solution_2_slide_4.png)
+![Solution_2_slide_5](./images/solution_2_slide_5.png)
+![Solution_2_slide_6](./images/solution_2_slide_6.png)
+![Solution_2_slide_7](./images/solution_2_slide_7.png)
+![Solution_2_slide_8](./images/solution_2_slide_8.png)
+![Solution_2_slide_9](./images/solution_2_slide_9.png)
+
+### Time Complexity
+
+In the algorithm above, each course will become a source only once, and each edge will be accessed and removed once.
+Therefore, the above algorithm’s time complexity will be O(V+E), where V is the total number of vertices and E is the
+total number of edges in the graph.
+
+### Space Complexity
+
+The space complexity will be O(V+E) because we’re storing all of the edges for each vertex in an adjacency list.
