@@ -419,4 +419,44 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
 
     return dfs(nodeValues);
   }
+
+  zigZagLevelOrderTraversal(): BinaryTreeNode<T>[][] {
+    if (!this.root) {
+      return [];
+    }
+
+    const result: BinaryTreeNode<T>[][] = [];
+    const queue = new FifoQueue<BinaryTreeNode<T>>();
+    queue.enqueue(this.root);
+
+    let levelNumber = 0;
+
+    while (!queue.empty) {
+      const levelSize = queue.capacity;
+      const currentLevel = [];
+
+      for (let i = 0; i < levelSize; i++) {
+        const node = queue.dequeue();
+        currentLevel.push(node);
+
+        if (node.left) {
+          queue.enqueue(node.left);
+        }
+        if (node.right) {
+          queue.enqueue(node.right);
+        }
+      }
+
+      if (levelNumber % 2 == 0) {
+        currentLevel.reverse();
+        result.push(currentLevel);
+      } else {
+        result.push(currentLevel);
+      }
+
+      levelNumber += 1;
+    }
+
+    return result;
+  }
 }
