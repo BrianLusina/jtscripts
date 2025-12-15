@@ -24,3 +24,21 @@ export function longestOnes(nums: number[], k: number): number {
   }
   return right - left;
 }
+
+export function findMaxConsecutiveOnes(nums: number[]): number {
+  if (nums.length === 0) return 0;
+
+  let maxCount = 0;
+  let currentCount = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 1) {
+      currentCount += 1;
+      maxCount = Math.max(maxCount, currentCount);
+    } else {
+      currentCount = 0;
+    }
+  }
+
+  return maxCount;
+}
