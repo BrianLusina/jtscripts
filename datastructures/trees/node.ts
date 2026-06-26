@@ -6,6 +6,9 @@ type TreeNodeOptions<D> = {
   right?: TreeNode<D> | null;
   children: (TreeNode<D> | null | undefined)[];
   key?: string | null;
+  depth?: number | null;
+  degree?: number | null;
+  height?: number | null;
 };
 
 /**
@@ -17,14 +20,20 @@ export abstract class TreeNode<D> {
   protected _right?: TreeNode<D> | null;
   protected _children: (TreeNode<D> | null | undefined)[];
   protected _key: string;
+  protected _depth: number | null | undefined;
+  protected _height: number | null | undefined;
+  protected _degree: number | null | undefined;
 
   constructor(opts: TreeNodeOptions<D>) {
-    const { data, left, right, key, children } = opts;
+    const { data, left, right, key, children, depth, height, degree } = opts;
     this._data = data;
     this._left = left;
     this._right = right;
     this._children = children;
     this._key = key ? key : generateHash(data);
+    this._depth = depth;
+    this._height = height;
+    this._degree = degree;
   }
 
   public get data(): D {
@@ -59,6 +68,30 @@ export abstract class TreeNode<D> {
 
   public get children(): (TreeNode<D> | null | undefined)[] {
     return this._children;
+  }
+
+  public get degree(): number | null | undefined {
+    return this._degree;
+  }
+
+  public set degree(value: number | null | undefined){
+    this._degree = value;
+  }
+
+  public get depth(): number | null | undefined {
+    return this._depth;
+  }
+
+  public set depth(value: number | null | undefined) {
+    this._depth = value;
+  }
+
+  public get height(): number | null | undefined {
+    return this._height;
+  }
+
+  public set height(value: number | null | undefined) {
+    this._height = value;
   }
 
   /**
