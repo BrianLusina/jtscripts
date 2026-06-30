@@ -46,7 +46,7 @@ export default class BinaryTree<T> extends Tree<BinaryTreeNode<T>> {
     throw new Error('Method not implemented.');
   }
 
-  inorderTraversalIteratively(): unknown[] {
+  inorderTraversalIteratively(): T[] {
     if (!this.root) {
       return [];
     }
